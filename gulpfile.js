@@ -12,6 +12,7 @@ const merge = require('merge-stream');
 const rename = require("gulp-rename");
 const del = require("del");
 const argv = require('yargs').argv;
+const fs = require("fs");
 
 const browserSync = require('browser-sync').create();
 
@@ -43,101 +44,44 @@ const arg = (argList => {
   
   })(process.argv);
 
-
-
-
-gulp.task('js',done => {
-    return browserify({
-        entries:[arg.file]
-        
-    },{ base: "." })
-    .transform( babelify, {
-        global: true,
-        ignore: [/\/node_modules\/(?!@vizuaalog\/)/],
-        presets: ["@babel/preset-env"],
-        plugins: ["@babel/transform-runtime"]
-    } )
-    .bundle()
-    .pipe( source(arg.file))
-    .pipe(rename({extname:".min.js"}))
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(gulp.dest("./"))
-   
-    done()
-});
-
-
-
-const script_brand = ['./01_PatchManager/patchJs.js'];
-
-gulp.task("patchManagerJs" ,() => {
-  var tasks = script_brand.map(function(entry) {
-    return browserify({ entries: [entry] }).transform(babelify, {
-      global: true,
-      ignore: [/\/node_modules\/(?!@vizuaalog\/)/],
-      presets: ["@babel/preset-env"],
-      plugins: ["@babel/transform-runtime"]
-      })
-      .bundle()
-      .pipe(source('.'))
-      .pipe(buffer())
-      .pipe(uglify())
-      .pipe(rename(function (path) {
-        path.extname = "patchJs.min.js";
-      }))
-      .pipe(gulp.dest(`./01_PatchManager/dist`));
-    });
-    return merge.apply(null, tasks);
-});
-
-gulp.task('patchManagerCss', () => {
-  return gulp.src(['./01_PatchManager/patchStyle.scss'])
-      .pipe(sass({
-          outputStyle: "compressed"
-      }).on('error', sass.logError))
-      .pipe(prefix('last 2 versions'))
-      .pipe(cleanCSS({ compatibility: 'ie11' })) 
-      .pipe(rename(function (path) {
-        path.extname = ".min.css";
-      }))
-      .pipe(gulp.dest(`./01_PatchManager/dist`));
-});
-
-gulp.task('watchPatchManager', ()=> {
-  gulp.watch(["./01_PatchManager/patchJs.js"], gulp.series('patchManagerJs'));
-});
-
-gulp.task('patchManager', gulp.series(['patchManagerJs', 'patchManagerCss'], (done)=>{
- 
-  done();
-}));
-
-
 function concat_html() {
-  return gulp.src(["./CreateLandingPage/00_Dependences/DESK/to-us/header.html",`./CreateLandingPage/${arg.page}/html/style.html`, `./CreateLandingPage/${arg.page}/index.html`,`./CreateLandingPage/${arg.page}/html/script.html`,"./CreateLandingPage/00_Dependences/DESK/to-us/footer.html"]) 
+  return gulp.src([`./utils/dependences/${arg.page.substring(0,2)}/${arg.mob?'MOB':'DESK'}/to-us/header.html`,`./${arg.page}/html/style.html`, `./${arg.page}/index.html`,`./${arg.page}/html/script.html`,`./utils/dependences/${arg.page.substring(0,2)}/${arg.mob?'MOB':'DESK'}/to-us/footer.html`]) 
       .pipe(concat("index.html"),{
-        ignorePath: `./CreateLandingPage/${arg.page}/dist/` ,
+        ignorePath: `./${arg.page}/dist/` ,
         addRootSlash: false,
-        addPrefix: 'http://localhost:3000'
+        addPrefix: 'http://localhost:1234'
       })
-      .pipe(gulp.dest(`./CreateLandingPage/${arg.page}/dist`))
+      .pipe(gulp.dest(`./${arg.page}/dist`))
       .pipe(browserSync.stream());
     
 }
 
 function concat_build() {
-  return gulp.src([
-    "./CreateLandingPage/00_Dependences/builderEspot/style/open.html",
-    `./CreateLandingPage/${arg.page}/dist/style/index.min.css`,
-    "./CreateLandingPage/00_Dependences/builderEspot/style/close.html",
-    `./CreateLandingPage/${arg.page}/index.html`,
-    "./CreateLandingPage/00_Dependences/builderEspot/script/open.html",
-    `./CreateLandingPage/${arg.page}/dist/js/index.min.js`,
-    "./CreateLandingPage/00_Dependences/builderEspot/script/close.html",
-  ]) 
+  var fileContent = fs.readFileSync(`./${arg.page}/js/index.js`, "utf8");
+  let scriptExist = fileContent.length > 0 ? true : false;
+  let concatElement
+  if (scriptExist){
+    concatElement = [
+      "./utils/builderEspot/style/open.html",
+      `./${arg.page}/dist/style/index.min.css`,
+      "./utils/builderEspot/style/close.html",
+      `./${arg.page}/index.html`,
+      "./utils/builderEspot/script/open.html",
+      `./${arg.page}/dist/js/index.min.js`,
+      "./utils/builderEspot/script/close.html",
+    ]
+  }else{
+    concatElement = [
+      "./utils/builderEspot/style/open.html",
+      `./${arg.page}/dist/style/index.min.css`,
+      "./utils/builderEspot/style/close.html",
+      `./${arg.page}/index.html`
+    ]
+  }
+
+  return gulp.src(concatElement) 
       .pipe(concat("ESPOT.html"))
-      .pipe(gulp.dest(`./CreateLandingPage/${arg.page}/dist`))
+      .pipe(gulp.dest(`./${arg.page}/dist`))
 }
 
 
@@ -155,7 +99,7 @@ gulp.task('concat_html', (done)=>{
 
 
 
-const script_land_js = [`./CreateLandingPage/${arg.page}/js/index.js`];
+const script_land_js = [`./${arg.page}/js/index.js`];
 gulp.task("landing_js" ,() => {
   var tasks = script_land_js.map(function(entry) {
     return browserify({ entries: [entry] }).transform(babelify, {
@@ -176,7 +120,7 @@ gulp.task("landing_js" ,() => {
     return merge.apply(null, tasks);
 });
 
-const script_land_js_dev = [`./CreateLandingPage/${arg.page}/js/index.js`];
+const script_land_js_dev = [`./${arg.page}/js/index.js`];
 gulp.task("script_land_js_dev" ,() => {
   var tasks = script_land_js_dev.map(function(entry) {
     return browserify({ entries: [entry] }).transform(babelify, {
@@ -191,14 +135,14 @@ gulp.task("script_land_js_dev" ,() => {
       .pipe(rename(function (path) {
         path.extname = "index.min.js";
       }))
-      .pipe(gulp.dest(`./CreateLandingPage/${arg.page}/dist/js/`));
+      .pipe(gulp.dest(`./${arg.page}/dist/js/`));
     });
     return merge.apply(null, tasks);
 });
 
 
 gulp.task('landing_css', () => {
-  return gulp.src([`./CreateLandingPage/${arg.page}/style/index.scss`])
+  return gulp.src([`./${arg.page}/style/index.scss`])
       .pipe(sass({
           outputStyle: "compressed"
       }).on('error', sass.logError))
@@ -207,27 +151,21 @@ gulp.task('landing_css', () => {
       .pipe(rename(function (path) {
         path.extname = ".min.css";
       }))
-      .pipe(gulp.dest(`./CreateLandingPage/${arg.page}/dist/style/`));
+      .pipe(gulp.dest(`./${arg.page}/dist/style/`));
 });
 
 // gulp.task('devLandingServe', gulp.series( ["devLanding", "browser-sync"]));
 
 gulp.task('devLandingServe', (done)=> {
   browserSync_()
-
-  gulp.watch([`./CreateLandingPage/${arg.page}/index.html`], gulp.parallel('devLandingSeries','browser-sync')).on('done', browserSync.reload);
-  gulp.watch([`./0_ModuleLibrary/**/*.html`], gulp.parallel('devLandingSeries','browser-sync')).on('done', browserSync.reload);
-  gulp.watch([`./CreateLandingPage/${arg.page}/js/*.js`], gulp.parallel('devLandingSeries','browser-sync')).on('done', browserSync.reload);;
-  gulp.watch([`./CreateLandingPage/${arg.page}/style/*.scss`,`./CreateLandingPage/${arg.page}/style/**/*.scss`], gulp.parallel('devLandingSeries','browser-sync')).on('done', browserSync.reload);;
-  gulp.watch([`./0_ModuleLibrary/DesignSystem/script/*.js`,`./0_ModuleLibrary/DesignSystem/script/**/*.js`], gulp.parallel('devLandingSeriesDesignSystem','browser-sync')).on('done', browserSync.reload);;
-  gulp.watch([`./0_ModuleLibrary/DesignSystem/style/*.scss`,`./0_ModuleLibrary/DesignSystem/style/**/*.scss`], gulp.parallel('devLandingSeriesDesignSystem','browser-sync')).on('done', browserSync.reload);;
+  
+  gulp.watch([`./${arg.page}/index.html`], gulp.parallel('devLandingSeries','browser-sync')).on('done', browserSync.reload);
+  gulp.watch([`./${arg.page}/js/*.js`], gulp.parallel('devLandingSeries','browser-sync')).on('done', browserSync.reload);
+  gulp.watch([`./${arg.page}/style/*.scss`,`./${arg.page}/style/**/*.scss`], gulp.parallel('devLandingSeries','browser-sync')).on('done', browserSync.reload);
+  concat_html();
   done()
 });
 
-gulp.task('devLandingSeriesDesignSystem', gulp.series(['landing_js','landing_ds_js','landing_css','landing_ds_css'] ,(done)=>{
-  concat_html();
-  done();
-}));
 
 gulp.task('devLandingSeries', gulp.series(['script_land_js_dev','landing_css'] ,(done)=>{
   concat_html();
@@ -243,9 +181,14 @@ gulp.task('buildLanding',gulp.series(['landing_js','landing_css'] ,(done)=>{
 function browserSync_(){
   browserSync.init({
     server: {
-      baseDir: [ `.` ]
+      baseDir: `.`,
+      // index: `./${arg.page}/dist/index.html`,
+      ignore:['./node_modules'],
     },
-    port: 3000,
+    startPath:`./${arg.page}/dist/index.html`,
+    reloadOnRestart: true,
+    open:true,
+    port: 1234,
     snippetOptions: {
       rule: {
         match: /<head[^>]*>/i,
@@ -253,16 +196,20 @@ function browserSync_(){
           return match + snippet;
         }
       }
-    }
+    },
+    ui:false,
+
   });
 }
 
 gulp.task('browser-sync', (done) => {
   browserSync.init({
     server: {
-      baseDir: [ `.` ]
+      baseDir: `.`,
+      // index: `./${arg.page}/dist/index.html`
     },
-    port: 3000,
+   
+    port: 1234,
     snippetOptions: {
       rule: {
         match: /<head[^>]*>/i,
@@ -270,7 +217,9 @@ gulp.task('browser-sync', (done) => {
           return match + snippet;
         }
       }
-    }
+    },
+    ui:false,
+
   });
 
   done();
@@ -300,4 +249,19 @@ gulp.task('sprite',done => {
     .pipe(gulp.dest(`${arg.icons}`));
     done()
 });
+
+//BLOG
+const arg2 =  (argList => {
+  
+
+})(process.argv);
+
+
+gulp.task('test',done => {
+  var fileContent = fs.readFileSync("./TO_Example/js/index.js", "utf8");
+  let scriptExist = fileContent.length > 0;
+  done()
+});
+
+
 
