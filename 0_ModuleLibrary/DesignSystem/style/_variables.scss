@@ -1,0 +1,89 @@
+
+//fonts
+$font-default:'HelveticaNeueforTarget',"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+//COLORS
+
+//Gray Scale
+$dark-black: #000;
+$black: #333;
+$black-hover:#505050;
+$white: #FFF;
+$dark-gray:#666666;
+$medium-gray: #CED4D9;
+$light-gray: #F3F4F5;
+
+//Brand color
+$dark-red: #77152C;
+$brand-red: #CC0000;
+$dark-red-cta: #A50101;
+$red-hover-cta:#FFC1C126;
+
+$dark-pink:#E67E79;
+$pink:#FEE1D6;
+$light-pink:#FCEFEB;
+
+$clerance-yellow:#FFDB00;
+
+//Functional Color
+$dark-orange: #AB5820;
+$orange:#D96F2B;
+$light-orange:#FDF5EC;
+$green:#489F2D;
+$blue:#0066FF;
+
+//Campaign Color
+$blue-bts: #032954;
+
+
+//FONTS
+
+//font sizes
+$font-xxxl: 60px;
+$font-xxl: 40px;
+$font-xl: 32px;
+$font-l: 24px;
+$font-ml: 20px;
+$font-m: 16px;
+$font-s: 14px;
+$font-xs: 12px;
+$font-xxs: 10px;
+
+//font sizes mobile
+$font-xxxl-mobile: 32px;
+$font-xxl-mobile: 24px;
+$font-xl-mobile: 20px;
+$font-l-mobile: 18px;
+$font-m-mobile: 16px;
+$font-s-mobile: 14px;
+$font-xs-mobile: 12px;
+
+
+
+//break point
+$break-desktop-medium: 1400px;
+$break-desktop-small: 1280px;
+$break-desktop-min: 1081px;
+$break-tablet-landscape-max: 1080px;
+$break-tablet-landscape-min: 1024px;
+$break-tablet-portrait-max: 1023px;
+$break-tablet-portrait-min: 810px;
+$break-grid-mobile-max:991px;
+$break-mobile-max: 809px;
+$break-mobile-medium: 380px;
+$break-mobile-small: 330px;
+
+
+$break-portrait-max: 1024px;
+$break-portrait-min: 1025px;
+$break-landscape-max: 1023px;
+$break-landscape-min: 1024px;
+
+//transition
+$transition-default: all .3s ease;
+$transition-default-delay: all .4s ease .4s;
+$transition-product: all .5s ease .1s;
+$transition-product-hover: all .3s ease .1s;
+
+//border
+$border-default: 1px solid #000;

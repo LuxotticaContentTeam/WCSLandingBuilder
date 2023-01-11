@@ -1,0 +1,33 @@
+.ct_space{
+    .ct_banner__brand_desc{
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media(max-width:$break-tablet-landscape-min){
+            flex-direction: column;
+        }
+        .ct_brand__logo{
+            width: 200px;
+            height: 100px;
+            svg,img{
+                width: 200px;
+                height: 100px;
+            }
+            @media(max-width:$break-desktop-small){
+                width: 170px;
+                height: 85px;
+                svg,img{
+                    width: 170px;
+                    height: 85px;
+                }
+            }
+           
+        }
+        .ct_brand__description{
+            @media(max-width:$break-tablet-landscape-min){
+                text-align: center;
+            }
+        }
+    }
+}

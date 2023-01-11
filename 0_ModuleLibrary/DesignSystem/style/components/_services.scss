@@ -1,0 +1,112 @@
+.ct_space {
+    .ct_services.ct_container{
+        padding: 64px;
+        width: 100%;
+        box-sizing: border-box;
+       
+        @media(max-width:$break-landscape-min){
+            padding: 56px 0;
+        }  
+        .ct_services__list{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            .slick-list{
+                padding-left: 16px;
+                padding-right: 64px;
+                .slick-track{
+                    display: flex;
+                    align-items: stretch;
+                }
+            }
+            .ct_service{
+                padding-right: 32px;
+                @media(max-width:$break-landscape-min){
+                  
+
+                }
+                &:last-child{
+                    padding-right: 0;
+                }
+                .ct_service__img{
+                    width: 48px;
+                    height: 48px;
+                    margin-bottom: 15px;
+                    svg{
+                        width: 48px;
+                        height: 48px;
+                    }
+                   
+                }
+                h4{
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 1.5;
+                    letter-spacing: normal;
+                }
+            }
+        }
+    }
+    .ct_services__new.ct_container{
+        padding: 36px 64px;
+        width: 100%;
+        box-sizing: border-box;
+       
+        @media(max-width:$break-landscape-min){
+            padding: 56px 0;
+            max-height: 240px;
+            overflow: hidden;
+        }  
+        .ct_services__list{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            @media(max-width:$break-landscape-min){
+                overflow-x: scroll;
+                padding-bottom: 120px;
+                align-items: stretch;
+            }
+            
+            .ct_service{
+                padding-right: 32px;
+                @media(max-width:$break-landscape-min){
+                
+                    min-width: 60vw;
+                   
+                }
+                &:last-child{
+                    padding-right: 0;
+                   
+                }
+                .ct_service__img{
+                    width: 44px;
+                    height: 44px;
+                    margin-bottom: 18px;
+                    svg{
+                        width: 44px;
+                        height: 44px;
+                    }
+                   
+                }
+                .ct_top{
+                    min-height: 110px;
+                }
+                h4{
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                   
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 1.5;
+                    letter-spacing: normal;
+                }
+            }
+        }
+    }
+}
