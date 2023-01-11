@@ -1,0 +1,10 @@
+{
+    "moduleLibrary":{
+        "exist":true,
+        "js":"/path",
+        "css":"/path",
+        "jsDest":"/pathDest",
+        "cssDest":"/pathDest"
+    }
+
+}

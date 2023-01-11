@@ -1,0 +1,24 @@
+User-agent: *
+
+Disallow: /images/*
+Disallow: /*/SearchDisplay*
+Disallow: /SearchDisplay*
+Disallow: /NonAjaxTrackOrderStatus?catalogId=12751&langId=-1&storeId=12001
+Disallow: */*/InsuranceLP?*
+Disallow: /AjaxStoreLocatorDisplayView?*
+Disallow: /?krypto=*
+Disallow: /LogonForm?*
+Disallow: /ProductDisplay?*
+Disallow: /SearchDisplay?*
+Disallow: /CatalogDisplay?*
+Disallow: /CategoryDisplay?*
+Disallow: */CategoryDisplay?*
+Disallow: /ContactLensCategoriesDisplay?*
+Disallow: */ContactLensCategoriesDisplay?*
+Disallow: */*?facet=*
+
+Sitemap: https://www.targetoptical.com/sitemap.xml
+
+
+
+
