@@ -1,6 +1,6 @@
 node_modules
-temp/node_modules
+node_modules
 
-temp/utils/dependences/*
-!temp/utils/dependences/BRAND
-!temp/utils/dependences/_fav
+utils/dependences/*
+!utils/dependences/BRAND
+!utils/dependences/_fav

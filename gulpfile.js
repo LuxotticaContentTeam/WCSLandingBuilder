@@ -145,7 +145,10 @@ gulp.task("script_land_js_dev" ,() => {
 
 
 const landing_ds_js = [`${settings.moduleLibrary.jsPath}`];
-gulp.task("landing_ds_js" ,() => {
+gulp.task("landing_ds_js" ,(done) => {
+  if(!settings.moduleLibrary.enabled){
+    return done()
+  }
   var tasks = landing_ds_js.map(function(entry) {
     return browserify({ entries: [entry] }).transform(babelify, {
         global: true,
@@ -181,8 +184,11 @@ gulp.task('landing_css', () => {
 });
 
 
-gulp.task('landing_ds_css', () => {
-  return gulp.src([`${settings.moduleLibrary.cssPath}/index.scss`])
+gulp.task('landing_ds_css', (done) => {
+  if(!settings.moduleLibrary.enabled){
+    return done()
+  }
+  return gulp.src([`${settings.moduleLibrary.cssPath}index.scss`])
       .pipe(sass({
           outputStyle: "compressed"
       }).on('error', sass.logError))
