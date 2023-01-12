@@ -44,10 +44,13 @@ const arg = (argList => {
   
   })(process.argv);
 
-const settings = JSON.parse (fs.readFileSync(`./utils/dependences/${arg.page.substring(0,2)}/settings.json`))
+
+const current_brand = arg.page.substring(0,arg.page.indexOf('_'));
+const settings = JSON.parse (fs.readFileSync(`./utils/dependences/${current_brand}/settings.json`))
+
 
 function concat_html() {
-  return gulp.src([`./utils/dependences/${arg.page.substring(0,2)}/${arg.mob?'MOB':'DESK'}/to-us/header.html`,`./pages/${arg.page}/html/style.html`, `./pages/${arg.page}/index.html`,`./pages/${arg.page}/html/script.html`,`./utils/dependences/${arg.page.substring(0,2)}/${arg.mob?'MOB':'DESK'}/to-us/footer.html`]) 
+  return gulp.src([`./utils/dependences/${current_brand}/${arg.mob?(settings.dependences.responsive?settings.dependences.desk:settings.dependences.mob):settings.dependences.desk}header.html`,`./utils/html/${settings.moduleLibrary.enabled? "styleML.html":"style.html"}`, `./pages/${arg.page}/index.html`,`./utils/html/${settings.moduleLibrary.enabled? "scriptML.html":"script.html"}`,`./utils/dependences/${current_brand}/${arg.mob?(settings.dependences.responsive?settings.dependences.desk:settings.dependences.mob):settings.dependences.desk}footer.html`]) 
       .pipe(concat("index.html"),{
         ignorePath: `./pages/${arg.page}/dist/` ,
         addRootSlash: false,
@@ -334,10 +337,8 @@ const arg2 =  (argList => {
 
 gulp.task('test',done => {
   // fs.writeFileSync(`./pages/${arg.page}/dist/js/temp.min.js`, `document.title="${arg.page}"`);
-//  console.log(settings.moduleLibrary.js)
-  gulp.src(`./pages/${arg.page}/dist/js/temp_moduleLibrary.js`)
-  .pipe(rename(settings.moduleLibrary.jsDestName))
-  .pipe(gulp.dest(settings.moduleLibrary.jsDestPath));
+//  console.log(arg.page.substring(0,2))
+ 
 
   done()
 });
