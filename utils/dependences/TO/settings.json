@@ -1,0 +1,11 @@
+{
+    "moduleLibrary":{
+        "enabled":true,
+        "jsPath":"../0_ModuleLibrary/DesignSystem/script/",
+        "cssPath":"../0_ModuleLibrary/DesignSystem/style/",
+        "jsDestPath":"../0_ModuleLibrary/DesignSystem/export/js/",
+        "jsDestName":"index_dev.min.js",
+        "cssDestName":"index_dev.min.css"
+    }
+
+}
