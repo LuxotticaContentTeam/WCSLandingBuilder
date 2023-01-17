@@ -214,7 +214,7 @@ gulp.task('devLandingServe', (done)=> {
   
   if (settings.moduleLibrary.enabled){
     gulp.watch([`${settings.moduleLibrary.jsPath}*.js`,`${settings.moduleLibrary.jsPath}/**/*.js`], gulp.task('landing_ds_js')).on('change', browserSync.reload);
-    gulp.watch([`${settings.moduleLibrary.cssPath}*.scss`,`${settings.moduleLibrary.cssPath}/**/*.scss`], gulp.task('landing_ds_css')).on('change', browserSync.reload);
+    gulp.watch([`${settings.moduleLibrary.cssPath}*.scss`,`${settings.moduleLibrary.cssPath}**/*.scss`], gulp.task('landing_ds_css')).on('change', browserSync.reload);
   }
   
   concat_html();
@@ -250,7 +250,7 @@ function moving_moduleLibrary_files_to_folder(){
 
   gulp.src(`./pages/${arg.page}/dist/style/index_temp_moduleLibrary.css`)
   .pipe(rename(settings.moduleLibrary.cssDestName))
-  .pipe(gulp.dest(settings.moduleLibrary.cssPath));
+  .pipe(gulp.dest(settings.moduleLibrary.cssDestPath));
 
   del([`./pages/${arg.page}/dist/js/temp_moduleLibrary.js`,`./pages/${arg.page}/dist/style/index_temp_moduleLibrary.css`])
 }
