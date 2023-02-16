@@ -206,6 +206,12 @@ gulp.task('landing_ds_css', (done) => {
 // gulp.task('devLandingServe', gulp.series( ["devLanding", "browser-sync"]));
 
 gulp.task('devLandingServe', (done)=> {
+  startDev();
+  done();
+});
+
+async function startDev(){
+  await dev();
   browserSync_()
   
   gulp.watch([`./pages/${arg.page}/index.html`], gulp.task('devLandingSeries')).on('done', browserSync.reload);
@@ -221,8 +227,24 @@ gulp.task('devLandingServe', (done)=> {
 
   fs.writeFileSync(`./pages/${arg.page}/dist/js/temp.min.js`, `document.title="${arg.page} | WCS Landing Builder"`);
   
-  done()
-});
+}
+
+
+async function dev(){
+  return new Promise(function (resolve, reject) {
+    if (settings.moduleLibrary.enabled){
+      gulp.series(['devLandingSeries','script_land_js_dev','landing_css','landing_ds_js','landing_ds_css'], (done) => {
+        resolve();
+        done();
+      })();
+    }else{
+      gulp.series(['devLandingSeries','script_land_js_dev','landing_css'], (done) => {
+        resolve();
+        done();
+      })();
+    }
+  });
+}
 
 
 gulp.task('devLandingSeries',(done)=>{
