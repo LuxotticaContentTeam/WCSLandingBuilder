@@ -252,17 +252,43 @@ gulp.task('devLandingSeries',(done)=>{
   done();
 });
 
-// 
-gulp.task('buildLanding',gulp.series(['landing_js','landing_css','landing_ds_css','landing_ds_js'] ,(done)=>{
+
+
+// BUILD SERIES
+async function startBuild(){
+  await build()
   concat_build();
   if(settings.moduleLibrary.enabled){
     moving_moduleLibrary_files_to_folder();
   }
  
-  del(`./pages/${arg.page}/dist/js/temp.min.js`)
-  done();
+  setTimeout(function(){
+    del(`./pages/${arg.page}/dist/js/temp.min.js`)
+    
+  },1000)
   
-}));
+}
+
+async function build(){
+  return new Promise(function (resolve, reject) {
+    if(settings.moduleLibrary.enabled){
+      gulp.series(['landing_js','landing_css','landing_ds_css','landing_ds_js'], (done) => {
+        resolve();
+        done();
+      })();
+    }else{
+      gulp.series(['landing_js','landing_css'],(done) => {
+        resolve();
+        done();
+      })();
+    }   
+  });
+}
+gulp.task('build_', (done)=> {
+  startBuild();
+  done()
+})
+// 
 
 
 function moving_moduleLibrary_files_to_folder(){

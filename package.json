@@ -8,7 +8,7 @@
     "test": "gulp test --page",
     "dev": "gulp devLandingServe --page",
     "devMob": "gulp devLandingServe --mob true \"--page \"",
-    "build": "gulp buildLanding --page"
+    "build": "gulp build_ --page"
   },
   "author": "",
   "license": "ISC",
