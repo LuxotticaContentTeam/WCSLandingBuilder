@@ -183,7 +183,8 @@ gulp.task('landing_css', () => {
       .pipe(rename(function (path) {
         path.extname = ".min.css";
       }))
-      .pipe(gulp.dest(`./pages/${arg.page}/dist/style/`));
+      .pipe(gulp.dest(`./pages/${arg.page}/dist/style/`))
+      .pipe(browserSync.stream());
 });
 
 
@@ -200,7 +201,8 @@ gulp.task('landing_ds_css', (done) => {
       .pipe(rename(function (path) {
         path.extname = "_temp_moduleLibrary.css";
       }))
-      .pipe(gulp.dest(`./pages/${arg.page}/dist/style/`));
+      .pipe(gulp.dest(`./pages/${arg.page}/dist/style/`))
+      .pipe(browserSync.stream());
 });
 
 // gulp.task('devLandingServe', gulp.series( ["devLanding", "browser-sync"]));
@@ -216,11 +218,11 @@ async function startDev(){
   
   gulp.watch([`./pages/${arg.page}/index.html`], gulp.task('devLandingSeries')).on('done', browserSync.reload);
   gulp.watch([`./pages/${arg.page}/js/*.js`], gulp.task('script_land_js_dev')).on('change', browserSync.reload);
-  gulp.watch([`./pages/${arg.page}/style/*.scss`,`./pages/${arg.page}/style/**/*.scss`], gulp.task('landing_css')).on('change', browserSync.reload);
+  gulp.watch([`./pages/${arg.page}/style/*.scss`,`./pages/${arg.page}/style/**/*.scss`], gulp.task('landing_css'))
   
   if (settings.moduleLibrary.enabled){
     gulp.watch([`${settings.moduleLibrary.jsPath}*.js`,`${settings.moduleLibrary.jsPath}/**/*.js`], gulp.task('landing_ds_js')).on('change', browserSync.reload);
-    gulp.watch([`${settings.moduleLibrary.cssPath}*.scss`,`${settings.moduleLibrary.cssPath}**/*.scss`], gulp.task('landing_ds_css')).on('change', browserSync.reload);
+    gulp.watch([`${settings.moduleLibrary.cssPath}*.scss`,`${settings.moduleLibrary.cssPath}**/*.scss`], gulp.task('landing_ds_css'))
   }
   
   concat_html();
