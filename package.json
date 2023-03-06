@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "minjs": "gulp js --file",
-    "test": "gulp test --page",
-    "dev": "gulp devLandingServe --page",
-    "devMob": "gulp devLandingServe --mob true \"--page \"",
-    "build": "gulp build_ --page"
+    "test": "gulp test --page s",
+    "dev": "gulp dev_",
+    "devMob": "gulp dev_ --mob true",
+    "build": "gulp build_ "
   },
   "author": "",
   "license": "ISC",
@@ -47,5 +47,8 @@
     "webpack": "^4.42.1",
     "webpack-stream": "^5.2.1",
     "yargs": "^17.5.0"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.5"
   }
 }
