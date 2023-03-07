@@ -49,6 +49,7 @@
     "yargs": "^17.5.0"
   },
   "dependencies": {
-    "inquirer": "^8.2.5"
+    "inquirer": "^8.2.5",
+    "locomotive-scroll": "^4.1.4"
   }
 }
