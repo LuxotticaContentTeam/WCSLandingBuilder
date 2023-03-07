@@ -187,8 +187,7 @@ gulp.task('landing_css', () => {
       .pipe(rename(function (path) {
         path.extname = ".min.css";
       }))
-      .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist/style/`))
-      .pipe(browserSync.stream());
+      .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist/style/`));
 });
 
 
@@ -266,7 +265,7 @@ async function startDev(){
   
   gulp.watch([`./pages/${currentBrand}/${currentPage}/index.html`], gulp.task('devLandingSeries')).on('done', browserSync.reload);
   gulp.watch([`./pages/${currentBrand}/${currentPage}/js/*.js`], gulp.task('script_land_js_dev')).on('change', browserSync.reload);
-  gulp.watch([`./pages/${currentBrand}/${currentPage}/style/*.scss`,`./pages/${currentBrand}/${currentPage}/style/**/*.scss`], gulp.task('landing_css'))
+  gulp.watch([`./pages/${currentBrand}/${currentPage}/style/*.scss`,`./pages/${currentBrand}/${currentPage}/style/**/*.scss`], gulp.task('landing_css')).on('change', browserSync.reload);
   
   if (moduleLibrary){
     gulp.watch([`${settings.moduleLibrary.jsPath}*.js`,`${settings.moduleLibrary.jsPath}/**/*.js`], gulp.task('landing_ds_js')).on('change', browserSync.reload);
