@@ -1,1 +1,4 @@
-// console.log('%c WCS LANDING BUILDER IT\'S WORKING','background:green;color:white;border-radius:8px;padding:4px;')
+document.addEventListener('DOMContentLoaded',()=>{
+    window.promo = true;
+    
+})
