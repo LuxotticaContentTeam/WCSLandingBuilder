@@ -1,8 +1,24 @@
-// @import '../../../modulelibrary/variables';
+@import 'variables';
 @import 'resetLP';
+@import 'utils';
 
 .ct_space {
-  
+  #slider{
+    width: 200px;
+    height: 200px;
+    .slide{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        &.green{
+            background-color: green;
+        }
+        &.blue{
+            background-color: blue;
+        }
+       
+    }
+  }
  
 }
 

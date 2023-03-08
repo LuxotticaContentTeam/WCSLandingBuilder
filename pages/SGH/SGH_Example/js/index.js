@@ -1,20 +1,26 @@
-import LocomotiveScroll from 'locomotive-scroll';
+
 
 document.addEventListener('DOMContentLoaded',()=>{
     window.promo = false;
-    const lsscroll = new LocomotiveScroll({
-        el: document.querySelector('#content'),
-        smooth: true,
-        lerp: 0.5,
-        reloadOnContextChange: true,
-        tablet: {
-            smooth: true,
-        },
-        smartphone: {
-            smooth: false,
-        }
-    });
     
-    
-      
+    $('#slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        arrows:false,
+        accessibility:false,
+        rows:0,
+        responsive: [
+            {
+                breakpoint: 1025,
+                settings: {
+                    infinite: true,
+                    slidesToShow: 2,
+                    arrows:false,
+                    dots: false,
+                    rows:0,
+                    accessibility:false
+                }
+            }
+        ]
+    })
 })

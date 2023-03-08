@@ -1,6 +1,9 @@
 body{
     margin: 0;
 }
+*{
+    font-family: "Helvetica Neue";
+}
 
 .promo_strip_wrap{
     background-color: #222;
@@ -58,3 +61,4 @@ footer{
         height: 60px;
     }
 }
+
