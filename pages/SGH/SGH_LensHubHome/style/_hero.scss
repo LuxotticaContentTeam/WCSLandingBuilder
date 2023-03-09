@@ -1,0 +1,197 @@
+
+.ct_hero__container{
+    width: 100%;
+    display: block;
+    padding-bottom: 100px;
+    position: relative;
+    .slider-images{
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        .slick-slide{
+            transition: all .6s ease;
+            padding: 200px 0;
+            &.slick-current{
+                filter: blur(0);
+                transform: scale(1.8);
+            }
+            &:not(.slick-current){
+                filter: blur(5px);
+                transform: scale(1.1);
+            }
+            .image{
+                position: relative;
+                img{
+                    width: 60%;
+                    margin: auto;
+                    height: auto;
+                    display: block;
+                }
+                .shadow{
+                    position: absolute;
+                    bottom: -3%;
+                    z-index: 1;
+                    left: 20%;
+                }
+            }
+        }
+
+        .slick-arrow{
+            position: absolute;
+            display: block;
+            border: none;
+            background: none;
+            cursor: pointer;
+            top: 50%;
+            margin-top: -22px;
+            left: 20px;
+            pointer-events: auto;
+            &.slick-next{
+                left: auto;
+                right: 20px;
+                z-index: 10;
+            }
+            &.slick-prev{
+                transform: scale(-1);
+                z-index: 10;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+.slider-images .slick-slide
+
+
+
+.slider-text{
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    margin-top: -5%;
+    bottom: 20%;
+   
+}
+.slider-text .slick-list,
+.slider-text .slick-track,
+.slider-text .slick-slide{
+    height: 100%;
+}
+.slider-text .slick-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.slider-text .text{
+    width: 100%;
+    text-align: center;
+}
+.slider-text h3{
+    font-family: 'Oswald', sans-serif;
+    font-size: 60px;
+    font-weight: 500;
+    color: #1F1F24;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+.slider-text p{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1F1F24;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.slider-text .cta{
+    text-align: center;
+}
+.slider-text .cta a{
+    display: inline-block;
+    margin-top: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 40px;
+    padding: 0 24px;
+    background: #1F1F24;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+.slider-images .slide .image img:not(.shadow){
+    animation: levitateFrame 8s linear infinite;
+    animation-play-state: paused;
+}
+.slider-images .slide .image .shadow{
+    animation: levitateShadow 8s linear infinite;
+    animation-play-state: paused;
+}
+.slider-images .slick-slide.slick-current .image img:not(.shadow){
+    animation-play-state: running;
+}
+.slider-images .slick-slide.slick-current .image .shadow{
+    animation-play-state: running;
+}
+@keyframes levitateFrame {
+    0% {
+        transform: translateY(0%);
+    }
+    10% {
+        transform: translateY(-2%);
+    }
+    30% {
+        transform: translateY(2%);
+    }
+    50% {
+        transform: translateY(-2%);
+    }
+    70% {
+        transform: translateY(2%);
+    }
+    90% {
+        transform: translateY(-2%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+@keyframes levitateShadow {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    90% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+ 
