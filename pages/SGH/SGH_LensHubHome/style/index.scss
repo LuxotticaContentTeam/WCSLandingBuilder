@@ -33,6 +33,75 @@
     .ct_icon{
         fill: currentColor;
     }
+    .ct_last{
+        width: 100%;
+        position: relative;
+        img{
+            width: 100%;
+            height: auto;
+            display: block;
+            &:not(.ct_skeleton){
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+       
+        h3{
+            font-size: 32px;
+            font-weight: 300;
+            color: $black;
+            position: absolute;
+            z-index: 1;
+            left: 5vw;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            width: 28vw;
+            @media(max-width:$mob){
+                top: 10vw;
+                transform: none;
+                width: 100%;
+                left: 0;
+                padding: 0 20px;
+            }
+        }
+        .ct_text__container{
+            position: absolute;;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 33%;
+            left: 38vw;
+            @media(max-width:$mob){
+                top: calc(10vw + 60px);
+                width: 100%;
+                padding: 0 20px;
+                left: 0;
+                transform: none;
+            }
+            p{
+                margin-bottom: 16px;
+                color: $black;
+                @media(max-width:$mob){
+                    margin-bottom: 24px;
+                }
+            }
+            .ct_cta__container{
+                @media(min-width:$desk-min){
+                    a:nth-child(1){
+                        margin-right: 20px;
+                    }
+                }
+                @media(max-width:$mob){
+                    a{
+                        width: 100%;
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 *{
