@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,KAAK,AAAC,CACF,KAAK,CAAE,IAAI,CACX,SAAS,CAAE,IAAI,CACf,MAAM,CAAE,MAAM,CACd,UAAU,CAAE,UAAU,CACtB,OAAO,CAAE,YAAY,CACxB,AACD,AAAA,qBAAqB,AAAC,CAClB,WAAW,CAAE,CAAC,CACjB,AACD,AAAA,wBAAwB,CAAG,aAAa,CAAG,IAAI,AAAC,CAC5C,aAAa,CAAE,CAAC,CAChB,cAAc,CAAE,CAAC,CACpB",
+    "sources": [
+        "index.scss",
+        "_resetLP.scss"
+    ],
+    "names": [],
+    "file": "index.min.css"
+}

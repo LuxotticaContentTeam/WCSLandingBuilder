@@ -1,0 +1,76 @@
+$clipboxWidth: 50vw;
+$clipboxHeight: 460px;
+$alpha: 0.8;
+$draggerHeight: 50px;
+$borderRadius: 10px;
+
+// * {
+//   box-sizing: border-box;
+// }
+// .body {
+//   height: 100vh;
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   position: relative;
+//   background: linear-gradient(to top right, rgba(#f7797d, $alpha), rgba(#FBD786, $alpha), rgba(#C6FFDD, $alpha));
+// }
+.clipbox {
+  display: block;
+  position: relative;
+  height: $clipboxHeight;
+  width: $clipboxWidth;
+  //border-radius: $borderRadius;
+  
+  .img__container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    .primary__img,
+    .secondary__img {
+      position: absolute;
+      overflow: hidden;
+      background-size: $clipboxWidth auto;
+      height: 100%;
+      img {
+        width: $clipboxWidth;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+    .primary__img {			// background-image: $primaryImg
+      width: $clipboxWidth / 2;
+      z-index: 100;
+      border-right: solid 2px #fff;
+    }
+    .secondary__img {			// background-image: $secondaryImg
+      width: 100%;
+      z-index: 50;
+    }
+  }
+  .dragger {
+    //height: $draggerRadius * 2;
+    //width: $draggerRadius * 2;
+    height: 50px;
+    width: 100px;
+    border-radius: 100px;
+    //border: calc(#{$draggerRadius} / 10) solid #ffffff;
+    background-color: #fff;
+    position: absolute;
+    top: calc(50% - #{$draggerHeight}/2);
+    left: calc(50% - #{$draggerHeight});
+    cursor: ew-resize;
+    z-index: 200;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //font-size: $draggerRadius;
+  }
+  .dragger--active {
+    color: #90EE90;
+    border-color: #90EE90;
+  }
+}

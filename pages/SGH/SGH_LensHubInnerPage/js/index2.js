@@ -1,56 +1,9 @@
 import LocomotiveScroll from "locomotive-scroll";
-import DragImage from "./drag";
-
 window.LPlens = {};
-const clipbox = document.querySelector(".clipbox");
-const dragger = document.querySelector(".clipbox .dragger");
-const first   = document.querySelector(".clipbox .primary__img");
-
-let drag = false;
-
-const draggerWidth = dragger.getBoundingClientRect().width;
-
-const clipboxDimensions = {
-	width: clipbox.getBoundingClientRect().width,
-	left: clipbox.getBoundingClientRect().left
-};
-
-//var drag = new DragImage(clipbox, dragger, first, draggerWidth);
 
 document.addEventListener("DOMContentLoaded", () => {
   window.promo = false;
 
-  dragger.addEventListener("mousedown", handleStartDrag);
-  dragger.addEventListener("touchstart", handleStartDrag);
-  
-  clipbox.addEventListener("mouseup", handleStopDrag);
-  clipbox.addEventListener("touchend", handleStopDrag);
-  
-  clipbox.addEventListener("mousemove", handleImgReveal);
-  clipbox.addEventListener("touchmove", handleImgReveal);
-
-  //slick
-  $('.carousel').slick({
-        centerMode: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false,
-        dots: false,
-        slidesToShow: 1,
-        //centerPadding: "10px",
-        draggable: false,
-        infinite: true,
-        pauseOnHover: false,
-        swipe: false,
-        touchMove: false,
-        vertical: true,
-        useCSS: true,
-        useTransform: true,
-        accessibility: false,
-        cssEase: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
-  });
-
-  //locomotive
   window.LPlens.lsscroll = new LocomotiveScroll({
     el: document.querySelector("[data-scroll-container]"),
     smooth: false,
@@ -59,14 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.LPlens.lsscroll.on("scroll", (args) => {
-    //console.log(window.LPlens.lsscroll.scroll.els);
+    console.log(window.LPlens.lsscroll.scroll.els);
 
     if (typeof args.currentElements["lens"] === "object") {
       if (args.currentElements["lens"].inView) {
         //if(args.scroll.y > 240){
         var _x = 600 - args.currentElements["lens"].progress * 1000;
         _x > 150 ? _x : (_x = 150);
-        //console.log("sottrazione: ", 600 - args.currentElements["lens"].progress * 1000);
+        console.log("sottrazione: ", 600 - args.currentElements["lens"].progress * 1000);
         $("#lens").css({
           transform: `translateX(${_x}px)`,
           //"transform": `translateX(${400 - (args.currentElements['lens'].progress*500)}px)`
@@ -83,38 +36,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (typeof args.currentElements["benefits"] === "object") {
       if (args.scroll.y >= args.currentElements["benefits"].top) {
-        $("#benefits .ct_title").addClass("ct_ls__fixed ct_ls__top");
+        $("#benefits .ct_title").addClass("ct_ls__fixed");
         $("#benefits .ct_title").removeClass("ct_ls__bottom");
         $("#benefits #lens").addClass("ct_ls__fixed");
-        $("#benefits #lens").removeClass("ct_ls__bottom");
       }
       if (args.scroll.y >= args.currentElements["benefits"].bottom) {
         $("#benefits .ct_title").addClass("ct_ls__bottom");
-        $("#benefits #lens").addClass("ct_ls__bottom");
       }
       
       if (args.scroll.y + $("#benefits .ct_title").height() >= args.currentElements["benefits"].bottom) {
         $("#benefits .ct_title").removeClass("ct_ls__fixed");
         $("#benefits .ct_title").addClass("ct_ls__bottom");
-        //$("#benefits #lens").removeClass("ct_ls__fixed");
-         $("#benefits .benefits-item-01").addClass("ct_ls__bottom");
-         $("#benefits .benefits-item-02").addClass("ct_ls__bottom");
-         $("#benefits .benefits-item-03").addClass("ct_ls__bottom");
-         $("#benefits .benefits-item-04").addClass("ct_ls__bottom");
-         $("#benefits .benefits-item-01").removeClass("ct_ls__fixed ct_ls__top");
-         $("#benefits .benefits-item-02").removeClass("ct_ls__fixed ct_ls__top");
-         $("#benefits .benefits-item-03").removeClass("ct_ls__fixed ct_ls__top");
-         $("#benefits .benefits-item-04").removeClass("ct_ls__fixed ct_ls__top");
+        // $("#benefits .benefits-item-01").addClass("ct_ls__bottom");
+        // $("#benefits .benefits-item-02").addClass("ct_ls__bottom");
+        // $("#benefits .benefits-item-03").addClass("ct_ls__bottom");
+        // $("#benefits .benefits-item-04").addClass("ct_ls__bottom");
       }
-
       if (args.scroll.y < args.currentElements["benefits"].top) {
         $("#benefits .ct_title").removeClass("ct_ls__fixed");
         $("#benefits .ct_title").removeClass("ct_ls__bottom");
-        $("#benefits #lens").removeClass("ct_ls__fixed");
-        $("#benefits #lens").removeClass("ct_ls__bottom");
       }
       //args.currentElements['benefits'].top + $("#benefits").height()
 
+            //GESTIOSCO L'INGRESSO DELLE SCRITTE
+if (args.scroll.y >= window.LPlens.lsscroll.scroll.els["item-01"].top){
+  var matrix_1 = getTranslateXY("item-01");
+  console.log("matrix_1", matrix_1);
+  if (matrix_1.translateY >= -600) {
+    matrix_1.translateY = matrix_1.translateY - 10;
+    $("#item-01").css({
+      //opacity: `${args.currentElements["item-01"].progress}`,
+      transform: `translateY(${matrix_1.translateY}px)`,
+    });
+  } else {
+    var matrix_2 = getTranslateXY("item-02");
+    console.log("matrix_2", matrix_2);
+
+    if (matrix_2.translateY >= -500) {
+      matrix_2.translateY = matrix_2.translateY - 10;
+      $("#item-02").css({
+        //opacity: `${args.currentElements["item-02"].progress}`,
+        transform: `translateY(${matrix_2.translateY}px)`,
+      });
+    } else {
+      matrix_2.translateY = -500;
+      var matrix_3 = getTranslateXY("item-03");
+      console.log("matrix_3", matrix_3);
+      //matrix_3.translateY >= -400 ? (matrix_3.translateY = matrix_3.translateY - 5) : (matrix_3.translateY = -400);
+
+      if (matrix_3.translateY >= -350) {
+        matrix_3.translateY = matrix_3.translateY - 10;
+        $("#item-03").css({
+          //opacity: `${args.currentElements["item-03"].progress}`,
+          transform: `translateY(${matrix_3.translateY}px)`,
+        });
+      }else{
+        matrix_3.translateY = -350;
+        var matrix_4 = getTranslateXY("item-04");
+        console.log("matrix_4", matrix_4);
+
+        if(matrix_4.translateY >= -200){
+            matrix_4.translateY = matrix_4.translateY - 10;
+            $("#item-04").css({
+              //opacity: `${args.currentElements["item-03"].progress}`,
+              transform: `translateY(${matrix_4.translateY}px)`,
+            });
+        }else{
+            matrix_4.translateY = -200;
+        }
+      }
+    }
+  }
+}
     }
 
     if (typeof args.currentElements["item-01"] === "object") {
@@ -122,9 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
         //console.log("scroll", args.scroll.y);
         //console.log("top", args.currentElements["item-01"].top);
         //if(args.scroll.y >= (args.currentElements['item-01'].top - args.currentElements['item-01'].targetEl.offsetHeight*20/100)){
-       //   e.scroll.y <= e.currentElements["item-01"].bottom - .2 * window.ct_lpHeritage.lsscroll.scroll.windowHeight && e.scroll.y >= e.currentElements[t].top - window.ct_lpHeritage.lsscroll.scroll.windowHeight && (r = (r = "00000" + (i = window.ct_lpHeritage.data.hp.fbf_frames_full[t].frame_start + Math.round(window.ct_lpHeritage.data.hp.fbf_frames_full[t].frames * (e.scroll.y - (e.currentElements[t].top - window.ct_lpHeritage.lsscroll.scroll.windowHeight)) / (e.currentElements[t].bottom - .2 * window.ct_lpHeritage.lsscroll.scroll.windowHeight - (e.currentElements[t].top - window.ct_lpHeritage.lsscroll.scroll.windowHeight))))).substr(r.length - 5),
         if (args.scroll.y >= args.currentElements["item-01"].top) {
-          $(".benefits-item-01").addClass("ct_ls__fixed ct_ls__top");
+          $(".benefits-item-01").addClass("ct_ls__fixed");
         }
       }
     }
@@ -132,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof args.currentElements["item-02"] === "object") {
       if (args.currentElements["item-02"].inView) {
         if (args.scroll.y >= window.LPlens.lsscroll.scroll.els["item-02"].top) {
-          $(".benefits-item-02").addClass("ct_ls__fixed ct_ls__top");
+          $(".benefits-item-02").addClass("ct_ls__fixed");
         }
       }
     }
@@ -140,8 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (args.currentElements["item-03"].inView) {
         let el = getHeight("item-03");
         if (args.scroll.y >= window.LPlens.lsscroll.scroll.els["item-03"].top) {
-          $(".benefits-item-03").addClass("ct_ls__fixed ct_ls__top");
-          //$(".benefits-item-03").removeClass("ct_ls__bottom");
+          $(".benefits-item-03").addClass("ct_ls__fixed");
+          $(".benefits-item-03").removeClass("ct_ls__bottom");
         }
       }
     }
@@ -149,8 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (args.currentElements["item-04"].inView) {
           let el = getHeight("item-04");
           if (args.scroll.y >= window.LPlens.lsscroll.scroll.els["item-04"].top) {
-            $(".benefits-item-04").addClass("ct_ls__fixed ct_ls__top");
-            //$(".benefits-item-04").removeClass("ct_ls__bottom");
+            $(".benefits-item-04").addClass("ct_ls__fixed");
+            $(".benefits-item-04").removeClass("ct_ls__bottom");
           }
         }
       }
@@ -178,28 +170,6 @@ function getTranslateXY(element) {
   };
 }
 
-const handleStartDrag = () => {
-	drag = true;
-	dragger.classList.add("dragger--active");
-	dragger.style.pointerEvents = "none";
-};
-
-const handleStopDrag = () => {
-	drag = false;
-	dragger.style.pointerEvents = "auto";
-	dragger.classList.remove("dragger--active");	
-	clipbox.style.cursor = "auto";
-};
-
-const handleImgReveal = e => {
-	e.preventDefault();
-	//e.offsetX = e.offsetX || e.targetTouches[0].pageX - clipboxDimensions.left;
-	if(drag && e.offsetX < clipboxDimensions.width && e.offsetX > 0) {
-		clipbox.style.cursor = "ew-resize";
-		dragger.style.left = e.offsetX - draggerWidth / 2 + "px";
-		first.style.width = e.offsetX + "px";
-	}
-};
 
 // window.ct_lpHeritage.lsscroll_sections.heritage.on("scroll", function(e) {
 //     for (var t in e.currentElements) {
@@ -282,3 +252,57 @@ const handleImgReveal = e => {
 //         document.querySelector(".c-scrollbar").style.width = 20 + 80 * e.scroll.y / (document.querySelector(".ct_main-overlay").offsetHeight - window.ct_lpHeritage.data.sizes.h) + "%"
 //     })
 // }
+
+
+
+
+            //GESTIOSCO L'INGRESSO DELLE SCRITTE
+            if (args.scroll.y >= window.LPlens.lsscroll.scroll.els["item-01"].top){
+  
+              var matrix_1 = getTranslateXY("item-01");
+              if (matrix_1.translateY >= -600) {
+                matrix_1.translateY = matrix_1.translateY - 10;
+                $("#item-01").css({
+                  //opacity: `${args.currentElements["item-01"].progress}`,
+                  transform: `translateY(${matrix_1.translateY}px)`,
+                });
+              } else {
+                var matrix_2 = getTranslateXY("item-02");
+                //console.log("matrix_2", matrix_2);
+            
+                if (matrix_2.translateY >= -500) {
+                  matrix_2.translateY = matrix_2.translateY - 10;
+                  $("#item-02").css({
+                    //opacity: `${args.currentElements["item-02"].progress}`,
+                    transform: `translateY(${matrix_2.translateY}px)`,
+                  });
+                } else {
+                  matrix_2.translateY = -500;
+                  var matrix_3 = getTranslateXY("item-03");
+                  //console.log("matrix_3", matrix_3);
+                  //matrix_3.translateY >= -400 ? (matrix_3.translateY = matrix_3.translateY - 5) : (matrix_3.translateY = -400);
+            
+                  if (matrix_3.translateY >= -350) {
+                    matrix_3.translateY = matrix_3.translateY - 10;
+                    $("#item-03").css({
+                      //opacity: `${args.currentElements["item-03"].progress}`,
+                      transform: `translateY(${matrix_3.translateY}px)`,
+                    });
+                  }else{
+                    matrix_3.translateY = -350;
+                    var matrix_4 = getTranslateXY("item-04");
+                    //console.log("matrix_4", matrix_4);
+            
+                    if(matrix_4.translateY >= -200){
+                        matrix_4.translateY = matrix_4.translateY - 10;
+                        $("#item-04").css({
+                          //opacity: `${args.currentElements["item-03"].progress}`,
+                          transform: `translateY(${matrix_4.translateY}px)`,
+                        });
+                    }else{
+                        matrix_4.translateY = -200;
+                    }
+                  }
+                }
+              }
+            }
