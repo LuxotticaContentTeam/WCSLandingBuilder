@@ -1,12 +1,15 @@
 @import '../0_ModuleLibrary/DesignSystem/style/variables';
-@import 'resetLP';
+// @import 'resetLP';
 
-@import '../../../../0_ModuleLibrary/libraryDependences/index.scss';
+// @import '../../../../0_ModuleLibrary/libraryDependences/index.scss';
 
 .ct_space {
-  
-}
-
-*{
-  
+  .ct_tooltip.ct_custom{
+        @media(min-width:1025px){
+            width:500px
+        }
+          @media(max-width:1025px){
+            width: 300px;
+          }
+  }
 }

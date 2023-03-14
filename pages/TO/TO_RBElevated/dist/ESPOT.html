@@ -1,730 +1,154 @@
 <style>
-#page{width:100%;max-width:100%;margin:0 auto;-webkit-box-sizing:border-box;box-sizing:border-box;padding:0!important}#main_content_wrapper{padding-top:0}#CommerceComposerContent>.rowContainer>.row{margin-bottom:0;padding-bottom:0}@font-face{font-family:HelveticaNeueforTarget;src:url(../../CreateLandingPage/00_Dependences/DesignSystem/fonts/HelveticaNeueforTarget-Bd.woff) format("woff");font-weight:700;font-style:normal}@font-face{font-family:HelveticaNeueforTarget;src:url(../../CreateLandingPage/00_Dependences/DesignSystem/fonts/HelveticaNeueforTarget-Md.woff) format("woff");font-weight:500;font-style:normal}@font-face{font-family:HelveticaNeueforTarget;src:url(../../CreateLandingPage/00_Dependences/DesignSystem/fonts/HelveticaNeueforTarget-Rm.woff) format("woff");font-weight:400;font-style:normal}@font-face{font-family:HelveticaNeueforTarget;src:url(../../CreateLandingPage/00_Dependences/DesignSystem/fonts/HelveticaNeueforTarget-Lt.woff) format("woff");font-weight:300;font-style:normal}body{margin:0;padding:0}.ct_space section{padding:40px;border-bottom:1px solid #c00;position:relative;overflow:hidden;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box}.ct_space section.ct_plp{padding:64px}@media(max-width:1024px){.ct_space section.ct_plp{padding:12px}}@media(max-width:1024px){.ct_space section{padding:12px}}.ct_space .banner_code_container{width:100%;height:100vh;position:fixed;top:0;left:0;-webkit-transform:none;transform:none;-webkit-box-shadow:5px 5px 35px 2px rgba(0,0,0,.4196078431);box-shadow:5px 5px 35px 2px rgba(0,0,0,.4196078431);-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background-color:rgba(0,0,0,.5);display:none;z-index:99}.ct_space .banner_code_container.show{display:-webkit-box;display:-ms-flexbox;display:flex}.ct_space .banner_code_container button{cursor:pointer;position:absolute;left:calc(50% + 380px);top:calc(50% - 310px);z-index:2;background-color:rgba(0,0,0,0);width:30px;height:30px;border:none}.ct_space .banner_code_container button svg{height:100%;width:100%}.ct_space .ct_banner__container{padding:0!important}.ct_space pre{margin:0;border-radius:8px;width:800px;height:500px}.ct_space pre code{font-size:13px!important;-moz-tab-size:1!important;-o-tab-size:1!important;tab-size:1!important}.ct_space pre *{font-size:13px!important;-moz-tab-size:1!important;-o-tab-size:1!important;tab-size:1!important}@media(max-width:1024px){.ct_space .ct_show_code{display:none!important}}.ct_space .ct_color__palette{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.ct_space .ct_color__container{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100px;margin-right:20px;margin-bottom:20px}.ct_space .ct_color__container .ct_color{width:100px;height:100px;border-radius:50px;margin-bottom:20px}.ct_space .ct_color__container .ct_color_name{text-align:center}.ct_space .ct_product__list{width:100%}.ct_space .ct_product__list .ct_prod__container{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin-bottom:20px;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch}@media(max-width:991px){.ct_space .ct_product__list .ct_prod__container{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}}.ct_space .ct_product__list .ct_prod{display:block;width:calc(33.3333333333% - 20px);height:calc(33vw - 40px);background-color:#fff;border-radius:15px;overflow:hidden;border:1px solid #ced4d9}.ct_space .ct_product__list .ct_prod.ct_espot{height:auto}@media(max-width:991px){.ct_space .ct_product__list .ct_prod{width:100%;height:85vw;margin-bottom:20px}}.ct_space .ct_product__list .ct_prod__double{width:calc(66.6666666667% - 10px);height:calc(33vw - 40px);border:1px solid #ced4d9;border-radius:15px;overflow:hidden}@media(max-width:991px){.ct_space .ct_product__list .ct_prod__double{width:100%;height:auto;margin-bottom:20px}}#back_home{position:fixed;right:20px;bottom:20px;background-color:#c00;z-index:1000;padding:10px 20px;border-radius:20px;color:#fff;-webkit-box-shadow:0 0 28.5px 4px #757575;box-shadow:0 0 28.5px 4px #757575}
+@media(min-width:1025px){.ct_space .ct_tooltip.ct_custom{width:500px}}@media(max-width:1025px){.ct_space .ct_tooltip.ct_custom{width:300px}}
 </style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO Design System</title>
+<div class="ct_space">
+    <div class="ct_container ct_mt__32 ct_mb__32">
+        <!-- HERO -->
+        <div class="ct_banner ct__noborder ct_full ct_no_radius" >
 
-    <!-- Favicon -->
-    <link rel="icon" href="../icons/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon">
-
-    <!-- Library Already Included in the website -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    
-     <!-- Module Library Tool Dependences -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     
-
-    
-     <!-- Style and Code for the library -->
-    <link rel="stylesheet" href="../libraryDependences/index.min.css">
-    <script src="../libraryDependences/index.js"></script>
-
-    <!-- Design System -->
-    <link rel="stylesheet" href="../DesignSystem/export/css/index_dev.min.css">
-    <script src="../DesignSystem/export/js/index_dev.min.js"></script>
-
-    <!-- PDP -->
-    <link rel="stylesheet" href="../../CreateLandingPage/RedesignPDP/style/index.min.css">
-    <script src="../../CreateLandingPage/RedesignPDP/script/index.js"></script>
-</head>
-
-<body>
-    <div class="ct_space">
-        <div class="ct_container">
-            <section class="ct_mb__40">
-                <h1 class="ct_font__xl ">  <span class="ct_font__bold ct_text__brand_red"> Grid Banner  </span>Examples</h1>
-            </section>
-            <a id="back_home" href="./index.html">HOME</a>
-    
-          <div class="ct_banner__container_plp">
-            <div class="ct_banner ct_text__side_left ct_banner__grid ct_out ct_b__grey">
-                                
-                <div class="ct_assets__container  ">
-                    <div class="ct_img__container ct_img__skeleton">
-                        <picture class="lazy-l">
-                            
-                            <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdjPHPmzH8GNMBItCAAkToKLSl7FvAAAAAASUVORK5CYII=" data-image-src="https://via.placeholder.com/900x1200">
-                            <source media="(max-width: 1400px)" data-image-src="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://via.placeholder.com/1500x900 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=">
-                            <img data-image-src="https://via.placeholder.com/1500x900" data-image-srcset="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://via.placeholder.com/1500x900 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=" alt="alt">
-                        </picture>
-                    </div>
-                  
-                </div>
+            <div class="ct_assets__container ct__noborder ">
+            <div class="ct_img__container ct_img__skeleton">
+                <picture class="lazy-lo">
+                    <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAXCAYAAADUUxW8AAAAAXNSR0IArs4c6QAAACdJREFUOE9j/Pr1638GMgHjqGbSQm40wEgLL4bRABsNMIIhMEQTCQDKVFkKueBCNwAAAABJRU5ErkJggg==" data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Hero-M.jpg">
+                    <source media="(max-width: 1400px)" data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/HP-D.jpg?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/HP-D.jpg 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAADCAYAAABI4YUMAAAAAXNSR0IArs4c6QAAABRJREFUGFdj/Pr1638GEgEj3TQBALKvC56LNtGdAAAAAElFTkSuQmCC">
+                    <img data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/HP-D.jpg" data-image-srcset="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/HP-D.jpg?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/HP-D.jpg 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAADCAYAAABI4YUMAAAAAXNSR0IArs4c6QAAABRJREFUGFdj/Pr1638GEgEj3TQBALKvC56LNtGdAAAAAElFTkSuQmCC" alt="alt">
+                </picture>
+            </div>
+            </div>
             
-        
-            <div class="ct_text__overlay  ct_overlay__center ct_text__center ct_promo_enhanced ">
+            <div class="ct_text__overlay ct__noborder  ct_text__left ct_overlay__mob__top">
                 <div class="ct_text__prirmary">
-                    <span class="ct_promo_pre_title"> Up to </span>
-                    <div class="ct_promo_container ct_text__brand_red">
-                        <span class="ct_promo_value">80</span>
-                        <span class="ct_promo_symbols">
-                            <span class="ct_promo_symbol">%</span>
-                            <span class="ct_promo_off">off</span>
-                        </span>
-                    </div>
-                    <p class="ct_promo_title ct_mb__8">
-                        Lorem ipsum dolet lorem ipsum.
+                    <h3 class="ct_font__l ct_font__bold ct_mb__16 ct_text__mob__center ct_lh__1_5 ct_mt__mob__24">Meet the first-of-its-kind <br>
+                        net plastic neutral contact lens*
+                        <svg style="display:inline-block;" class="ct_w__20_px ct_h__20_px ct_mb__mob__4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.2992 21.6427L19.8439 21.098C20.9339 21.968 22.2572 22.4053 23.5819 22.4053C25.1185 22.4053 26.6545 21.8207 27.8245 20.6507C31.7645 16.7107 31.3385 9.59335 31.3179 9.29268C31.2959 8.95935 31.0305 8.69402 30.6972 8.67202C30.3972 8.65068 23.2799 8.22535 19.3392 12.1653C17.1579 14.3467 17.0125 17.8027 18.8992 20.1567L18.3559 20.7C17.6759 21.38 17.1099 22.142 16.6512 22.958C16.5552 19.7773 15.6765 16.732 14.1059 14.0433C15.3452 12.788 16.0285 11.128 16.0285 9.36201C16.0285 7.58135 15.3352 5.90735 14.0759 4.64801C9.67254 0.246015 1.64921 0.662681 1.30921 0.683348C0.971874 0.702681 0.70254 0.972015 0.683207 1.30935C0.663207 1.64868 0.244541 9.67268 4.64854 14.076C5.90787 15.3353 7.58187 16.0287 9.36254 16.0287C10.7005 16.0287 11.9779 15.6373 13.0645 14.9087C14.5412 17.514 15.3325 20.4667 15.3325 23.542V27.346C7.60321 27.484 1.35454 29.9393 1.08454 30.0473L1.57987 31.2854C1.64587 31.2593 8.21787 28.6667 15.9992 28.6667C23.7685 28.6667 30.3525 31.2593 30.4185 31.286L30.9139 30.048C30.6445 29.9407 24.4125 27.4914 16.6979 27.3473C16.8519 25.192 17.7565 23.186 19.2992 21.6427ZM20.2825 13.108C23.1299 10.2607 28.1112 9.98602 29.9245 9.98602C29.9519 9.98602 29.9779 9.98602 30.0032 9.98602C30.0112 11.73 29.7712 16.818 26.8819 19.7073C25.2239 21.3653 22.6225 21.5073 20.7965 20.1447L23.1372 17.804L22.1945 16.8613L19.8525 19.2033C18.4819 17.3773 18.6219 14.7687 20.2825 13.108ZM5.59054 13.134C2.27254 9.81601 1.99854 3.91068 2.00054 2.00135C2.01521 2.00135 2.02987 2.00135 2.04454 2.00135C3.99921 2.00135 9.83387 2.29335 13.1325 5.59201C15.1292 7.58868 15.2032 10.7853 13.3645 12.878C12.7112 11.928 11.9692 11.0287 11.1365 10.196L10.1939 11.1387C11.0085 11.9533 11.7319 12.8347 12.3619 13.7693C10.2879 15.1827 7.42987 14.9733 5.59054 13.134Z" fill="#333333"/></svg>
+                    </h3>
+                
+                    <p class="ct_w__45 ct_w__mob__100 ct_mb__8 ct_text__mob__center ct_lh__1_5">Experience superior vision, all-day comfort, and everyday value with Ray-Ban® 1-DAY contact lenses. Enjoy the convenience of a 1-day contact lens and feel good making a positive impact on the environment.** Ask your doctor about Ray-Ban® <span style="white-space: nowrap;"> 1-DAY</span> today.
+                       <br class="ct__desk__hide">
+                        <button class="ct_info__popup ct_ml__4  ct_text__black" style="top: 3px;">
+                            <span class="ct_tooltip ct_top_right ct_text__black ct__mob__bottom_left ct__white ct_custom">
+                                *Net plastic neutrality is established by purchasing credits from Plastic Bank. A credit represents the collection and conversion of one kilogram of plastic that may reach or be destined for waterways. CooperVision purchases credits equal to the weight of plastic in Ray-Ban® 1-DAY orders in a specified time period. Ray-Ban® 1-DAY plastic is determined by the weight of plastic in the blister, the lens, and the secondary package, including laminates, adhesives, and auxiliary inputs (e.g. ink). Amount is defined as weight. 
+                                <br><br>
+                                **CVI data on file 2020. Decision Analyst online survey with 1-day soft CL wearers in US, n=304. Top 3 box on 7 point scale.
+
+
+                            <span class="ct_tooltop_triangle"></span>
+                            </span>
+                            <svg width="22" height="22" viewBox="0 0 22 22" class="ct_icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 0C4.93442 0 0 4.93442 0 11C0 17.0656 4.93442 22 11 22C17.0656 22 22 17.0656 22 11C22 4.93442 17.0656 0 11 0ZM11 20.1667C5.9455 20.1667 1.83333 16.0545 1.83333 11C1.83333 5.9455 5.9455 1.83333 11 1.83333C16.0545 1.83333 20.1667 5.9455 20.1667 11C20.1667 16.0545 16.0545 20.1667 11 20.1667Z"></path>
+                            <path d="M11.9166 9.16675H10.0833V16.5001H11.9166V9.16675Z"></path>
+                            <path d="M11.9166 5.5H10.0833V7.33333H11.9166V5.5Z"></path>
+                            </svg>
+                        </button>
                     </p>
-                    <p class="ct_promo_body">Lorem ipsum dolor sit amet consectetur. Morbi suscipit arcu accumsan aliquam sum</p>
+                    
                 </div>
                 <div class="ct_text__secondary">
-                    <div class="ct_cta__container  ">
-                        <a href="#" class="ct_cta ct_cta__red" aria-label="" data-element-id="" data-description="">Shop now</a>
+                    <div class="ct_cta__container ct_mb__20 ct_text__mob__center">
+                        <a href="javascript:void(0)" aria-label="  Shop CONTACT lenses" onclick="ct_scrollTo('#faceted_search',-40)" class="ct_cta ct_cta__red ct_cta__large ct_mr__mob__0">
+                            Shop CONTACT lenses
+                            <svg class="ct_ml__10" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.00001 12.943L0.195343 5.13798L1.13801 4.19531L8.00001 11.057L14.862 4.19531L15.8047 5.13798L8.00001 12.943Z" fill="white"></path>
+                            </svg>
+                        </a>
+                        <a href="/to-us/eye-exams" class="ct_cta ct_cta__white ct_cta__large ct_ml__mob__0" aria-label="book an eye exam" data-element-id="X_PLP_CLRB_CTA" data-description="book an eye exam">book an eye exam</a>
                     </div>
-                </div>  
-               
+                </div>    
             </div>
-            <div class="ct_see_details__container">
-                <button class="ct_text__black">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                        <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                        <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                    </svg>
-                    <span class="ct_font__bold">
-                        See details
-                    </span>     
-                </button>
-                <div class="ct_see_details__content">
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <button disabled="" class="ct_see_details__close">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                         </svg>
-                            
-                    </button>
-                </div>
-            </div>  
-        </div>
-          </div>
-    
-            <section class="ct_plp">
-                <div class="ct_product__list results_grid">
-                    <div class="ct_prod__container item">
-                        <div class="ct_prod__double ct_banner__container">
-    
-                            <!-- Double -->
-    
-                            <div class="ct_banner ct_banner__grid ct_text__mob__outside">
 
-                                <div class="ct_assets__container ">
-                                    <div class="ct_img__container ct_img__skeleton">
-                                        <picture class="lazy-lo lazy-loaded">
-                                            <source media="(max-width: 991px)" data-image-src="https://media.targetoptical.com/2023/TO-FEB-OPP/PLP-M.jpg" srcset="https://media.targetoptical.com/2023/TO-FEB-OPP/PLP-M.jpg">
-                                            <img data-image-src="https://media.targetoptical.com/2023/TO-FEB-OPP/PLP-B.jpg" src="https://media.targetoptical.com/2023/TO-FEB-OPP/PLP-B.jpg" alt="20Off">
-                                        </picture>
-                                    </div>
-                                    <div class="ct_see_details__container">
-                                        <button class="ct_text__mob__white">
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                                                <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                                                <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                                            </svg>
-                                            <span class="ct_font__bold">
-                                                See details
-                                            </span>
-                                        </button>
-                                        <div class="ct_see_details__content">
-                                            <p>
-                                                Get a complete pair (frame + lenses) of eyeglasses starting at $59. Includes select CHAPS, A New
-                                                Day™, Cat &amp; Jack ™,and Goodfellow ™ &amp; Co. frames for $59 or select Armani Exchange, Arnette and
-                                                Vogue frames for $99, with single vision ComfortLight (plastic) lenses. Select lens upgrades
-                                                available - $30 for ComfortLight IntelliBlue, $90 for ComfortLight Active lenses (polycarbonate
-                                                with anti-reflective), and $70 for multi-focal lenses (lined multi-focal and progressives). No
-                                                other frame or lens upgrades allowed. Complete pair (frame and lenses) purchase required. Valid
-                                                prescription required. Cannot be combined with vision insurance benefits, other offers, or
-                                                previous purchases. Offer is not eligible for 40% Off Additional Pairs promotion. Valid in-store
-                                                and online; frame selection varies by store and select frame brands available online, pricing
-                                                could vary. For online purchases apply promo code in cart to receive full savings. Void where
-                                                prohibited by law. Discounts off tag price. No cash value. See Target Optical® Employee for
-                                                details.
-                                            </p>
-                                            <button disabled="" class="ct_see_details__close">
-                                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                                                </svg>
-                        
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                        
-                                <div class="ct_text__overlay ct_w__50 ct_w__mob__100  ">
-                                    <div class="ct_text__prirmary">
-                                        <div class="ct_mb__8" >
-                                            <svg class="ct_icon ct_w__30_px ct_h__30_px"  width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g clip-path="url(#clip0_7836_78969)">
-                                                <path d="M19.2992 21.6427L19.8439 21.098C20.9339 21.968 22.2572 22.4053 23.5819 22.4053C25.1185 22.4053 26.6545 21.8207 27.8245 20.6507C31.7645 16.7107 31.3385 9.59335 31.3179 9.29268C31.2959 8.95935 31.0305 8.69402 30.6972 8.67202C30.3972 8.65068 23.2799 8.22535 19.3392 12.1653C17.1579 14.3467 17.0125 17.8027 18.8992 20.1567L18.3559 20.7C17.6759 21.38 17.1099 22.142 16.6512 22.958C16.5552 19.7773 15.6765 16.732 14.1059 14.0433C15.3452 12.788 16.0285 11.128 16.0285 9.36201C16.0285 7.58135 15.3352 5.90735 14.0759 4.64801C9.67254 0.246015 1.64921 0.662681 1.30921 0.683348C0.971874 0.702681 0.70254 0.972015 0.683207 1.30935C0.663207 1.64868 0.244541 9.67268 4.64854 14.076C5.90787 15.3353 7.58187 16.0287 9.36254 16.0287C10.7005 16.0287 11.9779 15.6373 13.0645 14.9087C14.5412 17.514 15.3325 20.4667 15.3325 23.542V27.346C7.60321 27.484 1.35454 29.9393 1.08454 30.0473L1.57987 31.2854C1.64587 31.2593 8.21787 28.6667 15.9992 28.6667C23.7685 28.6667 30.3525 31.2593 30.4185 31.286L30.9139 30.048C30.6445 29.9407 24.4125 27.4914 16.6979 27.3473C16.8519 25.192 17.7565 23.186 19.2992 21.6427ZM20.2825 13.108C23.1299 10.2607 28.1112 9.98602 29.9245 9.98602C29.9519 9.98602 29.9779 9.98602 30.0032 9.98602C30.0112 11.73 29.7712 16.818 26.8819 19.7073C25.2239 21.3653 22.6225 21.5073 20.7965 20.1447L23.1372 17.804L22.1945 16.8613L19.8525 19.2033C18.4819 17.3773 18.6219 14.7687 20.2825 13.108ZM5.59054 13.134C2.27254 9.81601 1.99854 3.91068 2.00054 2.00135C2.01521 2.00135 2.02987 2.00135 2.04454 2.00135C3.99921 2.00135 9.83387 2.29335 13.1325 5.59201C15.1292 7.58868 15.2032 10.7853 13.3645 12.878C12.7112 11.928 11.9692 11.0287 11.1365 10.196L10.1939 11.1387C11.0085 11.9533 11.7319 12.8347 12.3619 13.7693C10.2879 15.1827 7.42987 14.9733 5.59054 13.134Z" fill="#333333"/>
-                                                </g>
-                                                <defs>
-                                                <clipPath id="clip0_7836_78969">
-                                                <rect width="32" height="32" fill="white"/>
-                                                </clipPath>
-                                                </defs>
-                                            </svg>    
-                                        </div>
-                                        <p class="ct_font__l  ct_font__bold ct_mb__8">
-                                            Lorem ipsum dolet <br class="ct__mob__hide"> lorem ipsum.
-                                        </p>
-                                      
-                                        <p class="ct_font__m">
-                                            Offer includes select frames with<br class="ct__mob__hide"> Single Vision ComfortLight lenses*.
-                                        </p>
-                                    </div>
-                        
-                                    <div class="ct_text__secondary">
-                                        <div class="ct_cta__container ct_mt__8">
-                                            <a href="/to-us/seemore" class="ct_cta ct_cta__red" aria-label="Shop now" data-element-id="X_PLP_Row3_CTA" data-description="See more">Shop now</a>
-                                        </div>
-                                    </div>
-                        
-                                    <div class="ct_text__secondary">
-                        
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Double -->
-                        
-                        
-                        
-                        </div>
-                       
-                        <div class="ct_prod catEntryThumbnail"></div>
-                    </div>
-    
-    
-                     <!-- 80% -->
-                    <div class="ct_prod__container">
-                        <div class="ct_prod__double ct_banner__container">
-    
-                            <!-- 80% -->
-    
-                            <div class="ct_banner ct_text__side_left ct_banner__grid">
-                                
-                                    <div class="ct_assets__container ">
-                                        <div class="ct_img__container ct_img__skeleton">
-                                            <picture class="lazy-l">
-                                                
-                                                <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdjPHPmzH8GNMBItCAAkToKLSl7FvAAAAAASUVORK5CYII=" data-image-src="https://via.placeholder.com/900x1200">
-                                                <source media="(max-width: 1400px)" data-image-src="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://via.placeholder.com/1500x900 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=">
-                                                <img data-image-src="https://via.placeholder.com/1500x900" data-image-srcset="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://via.placeholder.com/1500x900 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=" alt="alt">
-                                            </picture>
-                                        </div>
-                                      
-                                    </div>
-                                
-                            
-                                <div class="ct_text__overlay  ct_overlay__left ct_text__left ct_promo_enhanced ">
-                                    <div class="ct_text__prirmary">
-                                        <span class="ct_promo_pre_title"> Up to </span>
-                                        <div class="ct_promo_container ct_text__brand_red">
-                                            <span class="ct_promo_value">80</span>
-                                            <span class="ct_promo_symbols">
-                                                <span class="ct_promo_symbol">%</span>
-                                                <span class="ct_promo_off">off</span>
-                                            </span>
-                                        </div>
-                                        <p class="ct_promo_title ct_mb__8">
-                                            Lorem ipsum dolet lorem ipsum.
-                                        </p>
-                                        <p class="ct_promo_body">Lorem ipsum dolor sit amet consectetur. Morbi suscipit arcu accumsan aliquam sum</p>
-                                    </div>
-                                    <div class="ct_text__secondary">
-                                        <div class="ct_cta__container  ">
-                                            <a href="#" class="ct_cta ct_cta__red" aria-label="" data-element-id="" data-description="">Shop now</a>
-                                        </div>
-                                    </div>  
-                                   
-                                </div>
-                                <div class="ct_see_details__container">
-                                    <button class="ct_text__black">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                                            <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                                            <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                                        </svg>
-                                        <span class="ct_font__bold">
-                                            See details
-                                        </span>     
-                                    </button>
-                                    <div class="ct_see_details__content">
-                                        <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                        <button disabled="" class="ct_see_details__close">
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                                             </svg>
-                                                
-                                        </button>
-                                    </div>
-                                </div>  
-                            </div>
-                            <!-- 80% -->
-                        
-                        
-                        
-                        </div>
-                      
-                        <div class="ct_prod"></div>
-                    </div>
-                     <!-- 80% -->
-    
-    
-                    <!-- $59 -->
-                    <div class="ct_prod__container">
-                        <div class="ct_prod__double ct_banner__container ">
-    
-    
-                            <!-- $59 -->
-                            <div class="ct_banner ct_text__side_left ct_banner__grid ct_banner__mob__full_promo">
-                                
-                                <div class="ct_assets__container  ">
-                                    <div class="ct_img__container ct_img__skeleton">
-                                        <picture class="lazy-l">
-                                            
-                                            <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdjPHPmzH8GNMBItCAAkToKLSl7FvAAAAAASUVORK5CYII=" data-image-src="https://via.placeholder.com/900x1200">
-                                            <source media="(max-width: 1400px)" data-image-src="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://via.placeholder.com/1500x900 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=">
-                                            <img data-image-src="https://via.placeholder.com/1500x900" data-image-srcset="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://via.placeholder.com/1500x900 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=" alt="alt">
-                                        </picture>
-                                    </div>
-                                    
-                                </div>
-                                
-                            
-                                <div class="ct_text__overlay  ct_overlay__left ct_text__left ct_promo_enhanced ">
-                                    <div class="ct_text__prirmary">
-                                        <h3 class="ct_promo_pre_title"> Deals <br>  that WOW! </h3>
-                                        <p class="ct_promo_title">
-                                            prescription glasses <br> now starting at
-                                        </p>
-                                        <div class="ct_promo_container ct_text__brand_red">
-                                            <span class="ct_promo_symbols ct_promo_dollar">
-                                                <span class="ct_promo_symbol">$</span>
-                                                <!-- <span class="ct_promo_off">off</span> -->
-                                            </span>
-                                            <span class="ct_promo_value">59</span>
-                                           
-                                        </div>
-                                       
-                                        <p class="ct_promo_body">Lorem ipsum dolor sit amet consectetur. Morbi suscipit arcu accumsan aliquam sum</p>
-                                    </div>
-                                    <div class="ct_text__secondary">
-                                        <div class="ct_cta__container  ">
-                                            <a href="#" class="ct_cta ct_cta__red" aria-label="" data-element-id="" data-description="">Shop now</a>
-                                        </div>
-                                    </div>  
-                                   
-                                </div>
-                                <div class="ct_see_details__container">
-                                    <button class="ct_text__black">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                                            <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                                            <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                                        </svg>
-                                        <span class="ct_font__bold">
-                                            See details
-                                        </span>     
-                                    </button>
-                                    <div class="ct_see_details__content">
-                                        <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                        <button disabled="" class="ct_see_details__close">
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                                             </svg>
-                                                
-                                        </button>
-                                    </div>
-                                </div>  
-                            </div>
-                            <!-- $59 -->
-                        
-                        
-                        
-                        </div>
-                      
-                        <div class="ct_prod"></div>
-                    </div>
-                    <!-- $59 -->
-    
-    
-    
-                    <!-- $59 + $99 -->
-                    <div class="ct_prod__container">
-                        <div class="ct_prod__double ct_banner__container">
-    
-    
-                            <!-- $59 -->
-                            <div class="ct_banner ct_text__side_left ct_banner__grid ct_banner__mob__full_promo">
-                                
-                                    <div class="ct_assets__container ">
-                                        <div class="ct_img__container ct_img__skeleton">
-                                            <picture class="lazy-l">
-                                                
-                                                <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdjPHPmzH8GNMBItCAAkToKLSl7FvAAAAAASUVORK5CYII=" data-image-src="https://via.placeholder.com/900x1200">
-                                                <source media="(max-width: 1400px)" data-image-src="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://via.placeholder.com/1500x900 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=">
-                                                <img data-image-src="https://via.placeholder.com/1500x900" data-image-srcset="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://via.placeholder.com/1500x900 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=" alt="alt">
-                                            </picture>
-                                        </div>
-                                      
-                                    </div>
-                                
-                            
-                                <div class="ct_text__overlay  ct_overlay__left ct_text__left ct_promo_enhanced ">
-                                    <div class="ct_text__prirmary">
-                                      
-                                        <div class="ct_promo_double_container">
-                                            <div>
-                                                <div class="ct_promo_up">Starting at</div>
-                                                <div class="ct_promo_container ct_text__brand_red">
-                                                    <span class="ct_promo_symbols ct_promo_dollar">
-                                                        <span class="ct_promo_symbol">$</span>
-                                                    </span>
-                                                    <span class="ct_promo_value">59</span>
-                                                </div>
-                                                <div class="ct_promo_down">1 complete pair</div>
-                                            </div>
-                                            <span class="ct_promo_separator"></span>
-                                            <div>
-                                                <div class="ct_promo_up">Starting at</div>
-                                                <div class="ct_promo_container ct_text__brand_red">
-                                                    <span class="ct_promo_symbols ct_promo_dollar">
-                                                        <span class="ct_promo_symbol">$</span>
-                                                    </span>
-                                                    <span class="ct_promo_value">99</span>
-                                                </div>
-                                                <div class="ct_promo_down">2 complete pair</div>
-                                            </div>
-                                           
-                                           
-                                        </div>
-                                        
-                                       
-                                        <p class="ct_promo_title ct_mb__8">Lorem ipsum dolet lorem.</p>
-                                        <p class="ct_promo_body">Lorem ipsum dolor sit amet consectetur. Morbi suscipit arcu accumsan aliquam sum</p>
-                                    </div>
-                                    <div class="ct_text__secondary">
-                                        <div class="ct_cta__container  ">
-                                            <a href="#" class="ct_cta ct_cta__red" aria-label="" data-element-id="" data-description="">Shop now</a>
-                                        </div>
-                                    </div>  
-                                   
-                                </div>
-                                <div class="ct_see_details__container">
-                                    <button class="ct_text__black">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                                            <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                                            <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                                        </svg>
-                                        <span class="ct_font__bold">
-                                            See details
-                                        </span>     
-                                    </button>
-                                    <div class="ct_see_details__content">
-                                        <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                        <button disabled="" class="ct_see_details__close">
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                                             </svg>
-                                                
-                                        </button>
-                                    </div>
-                                </div>  
-                            </div>
-                            <!-- $59 -->
-                        
-                        
-                        
-                        </div>
-                      
-                        <div class="ct_prod"></div>
-                    </div>
-                    <!-- $59 + $99 -->
-    
-                    <!-- $130off -->
-                    <div class="ct_prod__container">
-                        <div class="ct_prod__double ct_banner__container">
-    
-    
-                            <!-- $59 -->
-                            <div class="ct_banner ct_text__side_left ct_banner__grid">
-                                
-                                    <div class="ct_assets__container ">
-                                        <div class="ct_img__container ct_img__skeleton">
-                                            <picture class="lazy-l">
-                                                
-                                                <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdjPHPmzH8GNMBItCAAkToKLSl7FvAAAAAASUVORK5CYII=" data-image-src="https://via.placeholder.com/900x1200">
-                                                <source media="(max-width: 1400px)" data-image-src="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://via.placeholder.com/1500x900 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=">
-                                                <img data-image-src="https://via.placeholder.com/1500x900" data-image-srcset="https://via.placeholder.com/1500x900?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://via.placeholder.com/1500x900 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAAXNSR0IArs4c6QAAABNJREFUGFdj/Pzl638GNMBItCAAyXQLlVuH29YAAAAASUVORK5CYII=" alt="alt">
-                                            </picture>
-                                        </div>
-                                      
-                                    </div>
-                                
-                            
-                                <div class="ct_text__overlay  ct_overlay__left ct_text__left ct_promo_enhanced ">
-                                    <div class="ct_text__prirmary">
-                                        <span class="ct_promo_pre_title"> Up to </span>
-                                        <div class="ct_promo_container ct_text__brand_red ct_big">
-                                            <span class="ct_promo_symbols ct_promo_dollar">
-                                                <span class="ct_promo_symbol">$</span>
-                                            </span>
-                                            <span class="ct_promo_value">130</span>
-                                            <span class="ct_promo_symbols ct_promo_off">
-                                                <span class="ct_promo_symbol">off</span>
-                                            </span>
-                                        </div>
-                                        
-                                       
-                                        <p class="ct_promo_title ct_mb__8">Lorem ipsum dolet lorem.</p>
-                                        <p class="ct_promo_body">Lorem ipsum dolor sit amet consectetur. Morbi suscipit arcu accumsan aliquam sum</p>
-                                    </div>
-                                    <div class="ct_text__secondary">
-                                        <div class="ct_cta__container  ">
-                                            <a href="#" class="ct_cta ct_cta__red" aria-label="" data-element-id="" data-description="">Shop now</a>
-                                        </div>
-                                    </div>  
-                                   
-                                </div>
-                                <div class="ct_see_details__container">
-                                    <button class="ct_text__black">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                                            <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                                            <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                                        </svg>
-                                        <span class="ct_font__bold">
-                                            See details
-                                        </span>     
-                                    </button>
-                                    <div class="ct_see_details__content">
-                                        <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                        <button disabled="" class="ct_see_details__close">
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                                             </svg>
-                                                
-                                        </button>
-                                    </div>
-                                </div>  
-                            </div>
-                            <!-- $59 -->
-                        
-                        
-                        
-                        </div>
-                      
-                        <div class="ct_prod"></div>
-                    </div>
-                    <!-- $130off -->
-    
-    
-                    <!-- ESPOT C  -->
-                    <div class="ct_prod__container">
-                        <div class="ct_prod"></div>
-                        <div class="ct_prod ct_espot ct_banner__container">
-                            <div class="ct_banner ct_banner__grid ct_banner__small ct_banner__mob__full_promo">
-                                
-                                <div class="ct_text__overlay  ct_overlay__left ct_text__left ct_promo_enhanced ">
-                                    <div class="ct_text__prirmary">
-                                        <span class="ct_promo_pre_title"> Up to </span>
-                                        <div class="ct_promo_container ct_text__brand_red">
-                                            <span class="ct_promo_value">80</span>
-                                            <span class="ct_promo_symbols">
-                                                <span class="ct_promo_symbol">%</span>
-                                                <span class="ct_promo_off">off</span>
-                                            </span>
-                                        </div>
-                                        <p class="ct_promo_title ct_mb__8">
-                                            Lorem ipsum dolet lorem ipsum.
-                                        </p>
-                                        <p class="ct_promo_body">Lorem ipsum dolor sit amet consectetur. Morbi suscipit arcu accumsan aliquam sum</p>
-                                    </div>
-                                    <div class="ct_text__secondary">
-                                        <div class="ct_cta__container  ">
-                                            <a href="#" class="ct_cta ct_cta__red" aria-label="" data-element-id="" data-description="">Shop now</a>
-                                        </div>
-                                    </div>  
-                                    
-                                </div>
-                                <div class="ct_see_details__container">
-                                    <button class="ct_text__black">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                                            <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                                            <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                                        </svg>
-                                        <span class="ct_font__bold">
-                                            See details
-                                        </span>     
-                                    </button>
-                                    <div class="ct_see_details__content">
-                                        <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                        <button disabled="" class="ct_see_details__close">
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                                             </svg>
-                                                
-                                        </button>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="ct_prod ct_espot ct_banner__container">
-                            <div class="ct_banner ct_banner__grid ct_banner__small ct_banner__mob__full_promo">
-                                
-                                <div class="ct_text__overlay  ct_overlay__left ct_text__left ct_promo_enhanced ">
-                                    <div class="ct_text__prirmary">
-                                        <div class="ct_promo_double_container">
-                                            <div>
-                                                <div class="ct_promo_up">Starting at</div>
-                                                <div class="ct_promo_container ct_text__brand_red">
-                                                    <span class="ct_promo_symbols ct_promo_dollar">
-                                                        <span class="ct_promo_symbol">$</span>
-                                                    </span>
-                                                    <span class="ct_promo_value">59</span>
-                                                </div>
-                                                <div class="ct_promo_down">1 complete pair</div>
-                                            </div>
-                                            <span class="ct_promo_separator"></span>
-                                            <div>
-                                                <div class="ct_promo_up">Starting at</div>
-                                                <div class="ct_promo_container ct_text__brand_red">
-                                                    <span class="ct_promo_symbols ct_promo_dollar">
-                                                        <span class="ct_promo_symbol">$</span>
-                                                    </span>
-                                                    <span class="ct_promo_value">99</span>
-                                                </div>
-                                                <div class="ct_promo_down">2 complete pair</div>
-                                            </div>
-                                           
-                                           
-                                        </div>
-                                        <p class="ct_promo_title ct_mb__8">Lorem ipsum dolet lorem.</p>
-                                        <p class="ct_promo_body">Lorem ipsum dolor sit amet consectetur. Morbi suscipit arcu accumsan aliquam sum</p>
-                                    </div>
-                                    <div class="ct_text__secondary">
-                                        <div class="ct_cta__container  ">
-                                            <a href="#" class="ct_cta ct_cta__red" aria-label="" data-element-id="" data-description="">Shop now</a>
-                                        </div>
-                                    </div>  
-                                    
-                                </div>
-                                <div class="ct_see_details__container">
-                                    <button class="ct_text__black">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 0C2.6915 0 0 2.6915 0 6C0 9.3085 2.6915 12 6 12C9.3085 12 12 9.3085 12 6C12 2.6915 9.3085 0 6 0ZM6 11C3.243 11 1 8.757 1 6C1 3.243 3.243 1 6 1C8.757 1 11 3.243 11 6C11 8.757 8.757 11 6 11Z"></path>
-                                            <path d="M6.5 5H5.5V9H6.5V5Z"></path>
-                                            <path d="M6.5 3H5.5V4H6.5V3Z"></path>
-                                        </svg>
-                                        <span class="ct_font__bold">
-                                            See details
-                                        </span>     
-                                    </button>
-                                    <div class="ct_see_details__content">
-                                        <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                        <button disabled="" class="ct_see_details__close">
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
-                                             </svg>
-                                                
-                                        </button>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ESPOT C  -->
-    
-    
-                  
-                   
+       
+            
+        </div>
+        <!-- HERO -->
+        <!-- BANNER TEXT RIGHT -->
+        <div class="ct_banner__container_plp ct_pt__40 ct_pb__40">
+            <div class="ct_banner ct_text__side_right ct_elevated ct__noborder">
+
+                <div class="ct_assets__container ct__noborder ">
+                <div class="ct_img__container ct_img__skeleton">
+                <picture class="lazy-lo">
+                    <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAECAYAAABLLYUHAAAAAXNSR0IArs4c6QAAABNJREFUGFdjPHfl5n8GKGAkjgMAoMUN7ac0Xz8AAAAASUVORK5CYII=" data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-One-M.jpg">
+                    <source media="(max-width: 1400px)" data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-One.jpg?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-One.jpg 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAFCAYAAAB1j90SAAAAAXNSR0IArs4c6QAAABRJREFUKFNjPHfl5n8GMgDjCNAIAHSeEWgEeRZuAAAAAElFTkSuQmCC">
+                    <img data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-One.jpg" data-image-srcset="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-One.jpg?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-One.jpg 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAAXNSR0IArs4c6QAAABBJREFUGFdjPHPmzH8GIAAAFckDZdCxuhsAAAAASUVORK5CYII=" alt="alt">
+                </picture>
+                </div>
                 </div>
                 
-              
-            </section>
+                
+                <div class="ct_text__overlay ct__noborder ct_pl__40 ct_pl__mob__0 ct_pr__mob__0 ct_text__left">
+                <div class="ct_text__prirmary">
+                <h3 class="ct_font__ml ct_font__bold ct_mb__16"> Ray-Ban® 1-DAY 
+                <svg style="display:inline-block;" class="ct_w__20_px ct_h__20_px ct_mb__4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.2992 21.6427L19.8439 21.098C20.9339 21.968 22.2572 22.4053 23.5819 22.4053C25.1185 22.4053 26.6545 21.8207 27.8245 20.6507C31.7645 16.7107 31.3385 9.59335 31.3179 9.29268C31.2959 8.95935 31.0305 8.69402 30.6972 8.67202C30.3972 8.65068 23.2799 8.22535 19.3392 12.1653C17.1579 14.3467 17.0125 17.8027 18.8992 20.1567L18.3559 20.7C17.6759 21.38 17.1099 22.142 16.6512 22.958C16.5552 19.7773 15.6765 16.732 14.1059 14.0433C15.3452 12.788 16.0285 11.128 16.0285 9.36201C16.0285 7.58135 15.3352 5.90735 14.0759 4.64801C9.67254 0.246015 1.64921 0.662681 1.30921 0.683348C0.971874 0.702681 0.70254 0.972015 0.683207 1.30935C0.663207 1.64868 0.244541 9.67268 4.64854 14.076C5.90787 15.3353 7.58187 16.0287 9.36254 16.0287C10.7005 16.0287 11.9779 15.6373 13.0645 14.9087C14.5412 17.514 15.3325 20.4667 15.3325 23.542V27.346C7.60321 27.484 1.35454 29.9393 1.08454 30.0473L1.57987 31.2854C1.64587 31.2593 8.21787 28.6667 15.9992 28.6667C23.7685 28.6667 30.3525 31.2593 30.4185 31.286L30.9139 30.048C30.6445 29.9407 24.4125 27.4914 16.6979 27.3473C16.8519 25.192 17.7565 23.186 19.2992 21.6427ZM20.2825 13.108C23.1299 10.2607 28.1112 9.98602 29.9245 9.98602C29.9519 9.98602 29.9779 9.98602 30.0032 9.98602C30.0112 11.73 29.7712 16.818 26.8819 19.7073C25.2239 21.3653 22.6225 21.5073 20.7965 20.1447L23.1372 17.804L22.1945 16.8613L19.8525 19.2033C18.4819 17.3773 18.6219 14.7687 20.2825 13.108ZM5.59054 13.134C2.27254 9.81601 1.99854 3.91068 2.00054 2.00135C2.01521 2.00135 2.02987 2.00135 2.04454 2.00135C3.99921 2.00135 9.83387 2.29335 13.1325 5.59201C15.1292 7.58868 15.2032 10.7853 13.3645 12.878C12.7112 11.928 11.9692 11.0287 11.1365 10.196L10.1939 11.1387C11.0085 11.9533 11.7319 12.8347 12.3619 13.7693C10.2879 15.1827 7.42987 14.9733 5.59054 13.134Z" fill="#333333"/></svg>
+
+                </h3>
+                    
+                <ul class="ct_ul ct_mb__30">
+                    <li> The perfect contact lens for your everyday life</li>
+                    <li> Made of soft, flexible silicone hydrogel for comfort and breathability</li>
+                    <li> A great way to get into 1-day lenses at a great value </li>
+                </ul>
+                    
+                </div>
+                
+            </div>
+            </div>
         </div>
+        <!-- BANNER TEXT RIGHT -->
+        <!-- BANNER TEXT LEFT -->
+        <div class="ct_banner__container_plp  ct_pt__40 ct_pb__40 ct_bkg__light_gray">
+
+            <div class="ct_banner ct_text__side_left ct_elevated ct__noborder" >
+
+                <div class="ct_assets__container ct__noborder ">
+                <div class="ct_img__container ct_img__skeleton">
+                    <picture class="lazy-lo">
+                        <source media="(max-width: 1023px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAECAYAAABLLYUHAAAAAXNSR0IArs4c6QAAABNJREFUGFdjPHfl5n8GKGAkjgMAoMUN7ac0Xz8AAAAASUVORK5CYII=" data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-Two-M.jpg">
+                        <source media="(max-width: 1400px)" data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-Two.jpg?impolicy=ContentImQuery&im=Resize,width=1600 1x, https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-Two.jpg 2x" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAFCAYAAAB1j90SAAAAAXNSR0IArs4c6QAAABRJREFUKFNjPHfl5n8GMgDjCNAIAHSeEWgEeRZuAAAAAElFTkSuQmCC">
+                        <img data-image-src="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-Two.jpg" data-image-srcset="https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-Two.jpg?impolicy=ContentImQuery&im=Resize,width=2000 1x, https://media.targetoptical.com/2023/TO-CL-RB-Elevated-PLP/Banner-Two.jpg 2x" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAAXNSR0IArs4c6QAAABBJREFUGFdjPHPmzH8GIAAAFckDZdCxuhsAAAAASUVORK5CYII=" alt="alt">
+                    </picture>
+                </div>
+                </div>
+                
+                
+                <div class="ct_text__overlay ct__noborder  ct_text__left ct_pl__mob__0 ct_pr__mob__0">
+                <div class="ct_text__prirmary ct_pr__24 ct_pr__mob__0">
+                    <h3 class="ct_font__ml ct_font__bold ct_mb__16"> Other reasons to  choose <br class="ct__desk__hide"> Ray-Ban® 1-DAY 
+                        <svg style="display:inline-block;" class="ct_w__20_px ct_h__20_px ct_mb__mob__4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.2992 21.6427L19.8439 21.098C20.9339 21.968 22.2572 22.4053 23.5819 22.4053C25.1185 22.4053 26.6545 21.8207 27.8245 20.6507C31.7645 16.7107 31.3385 9.59335 31.3179 9.29268C31.2959 8.95935 31.0305 8.69402 30.6972 8.67202C30.3972 8.65068 23.2799 8.22535 19.3392 12.1653C17.1579 14.3467 17.0125 17.8027 18.8992 20.1567L18.3559 20.7C17.6759 21.38 17.1099 22.142 16.6512 22.958C16.5552 19.7773 15.6765 16.732 14.1059 14.0433C15.3452 12.788 16.0285 11.128 16.0285 9.36201C16.0285 7.58135 15.3352 5.90735 14.0759 4.64801C9.67254 0.246015 1.64921 0.662681 1.30921 0.683348C0.971874 0.702681 0.70254 0.972015 0.683207 1.30935C0.663207 1.64868 0.244541 9.67268 4.64854 14.076C5.90787 15.3353 7.58187 16.0287 9.36254 16.0287C10.7005 16.0287 11.9779 15.6373 13.0645 14.9087C14.5412 17.514 15.3325 20.4667 15.3325 23.542V27.346C7.60321 27.484 1.35454 29.9393 1.08454 30.0473L1.57987 31.2854C1.64587 31.2593 8.21787 28.6667 15.9992 28.6667C23.7685 28.6667 30.3525 31.2593 30.4185 31.286L30.9139 30.048C30.6445 29.9407 24.4125 27.4914 16.6979 27.3473C16.8519 25.192 17.7565 23.186 19.2992 21.6427ZM20.2825 13.108C23.1299 10.2607 28.1112 9.98602 29.9245 9.98602C29.9519 9.98602 29.9779 9.98602 30.0032 9.98602C30.0112 11.73 29.7712 16.818 26.8819 19.7073C25.2239 21.3653 22.6225 21.5073 20.7965 20.1447L23.1372 17.804L22.1945 16.8613L19.8525 19.2033C18.4819 17.3773 18.6219 14.7687 20.2825 13.108ZM5.59054 13.134C2.27254 9.81601 1.99854 3.91068 2.00054 2.00135C2.01521 2.00135 2.02987 2.00135 2.04454 2.00135C3.99921 2.00135 9.83387 2.29335 13.1325 5.59201C15.1292 7.58868 15.2032 10.7853 13.3645 12.878C12.7112 11.928 11.9692 11.0287 11.1365 10.196L10.1939 11.1387C11.0085 11.9533 11.7319 12.8347 12.3619 13.7693C10.2879 15.1827 7.42987 14.9733 5.59054 13.134Z" fill="#333333"/></svg>
+                    </h3>
+                    <p class="ct_mb__8">The first environmentally conscious contact lens:</p>
+                    <h4 class="ct_font__ml ct_font__bold ct_mb__4">For our planet
+                        </h4>
+                    <ul class="ct_ul ct_mb__16">
+                        <li>
+                            In partnership with Plastic Bank®* and through their global network, Ray-Ban strives to reduce ocean-bound plastic waste by collecting and converting an equal amount of plastic for every Ray-Ban® 1-DAY contact lens sold.  <br class="ct__desk__hide"> <button class="ct_info__popup ct_ml__4  ct_text__black" style="top: 3px;">
+                            <span class="ct_tooltip ct_top_right ct_text__black ct__bottom__top_left ct__white ct_custom">
+                                *Net plastic neutrality is established by purchasing credits from Plastic Bank. A credit represents the collection and conversion of one kilogram of plastic that may reach or be destined for waterways. CooperVision purchases credits equal to the weight of plastic in Ray-Ban® 1-DAY orders in a specified time period. Ray-Ban® 1-DAY plastic is determined by the weight of plastic in the blister, the lens, and the secondary package, including laminates, adhesives, and auxiliary inputs (e.g. ink). Amount is defined as weight. 
+
+                            <span class="ct_tooltop_triangle"></span>
+                            </span>
+                            <svg width="22" height="22" viewBox="0 0 22 22" class="ct_icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 0C4.93442 0 0 4.93442 0 11C0 17.0656 4.93442 22 11 22C17.0656 22 22 17.0656 22 11C22 4.93442 17.0656 0 11 0ZM11 20.1667C5.9455 20.1667 1.83333 16.0545 1.83333 11C1.83333 5.9455 5.9455 1.83333 11 1.83333C16.0545 1.83333 20.1667 5.9455 20.1667 11C20.1667 16.0545 16.0545 20.1667 11 20.1667Z"></path>
+                            <path d="M11.9166 9.16675H10.0833V16.5001H11.9166V9.16675Z"></path>
+                            <path d="M11.9166 5.5H10.0833V7.33333H11.9166V5.5Z"></path>
+                            </svg>
+                        </button></li>
+                    </ul>
+                    <div class="ct__desk__hide ct_bkg__medium_gray ct_w__100 ct_mb__24" style="height:1px;"></div>
+                    <h4 class="ct_font__ml ct_font__bold ct_mb__4">For the greater good   </h4>
+                    <ul class="ct_ul ct_mb__30">
+                        <li> Plastic waste collectors in coastal communities receive a premium for the materials collected. It helps them with basic family necessities, from groceries to school tuition and health insurance.</li>
+                    </ul>
+                    
+                    
+                    
+                </div>
+                <div class="ct_text__secondary">
+                    
+                </div>    
+                </div>
+                
+            </div>
+        </div>
+        <!-- BANNER TEXT LEFT -->
     </div>
-</body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js" integrity="sha512-RDQSW3KoqJMiX0L/UBgwBmH1EmRYp8LBOiLaA8rBHIy+7OGP/7Gxg8vbt8wG4ZYd29P0Fnoq6+LOytCqx3cyoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+</div>

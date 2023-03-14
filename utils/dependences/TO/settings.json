@@ -9,6 +9,7 @@
         "jsPath":"../0_ModuleLibrary/DesignSystem/script/",
         "cssPath":"../0_ModuleLibrary/DesignSystem/style/",
         "jsDestPath":"../0_ModuleLibrary/DesignSystem/export/js/",
+        "cssDestPath":"../0_ModuleLibrary/DesignSystem/export/css/",
         "jsDestName":"index_dev.min.js",
         "cssDestName":"index_dev.min.css"
     }

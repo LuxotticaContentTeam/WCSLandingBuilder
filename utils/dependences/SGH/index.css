@@ -9,6 +9,7 @@ body{
     background-color: #222;
     width: 100%;
     height: 35px;
+    z-index: 1000;
     
 }
 .promo_strip{
@@ -17,10 +18,12 @@ body{
     height: 35px;
     position: fixed;
     top: 0;
+    z-index: 1000;
 }
 .menu_wrap{
     width: 100%;
     height: 60px;
+    z-index: 1000;
 }
 .menu{
     width: 100%;
@@ -31,6 +34,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
 }
 
 footer{
@@ -50,6 +54,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 @media(max-width:1023px){

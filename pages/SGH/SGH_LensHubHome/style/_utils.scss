@@ -20,11 +20,12 @@
         text-decoration: none;
         justify-content: center;
         white-space: nowrap;
+        cursor: pointer;
         //COLOR VARIANT
         &.ct_cta__black{
             background-color: $black;
             color: #fff;
-            border: 1px solid black;
+            border: 1px solid  $black;;
             @media(min-width:1025px){
                 &:hover,&:focus{
                     background-color: $black_hover;
