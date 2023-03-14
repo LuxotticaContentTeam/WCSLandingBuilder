@@ -6,8 +6,6 @@
 @import "./modules/slick";
 @import "./modules/video";
 
-$headerHight: 95px;
-
 .ct_space {
   position: relative;
 
@@ -30,13 +28,12 @@ $headerHight: 95px;
 
   #section-benefits{
     .ct_benefits_container {
-      //height: 3600px;
-      height: calc(400vh - $headerHight*4);
+      height: 3600px;
       background-color: #ccc;
       position: relative;
     
       .ct_title {
-        height: calc(100vh - $headerHight);
+        height: 100vh;
         width: 50%;
         position: relative;
         //position: absolute;
@@ -51,26 +48,15 @@ $headerHight: 95px;
           transform: translate(0px, -50%);
         }
       }
-
       .ct_benefits_item {
         font-size: 32px;
         font-weight: 300;
-
-        .item{
-          opacity: 0.1;
-          display: flex;
-          align-items: center;
-
-          span{
-            padding-left: 20px;
-          }
-        }
       }
     
       #benefits-item-01 {
-        height: calc(100vh - $headerHight);
+        height: 100vh;
         position: absolute;
-        top: calc(100vh - $headerHight);
+        top: 100vh;
         right: 0px;
         width: 50%;
 
@@ -79,13 +65,14 @@ $headerHight: 95px;
           position: absolute;
           bottom: calc(50% + 150px);
           transform: translate(0, 50%);
+          opacity: 0.1;
         }
       }
     
       #benefits-item-02 {
-        height: calc(100vh - $headerHight);
+        height: 100vh;
         position: absolute;
-        top: calc(150vh - $headerHight);
+        top: 150vh;
         right: 0px;
         width: 50%;
 
@@ -94,13 +81,14 @@ $headerHight: 95px;
           position: absolute;
           bottom: calc(50% + 50px);
           transform: translate(0, 50%);
+          opacity: 0.1;
         }
       }
     
       #benefits-item-03 {
-        height: calc(100vh - $headerHight);
+        height: 100vh;
         position: absolute;
-        top: calc(200vh - $headerHight);
+        top: 200vh;
         right: 0px;
         width: 50%;
 
@@ -109,13 +97,14 @@ $headerHight: 95px;
           position: absolute;
           bottom: calc(50% - 50px);
           transform: translate(0, 50%);
+          opacity: 0.1;
         }
       }
     
       #benefits-item-04 {
-        height: calc(100vh - $headerHight);
+        height: 100vh;
         position: absolute;
-        top: calc(250vh - $headerHight);
+        top: 250vh;
         right: 0px;
         width: 50%;
 
@@ -123,26 +112,56 @@ $headerHight: 95px;
           height: fit-content;
           position: absolute;
           bottom: calc(50% - 150px);
+          opacity: 0.1;
           transform: translate(0, 50%);
         }
       }
-
-      .ct_lens {
-        position: absolute;
-        right: 0px;
-        transform: translateX(600px);
-        top: -150px;
-        height: 300px;
-        width: 300px;
-        //background-color: #ddd;
-        position: absolute;
-        z-index: 999;
-        border-radius: 50%;
-        // top: -150px;
-        // right: -300px;
-      }
+    
+      // #item-01 {
+      //   height: fit-content;
+      //   position: absolute;
+      //   //bottom: 10%;
+      //   bottom: calc(50% + 150px);
+      //   transform: translate(0, 50%);
+      //   //transform: translateY(0px);
+      //   opacity: 0.1;
+      // }
+      // #item-02 {
+      //   height: fit-content;
+      //   position: absolute;
+      //   //bottom: 10%;
+      //   bottom: calc(50% + 50px);
+      //   transform: translate(0, 50%);
+      //   //transform: translateY(100px);
+      //   opacity: 0.1;
+      // }
+      // #item-03 {
+      //   height: fit-content;
+      //   position: absolute;
+      //   //bottom: 10%;
+      //   bottom: calc(50% - 50px);
+      //   transform: translate(0, 50%);
+      //   //transform: translateY(200px);
+      //   opacity: 0.1;
+      // }
+      // #item-04 {
+      //   height: fit-content;
+      //   position: absolute;
+      //   //bottom: 10%;
+      //   bottom: calc(50% - 150px);
+      //   opacity: 0.1;
+      //   transform: translate(0, 50%);
+      //   //transform: translateY(300px);
+      // }
+    
+      // .ct_title h1 {
+      //   position: absolute;
+      //   top: 50%;
+      //   transform: translate(0px, -50%);
+      // }
     }
   }
+
 
   #section-best-usage {
     height: auto;
@@ -158,44 +177,17 @@ $headerHight: 95px;
       z-index: 2;
     }
   }
-
-  #section-find-style{
-    .ct_container{
-      position: relative;
-
-      .ct_assets__container{
-        .ct_img{
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-
-          img{
-            width: 100%;
-            height: auto;
-            display: block;
-          }
-        }
-      }
-      .ct_text__overlay{
-        position: absolute;
-        top: 50%;
-        padding: 0px 60px;
-        max-width: 60%;
-        z-index: 9;
-        transform: translate(0, -50%);
-
-        h1{
-          font-size: 60px;
-          font-weight: 300;
-          width: 60%;
-        }
-
-        div{
-        }
-      }
-    }
+  .ct_text__white {
+    color: #fff;
   }
+
+}
+
+#lens {
+  position: absolute;
+  right: 0px;
+  transform: translateX(600px);
+  top: -150px;
 }
 
 //locomotive class
@@ -204,7 +196,7 @@ $headerHight: 95px;
 }
 
 .ct_ls__top {
-  top: $headerHight !important;
+  top: 0 !important;
 }
 
 .ct_ls__bottom {
@@ -213,9 +205,21 @@ $headerHight: 95px;
   position: absolute !important;
 }
 
-// img {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   object-position: 50% 50%;
-// }
+
+.lens-right {
+  height: 300px;
+  width: 300px;
+  background-color: #ddd;
+  position: absolute;
+  z-index: 999;
+  border-radius: 50%;
+  top: -150px;
+  right: -300px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
