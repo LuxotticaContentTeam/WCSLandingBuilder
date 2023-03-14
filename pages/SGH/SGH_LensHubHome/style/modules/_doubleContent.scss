@@ -3,9 +3,18 @@
         width: 100%;
         display: flex;
         align-items: stretch;
+        @media(max-width:$mob){
+            flex-direction: column;
+            &.ct__mob__reverse{
+                flex-direction: column-reverse;
+            }
+        }
         .ct_video__container{
             width: 50%;
             position: relative;
+            @media(max-width:$mob){
+                width: 100%;
+            }
             img{
                 display: block;
                 width: 100%;
@@ -28,15 +37,38 @@
             align-items: flex-start;
             flex-direction: column;
             justify-content: center;
+            @media(max-width:$mob){
+                width: 100%;
+                padding: 20px;
+            }
+            .ct_title{
+                margin-bottom: 8px;
+            }
             p{
                 margin-bottom: 16px;
             }
             .ct_cta__container{
                 display: flex;
                 flex-direction: column;
+                @media(max-width:$mob){
+                    width: 100%;
+                }
                 a{
                     margin-right: 12px;
                     margin-bottom: 12px;
+                    @media(max-width:$mob){
+                        width: 46%;
+                        max-width: 46%;
+                        margin-right: 2%;
+                        min-width: 1px;
+                      
+                    }
+                    &.ct_cta__single{
+                        @media(max-width:$mob){
+                            width: 100%;
+                            max-width: 100%;
+                        }
+                    }
                 }
             }
         }

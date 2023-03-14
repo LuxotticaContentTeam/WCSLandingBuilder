@@ -67,12 +67,19 @@
                         background-color: #333333;
                         @media(max-width:$mob){
                             min-width: 40vw;
-                            
                         }
-                        &:hover,&.ct_active{
+                        &:hover{
+                            @media(min-width:$desk-min){
+                                background-color: $black;
+                                border-color: $grey_light;
+                            }
+                        }
+                        &.ct_active{
                             background-color: $black;
                             border-color: $grey_light;
                         }
+                       
+                       
                     }
                 }
             }

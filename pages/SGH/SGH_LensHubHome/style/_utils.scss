@@ -27,7 +27,7 @@
             color: #fff;
             border: 1px solid  $black;;
             @media(min-width:1025px){
-                &:hover,&:focus{
+                &:hover{
                     background-color: $black_hover;
                     border-color: $black_hover;
                 }
