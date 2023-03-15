@@ -24,8 +24,11 @@
     }
     .slider-images{
         width: 100%;
-        position: relative;
+      
         z-index: 2;
+        position: absolute;
+        left: 0;
+        top: 0;
         .slick-slide{
             transition: all .6s ease;
             padding: 200px 0;
@@ -134,7 +137,7 @@
             margin: 0;
            
             width: auto;
-            margin-top: 1px;
+            margin-top: 0px;
             @media(max-width:$mob){
                
                 left: unset;

@@ -1,3 +1,4 @@
+import { navManger } from "./nav";
 
 
 function currentDevice() {
@@ -186,6 +187,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     sticky_nav();
     video_manager();
     nav_handler();
+    // navManger.init();
+
 })
 
 
