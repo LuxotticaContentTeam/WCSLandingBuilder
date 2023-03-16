@@ -8,7 +8,8 @@
     "test": "gulp test --page s",
     "dev": "gulp dev_",
     "devMob": "gulp dev_ --mob true",
-    "build": "gulp build_ "
+    "build": "gulp build_ ",
+    "sprite":"gulp sprite --icons"
   },
   "author": "",
   "license": "ISC",

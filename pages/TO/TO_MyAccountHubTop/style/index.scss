@@ -1,0 +1,31 @@
+@import '../0_ModuleLibrary/DesignSystem/style/variables';
+@import 'resetLP';
+
+.ct_space {
+  .ct_red_card__banner{
+        width: 100%;
+        padding: 12px 40px;
+        border: 1px solid $medium-gray;
+        border-radius: 16px;
+        box-sizing: border-box;
+        background-color: #fff;
+        .ct_red_card__text{
+            width: 50%;
+            button{
+                background-color: transparent;
+                border: none;
+                padding: 0;
+            }
+            .ct_red_card__disc_wrap{
+                height: 0;
+                transition: height .3s ease;
+                overflow: hidden;
+            }
+        }
+  }
+ 
+}
+
+*{
+  
+}
