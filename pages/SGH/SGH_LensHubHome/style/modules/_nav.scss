@@ -28,12 +28,16 @@
                 overflow: hidden;
                 width: 100%;
                 z-index: 5;
+                transition: all .6s ease;
                 &.ct_stick{
                     position: fixed;
                     top: 95px;
                     @media(max-width:$mob){
                         top: 60px;
                     }
+                }
+                &.ct_hide{
+                    transform: translateY(-100%);
                 }
             }
             ul{

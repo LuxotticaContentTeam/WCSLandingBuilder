@@ -8,10 +8,14 @@ export const navManger = {
         active:false,
         section:''
     },
+    inSection:false,
     init:function(){
         this.setOffests()
         this.setStickyNav();
         this.setClickHandler();
+        this.setActiveSection();
+
+        this.onScrollEvents();
     },
     setOffests:function(){
         this.menu_offset = document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.benefitbar').clientHeight;
@@ -21,11 +25,12 @@ export const navManger = {
                 "top" : elem.offsetTop
             };
         });
+        this.sectionsTopOffestKeys = Object.keys(this.sectionsTopOffest)
     },
     setStickyNav:function(){
         if (window.scrollY + this.menu_offset >= this.nav_container.offsetTop){
-            if (!nav.classList.contains('ct_stick')){
-                nav.classList.add('ct_stick');
+            if (!this.nav.classList.contains('ct_stick')){
+                this.nav.classList.add('ct_stick');
             }
         }else{
             if (this.nav.classList.contains('ct_stick')){
@@ -41,14 +46,55 @@ export const navManger = {
                 if (document.querySelector('.ct_nav__container ul button.ct_active')){
                     document.querySelector('.ct_nav__container ul button.ct_active').classList.remove("ct_active");
                 }
-                manual_click.active = true;
-                manual_click.section = elem.dataset.sectionTo;
+                this.manual_click.active = true;
+                this.manual_click.section = elem.dataset.sectionTo;
     
                 elem.classList.add('ct_active');
                 if (ct_current__device === 'M'){
                     $('.ct_nav__stick_wrap ul').stop().animate({scrollLeft: $(elem).offset().left +   $('.ct_nav__stick_wrap ul').scrollLeft() - 8}, 500, 'linear', function() { });
                 }
             })
+        })
+    },
+    setActiveSection:function(){
+        navManger.inSection = false;
+        navManger.sectionsTopOffestKeys.forEach((elem,i)=>{
+            if (window.scrollY + navManger.nav_offset >= navManger.sectionsTopOffest[elem].top && window.scrollY + navManger.nav_offset < navManger.sectionsTopOffest[navManger.sectionsTopOffestKeys[i+1]]?.top ){
+                navManger.inSection = true;
+                if(navManger.nav.classList.contains('ct_hide')){
+                    navManger.nav.classList.remove('ct_hide')
+                }
+                if (!document.querySelector(`[data-section-to="${elem}"]`).classList.contains('ct_active')){
+                    if(document.querySelector('.ct_nav__container button.ct_active')){
+                        document.querySelector('.ct_nav__container button.ct_active').classList.remove('ct_active');
+                    }
+                    document.querySelector(`[data-section-to="${elem}"]`).classList.add('ct_active')
+                    if (ct_current__device === 'M'){
+                        $('.ct_nav__stick_wrap ul').stop().animate({scrollLeft: $(`[data-section-to="${elem}"]`).offset().left +   $('.ct_nav__stick_wrap ul').scrollLeft() - 8}, 500, 'linear', function() { });
+                    }
+                }
+            }
+        });
+        if(!navManger.inSection && document.querySelector('.ct_nav__container button.ct_active')){
+            document.querySelector('.ct_nav__container button.ct_active').classList.remove('ct_active');
+            if(window.scrollY >= navManger.sectionsTopOffest.last.top -  navManger.nav_offset){
+                navManger.nav.classList.add('ct_hide')
+            }else{
+                navManger.nav.classList.remove('ct_hide')
+            }
+        }
+       
+    },
+    onScrollEvents:function(){
+        document.addEventListener('scroll',function(){
+            navManger.setStickyNav();
+            if (navManger.manual_click.active){
+                if (window.scrollY + navManger.nav_offset  >= navManger.sectionsTopOffest[navManger.manual_click.section].top && window.scrollY + navManger.nav_offset <  navManger.sectionsTopOffest[navManger.sectionsTopOffestKeys[navManger.sectionsTopOffestKeys.indexOf(navManger.manual_click.section)+1]].top ){
+                    navManger.manual_click.active = false
+                }
+            }else{
+                navManger.setActiveSection() 
+            }
         })
     }
 
