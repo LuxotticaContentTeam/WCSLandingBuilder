@@ -19,7 +19,7 @@
         font-weight: 300;
         margin: 0;
         color: $black;
-        @media(max-width:$mob){
+        @media(max-width:$tab-max){
             font-size: 32px;
         }
     }
@@ -58,7 +58,7 @@
             transform: translateY(-50%);
             margin: 0;
             width: 28vw;
-            @media(max-width:$mob){
+            @media(max-width:$tab-max){
                 top: 10vw;
                 transform: none;
                 width: 100%;
@@ -72,7 +72,7 @@
             transform: translateY(-50%);
             width: 33%;
             left: 38vw;
-            @media(max-width:$mob){
+            @media(max-width:$tab-max){
                 top: calc(10vw + 60px);
                 width: 100%;
                 padding: 0 20px;
@@ -82,7 +82,7 @@
             p{
                 margin-bottom: 16px;
                 color: $black;
-                @media(max-width:$mob){
+                @media(max-width:$tab-max){
                     margin-bottom: 24px;
                 }
             }
@@ -92,7 +92,7 @@
                         margin-right: 20px;
                     }
                 }
-                @media(max-width:$mob){
+                @media(max-width:$tab-max){
                     a{
                         width: 100%;
                         margin-bottom: 12px;
