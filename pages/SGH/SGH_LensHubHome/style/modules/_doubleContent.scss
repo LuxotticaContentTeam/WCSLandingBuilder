@@ -3,15 +3,30 @@
         width: 100%;
         display: flex;
         align-items: stretch;
+        overflow: hidden;
         @media(max-width:$mob){
             flex-direction: column;
             &.ct__mob__reverse{
                 flex-direction: column-reverse;
             }
         }
+        &.ct_in{
+            .ct_video__container,.ct_text__container{
+                transform: translateY(0px);
+                opacity: 1;
+            }
+          
+        }
+        .ct_video__container,
+        .ct_text__container{
+            transform: translateY(60px);
+            opacity: 0;
+            transition: transform .5s ease, opacity 1s ease;
+        }
         .ct_video__container{
             width: 50%;
             position: relative;
+           
             @media(max-width:$mob){
                 width: 100%;
             }
@@ -37,6 +52,7 @@
             align-items: flex-start;
             flex-direction: column;
             justify-content: center;
+
             @media(max-width:$mob){
                 width: 100%;
                 padding: 20px;
@@ -54,8 +70,8 @@
                     width: 100%;
                 }
                 a{
-                    margin-right: 12px;
-                    margin-bottom: 12px;
+                    margin-right: 4px;
+                    margin-bottom: 8px;
                     @media(max-width:$mob){
                         width: 46%;
                         max-width: 46%;

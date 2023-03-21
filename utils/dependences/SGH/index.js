@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded',()=>{
     let strip = document.createElement('div');
     strip.id = "strip"
@@ -7,5 +9,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         if (window.promo){
             document.querySelector('#espot').before(strip)
         }
-    },1000)
+    },1000);
+
+   
 })
