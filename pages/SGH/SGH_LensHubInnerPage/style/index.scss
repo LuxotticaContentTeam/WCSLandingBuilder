@@ -6,9 +6,12 @@
 @import "./modules/slick";
 @import "./modules/video";
 
+
 $headerHight: 95px;
+$headerHightMob: 60px;
 
 .ct_space {
+  overflow-x: hidden;
   position: relative;
 
   #section-lens {
@@ -26,14 +29,27 @@ $headerHight: 95px;
       padding: 5% 12%;
       width: 30%;
     }
+
+    @media(max-width: $mob){
+      h1{
+        font-size: 50px;
+      }
+      .section-lens__container {
+        padding: 60px 30px;
+        width: 60%;
+      }
+    }
+
   }
 
   #section-benefits{
     .ct_benefits_container {
-      //height: 3600px;
       height: calc(400vh - $headerHight*4);
-      background-color: #ccc;
       position: relative;
+
+      @media(max-width: $mob){
+        height: calc(400vh - $headerHightMob*4);
+      }
     
       .ct_title {
         height: calc(100vh - $headerHight);
@@ -49,12 +65,30 @@ $headerHight: 95px;
           position: absolute;
           top: 50%;
           transform: translate(0px, -50%);
+
+        }
+        @media (max-width: $mob) {
+          height: calc(100vh - $headerHightMob);
+
+          h1{
+            font-size: 50px;
+            top: 15%;
+          }
         }
       }
 
       .ct_benefits_item {
         font-size: 32px;
         font-weight: 300;
+        width: 50%;
+        height: calc(100vh - $headerHight);
+        position: absolute;
+
+        @media (max-width: $mob) {
+          font-size: 24px;
+          width: 100%;
+          height: calc(100vh - $headerHightMob);
+        }
 
         .item{
           opacity: 0.1;
@@ -64,16 +98,20 @@ $headerHight: 95px;
           span{
             padding-left: 20px;
           }
+
+          @media (max-width: $mob) {
+            left: 10%;
+          }
         }
       }
     
       #benefits-item-01 {
-        height: calc(100vh - $headerHight);
-        position: absolute;
         top: calc(100vh - $headerHight);
         right: 0px;
-        width: 50%;
 
+        @media (max-width: $mob) {
+          top: calc(100vh - $headerHightMob);
+        }
         .item{
           height: fit-content;
           position: absolute;
@@ -83,11 +121,12 @@ $headerHight: 95px;
       }
     
       #benefits-item-02 {
-        height: calc(100vh - $headerHight);
-        position: absolute;
         top: calc(150vh - $headerHight);
         right: 0px;
-        width: 50%;
+
+        @media (max-width: $mob) {
+          top: calc(150vh - $headerHightMob);
+        }
 
         .item{
           height: fit-content;
@@ -98,11 +137,12 @@ $headerHight: 95px;
       }
     
       #benefits-item-03 {
-        height: calc(100vh - $headerHight);
-        position: absolute;
         top: calc(200vh - $headerHight);
         right: 0px;
-        width: 50%;
+
+        @media (max-width: $mob) {
+          top: calc(200vh - $headerHightMob);
+        }
 
         .item{
           height: fit-content;
@@ -113,11 +153,12 @@ $headerHight: 95px;
       }
     
       #benefits-item-04 {
-        height: calc(100vh - $headerHight);
-        position: absolute;
         top: calc(250vh - $headerHight);
         right: 0px;
-        width: 50%;
+
+        @media (max-width: $mob) {
+          top: calc(250vh - $headerHightMob);
+        }
 
         .item{
           height: fit-content;
@@ -134,12 +175,9 @@ $headerHight: 95px;
         top: -150px;
         height: 300px;
         width: 300px;
-        //background-color: #ddd;
         position: absolute;
         z-index: 999;
         border-radius: 50%;
-        // top: -150px;
-        // right: -300px;
       }
     }
   }
@@ -148,7 +186,18 @@ $headerHight: 95px;
     height: auto;
     position: relative;
 
-    .section-best-usage-title {
+    .ct_wrapper__clipbox{
+      width: 50%;
+      @media (max-width: $mob) {
+        width: 100%;
+      }
+    }
+
+    .ct_wrapper__carousel{
+      width: 50%;
+      z-index: 999;
+    }
+    .ct_carousel__title {
       position: absolute;
       top: 68px;
       left: calc(50% + 30px);
@@ -157,6 +206,18 @@ $headerHight: 95px;
       text-transform: uppercase;
       z-index: 2;
     }
+    
+    @media (max-width: $mob) {
+      .ct_wrapper__carousel{
+        position: relative;
+        width: 100%;
+        
+        .ct_carousel__title{
+          top: 24px;
+          left: 30px;
+        }
+      }
+    }
   }
 
   #section-find-style{
@@ -164,19 +225,17 @@ $headerHight: 95px;
       position: relative;
 
       .ct_assets__container{
-        .ct_img{
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-
+          img:not(.ct_skeleton) {
+            position: absolute;
+            left: 0;
+            top: 0;
+          } 
           img{
             width: 100%;
             height: auto;
             display: block;
           }
         }
-      }
       .ct_text__overlay{
         position: absolute;
         top: 50%;
@@ -190,8 +249,16 @@ $headerHight: 95px;
           font-weight: 300;
           width: 60%;
         }
+        @media (max-width: $mob) {
+          flex-direction: column;
+          max-width: 100%;
+          top: 80px;
+          transform: translate(0,0);
 
-        div{
+          h1{
+            font-size: 50px;
+            width: 100%;
+          }
         }
       }
     }
@@ -201,10 +268,19 @@ $headerHight: 95px;
 //locomotive class
 .ct_ls__fixed {
   position: fixed !important;
+  //animation: smoothScroll 1s forwards;
+  // -webkit-transition: position 0.5s linear;
+  // -moz-transition: position 0.5s linear;
+  // -o-transition: position 0.5s linear;
+  // transition: position 0.5s linear;
 }
 
 .ct_ls__top {
   top: $headerHight !important;
+
+  @media (max-width: $mob) {
+      top: $headerHightMob !important;
+  }
 }
 
 .ct_ls__bottom {
@@ -213,6 +289,14 @@ $headerHight: 95px;
   position: absolute !important;
 }
 
+@keyframes smoothScroll {
+	0% {
+		transform: translateY(-4px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
 // img {
 //   width: 100%;
 //   height: 100%;

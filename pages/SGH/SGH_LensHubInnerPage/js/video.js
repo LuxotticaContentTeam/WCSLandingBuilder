@@ -1,17 +1,18 @@
 class Video {
 
-    videoManager(){
+    video_manager(){
         let videos = document.querySelectorAll('.ct_space .ct_video__container');
-    
+      
         videos.forEach((elem)=>{
             elem.querySelector('video').addEventListener('canplay',(e)=>{
-                elem.querySelector('video').pause();        
+                elem.querySelector('video').play();        
             },{ once: true })
-            this.setVideoControl(elem.querySelector('.ct_video__controls'),elem.querySelector('video'))
+            this.set_video_control(elem.querySelector('.ct_video__controls'),elem.querySelector('video'))
         });
     }
+    
 
-    setVideoControl(controls,video){
+    set_video_control(controls,video){
         controls.addEventListener('click',(e)=>{
             if (video.paused){
                 if(video.readyState < 3) {
@@ -26,7 +27,7 @@ class Video {
                             video.load();
                         }
                         if(video.readyState >= 3) {
-                        
+                          
                             video.play();
                             clearInterval(waitVideoLoaded);
                         }
@@ -46,7 +47,7 @@ class Video {
     }
 
     init(){
-        this.videoManager();
+        this.video_manager();
     }
 
 }

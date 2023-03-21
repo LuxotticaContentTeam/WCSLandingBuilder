@@ -1,9 +1,9 @@
 class Slider {
   init() {
-    $('.carousel').slick({
+    $('.ct_carousel').slick({
         centerMode: true,
         autoplay: true,
-        autoplaySpeed: 7000,
+        autoplaySpeed: 2000,
         arrows: false,
         dots: false,
         slidesToShow: 1,
@@ -15,7 +15,7 @@ class Slider {
         touchMove: false,
         vertical: true,
         useCSS: true,
-        useTransform: true,
+        useTransform: false,
         accessibility: false,
         cssEase: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
     });

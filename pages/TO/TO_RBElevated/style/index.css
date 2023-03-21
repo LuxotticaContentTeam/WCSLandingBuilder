@@ -1,0 +1,12 @@
+@media (min-width: 1025px) {
+  .ct_space .ct_tooltip.ct_custom {
+    width: 500px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .ct_space .ct_tooltip.ct_custom {
+    width: 300px;
+  }
+}
+/*# sourceMappingURL=index.css.map */

@@ -4,7 +4,9 @@ import Slider from "./slider";
 import Video from "./video";
 
 window.LPlensHub = {};
-const headerHeight = 95;
+const headerHeightDesk = 95;
+const headerHeightMob = 60;
+let headerHeight = ct_is_mobile() ? headerHeightMob : headerHeightDesk;
 
 // elements
 const benefitsTitle = document.querySelector("#section-benefits .ct_title");
@@ -25,8 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
  //init locomotive
   window.LPlensHub.lsscroll = new LocomotiveScroll({
     el: document.querySelector("[data-scroll-container]"),
-    smooth: false,
+    scrollbarContainer: document.querySelector("[data-scroll-container]"),
+    lerp: 0.05, // Linear Interpolation, 0 > 1 // Try 0.01
+    smooth: !1,
+    lerp: .5,
+    reloadOnContextChange: !0,
+    tablet: {
+        smooth: !1
+    },
+    smartphone: {
+        smooth: !1
+    }
   });
+
 
   //init LazyLoad
   new LazyLoad().init();
@@ -38,13 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
   new Video().init();
   
   window.LPlensHub.lsscroll.on("scroll", (args) => {
-    // console.log(window.LPlensHub.lsscroll.scroll.els);
-    // console.log(args);
+     console.log(window.LPlensHub.lsscroll.scroll.els);
+     console.log(args);
 
     // section benefits
     if (typeof args.currentElements["benefits"] === "object") {
-      console.log("scroll + height", args.scroll.y + headerHeight);
-      console.log("top:", args.currentElements["benefits"].top);
 
       // scroll is in benefits section
       if (args.scroll.y + headerHeight >= args.currentElements["benefits"].top) {
@@ -53,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         benefitsTitle.classList.remove(toBottom);
         benefitsLens.classList.add(fixed);
         $("#lens").css({
-          bottom: "calc(100vh - 95px - 150px)",
+          bottom: `calc(100vh - ${headerHeight}px - 150px)`,
           top: "auto"
         });
 
@@ -97,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         benefitsLens.classList.remove(fixed);
         $("#lens").css({
-          bottom: "bottom: calc(100vh - 95px - 150px)",
+          bottom: `calc(100vh - ${headerHeight}px - 150px)`
         });
 
         benefitsItem01.classList.remove(fixed, toTop);
@@ -209,10 +220,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //benefits item04
     if (typeof args.currentElements["item-04"] === "object") {
-      $("#benefits .benefits-item-04 div").css({
-        opacity: `${args.currentElements["item-04"].progress}`,
-      });
-
+      if(args.currentElements["item-04"].inView){
+        console.log(args.currentElements["item-04"].progress*2);
+          $("#benefits .benefits-item-04 div").css({
+            opacity: `${args.currentElements["item-04"].progress}`,
+          });
+      }
         if (args.currentElements["item-04"].inView) {
           if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-04"].top) {
             if(isScrollingDown())
@@ -237,3 +250,58 @@ const isScrollingDown = () => {
   previousScrollPosition = scrollPosition;
   return !goingDown;
 };
+
+function ct_is_mobile() {
+  return !($(window).width() > 1024) && (1024 !== $(window).width() || window.innerHeight > window.innerWidth)
+}
+
+
+/* drag image clipbox */
+const clipbox = document.querySelector(".ct_clipbox");
+const dragger = document.querySelector(".ct_clipbox .dragger");
+const first   = document.querySelector(".ct_clipbox .primary__img");
+
+let drag = false;
+
+const draggerWidth = dragger.getBoundingClientRect().width;
+
+
+const clipboxDimensions = {
+	width: clipbox.getBoundingClientRect().width,
+	left: clipbox.getBoundingClientRect().left
+};
+
+const handleStartDrag = () => {
+	drag = true;
+	dragger.classList.add("dragger--active");
+	dragger.style.pointerEvents = "none";
+};
+
+const handleStopDrag = () => {
+	drag = false;
+	dragger.style.pointerEvents = "auto";
+	dragger.classList.remove("dragger--active");	
+	clipbox.style.cursor = "auto";
+};
+
+const handleImgReveal = e => {
+	e.preventDefault();
+  if(ct_is_mobile())
+    e.offsetX = e.offsetX || e.targetTouches[0].pageX - clipboxDimensions.left;
+	if(drag && e.offsetX < clipboxDimensions.width && e.offsetX > 0) {
+		clipbox.style.cursor = "ew-resize";
+		dragger.style.left = e.offsetX - draggerWidth / 2 + "px";
+		first.style.width = e.offsetX + "px";
+	}
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    dragger.addEventListener("mousedown", handleStartDrag);
+    dragger.addEventListener("touchstart", handleStartDrag);
+
+    clipbox.addEventListener("mouseup", handleStopDrag);
+    clipbox.addEventListener("touchend", handleStopDrag);
+
+    clipbox.addEventListener("mousemove", handleImgReveal);
+    clipbox.addEventListener("touchmove", handleImgReveal);
+});
