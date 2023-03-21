@@ -18,7 +18,11 @@ export const navManger = {
         this.onScrollEvents();
     },
     setOffests:function(){
-        this.menu_offset = document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.benefitbar').clientHeight;
+        this.menu_offset = ct_current__device === 'M' ? 
+            document.querySelectorAll('.sgh-main-menu')[1].clientHeight  :
+            document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-service-menu').clientHeight;
+
+
         this.nav_offset = this.menu_offset + this.nav.clientHeight;
         [...document.querySelectorAll('.ct_space [data-section]')].forEach(elem=>{
             this.sectionsTopOffest[elem.dataset.section] = { 

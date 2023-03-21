@@ -25,6 +25,7 @@ function  entryAnim(){
 document.addEventListener('DOMContentLoaded',()=>{
     window.ct_current__device = currentDevice();
     window.promo = false;
+    window.navManger = navManger
     entryHero();
     lazyLo();
     videoManager.init();

@@ -25,6 +25,8 @@
             font-size: 16px;
             color: $black;
             text-align: center;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
         p{
             text-align: center;
@@ -150,12 +152,12 @@
                 text-align: center;
                 margin-top: 30px;
                 margin-bottom: 12px;
+                pointer-events: all;
             }
         }
     }
     .slick-dots{
         position: absolute;
-        bottom: 0px;
         margin: 0;
         left: 50%;
         bottom: -35px;
@@ -163,6 +165,7 @@
         padding: 0;
         transform: translateX(-50%);
         width: auto;
+        right: unset;
         @media(max-width:$mob){
          
           
@@ -195,6 +198,7 @@
                 font-size: 14px;
                 width: auto;
                 color: $black;
+                text-indent: 0;
                 @media(max-width:$mob){
                     margin: 0;
                 }
@@ -223,6 +227,10 @@
         transform: translateX(-50%);
         pointer-events: auto;
         padding: 0;
+        top: unset;
+        &::after,&::before{
+            display: none;
+        }
         @media(max-width:$mob){
             left: 30%;
         }
