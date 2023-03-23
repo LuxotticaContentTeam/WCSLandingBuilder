@@ -14,7 +14,7 @@ $borderRadius: 10px;
     width: $clipboxWidth*2;
   }
   
-  .img__container {
+  .ct_img__container {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -27,8 +27,8 @@ $borderRadius: 10px;
       object-position:50% 50%;
     }
     
-    .primary__img,
-    .secondary__img {
+    .img_primary,
+    .img_secondary {
       position: absolute;
       overflow: hidden;
       background-size: $clipboxWidth auto;
@@ -41,8 +41,8 @@ $borderRadius: 10px;
       }
     }
     @media (max-width: $mob) {
-      .primary__img,
-      .secondary__img {
+      .img_primary,
+      .img_secondary {
         background-size: calc($clipboxWidth*2) auto;
 
         img{
@@ -50,20 +50,33 @@ $borderRadius: 10px;
         }
       }
     }
-    .primary__img {
+    .img_primary {
       width: calc($clipboxWidth / 2);
       z-index: 100;
       border-right: solid 2px #fff;
       @media (max-width: $mob) {
         width: $clipboxWidth;
       }
+
+      .ct_img__desc{
+        position: absolute;
+        left: 15px;
+        min-width: 50vw;
+        font-size: 12px;
+      }
     }
-    .secondary__img {
+    .img_secondary {
       width: 100%;
       z-index: 50;
+
+      .ct_img__desc{
+        position: absolute;
+        right: 15px;
+        font-size: 12px;
+      }
     }
   }
-  .dragger {
+  .ct_dragger {
     height: 50px;
     width: 100px;
     border-radius: 100px;

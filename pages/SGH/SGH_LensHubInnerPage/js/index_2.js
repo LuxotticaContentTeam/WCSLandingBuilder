@@ -4,6 +4,10 @@ import Slider from "./slider";
 import Video from "./video";
 
 window.LPlensHub = {};
+//const headerHeightDesk = 95;
+//const headerHeightMob = 60;
+//let headerHeight = ct_is_mobile() ? headerHeightMob : headerHeightDesk;
+let headerHeight = window.ct_current__device === 'M' ? document.querySelectorAll('.sgh-main-menu')[1].clientHeight : document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-service-menu').clientHeight;
 
 // elements
 const benefitsTitle = document.querySelector(".ct_section__benefits .ct_title");
@@ -20,19 +24,9 @@ const toBottom = "ct_ls__bottom";
 
 document.addEventListener("DOMContentLoaded", () => {
   window.promo = false;
-  window.ct_current__device = currentDevice();
-  let headerHeight = window.ct_current__device === 'M' ? document.querySelectorAll('.sgh-main-menu')[1].clientHeight : document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-service-menu').clientHeight;
 
-  document.querySelector(".ct_section__benefits .ct_title").style.height = `calc(100vh - ${headerHeight}px`;
-  document.querySelectorAll(".ct_section__benefits .ct_benefits_item").forEach(function(el){el.style.height = `calc(100vh - ${headerHeight}px`});
-  
   //init lazy
   lazyLo();
-
-  new Slider().init();
-  
-  //init video
-  new Video().init();
 
  //init locomotive
   window.LPlensHub.lsscroll = new LocomotiveScroll({
@@ -49,6 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
         smooth: !1
     }
   });
+
+  new Slider().init();
+  
+  //init video
+  new Video().init();
   
   window.LPlensHub.lsscroll.on("scroll", (args) => {
      console.log(window.LPlensHub.lsscroll.scroll.els);
@@ -67,9 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
         benefitsItem01.classList.add(fixed, toTop);
         benefitsItem01.classList.remove(toBottom);
 
-        var lens_bottom = window.ct_current__device === 'M' ? "150" : "250";
         $("#lens").css({
-          bottom: `calc(100vh - ${headerHeight}px - ${lens_bottom}px)`,
+          bottom: `calc(100vh - ${headerHeight}px - 250px)`,
           top: "auto"
         });
 
@@ -103,9 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
         benefitsTitle.classList.add(toBottom);
 
         benefitsLens.classList.remove(fixed);
-
         $("#lens").css({
-          bottom: `calc(100vh - ${headerHeight}px - ${lens_bottom}px)`
+          bottom: `calc(100vh - ${headerHeight}px - 250px)`
         });
 
         benefitsItem01.classList.remove(fixed, toTop);
@@ -126,11 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("scroll is before benefits section");
         benefitsTitle.classList.remove(fixed, toBottom, toTop);
         benefitsLens.classList.remove(fixed, toBottom);
-
-        var lens_top = window.ct_current__device === 'M' ? "-150" : "-250";
         $("#lens").css({
           bottom: "auto",
-          top: `${lens_top}px`
+          top: "-250px"
         });
       }
     }
@@ -160,9 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (args.currentElements["item-01"].inView) {
 
         // add opacity
-        var opacity = 3 * (args.currentElements["item-01"].progress - .15) <= 1 ? 3 * (args.currentElements["item-01"].progress - .15) : 1;
         $(".ct_section__benefits .benefits-item-01 div").css({
-           opacity: `${opacity}`,
+           opacity: `${args.currentElements["item-01"].progress}`,
         });
 
         if (args.scroll.y + headerHeight >= args.currentElements["item-01"].top) {
@@ -171,44 +165,72 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // const book = {
+    //   content: '📒',
+    //   display: 'block',
+    //   padding: '20px',
+    //   background: 'yellow'
+    // };
+    
+    // const getStyles = obj => Object.keys(obj).map(key => `${key}:${obj[key]}`).join(';');
+    
+    // // Later you can call the function to inline the styles
+    // getStyles(book);
+    
+    // // Or assign it directly to your cssText
+    // element.style.cssText = getStyles(book)
+
     //benefits item02
     if (typeof args.currentElements["item-02"] === "object") {
       if (args.currentElements["item-02"].inView) {
-        var opacity = 3 * (args.currentElements["item-02"].progress - .15) <= 1 ? 3 * (args.currentElements["item-02"].progress - .15) : 1;
         $(".ct_section__benefits .benefits-item-02 div").css({
-          opacity: `${opacity}`
+          opacity: `${args.currentElements["item-02"].progress}`,
         });
 
         if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-02"].top) {
+         // if(isScrollingDown())
             benefitsItem02.classList.add(fixed, toTop);
         }
+        //if(args.scroll.y <= args.currentElements["item-02"].top){
+        //   if(!isScrollingDown())
+        //     benefitsItem02.classList.add(fixed, toTop);
+        // }
       }
     }
 
     //benefits item03
     if (typeof args.currentElements["item-03"] === "object") {
+      $(".ct_section__benefits .benefits-item-03 div").css({
+        opacity: `${args.currentElements["item-03"].progress}`,
+     });
+
       if (args.currentElements["item-03"].inView) {
-          var opacity = 3 * (args.currentElements["item-03"].progress - .15) <= 1 ? 3 * (args.currentElements["item-03"].progress - .15) : 1;
-          $(".ct_section__benefits .benefits-item-03 div").css({
-            opacity: `${opacity}` 
-        });
-        if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-03"].top)
+        if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-03"].top) {
+         // if(isScrollingDown())
             benefitsItem03.classList.add(fixed, toTop);
+        }
+        // if(args.scroll.y <= args.currentElements["item-03"].top){
+        // //   if(!isScrollingDown())
+        // //     benefitsItem03.classList.add(fixed, toTop);
+        // // }
       }
     }
 
     //benefits item04
     if (typeof args.currentElements["item-04"] === "object") {
       if(args.currentElements["item-04"].inView){
-         var opacity = 2 * (args.currentElements["item-04"].progress - .15) <= 1 ? 2 * (args.currentElements["item-04"].progress - .15) : 1;
+        console.log(args.currentElements["item-04"].progress*2);
           $(".ct_section__benefits .benefits-item-04 div").css({
-            opacity: `${opacity}`
+            opacity: `${args.currentElements["item-04"].progress}`,
           });
-
-          if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-04"].top)
-              benefitsItem04.classList.add(fixed, toTop);
-        }
       }
+        if (args.currentElements["item-04"].inView) {
+          if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-04"].top) {
+          //  if(isScrollingDown())
+              benefitsItem04.classList.add(fixed, toTop);
+          }
+        }
+    }
   });
 });
 
@@ -232,6 +254,7 @@ const first   = document.querySelector(".ct_clipbox .img_primary");
 let drag = false;
 
 const draggerWidth = dragger.getBoundingClientRect().width;
+
 
 const clipboxDimensions = {
 	width: clipbox.getBoundingClientRect().width,
@@ -272,26 +295,3 @@ document.addEventListener("DOMContentLoaded", () => {
     clipbox.addEventListener("mousemove", handleImgReveal);
     clipbox.addEventListener("touchmove", handleImgReveal);
 });
-
-
-// function changeStyle(findSelector, newDeclarations) {
-//   // Change original css style declaration.
-//   document.styleSheets.forEach((sheet) => {
-//     if (sheet.href) return;
-//     const cssRulesList = sheet.cssRules;
-//     cssRulesList.forEach((styleRule) => {
-//       if (styleRule.selectorText === findSelector) {
-//         Object.keys(newDeclarations).forEach((cssProp) => {
-//           styleRule.style[cssProp] = newDeclarations[cssProp];
-//         });
-//       }
-//     });
-//   });
-// }
-
-// const styleDeclarations = {
-//   'width': '200px',
-//   'height': '400px',
-//   'color': '#F00'
-// };
-// changeStyle('.paintBox', styleDeclarations);

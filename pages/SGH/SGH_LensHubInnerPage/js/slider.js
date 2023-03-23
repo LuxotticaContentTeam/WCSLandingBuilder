@@ -7,6 +7,7 @@ class Slider {
         arrows: false,
         dots: false,
         slidesToShow: 1,
+        centerMode: true,
         //centerPadding: "10px",
         draggable: false,
         infinite: true,

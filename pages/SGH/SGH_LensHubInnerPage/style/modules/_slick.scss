@@ -1,8 +1,8 @@
 /**
  * Title:
- *    Animations
+ *    Slick
  * Description:
- *    List all the animations of the site in one file
+ *    List all the style of the carousel and animations
  * Sections:
  *    $. Keyframes
  *    $. Classes
@@ -35,7 +35,8 @@
 }
 
 
-/* Slider */
+/* $. Slider
+\*----------------------------------------------------------------*/
 
 .slick-slider {
     position: relative;
@@ -52,7 +53,7 @@
     display: block;
     margin: 0;
     padding: 0;
-    padding: 40px 0 180px !important;
+    padding: 80px 0 180px!important;
     background-color: #F5F1E6;
 
     &:focus {
@@ -62,6 +63,9 @@
     &.dragging {
         cursor: pointer;
         cursor: hand;
+    }
+    @media(max-width: $mob){
+        padding: 80px 0 130px!important;
     }
 }
 .slick-slider .slick-track,
@@ -87,11 +91,11 @@
 }
 .slick-slide {
     float: left;
-    height: 240px !important;
+    height: 200px !important;
     min-height: 1px;
 
     @media(max-width: $mob){
-       height: 90px !important;
+       height: 100px !important;
     }
 
     [dir="rtl"] & {
@@ -120,33 +124,19 @@
     display: none;
 }
 
-// .hero__title .slick-slide{
-//     overflow: hidden;
-//     padding: 20px 0;
-    
-// }
-
-// .hero__title [aria-hidden]{
-//     transition: 1s;
-// }
-
 .ct_carousel .slick-active span{
     opacity: 1;
+    line-height: 1;
     @extend .animate--opacity;
-    //animation-duration: 2s;
+
+    @media (max-width: $mob) {
+        line-height: .9;
+    }
 }
 
 .ct_carousel .slick-cloned span { 
-    //color: green !important;
     opacity: .3;
-   // @extend .animate--opacity;
-    // animation-delay: 2s;
  }
-
-//  .slick-track {
-//     transition: fade 2000ms ease-out;  
-//     infinite: true;  
-// }
 
 .slick-slider .slick-track,
 .slick-slider .slick-list {
@@ -163,14 +153,18 @@ backface-visibility: hidden;
 .ct_carousel__text{
   display: block;
   font-size: 100px;
+  line-height: .9;
   font-weight: 300;
   color: #000;
   opacity: .3;
-  padding: 30px;
+  padding: 0px 30px;
 
+  @media(min-width: $mob) and (max-width: 1206px){
+    font-size: 88px;
+  }
   @media (max-width: $mob) {
     font-size: 50px;
     padding: 0px 30px;
-    line-height: .8;
+    line-height: .9;
   }
 }

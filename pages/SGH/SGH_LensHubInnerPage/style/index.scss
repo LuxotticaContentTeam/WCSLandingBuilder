@@ -6,15 +6,11 @@
 @import "./modules/slick";
 @import "./modules/video";
 
-
-$headerHight: 95px;
-$headerHightMob: 60px;
-
 .ct_space {
   overflow-x: hidden;
   position: relative;
 
-  #section-lens {
+  .ct_section__lens {
     color: #fff;
     background-color: #222222;
 
@@ -42,17 +38,17 @@ $headerHightMob: 60px;
 
   }
 
-  #section-benefits{
+  .ct_section__benefits{
     .ct_benefits_container {
-      height: calc(400vh - $headerHight*4);
+      height: 350vh;
       position: relative;
 
       @media(max-width: $mob){
-        height: calc(400vh - $headerHightMob*4);
+        height: 350vh;
       }
     
       .ct_title {
-        height: calc(100vh - $headerHight);
+        //height: calc(100vh - $headerHight);
         width: 50%;
         position: relative;
         //position: absolute;
@@ -68,7 +64,7 @@ $headerHightMob: 60px;
 
         }
         @media (max-width: $mob) {
-          height: calc(100vh - $headerHightMob);
+         // height: calc(100vh - $headerHightMob);
 
           h1{
             font-size: 50px;
@@ -78,16 +74,16 @@ $headerHightMob: 60px;
       }
 
       .ct_benefits_item {
-        font-size: 32px;
+        font-size: 42px;
         font-weight: 300;
         width: 50%;
-        height: calc(100vh - $headerHight);
+        //height: calc(100vh - $headerHight);
         position: absolute;
 
         @media (max-width: $mob) {
           font-size: 24px;
           width: 100%;
-          height: calc(100vh - $headerHightMob);
+         // height: calc(100vh - $headerHightMob);
         }
 
         .item{
@@ -106,64 +102,73 @@ $headerHightMob: 60px;
       }
     
       #benefits-item-01 {
-        top: calc(100vh - $headerHight);
+        top: 50vh;
         right: 0px;
 
-        @media (max-width: $mob) {
-          top: calc(100vh - $headerHightMob);
-        }
         .item{
           height: fit-content;
           position: absolute;
-          bottom: calc(50% + 150px);
+          bottom: calc(50% + 225px);
           transform: translate(0, 50%);
+        }
+
+        @media (max-width: $mob) {
+          .item{
+            bottom: calc(50% + 150px) !important;
+          }
         }
       }
     
       #benefits-item-02 {
-        top: calc(150vh - $headerHight);
+        top: 100vh;
         right: 0px;
-
-        @media (max-width: $mob) {
-          top: calc(150vh - $headerHightMob);
-        }
 
         .item{
           height: fit-content;
           position: absolute;
-          bottom: calc(50% + 50px);
+          bottom: calc(50% + 75px);
           transform: translate(0, 50%);
+        }
+
+        @media (max-width: $mob) {
+          .item{
+            bottom: calc(50% + 50px) !important;
+          }
         }
       }
     
       #benefits-item-03 {
-        top: calc(200vh - $headerHight);
+        top: 150vh;
         right: 0px;
 
         @media (max-width: $mob) {
-          top: calc(200vh - $headerHightMob);
+          .item{
+            bottom: calc(50% - 50px) !important;
+          }
         }
 
         .item{
           height: fit-content;
           position: absolute;
-          bottom: calc(50% - 50px);
+          bottom: calc(50% - 75px);
           transform: translate(0, 50%);
         }
       }
     
       #benefits-item-04 {
-        top: calc(250vh - $headerHight);
+        top: 200vh;
         right: 0px;
 
         @media (max-width: $mob) {
-          top: calc(250vh - $headerHightMob);
+          .item{
+            bottom: calc(50% - 150px) !important;
+          }
         }
 
         .item{
           height: fit-content;
           position: absolute;
-          bottom: calc(50% - 150px);
+          bottom: calc(50% - 225px);
           transform: translate(0, 50%);
         }
       }
@@ -171,18 +176,25 @@ $headerHightMob: 60px;
       .ct_lens {
         position: absolute;
         right: 0px;
-        transform: translateX(600px);
-        top: -150px;
-        height: 300px;
-        width: 300px;
+        transform: translateX(1000px);
+        top: -250px;
+        height: 500px;
+        width: 500px;
         position: absolute;
         z-index: 999;
         border-radius: 50%;
+
+        @media (max-width: $mob) {
+          top: -150px;
+          width: 300px;
+          height: 300px;
+          transform: translateX(600px);
+        }
       }
     }
   }
 
-  #section-best-usage {
+  .ct_section__best-usage {
     height: auto;
     position: relative;
 
@@ -205,6 +217,7 @@ $headerHightMob: 60px;
       font-weight: 500;
       text-transform: uppercase;
       z-index: 2;
+
     }
     
     @media (max-width: $mob) {
@@ -213,14 +226,14 @@ $headerHightMob: 60px;
         width: 100%;
         
         .ct_carousel__title{
-          top: 24px;
+          top: 60px;
           left: 30px;
         }
       }
     }
   }
 
-  #section-find-style{
+  .ct_section__find-style{
     .ct_container{
       position: relative;
 
@@ -276,7 +289,7 @@ $headerHightMob: 60px;
 }
 
 .ct_ls__top {
-  top: $headerHight !important;
+   top: $headerHight !important;
 
   @media (max-width: $mob) {
       top: $headerHightMob !important;
@@ -297,9 +310,3 @@ $headerHightMob: 60px;
 		transform: translateY(0px);
 	}
 }
-// img {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   object-position: 50% 50%;
-// }
