@@ -1,5 +1,5 @@
 @import '../0_ModuleLibrary/DesignSystem/style/variables';
-@import 'resetLP';
+// @import 'resetLP';
 
 .ct_space {
   .ct_red_card__banner{
@@ -9,19 +9,66 @@
         border-radius: 16px;
         box-sizing: border-box;
         background-color: #fff;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+        @media(max-width:$break-portrait-max){
+            padding: 12px 22px;
+        }
         .ct_red_card__text{
             width: 50%;
+            @media(max-width:$break-portrait-max){
+                width: 80%;
+            }
             button{
                 background-color: transparent;
                 border: none;
                 padding: 0;
+                outline: none;
             }
-            .ct_red_card__disc_wrap{
-                height: 0;
-                transition: height .3s ease;
-                overflow: hidden;
+            .ct_accordion__icon.ct_arrow{
+                height: 16px;
+                width: 16px;
+                transition: transform .3s ease;
+                &.ct_active{
+                    transform: rotate(180deg);
+                }
             }
         }
+        .ct_red_card__img{
+            position: absolute;
+            left: calc(50% + 40px);
+            top: 0;
+            @media(max-width:$break-portrait-max){
+                left: unset;
+                top: unset;
+                right: 0;
+                bottom: 0;
+                width: calc(20% + 10px);
+            }
+            @media(max-width:$break-portrait-max){
+
+            }
+            img{
+                width: auto !important;
+                height: 200px !important;
+                @media(max-width:$break-portrait-max){
+                    height: auto !important;
+                    width: 100% !important;
+                    
+                }
+            }
+        }
+  }
+  .ct_accordion{
+    .ct_accordion__content_wrap{
+        height: 0;
+        transition: height .3s ease;
+        overflow: hidden;
+        .ct_accordion__content{
+            padding-top: 10px;
+        }
+    }        
   }
  
 }

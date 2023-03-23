@@ -23,12 +23,20 @@
         transition-delay: 1s;
         z-index: 2;
         cursor: pointer;
-        &:focus{
+        @media(max-width:$tab-max){
             opacity: 1;
-            transition-delay: 0s;
+            &:active{
+                background-color: $black_hover;
+            }
         }
-        &:hover{
-            background-color: $black_hover;
+        @media(min-width:$desk-min){
+            &:focus{
+                opacity: 1;
+                transition-delay: 0s;
+            }
+            &:hover{
+                background-color: $black_hover;
+            }
         }
         &.ct__playing{
             svg.ct_play{

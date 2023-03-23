@@ -18,7 +18,7 @@ export const navManger = {
         this.onScrollEvents();
     },
     setOffests:function(){
-        this.menu_offset = ct_current__device === 'M' ? 
+        this.menu_offset = ct_current__device !== 'D' ? 
             document.querySelectorAll('.sgh-main-menu')[1].clientHeight  :
             document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-service-menu').clientHeight;
 
@@ -54,7 +54,7 @@ export const navManger = {
                 this.manual_click.section = elem.dataset.sectionTo;
     
                 elem.classList.add('ct_active');
-                if (ct_current__device === 'M'){
+                if (ct_current__device !== 'D'){
                     $('.ct_nav__stick_wrap ul').stop().animate({scrollLeft: $(elem).offset().left +   $('.ct_nav__stick_wrap ul').scrollLeft() - 8}, 500, 'linear', function() { });
                 }
             })
@@ -73,7 +73,7 @@ export const navManger = {
                         document.querySelector('.ct_nav__container button.ct_active').classList.remove('ct_active');
                     }
                     document.querySelector(`[data-section-to="${elem}"]`).classList.add('ct_active')
-                    if (ct_current__device === 'M'){
+                    if (ct_current__device !== 'D'){
                         $('.ct_nav__stick_wrap ul').stop().animate({scrollLeft: $(`[data-section-to="${elem}"]`).offset().left +   $('.ct_nav__stick_wrap ul').scrollLeft() - 8}, 500, 'linear', function() { });
                     }
                 }

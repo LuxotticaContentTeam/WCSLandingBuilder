@@ -66,7 +66,7 @@ $(document).ready(function(){
         centerMode: true,
         infinite: true,
         easing: 'ease',
-        autoplay: true,
+        // autoplay: true,
         speed: 600,
         centerPadding: '28%',
         rows:0,

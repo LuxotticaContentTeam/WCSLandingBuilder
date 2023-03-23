@@ -4,7 +4,7 @@
         display: flex;
         align-items: stretch;
         overflow: hidden;
-        @media(max-width:$mob){
+        @media(max-width:$tab-max){
             flex-direction: column;
             &.ct__mob__reverse{
                 flex-direction: column-reverse;
@@ -27,7 +27,7 @@
             width: 50%;
             position: relative;
            
-            @media(max-width:$mob){
+            @media(max-width:$tab-max){
                 width: 100%;
             }
             img{
@@ -53,7 +53,7 @@
             flex-direction: column;
             justify-content: center;
 
-            @media(max-width:$mob){
+            @media(max-width:$tab-max){
                 width: 100%;
                 padding: 20px;
             }
@@ -66,13 +66,13 @@
             .ct_cta__container{
                 display: flex;
                 flex-direction: column;
-                @media(max-width:$mob){
+                @media(max-width:$tab-max){
                     width: 100%;
                 }
                 a{
                     margin-right: 4px;
                     margin-bottom: 8px;
-                    @media(max-width:$mob){
+                    @media(max-width:$tab-max){
                         width: 46%;
                         max-width: 46%;
                         margin-right: 2%;
@@ -80,7 +80,7 @@
                       
                     }
                     &.ct_cta__single{
-                        @media(max-width:$mob){
+                        @media(max-width:$tab-max){
                             width: 100%;
                             max-width: 100%;
                         }

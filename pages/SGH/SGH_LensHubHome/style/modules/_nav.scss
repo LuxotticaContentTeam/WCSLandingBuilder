@@ -3,7 +3,7 @@
         background-color: $black;
         text-align: center;
         padding: 60px 0;
-        @media(max-width:$mob){
+        @media(max-width:$tab-max){
             padding: 40px 0;
         }
         h2{
@@ -14,7 +14,7 @@
             color: $grey_light;
             margin-top: 16px;
             margin-bottom:26px;
-            @media(max-width:$mob){
+            @media(max-width:$tab-max){
                 padding: 0 20px;
                 text-align: center;
             }
@@ -32,7 +32,10 @@
                 &.ct_stick{
                     position: fixed;
                     top: 95px;
-                    @media(max-width:$mob){
+                    @media(max-width:$tab-max){
+                        top: 50px;
+                    }
+                    @media(max-width:$mob-max){
                         top: 60px;
                     }
                 }
@@ -52,7 +55,7 @@
                 box-sizing: content-box;
                 background-color: $black;
                 z-index: 5;
-                @media(max-width:$mob){
+                @media(max-width:$tab-max){
                     overflow-x: scroll;
                     justify-content: flex-start;
                     gap: 0;
@@ -61,7 +64,7 @@
               
                 li{
                     list-style: none;
-                    @media(max-width:$mob){
+                    @media(max-width:$tab-max){
                         padding-left: 8px;
                         &:last-child{
                             padding-right: 8px;
@@ -69,7 +72,7 @@
                     }
                     button{
                         background-color: #333333;
-                        @media(max-width:$mob){
+                        @media(max-width:$tab-max){
                             min-width: 40vw;
                         }
                         &:hover{
