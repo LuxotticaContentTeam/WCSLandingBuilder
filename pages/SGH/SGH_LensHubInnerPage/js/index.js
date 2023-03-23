@@ -7,7 +7,7 @@ window.LPlensHub = {};
 
 // elements
 const benefitsTitle = document.querySelector(".ct_section__benefits .ct_title");
-const benefitsLens = document.querySelector(".ct_section__benefits #lens");
+const benefitsLens = document.querySelector(".ct_section__benefits .ct_lens");
 const benefitsItem01 = document.querySelector(".ct_section__benefits .benefits-item-01");
 const benefitsItem02 = document.querySelector(".ct_section__benefits .benefits-item-02");
 const benefitsItem03 = document.querySelector(".ct_section__benefits .benefits-item-03");
@@ -51,15 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   window.LPlensHub.lsscroll.on("scroll", (args) => {
-     console.log(window.LPlensHub.lsscroll.scroll.els);
-     console.log(args);
+     //console.log(window.LPlensHub.lsscroll.scroll.els);
+     //console.log(args);
 
     // section benefits
     if (typeof args.currentElements["benefits"] === "object") {
 
       // scroll is in benefits section
       if (args.scroll.y + headerHeight >= args.currentElements["benefits"].top) {
-        console.log("scroll is in benefits section");
+        //console.log("scroll is in benefits section");
         benefitsTitle.classList.add(fixed, toTop);
         benefitsTitle.classList.remove(toBottom);
         benefitsLens.classList.add(fixed);
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         benefitsItem01.classList.remove(toBottom);
 
         var lens_bottom = window.ct_current__device === 'M' ? "150" : "250";
-        $("#lens").css({
+        $(".ct_lens").css({
           bottom: `calc(100vh - ${headerHeight}px - ${lens_bottom}px)`,
           top: "auto"
         });
@@ -98,13 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
        // scroll is out benefits section and section is still visible
       if (args.scroll.y + $(".ct_section__benefits .ct_title").height() + headerHeight >= args.currentElements["benefits"].bottom) {
-        console.log("// scroll is out benefits section and section is still visible");
+        //console.log("// scroll is out benefits section and section is still visible");
         benefitsTitle.classList.remove(fixed, toTop);
         benefitsTitle.classList.add(toBottom);
 
         benefitsLens.classList.remove(fixed);
 
-        $("#lens").css({
+        $(".ct_lens").css({
           bottom: `calc(100vh - ${headerHeight}px - ${lens_bottom}px)`
         });
 
@@ -123,12 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // scroll is before benefits section
       if (args.scroll.y + headerHeight < args.currentElements["benefits"].top) {
-        console.log("scroll is before benefits section");
+        //console.log("scroll is before benefits section");
         benefitsTitle.classList.remove(fixed, toBottom, toTop);
         benefitsLens.classList.remove(fixed, toBottom);
 
         var lens_top = window.ct_current__device === 'M' ? "-150" : "-250";
-        $("#lens").css({
+        $(".ct_lens").css({
           bottom: "auto",
           top: `${lens_top}px`
         });
@@ -138,17 +138,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // benefits lens
     if (typeof args.currentElements["lens"] === "object") {
       if (args.currentElements["lens"].inView) {
-        if(!ct_is_mobile()){
-          var _x = 600 - args.currentElements["lens"].progress * 1000;
-          _x > 250 ? _x : (_x = 250);
-          $("#lens").css({
+        if(window.ct_current__device === 'D'){
+          var _x = 600 - args.currentElements["lens"].progress * 1000 > 250 ? 600 - args.currentElements["lens"].progress * 1000 : 250;
+          $(".ct_lens").css({
             transform: `translateX(${_x}px)`,
           });
         }
         else{
-          var _x = 600 - args.currentElements["lens"].progress * 1000;
-          _x > 150 ? _x : (_x = 150);
-          $("#lens").css({
+          var _x = 600 - args.currentElements["lens"].progress * 1000 > 150 ? 600 - args.currentElements["lens"].progress * 1000 : 150
+          $(".ct_lens").css({
             transform: `translateX(${_x}px)`,
           });
         }
@@ -253,7 +251,7 @@ const handleStopDrag = () => {
 
 const handleImgReveal = e => {
 	e.preventDefault();
-  if(ct_is_mobile())
+  if(window.ct_current__device === 'M')
     e.offsetX = e.offsetX || e.targetTouches[0].pageX - clipboxDimensions.left;
 	if(drag && e.offsetX < clipboxDimensions.width && e.offsetX > 0) {
 		clipbox.style.cursor = "ew-resize";

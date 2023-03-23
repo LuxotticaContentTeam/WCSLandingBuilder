@@ -1,12 +1,25 @@
-.ct_space {
-    
-  .ct_space * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/**
+ * Title:
+ *    Drag
+ * Description:
+ *    List all the style of the drag image module
+ * Sections:
+ *    $. Layout
+ *    $. CTA
+ *    $. Img
+ *    $. Text
+ */
 
-  // layout
+.ct_space * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  $. Layout
+\*----------------------------------------------------------------*/
+
+.ct_space {
   .d-flex {
     display: flex;
   }
@@ -34,8 +47,12 @@
       flex-direction: column;
     }
   }
+}
 
-  // cta
+/*  $. CTA
+\*----------------------------------------------------------------*/
+
+.ct_space{
   .ct_cta {
     text-align: center;
     border-radius: 40px;
@@ -55,7 +72,8 @@
     text-decoration: none;
     justify-content: center;
     white-space: nowrap;
-    //COLOR VARIANT
+
+    /* Color variants */
     &.ct_cta__black {
       background-color: $black;
       color: #fff;
@@ -95,23 +113,28 @@
       }
     }
 
-    // LENGTH VARIANTS
+    /* Length variants */
     &.ct_cta__large {
       min-width: 180px;
     }
   }
+}
 
-  // image
+/*  $. Img
+\*----------------------------------------------------------------*/
+.ct_space{
   img{
     width:100%;
     height:100%;
     object-fit: contain;
     object-position:50% 50%;
   }
+}
 
-  // Text
+/*  $. Text
+\*----------------------------------------------------------------*/
+.ct_space{
   h1{
     margin: 0;
   }
-
 }

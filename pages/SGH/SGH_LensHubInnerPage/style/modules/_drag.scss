@@ -1,3 +1,14 @@
+/**
+ * Title:
+ *    Drag
+ * Description:
+ *    List all the style of the drag image module
+ * Sections:
+ *    $. Classes
+ */
+
+/*  $. Classes
+\*----------------------------------------------------------------*/
 
 $clipboxWidth: 50vw;
 $clipboxHeight: 460px;
@@ -5,91 +16,95 @@ $alpha: 0.8;
 $draggerHeight: 50px;
 $borderRadius: 10px;
 
-.ct_clipbox {
-  display: block;
-  position: relative;
-  height: $clipboxHeight;
-  width: $clipboxWidth;
-  @media(max-width: $mob){
-    width: $clipboxWidth*2;
-  }
-  
-  .ct_img__container {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+.ct_space{
+  .ct_clipbox {
+    display: block;
     position: relative;
-
-    img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:50% 50%;
+    height: $clipboxHeight;
+    width: $clipboxWidth;
+    @media(max-width: $mob){
+      width: $clipboxWidth*2;
     }
     
-    .img_primary,
-    .img_secondary {
-      position: absolute;
-      overflow: hidden;
-      background-size: $clipboxWidth auto;
+    .ct_img__container {
       height: 100%;
-
-      img {
-        width: $clipboxWidth;
-        height: 100%;
-        pointer-events: none;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+  
+      img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:50% 50%;
       }
-    }
-    @media (max-width: $mob) {
+      
       .img_primary,
       .img_secondary {
-        background-size: calc($clipboxWidth*2) auto;
-
-        img{
-          width: 100vw !important;
+        position: absolute;
+        overflow: hidden;
+        background-size: $clipboxWidth auto;
+        height: 100%;
+  
+        img {
+          width: $clipboxWidth;
+          height: 100%;
+          pointer-events: none;
+        }
+      }
+      @media (max-width: $mob) {
+        .img_primary,
+        .img_secondary {
+          background-size: calc($clipboxWidth*2) auto;
+  
+          img{
+            width: 100vw !important;
+          }
+        }
+      }
+      .img_primary {
+        width: calc($clipboxWidth / 2);
+        z-index: 100;
+        border-right: solid 2px #fff;
+        @media (max-width: $mob) {
+          width: $clipboxWidth;
+        }
+  
+        .ct_img__desc{
+          position: absolute;
+          left: 15px;
+          top: 15px;
+          min-width: 50vw;
+          font-size: 12px;
+        }
+      }
+      .img_secondary {
+        width: 100%;
+        z-index: 50;
+  
+        .ct_img__desc{
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          font-size: 12px;
         }
       }
     }
-    .img_primary {
-      width: calc($clipboxWidth / 2);
-      z-index: 100;
-      border-right: solid 2px #fff;
-      @media (max-width: $mob) {
-        width: $clipboxWidth;
-      }
-
-      .ct_img__desc{
-        position: absolute;
-        left: 15px;
-        min-width: 50vw;
-        font-size: 12px;
-      }
+    .ct_dragger {
+      height: 50px;
+      width: 100px;
+      border-radius: 100px;
+      background-color: #fff;
+      position: absolute;
+      top: calc(50% - #{$draggerHeight}/2);
+      left: calc(50% - #{$draggerHeight});
+      cursor: grab;
+      z-index: 200;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  
     }
-    .img_secondary {
-      width: 100%;
-      z-index: 50;
-
-      .ct_img__desc{
-        position: absolute;
-        right: 15px;
-        font-size: 12px;
-      }
-    }
-  }
-  .ct_dragger {
-    height: 50px;
-    width: 100px;
-    border-radius: 100px;
-    background-color: #fff;
-    position: absolute;
-    top: calc(50% - #{$draggerHeight}/2);
-    left: calc(50% - #{$draggerHeight});
-    cursor: grab;
-    z-index: 200;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
   }
 }

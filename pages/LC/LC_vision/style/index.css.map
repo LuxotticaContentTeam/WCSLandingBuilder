@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AACE,SADO,CACP,KAAK,CAAA;EACH,KAAK,EAAE,GAAG;CACX",
+    "sources": [
+        "index.scss",
+        "_resetLP.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}
