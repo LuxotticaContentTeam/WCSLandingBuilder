@@ -39,7 +39,7 @@
     align-items: center;
   }
 
-  @media(max-width: $mob){
+  @media(max-width: $tab-max){
     .d-flex-mob-row{
       flex-direction: row;
     }

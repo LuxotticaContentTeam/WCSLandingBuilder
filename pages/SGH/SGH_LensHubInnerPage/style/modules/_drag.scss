@@ -22,7 +22,7 @@ $borderRadius: 10px;
     position: relative;
     height: $clipboxHeight;
     width: $clipboxWidth;
-    @media(max-width: $mob){
+    @media(max-width: $tab-max){
       width: $clipboxWidth*2;
     }
     
@@ -52,7 +52,7 @@ $borderRadius: 10px;
           pointer-events: none;
         }
       }
-      @media (max-width: $mob) {
+      @media (max-width: $tab-max) {
         .img_primary,
         .img_secondary {
           background-size: calc($clipboxWidth*2) auto;
@@ -66,7 +66,7 @@ $borderRadius: 10px;
         width: calc($clipboxWidth / 2);
         z-index: 100;
         border-right: solid 2px #fff;
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           width: $clipboxWidth;
         }
   
@@ -83,6 +83,7 @@ $borderRadius: 10px;
         z-index: 50;
   
         .ct_img__desc{
+          color: $black;
           position: absolute;
           right: 15px;
           top: 15px;

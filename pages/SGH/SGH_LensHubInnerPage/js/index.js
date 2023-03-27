@@ -214,10 +214,6 @@ document.addEventListener('scroll',()=>{
   lazyLo();
 })
 
-function ct_is_mobile() {
-  return !($(window).width() > 1024) && (1024 !== $(window).width() || window.innerHeight > window.innerWidth)
-}
-
 function currentDevice() {
   return window.innerWidth > 1025 ? "D" : window.innerWidth < 1025 && window.innerWidth >= 768 ? "T" :  window.innerWidth < 768 ? "M" : "not recognized";
 }

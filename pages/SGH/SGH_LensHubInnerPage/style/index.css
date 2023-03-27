@@ -349,6 +349,7 @@ html.has-scroll-dragging {
 }
 
 .ct_space .ct_clipbox .ct_img__container .img_secondary .ct_img__desc {
+  color: #222;
   position: absolute;
   right: 15px;
   top: 15px;
@@ -628,14 +629,24 @@ html.has-scroll-dragging {
   cursor: pointer;
 }
 
-.ct_space .ct_video__controls:focus {
-  opacity: 1;
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
+@media (max-width: 1024px) {
+  .ct_space .ct_video__controls {
+    opacity: 1;
+  }
+  .ct_space .ct_video__controls:active {
+    background-color: #555;
+  }
 }
 
-.ct_space .ct_video__controls:hover {
-  background-color: #555;
+@media (min-width: 1025px) {
+  .ct_space .ct_video__controls:focus {
+    opacity: 1;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+  }
+  .ct_space .ct_video__controls:hover {
+    background-color: #555;
+  }
 }
 
 .ct_space .ct_video__controls.ct__playing svg.ct_play {
@@ -674,6 +685,29 @@ html.has-scroll-dragging {
   position: relative;
 }
 
+.ct_space .ct_section__hero .ct_cta__back {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 99;
+}
+
+.ct_space .ct_section__hero .ct_cta__back a {
+  color: #222;
+  font-size: 14px;
+}
+
+.ct_space .ct_section__hero .ct_cta__back a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .ct_space .ct_section__hero .ct_cta__back {
+    top: 20px;
+    left: 20px;
+  }
+}
+
 .ct_space .ct_section__lens {
   color: #fff;
   background-color: #222222;
@@ -693,7 +727,8 @@ html.has-scroll-dragging {
 
 .ct_space .ct_section__lens .section-lens__container .ct_lens__container__desc {
   margin: 1em 0 1.5em;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 @media (max-width: 1024px) {
@@ -793,7 +828,7 @@ html.has-scroll-dragging {
 
 @media (max-width: 1024px) {
   .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-01 .ct_item {
-    bottom: calc(50% + 150px) !important;
+    bottom: calc(50% + 100px) !important;
   }
 }
 
@@ -814,7 +849,7 @@ html.has-scroll-dragging {
 
 @media (max-width: 1024px) {
   .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-02 .ct_item {
-    bottom: calc(50% + 50px) !important;
+    bottom: 50% !important;
   }
 }
 
@@ -825,7 +860,7 @@ html.has-scroll-dragging {
 
 @media (max-width: 1024px) {
   .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-03 .ct_item {
-    bottom: calc(50% - 50px) !important;
+    bottom: calc(50% - 100px) !important;
   }
 }
 
@@ -846,7 +881,7 @@ html.has-scroll-dragging {
 
 @media (max-width: 1024px) {
   .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-04 .ct_item {
-    bottom: calc(50% - 150px) !important;
+    bottom: calc(50% - 200px) !important;
   }
 }
 

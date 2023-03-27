@@ -5,7 +5,7 @@ export const lazyLo = function() {
         if ( windowTop > $(this).offset().top - ( window.innerHeight * 2 ) ) {
             if ($(this).is('video')) {
                 if($(this).attr('data-video-src-tab') == undefined){
-                    if (window.ct_current__device === "M"){
+                    if (window.ct_current__device !== "D"){
                         if ($(this).attr('data-video-src-mob') != undefined ){
                             $(this).addClass('ct_m__video')
                             $(this).attr('poster', $(this).attr('data-poster-mob'));

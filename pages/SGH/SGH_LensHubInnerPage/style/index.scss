@@ -1,5 +1,4 @@
 @import "variables";
-@import "resetLP";
 @import "utils";
 @import "./modules/locomotive";
 @import "./modules/drag";
@@ -9,6 +8,28 @@
 .ct_space {
   overflow-x: hidden;
   position: relative;
+
+  .ct_section__hero{
+
+    .ct_cta__back{
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      z-index: 99;
+      a{
+        color: $black;
+        font-size: 14px;
+
+        &:hover{
+          text-decoration: none;
+        }
+      }
+      @media (max-width: $tab-max) {
+        top: 20px;
+        left: 20px;
+      }
+    }
+  }
 
   .ct_section__lens {
     color: #fff;
@@ -27,11 +48,12 @@
 
       .ct_lens__container__desc{
         margin: 1em 0 1.5em;
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 300;
       }
     }
 
-    @media (max-width: $mob) {
+    @media (max-width: $tab-max) {
       .section-lens__container {
         padding: 60px 30px;
         width: 80%;
@@ -48,7 +70,7 @@
       height: 350vh;
       position: relative;
 
-      @media (max-width: $mob) {
+      @media (max-width: $tab-max) {
         height: 350vh;
       }
 
@@ -67,7 +89,7 @@
           transform: translate(0px, -50%);
         }
 
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           h1 {
             font-size: 50px;
             top: 15%;
@@ -81,7 +103,7 @@
         width: 50%;
         position: absolute;
 
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           font-size: 24px;
           width: 100%;
         }
@@ -96,7 +118,7 @@
             padding-left: 20px;
           }
 
-          @media (max-width: $mob) {
+          @media (max-width: $tab-max) {
             left: 10%;
           }
         }
@@ -113,9 +135,9 @@
           transform: translate(0, 50%);
         }
 
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           .ct_item {
-            bottom: calc(50% + 150px) !important;
+            bottom: calc(50% + 100px) !important;
           }
         }
       }
@@ -131,9 +153,9 @@
           transform: translate(0, 50%);
         }
 
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           .ct_item {
-            bottom: calc(50% + 50px) !important;
+            bottom: 50% !important;
           }
         }
       }
@@ -142,9 +164,9 @@
         top: 150vh;
         right: 0px;
 
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           .ct_item {
-            bottom: calc(50% - 50px) !important;
+            bottom: calc(50% - 100px) !important;
           }
         }
 
@@ -160,9 +182,9 @@
         top: 200vh;
         right: 0px;
 
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           .ct_item {
-            bottom: calc(50% - 150px) !important;
+            bottom: calc(50% - 200px) !important;
           }
         }
 
@@ -185,7 +207,7 @@
         z-index: 999;
         border-radius: 50%;
 
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           top: -150px;
           width: 300px;
           height: 300px;
@@ -201,7 +223,7 @@
 
     .ct_wrapper__clipbox {
       width: 50%;
-      @media (max-width: $mob) {
+      @media (max-width: $tab-max) {
         width: 100%;
       }
     }
@@ -219,7 +241,7 @@
       text-transform: uppercase;
       z-index: 2;
     }
-    @media (max-width: $mob) {
+    @media (max-width: $tab-max) {
       .ct_wrapper__carousel {
         position: relative;
         width: 100%;
@@ -274,7 +296,7 @@
             margin: 0;
           }
         }
-        @media (max-width: $mob) {
+        @media (max-width: $tab-max) {
           flex-direction: column;
           max-width: 100%;
           top: 80px;
@@ -307,7 +329,7 @@
   .ct_ls__top {
     top: $headerHight !important;
 
-    @media (max-width: $mob) {
+    @media (max-width: $tab-max) {
       top: $headerHightMob !important;
     }
   }
