@@ -51,6 +51,16 @@ $borderRadius: 10px;
           height: 100%;
           pointer-events: none;
         }
+        .ct_img__desc{
+          font-size: 12px;
+          font-weight: 500;
+          &.ct_black{
+            color: $black;
+          }
+          &.ct_white{
+            color: $grey_light;
+          }
+        }
       }
       @media (max-width: $tab-max) {
         .img_primary,
@@ -75,7 +85,6 @@ $borderRadius: 10px;
           left: 15px;
           top: 15px;
           min-width: 50vw;
-          font-size: 12px;
         }
       }
       .img_secondary {
@@ -83,11 +92,9 @@ $borderRadius: 10px;
         z-index: 50;
   
         .ct_img__desc{
-          color: $black;
           position: absolute;
           right: 15px;
           top: 15px;
-          font-size: 12px;
         }
       }
     }
@@ -105,7 +112,6 @@ $borderRadius: 10px;
       display: flex;
       justify-content: space-around;
       align-items: center;
-  
     }
   }
 }
