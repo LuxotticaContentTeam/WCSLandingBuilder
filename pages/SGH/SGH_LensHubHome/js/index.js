@@ -88,6 +88,7 @@ $(document).ready(function(){
         ]
     });
 
+    
     // Add custom class to next or previous slide depending on change direction
     $('.slider-images').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
         let nextIndex = currentSlide + 1; // assume moving right
@@ -103,6 +104,17 @@ $(document).ready(function(){
     });
     $('.slider-text .slick-dots').append(`<li class="ct_slide_count"><button> / ${ $('.slider-text .slick-dots')[0]?.childElementCount}</button></li>`)
 
+
+    let sliderPlayPause = document.querySelector('.ct_slider__controls');
+    sliderPlayPause.addEventListener('click',()=>{
+        if(sliderPlayPause.classList.contains('ct__playing')){
+            sliderPlayPause.classList.remove('ct__playing');
+            $('.slider-text').slick('slickSetOption', 'autoplay', false).slick('slickPause');
+        }else{
+            sliderPlayPause.classList.add('ct__playing');
+            $('.slider-text').slick('slickSetOption', 'autoplay', true).slick('slickPlay');
+        }
+    })
 });
 // $('#slider').slick({
 //     infinite: true,
