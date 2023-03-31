@@ -826,18 +826,15 @@ html.has-scroll-dragging {
 }
 
 .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-01 {
-  top: 25vh;
+  height: auto;
   right: 0px;
+  top: 25%;
 }
 
 .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-01 .ct_item {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  position: absolute;
-  bottom: calc(50% + 225px);
-  -webkit-transform: translate(0, 50%);
-          transform: translate(0, 50%);
 }
 
 @media (max-width: 1024px) {
@@ -847,18 +844,15 @@ html.has-scroll-dragging {
 }
 
 .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-02 {
-  top: 50vh;
+  height: auto;
   right: 0px;
+  bottom: 50%;
 }
 
 .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-02 .ct_item {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  position: absolute;
-  bottom: calc(50% + 75px);
-  -webkit-transform: translate(0, 50%);
-          transform: translate(0, 50%);
 }
 
 @media (max-width: 1024px) {
@@ -868,8 +862,8 @@ html.has-scroll-dragging {
 }
 
 .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-03 {
-  top: 75vh;
   right: 0px;
+  bottom: 25%;
 }
 
 @media (max-width: 1024px) {
@@ -882,15 +876,11 @@ html.has-scroll-dragging {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  position: absolute;
-  bottom: calc(50% - 75px);
-  -webkit-transform: translate(0, 50%);
-          transform: translate(0, 50%);
 }
 
 .ct_space .ct_section__benefits .ct_benefits_container #benefits-item-04 {
-  top: 100vh;
   right: 0px;
+  bottom: 0px;
 }
 
 @media (max-width: 1024px) {
@@ -903,10 +893,6 @@ html.has-scroll-dragging {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  position: absolute;
-  bottom: calc(50% - 225px);
-  -webkit-transform: translate(0, 50%);
-          transform: translate(0, 50%);
 }
 
 .ct_space .ct_section__benefits .ct_benefits_container .ct_lens {
@@ -950,10 +936,6 @@ html.has-scroll-dragging {
 .ct_space .ct_section__best-usage .ct_wrapper__carousel {
   width: 50%;
   z-index: 999;
-}
-
-.ct_space .ct_section__best-usage .ct_wrapper__carousel .ct_video__controls {
-  display: none;
 }
 
 .ct_space .ct_section__best-usage .ct_wrapper__carousel:hover .ct_video__controls {
@@ -1096,4 +1078,4 @@ html.has-scroll-dragging {
             transform: translateY(0px);
   }
 }
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=index_2.css.map */

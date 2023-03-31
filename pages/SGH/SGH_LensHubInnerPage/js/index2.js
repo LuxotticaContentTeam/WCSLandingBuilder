@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let headerHeight = window.ct_current__device === 'M' ? document.querySelectorAll('.sgh-main-menu')[1].clientHeight : document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-service-menu').clientHeight;
 
   document.querySelector(".ct_section__benefits .ct_title").style.height = `calc(100vh - ${headerHeight}px`;
-  document.querySelectorAll(".ct_section__benefits .ct_benefits_item").forEach(function(el){el.style.height = `calc(100vh - ${headerHeight}px`});
+ // document.querySelectorAll(".ct_section__benefits .ct_benefits_item").forEach(function(el){el.style.height = `calc(100vh - ${headerHeight}px`});
   
   //init lazy
   lazyLo();
@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   window.LPlensHub.lsscroll.on("scroll", (args) => {
-     //console.log(window.LPlensHub.lsscroll.scroll.els);
-     //console.log(args);
+     console.log(window.LPlensHub.lsscroll.scroll.els);
+     console.log(args);
 
     // section benefits
     if (typeof args.currentElements["benefits"] === "object") {
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
           if (args.scroll.y <= window.LPlensHub.lsscroll.scroll.els["item-01"].top){
-              benefitsItem01.classList.remove(fixed, toTop, toBottom);
+            benefitsItem01.classList.remove(fixed, toTop, toBottom);
           }
            
           if (args.scroll.y >= window.LPlensHub.lsscroll.scroll.els["item-02"].top){
@@ -132,6 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
           bottom: "auto",
           top: `${lens_top}px`
         });
+
+        //var max_h = (225 - args.currentElements["benefits"].progress*1000).toFixed(0);
+        //if(document.querySelector(".ct_section__benefits #benefits-item-01 .ct_item").offsetTop > 0)
+        //if(!benefitsItem01.classList.contains(toTop) && !benefitsItem01.classList.contains("ct_animation") && document.querySelector(".ct_section__benefits #benefits-item-01").offsetTop > max_h){
+          // $(".ct_section__benefits #benefits-item-01").css({
+          //   top: `${document.querySelector(".ct_section__benefits #benefits-item-01").offsetTop - 1}px)`
+          // });
+        //}
       }
     }
 
@@ -158,14 +166,31 @@ document.addEventListener("DOMContentLoaded", () => {
       if (args.currentElements["item-01"].inView) {
 
         // add opacity
-        var opacity = 3 * (args.currentElements["item-01"].progress - .15) <= 1 ? 3 * (args.currentElements["item-01"].progress - .15) : 1;
+        var opacity = 3 * (args.currentElements["item-01"].progress + .15) <= 1 ? 3 * (args.currentElements["item-01"].progress + .15) : 1;
         $(".ct_section__benefits .benefits-item-01 div").css({
            opacity: `${opacity}`,
         });
-
-        if (args.scroll.y + headerHeight >= args.currentElements["item-01"].top) {
-            benefitsItem01.classList.add(fixed, toTop);
+        
+        var _top = (document.querySelector(".ct_section__benefits #benefits-item-01").offsetTop - 1);
+        console.log("top", _top);
+        var h = (document.querySelector(".ct_benefits_container").clientHeight/2)*25/100;
+        if(_top > h){ 
+          $(".ct_section__benefits #benefits-item-01").css({
+            top: `${_top}px`
+          });
         }
+        // else{
+        //   $(".ct_section__benefits #benefits-item-01").css({
+        //     top: `${h}px`
+        //   });
+        //   benefitsItem01.classList.add(fixed);
+        // }
+         if (args.scroll.y + headerHeight >= args.currentElements["item-01"].top - 225) {
+             benefitsItem01.classList.add(fixed);
+             $(".ct_section__benefits #benefits-item-01").css({
+              top: `${224}px`
+            });
+         }
       }
     }
 
@@ -206,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-04"].top)
               benefitsItem04.classList.add(fixed, toTop);
         }
-    }
+      }
   });
 });
 

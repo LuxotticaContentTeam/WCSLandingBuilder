@@ -126,14 +126,17 @@
       }
 
       #benefits-item-01 {
-        top: 25vh;
+        height: auto;
+        //top: 25vh;
         right: 0px;
+        top: 25%;
 
         .ct_item {
           height: fit-content;
-          position: absolute;
-          bottom: calc(50% + 225px);
-          transform: translate(0, 50%);
+          //position: absolute;
+          //bottom: calc(50% + 225px);
+          //transform: translate(0, 50%);
+         // transform: translate(0, 225px);
         }
 
         @media (max-width: $tab-max) {
@@ -144,14 +147,16 @@
       }
 
       #benefits-item-02 {
-        top: 50vh;
+        height: auto;
+        //top: 40vh;
         right: 0px;
+        bottom: 50%;
 
         .ct_item {
           height: fit-content;
-          position: absolute;
-          bottom: calc(50% + 75px);
-          transform: translate(0, 50%);
+          // position: absolute;
+          // bottom: calc(50% + 75px);
+          // transform: translate(0, 50%);
         }
 
         @media (max-width: $tab-max) {
@@ -162,8 +167,9 @@
       }
 
       #benefits-item-03 {
-        top: 75vh;
+        //top: 65vh;
         right: 0px;
+        bottom: 25%;
 
         @media (max-width: $tab-max) {
           .ct_item {
@@ -173,15 +179,16 @@
 
         .ct_item {
           height: fit-content;
-          position: absolute;
-          bottom: calc(50% - 75px);
-          transform: translate(0, 50%);
+          // position: absolute;
+          // bottom: calc(50% - 75px);
+          // transform: translate(0, 50%);
         }
       }
 
       #benefits-item-04 {
-        top: 100vh;
+        //top: 90vh;
         right: 0px;
+        bottom: 0px;
 
         @media (max-width: $tab-max) {
           .ct_item {
@@ -191,9 +198,9 @@
 
         .ct_item {
           height: fit-content;
-          position: absolute;
-          bottom: calc(50% - 225px);
-          transform: translate(0, 50%);
+          // position: absolute;
+          // bottom: calc(50% - 225px);
+          // transform: translate(0, 50%);
         }
       }
 
@@ -232,9 +239,9 @@
       width: 50%;
       z-index: 999;
 
-      .ct_video__controls{
-        display: none;
-      }
+      // .ct_video__controls{
+      //   display: none;
+      // }
       
         &:hover{
           .ct_video__controls{
