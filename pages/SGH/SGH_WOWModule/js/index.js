@@ -19,8 +19,8 @@ var ct_cos__data = {
            
         },
         logo: "https://media.sunglasshut.com/2023/utility/WOW/SGH_sun.svg",
-        image: "https://media.ray-ban.com/2022/063DCAROUSEL/CardOnSlider/women_d.png",
-        imageM: "https://media.ray-ban.com/2022/063DCAROUSEL/CardOnSlider/women.png",
+        image: "https://media.sunglasshut.com/2023/utility/WOW/women_d.jpg",
+        imageM: "https://media.sunglasshut.com/2023/utility/WOW/women_m.jpg",
         link: {
           "en": "/womens-sunglasses",
           "fr":"/lunettes-de-soleil-femme",
@@ -37,8 +37,8 @@ var ct_cos__data = {
             "de":"Herren",
         },
         logo: "https://media.sunglasshut.com/2023/utility/WOW/SGH_sun.svg",
-        image: "https://media.ray-ban.com/2022/063DCAROUSEL/CardOnSlider/men_d.png",
-        imageM: "https://media.ray-ban.com/2022/063DCAROUSEL/CardOnSlider/men.png",
+        image: "https://media.sunglasshut.com/2023/utility/WOW/men_d.jpg",
+        imageM: "https://media.sunglasshut.com/2023/utility/WOW/men_m.jpg",
         link: {
             "en": "/mens-sunglasses",
             "fr":"/lunettes-de-soleil-homme",
