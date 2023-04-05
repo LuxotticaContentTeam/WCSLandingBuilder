@@ -9,7 +9,7 @@
     "dev": "gulp dev_",
     "devMob": "gulp dev_ --mob true",
     "build": "gulp build_ ",
-    "sprite":"gulp sprite --icons"
+    "sprite": "gulp sprite --icons"
   },
   "author": "",
   "license": "ISC",
@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "inquirer": "^8.2.5",
-    "locomotive-scroll": "^4.1.4"
+    "locomotive-scroll": "^4.1.4",
+    "vanilla-lazyload": "^17.8.3"
   }
 }
