@@ -1,8 +1,30 @@
 body{
     margin: 0;
 }
+@font-face {
+    font-family: "DINOT-Light";
+    src: url(./fonts/DINOT-Light.woff);
+}
+@font-face {
+    font-family: "DINOT-Regular";
+    src: url(./fonts/DINOT-Regular.woff);
+}
+@font-face {
+    font-family: "DINOT-Medium";
+    src: url(./fonts/DINOT-Medium.woff);
+}
+@font-face {
+    font-family: "DINOT-Bold";
+    src: url(./fonts/DINOT-Bold.woff);
+}
+@font-face {
+    font-family: "DINOT-Black";
+    src: url(./fonts/DINOT-Black.woff);
+}
+
 *{
-    font-family: "Helvetica Neue";
+    font-family: "DINOT-Regular";
+    box-sizing: border-box; 
 }
 header{
     width: 100%;
