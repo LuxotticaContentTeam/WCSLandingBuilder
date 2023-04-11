@@ -18,6 +18,7 @@ export const navManger = {
                 if (document.querySelector('.benefit-bar')){
                     this.benefitBarHeight = document.querySelector('.benefit-bar').clientHeight;
                     this.setMenuOffset();
+                    this.setOffsets()
                 }
             },2000)
         }
@@ -43,13 +44,13 @@ export const navManger = {
             if (ct_current__device !== 'D'){
              
                 if (!down){
-                    if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down') || down){
+                    if (document.querySelectorAll('.sgh-main-menu__wrapper')[1].classList.contains('sgh-main-menu__down')){
                         this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
                     }else{
                         this.menu_offset =     document.querySelectorAll('.sgh-main-menu')[1].clientHeight  + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
                     }
                 }else{
-                    console.log(down)
+                   
                     if (down === 'down'){
                         this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
                     }
@@ -59,13 +60,13 @@ export const navManger = {
                 }
             }else{
                 if (!down){
-                    if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down') || down){
+                    if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down') ){
                         this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
                     }else{
                         this.menu_offset = document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
                     }
                 }else{
-                    console.log(down)
+                  
                     if (down === 'down'){
                         this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
                     }
@@ -89,10 +90,15 @@ export const navManger = {
     },
     setStickyNav:function(){
         if (window.scrollY + this.menu_offset >= this.nav_container.offsetTop){
+           
             if (!this.nav.classList.contains('ct_stick')){
                 this.nav.classList.add('ct_stick'); 
+                this.setOffsets()
             }
-            this.nav.style.top = this.menu_offset+'px';
+            if (!this.nav.classList.contains('ct_hide')){
+
+                this.nav.style.top = this.menu_offset+'px';
+            }
         }else{
           
             if (this.nav.classList.contains('ct_stick')){
@@ -126,6 +132,7 @@ export const navManger = {
                 navManger.inSection = true;
                 if(navManger.nav.classList.contains('ct_hide')){
                     navManger.nav.classList.remove('ct_hide')
+                    navManger.nav.style.opacity = '1'
                 }
                 if (!document.querySelector(`[data-section-to="${elem}"]`).classList.contains('ct_active')){
                     if(document.querySelector('.ct_nav__container button.ct_active')){
@@ -142,8 +149,10 @@ export const navManger = {
             document.querySelector('.ct_nav__container button.ct_active').classList.remove('ct_active');
             if(window.scrollY >= navManger.sectionsTopOffest.last.top -  navManger.nav_offset){
                 navManger.nav.classList.add('ct_hide')
+                navManger.nav.style.opacity = '0'
             }else{
                 navManger.nav.classList.remove('ct_hide')
+                navManger.nav.style.opacity = '1'
             }
         }
        

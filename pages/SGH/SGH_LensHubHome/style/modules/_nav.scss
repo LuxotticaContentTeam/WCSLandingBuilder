@@ -29,7 +29,7 @@
                 overflow: hidden;
                 width: 100%;
                 z-index: 5;
-                transition: all .3s linear;
+                transition: transform .3s linear, top .3s linear, opacity .2s ease;
                 &.ct_stick{
                     position: fixed;
                     // top: 95px;
@@ -40,9 +40,7 @@
                     //     top: 60px;
                     // }
                 }
-                &.ct_hide{
-                    transform: translateY(-100%);
-                }
+               
             }
             ul{
                 display: flex;
