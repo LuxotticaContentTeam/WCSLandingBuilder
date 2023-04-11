@@ -4,26 +4,32 @@ export const navManger = {
     menu_offset:0,
     nav_offset:0,
     sectionsTopOffest:{},
+    benefitBarHeight:0,
     manual_click: {
         active:false,
         section:''
     },
     inSection:false,
     init:function(){
-        this.setOffests()
+        if (document.querySelector('.benefit-bar')){
+           this.benefitBarHeight = document.querySelector('.benefit-bar').clientHeight;
+        }else{
+            setTimeout(()=>{
+                if (document.querySelector('.benefit-bar')){
+                    this.benefitBarHeight = document.querySelector('.benefit-bar').clientHeight;
+                    this.setMenuOffset();
+                }
+            },2000)
+        }
+        this.setOffsets()
         this.setStickyNav();
         this.setClickHandler();
         this.setActiveSection();
 
         this.onScrollEvents();
     },
-    setOffests:function(){
-        this.menu_offset = ct_current__device !== 'D' ? 
-            document.querySelectorAll('.sgh-main-menu')[1].clientHeight  :
-            document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-header-top').clientHeight;
-
-
-        this.nav_offset = this.menu_offset + this.nav.clientHeight;
+    setOffsets:function(){
+        this.setMenuOffset();
         [...document.querySelectorAll('.ct_space [data-section]')].forEach(elem=>{
             this.sectionsTopOffest[elem.dataset.section] = { 
                 "top" : elem.offsetTop
@@ -31,14 +37,37 @@ export const navManger = {
         });
         this.sectionsTopOffestKeys = Object.keys(this.sectionsTopOffest)
     },
+    setMenuOffset:function(){
+        try {
+            if (ct_current__device !== 'D'){
+                this.menu_offset = document.querySelectorAll('.sgh-main-menu')[1].clientHeight 
+            }else{
+                if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down')){
+                    this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
+                }else{
+                    this.menu_offset = document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                }
+            }
+    
+        } catch (error) {
+            console.log('Nav Erorr: ',error)
+            this.menu_offset = 0;
+        }
+      
+
+
+        this.nav_offset = this.menu_offset + this.nav.clientHeight;
+    },
     setStickyNav:function(){
         if (window.scrollY + this.menu_offset >= this.nav_container.offsetTop){
             if (!this.nav.classList.contains('ct_stick')){
-                this.nav.classList.add('ct_stick');
+                this.nav.classList.add('ct_stick'); 
             }
+            this.nav.style.top = this.menu_offset+'px';
         }else{
             if (this.nav.classList.contains('ct_stick')){
                 this.nav.classList.remove('ct_stick');
+                this.nav.style.top = 'unset';
             }
            
         }
@@ -90,8 +119,10 @@ export const navManger = {
        
     },
     onScrollEvents:function(){
-        document.addEventListener('scroll',function(){
-            navManger.setStickyNav();
+        document.addEventListener('scroll',()=>{
+            console.log('scroll')
+            this.setMenuOffset();
+            this.setStickyNav();
             if (navManger.manual_click.active){
                 if (window.scrollY + navManger.nav_offset  >= navManger.sectionsTopOffest[navManger.manual_click.section].top && window.scrollY + navManger.nav_offset <  navManger.sectionsTopOffest[navManger.sectionsTopOffestKeys[navManger.sectionsTopOffestKeys.indexOf(navManger.manual_click.section)+1]].top ){
                     navManger.manual_click.active = false
