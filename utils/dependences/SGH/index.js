@@ -70,6 +70,10 @@ function menuPositionHandler(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
+    if(window.innerWidth > 1023){
+
+        document.getElementById('remove_desk').remove()
+    }
     let strip = document.createElement('div');
     strip.innerHTML = 'BENEFIT BAR'
     strip.classList.add('benefit-bar')
