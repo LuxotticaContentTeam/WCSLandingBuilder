@@ -37,16 +37,45 @@ export const navManger = {
         });
         this.sectionsTopOffestKeys = Object.keys(this.sectionsTopOffest)
     },
-    setMenuOffset:function(){
+    setMenuOffset:function(down){
+       
         try {
             if (ct_current__device !== 'D'){
-                this.menu_offset = document.querySelectorAll('.sgh-main-menu')[1].clientHeight 
-            }else{
-                if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down')){
-                    this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
+             
+                if (!down){
+                    if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down') || down){
+                        this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
+                    }else{
+                        this.menu_offset =     document.querySelectorAll('.sgh-main-menu')[1].clientHeight  + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                    }
                 }else{
-                    this.menu_offset = document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                    console.log(down)
+                    if (down === 'down'){
+                        this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
+                    }
+                    if (down === 'up'){
+                        this.menu_offset =     document.querySelectorAll('.sgh-main-menu')[1].clientHeight  + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                    }
                 }
+            }else{
+                if (!down){
+                    if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down') || down){
+                        this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
+                    }else{
+                        this.menu_offset = document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                    }
+                }else{
+                    console.log(down)
+                    if (down === 'down'){
+                        this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
+                    }
+                    if (down === 'up'){
+                        this.menu_offset = document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                    }
+                }
+               
+               
+               
             }
     
         } catch (error) {
@@ -65,6 +94,7 @@ export const navManger = {
             }
             this.nav.style.top = this.menu_offset+'px';
         }else{
+          
             if (this.nav.classList.contains('ct_stick')){
                 this.nav.classList.remove('ct_stick');
                 this.nav.style.top = 'unset';
@@ -75,7 +105,7 @@ export const navManger = {
     setClickHandler:function(){
         [...document.querySelectorAll('.ct_nav__container ul button')].forEach(elem=>{
             elem.addEventListener('click',()=>{
-                ct_scroll_to_section(elem.dataset.sectionTo, this.nav_offset - 1);
+                ct_scroll_to_section(elem.dataset.sectionTo);
                 if (document.querySelector('.ct_nav__container ul button.ct_active')){
                     document.querySelector('.ct_nav__container ul button.ct_active').classList.remove("ct_active");
                 }
@@ -120,26 +150,48 @@ export const navManger = {
     },
     onScrollEvents:function(){
         document.addEventListener('scroll',()=>{
-            console.log('scroll')
-            this.setMenuOffset();
-            this.setStickyNav();
+           
             if (navManger.manual_click.active){
                 if (window.scrollY + navManger.nav_offset  >= navManger.sectionsTopOffest[navManger.manual_click.section].top && window.scrollY + navManger.nav_offset <  navManger.sectionsTopOffest[navManger.sectionsTopOffestKeys[navManger.sectionsTopOffestKeys.indexOf(navManger.manual_click.section)+1]].top ){
                     navManger.manual_click.active = false
                 }
             }else{
+                this.setMenuOffset();
+               
                 navManger.setActiveSection() 
             }
+            this.setStickyNav();
         })
     }
 
 }
 
-function ct_scroll_to_section(elem,offset){
-    let sectionTop = document.querySelector(`.ct_double_content[data-section="${elem}"]`).getBoundingClientRect().top 
-    window.scroll({
-        behavior: 'smooth',
-        left: 0,
-        top: sectionTop + window.scrollY - offset
-      });
+function ct_scroll_to_section(elem){
+    let section  = document.querySelector(`.ct_double_content[data-section="${elem}"]`)
+    let sectionTop = section.getBoundingClientRect().top;
+    
+    if (section.offsetTop > window.scrollY){
+      
+        navManger.setMenuOffset('down');
+      
+        window.scroll({
+            behavior: 'smooth',
+            left: 0,
+            top: sectionTop + window.scrollY - navManger.nav_offset
+        });
+        
+    }else{
+      
+        navManger.setMenuOffset('up');
+       
+       
+        window.scroll({
+            behavior: 'smooth',
+            left: 0,
+            top: sectionTop + window.scrollY - navManger.nav_offset
+        });
+        
+    }
+   
+   
 }

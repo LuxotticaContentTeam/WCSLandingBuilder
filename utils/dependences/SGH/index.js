@@ -23,14 +23,14 @@ function menuPositionHandler(){
         }
     }else{
         if (dir === 'down' && !menu_wrap.classList.contains('sgh-main-menu__down')){
-            console.log('DOWN')
+           
             menu_wrap.classList.add('sgh-main-menu__down')
             menu_wrap.classList.remove('sgh-main-menu__top')
         }
         if (dir === 'up' && !menu_wrap.classList.contains('sgh-main-menu__top')){
             menu_wrap.classList.add('sgh-main-menu__top')
             menu_wrap.classList.remove('sgh-main-menu__down')
-            console.log('UP')
+            
         }
     }
 }
