@@ -20,7 +20,7 @@ export const navManger = {
     setOffests:function(){
         this.menu_offset = ct_current__device !== 'D' ? 
             document.querySelectorAll('.sgh-main-menu')[1].clientHeight  :
-            document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-service-menu').clientHeight;
+            document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-header-top').clientHeight;
 
 
         this.nav_offset = this.menu_offset + this.nav.clientHeight;

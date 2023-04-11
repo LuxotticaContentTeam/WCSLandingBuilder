@@ -7,7 +7,7 @@ var ct_cos__data = {
   
     lang: "",
     lang_short: "",
-    homeUrl: location.href,
+    homeUrl: location.origin + location.pathname,
     items: [
      
       {
@@ -33,7 +33,7 @@ var ct_cos__data = {
         title: {
             "en": "Men",
             "fr":"Homme",
-            "es-mx":"Hombre",
+            "es":"Hombre",
             "de":"Herren",
         },
         logo: "https://media.sunglasshut.com/2023/utility/WOW/SGH_sun.svg",
