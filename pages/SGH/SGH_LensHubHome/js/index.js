@@ -24,7 +24,10 @@ function  entryAnim(){
 
 document.addEventListener('DOMContentLoaded',()=>{
     window.ct_current__device = currentDevice();
+    
     window.promo = false;
+
+
     window.navManger = navManger
     entryHero();
     lazyLo();
@@ -106,15 +109,18 @@ $(document).ready(function(){
 
 
     let sliderPlayPause = document.querySelector('.ct_slider__controls');
-    sliderPlayPause.addEventListener('click',()=>{
-        if(sliderPlayPause.classList.contains('ct__playing')){
-            sliderPlayPause.classList.remove('ct__playing');
-            $('.slider-text').slick('slickSetOption', 'autoplay', false).slick('slickPause');
-        }else{
-            sliderPlayPause.classList.add('ct__playing');
-            $('.slider-text').slick('slickSetOption', 'autoplay', true).slick('slickPlay');
-        }
-    })
+    if (sliderPlayPause){
+        sliderPlayPause.addEventListener('click',()=>{
+            if(sliderPlayPause.classList.contains('ct__playing')){
+                sliderPlayPause.classList.remove('ct__playing');
+                $('.slider-text').slick('slickSetOption', 'autoplay', false).slick('slickPause');
+            }else{
+                sliderPlayPause.classList.add('ct__playing');
+                $('.slider-text').slick('slickSetOption', 'autoplay', true).slick('slickPlay');
+            }
+        })
+    }
+  
 });
 // $('#slider').slick({
 //     infinite: true,

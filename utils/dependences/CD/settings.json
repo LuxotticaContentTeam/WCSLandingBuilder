@@ -1,0 +1,18 @@
+{
+    "dependences":{
+        "responsive":true,
+        "desk":"./",
+        "mob":"MOB/brand-us/"
+    },
+
+    "moduleLibrary":{
+        "exist":true,
+        "jsPath":"../0_StyleGuide/JS/",
+        "cssPath":"../0_StyleGuide/CSS/",
+        "jsDestPath":"../0_StyleGuide/export/js/",
+        "cssDestPath":"../0_StyleGuide/export/css/",
+        "jsDestName":"index_dev.min.js",
+        "cssDestName":"index_dev.min.css"
+    }
+
+}

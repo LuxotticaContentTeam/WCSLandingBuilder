@@ -1,0 +1,92 @@
+<style>
+
+</style>
+<div class="ct_space" data-czid="X_HP_Hero">
+	<div class="ct_banner ct_banner_HP_Hero">
+		<div class="ct_assets__container">
+		  <div>
+			  <picture class="ct_img__skeleton">
+				  <source media="(orientation: portrait) and (max-width: 768px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAAXNSR0IArs4c6QAAABNJREFUGFdjnLr24n8GKGBE5gAAZ0MGJzav0CIAAAAASUVORK5CYII=">
+				  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAYAAACUn8ZgAAAAAXNSR0IArs4c6QAAABNJREFUGFdjnLb24n8GHIARnyQA+0gGKcwEae8AAAAASUVORK5CYII=" alt="structure image">
+			  </picture>
+			  <div class="ct_video__container">
+				 <video
+					  data-desktop-video="https://media.contactsdirect.com/2023/CAMPAIGNS/END_OF_WINTER/CD_HP_EndofWinter_banners_D.mp4"
+					  data-mobile-video="https://media.contactsdirect.com/2023/CAMPAIGNS/END_OF_WINTER/CD_HP_EndofWinter_banners_M.mp4"
+					  data-desktop-poster="https://media.contactsdirect.com/2023/CAMPAIGNS/END_OF_WINTER/CD_HP_EndofWinter_banners_D.jpg"
+					  data-mobile-poster="https://media.contactsdirect.com/2023/CAMPAIGNS/END_OF_WINTER/CD_HP_EndofWinter_banners_M.jpg"
+					  autoplay muted playsinline fetchpriority="high" class="ct_video">
+				  </video>
+			  </div>
+		  </div>
+			<div class="ct_see_details__container ct_see_details__small">
+				<button class="ct_see_details__button ct_see_details__black" aria-label="See details">
+					<div>
+					  <!-- <span class="ct__mob__hide">SEE DETAILS</span> -->
+				  </div>
+				</button>
+				<div class="ct_see_details__content">
+					<div>
+						<p class="ct_font__s ct__font__tab__xs">
+						  For a limited time only: 20% off all orders with code MYLENSES + free shipping combinable with supply savings. Not combinable with insurance or with other promotions. Offer subject to change without notice.
+					  </p>
+						 <button class="ct_see_details__close" aria-label="Close see details">
+							<svg width="12" height="12" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M28.4441 0L16.0006 12.4448L3.55588 0L0 3.5556L12.4447 16.0008L0 28.4448L3.55588 32L16.0006 19.5556L28.4441 32L32 28.4448L19.5553 16.0008L32 3.5556L28.4441 0Z" fill="#fff"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		 <div class="ct_text__overlay ct_text__overlay_left ct_text__overlay__mob___out ct_text__overlay__tab__100">
+			<h2 class="ct_font__extra ct_font__mob__extra ct_text__bold ct_mb__standard">Eyes on winter’s end</h2>
+			<p class="ct_font__xl ct_mb__10">Get<span class="ct_text__bold ct_text__mob__dark"> 20% off all orders</span></p>
+			<p class="ct_font__xl ct_mb__standard">Use code <span class="ct_text__bold ct_text__uppercase ct_text__mob__dark">MYLENSES</span> at checkout</p>
+			<div class="ct_cta__container">
+				<a class="ct_cta ct_cta__orange" href="/contacts" data-element-id="x_HP_hero_CTA_02" data-description="Find_contacts">SHOP NOW</a>
+				<a class="ct_cta ct_cta__white ct_cta__mob__blue" href="javascript:void(0)" onclick="hp_reorderRedirect()" data-element-id="x_HP_hero_CTA_01" data-description="Reorder_contacts">REORDER NOW</a>
+			</div>
+			<p class="ct_font__ml ct_mt__standard ct_text__medium">Free shipping is always included</p>
+			<p class="ct_font__ml">Offer combinable with supply savings</p>
+		</div>
+	</div>
+  </div>
+  
+  <script>
+	  function ct_video () {
+		  const videos = Array.from(document.querySelectorAll('.ct_video'));
+		  const mql = window.matchMedia('(max-width: 768px)');
+		  let isMobile = mql.matches;
+  
+		  const setVideoSoruce = () => {
+			  videos.forEach(video => {
+				  if (isMobile) {
+					  video.setAttribute('src', video.dataset.mobileVideo);
+					  if (video.dataset.mobilePoster) video.setAttribute('poster', video.dataset.mobilePoster);
+				  } else {
+					  video.setAttribute('src', video.dataset.desktopVideo);
+					  if (video.dataset.desktopPoster) video.setAttribute('poster', video.dataset.desktopPoster);
+				  }
+  
+				  video.load();
+				  if (video.getAttribute('autoplay')) video.play();
+			  });
+		  };
+  
+		  setVideoSoruce();
+  
+		  window.addEventListener('resize', () => {
+			  if (isMobile === mql.matches) return;
+			  isMobile = !isMobile;
+			  setVideoSoruce();
+		  });
+	  }
+  
+	  document.addEventListener('DOMContentLoaded', () => {
+		  ct_video();
+	  });
+  </script>
+<script>
+!function o(r,c,u){function i(t,e){if(!c[t]){if(!r[t]){var n="function"==typeof require&&require;if(!e&&n)return n(t,!0);if(a)return a(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}n=c[t]={exports:{}},r[t][0].call(n.exports,function(e){return i(r[t][1][e]||e)},n,n.exports,o,r,c,u)}return c[t].exports}for(var a="function"==typeof require&&require,e=0;e<u.length;e++)i(u[e]);return i}({1:[function(e,t,n){"use strict";console.log("check low power mode...");var o=document.querySelector('[data-czid="X_HP_Hero"] video');o&&!1!==o.paused&&(1<o.readyState?o.play().then(function(){}).catch(function(e){window.monetateQ.push(["trackEvent",["LowPowerMode"]])}):o.addEventListener("canplay",function(){o.play().then(function(){}).catch(function(e){window.monetateQ.push(["trackEvent",["LowPowerMode"]])})}))},{}]},{},[1]);
+</script>
