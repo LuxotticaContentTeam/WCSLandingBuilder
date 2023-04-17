@@ -21,7 +21,8 @@ const toBottom = "ct_ls__bottom";
 document.addEventListener("DOMContentLoaded", () => {
   window.promo = false;
   window.ct_current__device = currentDevice();
-  let headerHeight = window.ct_current__device === 'M' ? document.querySelectorAll('.sgh-main-menu')[1].clientHeight : document.querySelector('.main-menu-center.navbar').clientHeight + document.querySelector('.sgh-service-menu').clientHeight;
+  //let headerHeight = window.ct_current__device === 'M' ? document.querySelectorAll('.sgh-main-menu')[1].clientHeight : document.querySelector('.sgh-header-top').clientHeight;
+  let headerHeight = document.querySelector('.sgh-header-top').clientHeight ? document.querySelector('.sgh-header-top').clientHeight : window.ct_current__device === 'M' ? 48 : 40;
 
   document.querySelector(".ct_section__benefits .ct_title").style.height = `calc(100vh - ${headerHeight}px`;
   document.querySelectorAll(".ct_section__benefits .ct_benefits_item").forEach(function(el){el.style.height = `calc(100vh - ${headerHeight}px`});
@@ -138,18 +139,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // benefits lens
     if (typeof args.currentElements["lens"] === "object") {
       if (args.currentElements["lens"].inView) {
-        if(window.ct_current__device === 'D'){
-          var _x = 600 - args.currentElements["lens"].progress * 1000 > 250 ? 600 - args.currentElements["lens"].progress * 1000 : 250;
-          $(".ct_lens").css({
-            transform: `translateX(${_x}px)`,
-          });
-        }
-        else{
-          var _x = 600 - args.currentElements["lens"].progress * 1000 > 150 ? 600 - args.currentElements["lens"].progress * 1000 : 150
-          $(".ct_lens").css({
-            transform: `translateX(${_x}px)`,
-          });
-        }
+          if(window.ct_current__device === 'D'){
+            var _x = 600 - args.currentElements["lens"].progress * 1000 > 250 ? 600 - args.currentElements["lens"].progress * 1000 : 250;
+            $(".ct_lens").css({
+              transform: `translateX(${_x}px)`,
+            });
+          }
+          else{
+            var _x = 600 - args.currentElements["lens"].progress * 1000 > 150 ? 600 - args.currentElements["lens"].progress * 1000 : 150
+            $(".ct_lens").css({
+              transform: `translateX(${_x}px)`,
+            });
+          }
       }
     }
 
@@ -198,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //benefits item04
     if (typeof args.currentElements["item-04"] === "object") {
       if(args.currentElements["item-04"].inView){
-         var opacity = 2 * (args.currentElements["item-04"].progress - .15) <= 1 ? 2 * (args.currentElements["item-04"].progress - .15) : 1;
+         var opacity = 3 * (args.currentElements["item-04"].progress - .15) <= 1 ? 2 * (args.currentElements["item-04"].progress - .15) : 1;
           $(".ct_section__benefits .benefits-item-04 div").css({
             opacity: `${opacity}`
           });
