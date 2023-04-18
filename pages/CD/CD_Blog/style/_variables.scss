@@ -1,0 +1,131 @@
+
+
+//fonts
+$font-default:'DM Sans', serif;
+$font-primary: "Space Mono", monospace;
+$font-regular: "DINOT-Regular";
+$font-medium: "DINOT-Medium";
+$font-secondary-bold: "noto_sansbold", sans-serif;
+
+
+//colors
+$black: #222222;
+$black-active: rgba(34, 34, 34, 0.5);
+$blue: #0080A9;
+$yellow: #f6ee16;
+$white: #fff;
+$white-active:rgba(255, 255, 255, 0.5);
+$dark-grey:#808080;
+$medium-grey:#C0C1C6;
+$grey: #f2f2f2;
+$grey-active: rgba(242, 242, 242, 0.5);
+
+//colors GL2.0
+
+$violet:#575D9B;
+$violet-dark:#323666;
+$violet-dark-active:rgba(50, 55, 103, 0.5);
+$violet-extra-light: #E5EBFE;
+
+
+$aqua:#C0EDE8;
+$aqua-dark:#A7E2DB;
+$aqua-dark-active:rgba(167, 226, 219, 0.5);
+$aqua-extra-light:#ECFFFD;
+
+$blue-dark:#CEDBF4;
+$blue-dark-active:rgba(206, 219, 244, 0.5);
+$blue-extra-light:#EFF5FF;
+
+$peach:#F7CAA8;
+$peach-dark:#DD9F70;
+$peach-dark-active:rgba(221, 159, 112, 0.5);
+$peach-extra-light:#FFF6EA;
+
+$pink:#FFF1ED;
+$pink-dark:#F4C8BB;
+$pink-dark-active:rgba(244, 200, 187, 0.5);
+$pink-extra-light:#FFF9F7;
+
+//gradients
+%gradient1 {
+    background: radial-gradient(79.51% 193.54% at 12.4% 80.31%, rgba(255, 244, 244, 0.75) 0%, #EAF7FF 51.15%, #FDFEEF 100%), #FFFFFF;
+}
+%gradient2 {
+    background: radial-gradient(79.37% 193.21% at 12.53% 65.7%, #D1F1ED 0%, #F7F6F6 65.58%, #F1E8FF 91.96%), #FFFFFF;
+}
+%gradient3 {
+    background: linear-gradient(90deg, #C8FBF9 0%, #EEFAFF 46.88%, #CCEFFC 97.92%);
+}
+%gradient4 {
+    background: radial-gradient(97.4% 237.07% at 0% 50%, #F7E7FF 0%, rgba(195, 214, 255, 0.67) 65.58%, #E0F0FF 91.96%), #FFFFFF;
+}
+%gradient5 {
+    background: linear-gradient(73.55deg, #C5BCC6 7.25%, #ABA2B4 45.96%, #736B82 89.28%);
+}
+%gradient6 {
+    background: linear-gradient(73.55deg, #D3D3E3 7.25%, #8D97B8 45.96%, #56699A 89.28%);
+}
+%gradient7 {
+    background: linear-gradient(73.55deg, #8BA4B1 7.25%, #88ACBD 45.53%, #828AA7 89.28%);
+}
+
+//font sizes
+$font-xxxl: 80px;
+$font-xxl: 48px;
+$font-xl: 40px;
+$font-l: 32px;
+$font-xm: 24px;
+$font-m: 20px;
+$font-s: 18px;
+$font-xs: 16px;
+$font-xxs: 14px;
+$font-xxxs: 12px;
+$font-xxxxs: 10px;
+//font sizes mobile
+$font-xxxl-mobile: 32px;
+$font-xxl-mobile: 24px;
+$font-xl-mobile: 20px;
+$font-l-mobile: 18px;
+$font-m-mobile: 16px;
+$font-s-mobile: 14px;
+$font-xs-mobile: 12px;
+$font-xxs-mobile: 12px;
+
+
+//line-height
+$line-height-l: 1.5;
+$line-height-m: 1.2;
+$line-height-s: 1;
+
+//break point
+$break-desktop-medium: 1400px;
+$break-desktop-small: 1280px;
+$break-desktop-min: 1081px;
+$break-tablet-landscape-max: 1080px;
+$break-tablet-landscape-min: 1024px;
+$break-tablet-portrait-max: 1023px;
+$break-tablet-portrait-min: 768px;
+$break-mobile-max: 767px;
+$break-mobile-medium: 380px;
+$break-mobile-small: 330px;
+
+
+$break-portrait-max: 1024px;
+$break-portrait-min: 1025px;
+$break-landscape-max: 1023px;
+$break-landscape-min: 1024px;
+
+//transition
+$transition-default: all .3s ease;
+$transition-default-delay: all .4s ease .4s;
+$transition-product: all .5s ease .1s;
+$transition-product-hover: all .3s ease .1s;
+
+//border
+$border-default: 1px solid #000;
+
+
+
+//collection padding
+$collection-padding: 3%;
