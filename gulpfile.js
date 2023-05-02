@@ -234,7 +234,7 @@ gulp.task('dev_', (done)=> {
     settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
-    console.log(currentBrand,settings,currentPage,moduleLibrary)
+    
     startDev();
   }else{
     inquirer.prompt(questions_dev).then((answers) => {
@@ -363,7 +363,6 @@ gulp.task('build_', (done)=> {
     settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
-    console.log(currentBrand,settings,currentPage,moduleLibrary)
     startBuild();
   }else{
     inquirer.prompt(questions_build).then((answers) => {
