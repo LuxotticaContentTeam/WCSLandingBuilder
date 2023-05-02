@@ -1,10 +1,10 @@
 @import '../0_ModuleLibrary/DesignSystem/style/variables';
-@import 'resetLP';
+// @import 'resetLP';
 
 .ct_space {
   .ct_red_card__banner{
         width: 100%;
-        padding: 12px 40px;
+        padding: 24px 40px;
         border: 1px solid $medium-gray;
         border-radius: 16px;
         box-sizing: border-box;
@@ -16,9 +16,9 @@
             padding: 12px 22px;
         }
         .ct_red_card__text{
-            width: 50%;
+            width: 45%;
             @media(max-width:$break-portrait-max){
-                width: 80%;
+                width: 100%;
             }
             button{
                 background-color: transparent;
@@ -37,7 +37,7 @@
         }
         .ct_red_card__img{
             position: absolute;
-            left: calc(50% + 40px);
+            left: calc(45% + 20px);
             top: 0;
             @media(max-width:$break-portrait-max){
                 left: unset;
@@ -57,6 +57,18 @@
                     width: 100% !important;
                     
                 }
+            }
+        }
+        .ct_cta__container{
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            @media(max-width:$break-portrait-max){
+                position: relative;
+                top: unset;
+                right: unset;
+                transform: none;
             }
         }
   }
