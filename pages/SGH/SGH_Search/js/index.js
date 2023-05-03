@@ -39,7 +39,22 @@ window.ct_wow__search = {
     })
   },
   setPlaceholders:function(){
-    
+    const setMainCircle = (first)=>{
+      let container = document.querySelector('#ct_wow__search .ct_wow__search__pos_placeholders__main_results ')
+      if (first){
+        for (let i=0; i<3;i++){
+          container.innerHTML+=`
+            <div class="ct_wow__search__pos_placeholders__main_result__placeholder"></div>
+          `
+        }
+      }
+      
+      let coordinates = calcCoordinates(3,container.clientWidth / 2,container.clientWidth / 2,container.clientWidth / 2)
+      container.querySelectorAll('div').forEach((elem,i)=>{
+        elem.style.top = coordinates[i].y+'px'
+        elem.style.left = coordinates[i].x+'px'
+      })
+    }
     const setFirstCircle = (first)=>{
       let container = this.placeholdersUtils.firstCircle.container = document.querySelector('#ct_wow__search .ct_wow__search__pos_placeholders__first_circle ')
       if (first){
@@ -73,10 +88,12 @@ window.ct_wow__search = {
       })
     }
     const refreshCoordinates = () =>{
+      setMainCircle(false);
       setFirstCircle(false);
       setSecondCircle(false);
     }
 
+    setMainCircle(true);
     setFirstCircle(true);
     setSecondCircle(true);
 

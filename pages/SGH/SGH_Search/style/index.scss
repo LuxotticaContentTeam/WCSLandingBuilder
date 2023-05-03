@@ -101,8 +101,8 @@
         margin: 0 auto;
         display: inline-block;
         .ct_wow__search__pos_placeholders__main_results{
-          width: 60%;
-          height: 55%;
+          width: 24vw;
+          height: 24vw;
           outline: 1px dashed blue;
           position: absolute;
           left: 50%;
@@ -112,10 +112,13 @@
           flex-wrap:wrap ;
           justify-content: center;
           align-items: center;
+          border-radius: 50%;
           .ct_wow__search__pos_placeholders__main_result__placeholder{
-            width: 50%;
-            height: 17vw;
-            outline: 1px dashed black;
+            width: 18vw;
+            height: 18vw;
+            outline: 1px dashed blue;
+            position: absolute;
+            transform: translate(-50%,-50%);
             
           }
         }
