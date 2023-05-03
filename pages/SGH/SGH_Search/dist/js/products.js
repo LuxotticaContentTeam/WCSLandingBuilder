@@ -1,4 +1,3 @@
-console.log('products')
 window.ct_wow__search__products = [
     {
         brand:'Ray-Ban',
