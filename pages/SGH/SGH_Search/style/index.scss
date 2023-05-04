@@ -82,6 +82,7 @@
     .ct_wow_search__product__wrap{
       width: 100%;
       height: 100%;
+      transition: transform .8s ease;
     }
     .ct_wow__search__pos_placeholders{
       position: fixed;

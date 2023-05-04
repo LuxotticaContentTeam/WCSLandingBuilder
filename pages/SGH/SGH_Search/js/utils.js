@@ -1,11 +1,12 @@
-export const calcCoordinates = (nSides,originX,originY,radius) =>{ 
-    let points = [{x:originX,y:originY+radius}]
-    let theta = Math.PI/2;
+export const calcCoordinates = (nSides,radius) =>{ 
+    let originX = radius;
+    let originY = radius;
     let dTheta = 2*Math.PI/nSides;
-
-    for (let i=1;i<nSides+1;i++){
-        theta += dTheta;
-        points.push({x: ( originX + radius*Math.cos(theta)).toFixed(2),y:(originY+radius*Math.sin(theta)).toFixed(2)})
+    let theta = Math.PI/2 + dTheta;
+    let points = []
+    for (let i=0;i<nSides;i++){
+         points.push({x: ( originX + radius*Math.cos(theta)).toFixed(2),y:(originY+radius*Math.sin(theta)).toFixed(2)})
+        theta+=dTheta
     }
     return points
 }
