@@ -229,34 +229,45 @@ const questions_dev = [
 
 
 gulp.task('dev_', (done)=> {
-  inquirer.prompt(questions_dev).then((answers) => {
+  if (process.argv.includes('--brand') && process.argv.includes('--page') && process.argv.includes('--moduleLibrary')){
+    currentBrand = process.argv[process.argv.indexOf('--brand')+1];
+    settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
+    currentPage= process.argv[process.argv.indexOf('--page')+1];
+    moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
     
-    console.log('\n Starting Dev: ' + answers.brand + "\n"); 
-    currentBrand=  answers.brand;
+    startDev();
+  }else{
+    inquirer.prompt(questions_dev).then((answers) => {
     
-    const questions_dev2 = [ {
-      type: 'list',
-      name: 'page',
-      message: 'Select Page to dev:',
-      choices: [...getDirectories(`./pages/${currentBrand}/`)],
-    },
-    {
-      type: 'list',
-      name: 'moduleLibrary',
-      message: 'There is Module Library? ',
-      choices: ['yes','no'],
-    },
-  ];
-    
-    inquirer.prompt(questions_dev2).then((answers) => {
-      currentPage =answers.page;
-      settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
-      moduleLibrary = answers.moduleLibrary === 'yes' ? true : false;
-      startDev();
-      done()
-
+      console.log('\n Starting Dev: ' + answers.brand + "\n"); 
+      currentBrand=  answers.brand;
+      
+      const questions_dev2 = [ {
+        type: 'list',
+        name: 'page',
+        message: 'Select Page to dev:',
+        choices: [...getDirectories(`./pages/${currentBrand}/`)],
+      },
+      {
+        type: 'list',
+        name: 'moduleLibrary',
+        message: 'There is Module Library? ',
+        choices: ['yes','no'],
+      },
+    ];
+      
+      inquirer.prompt(questions_dev2).then((answers) => {
+        currentPage =answers.page;
+        settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
+        moduleLibrary = answers.moduleLibrary === 'yes' ? true : false;
+        console.log('\n Quick Command: \n\n' + " gulp dev_ --brand \""+currentBrand+"\" --page \""+ currentPage+"\" --moduleLibrary "+answers.moduleLibrary+" \n"); 
+        startDev();
+        done()
+  
+      })
     })
-  })
+  }
+  
   done();
 });
 
@@ -347,35 +358,44 @@ const questions_build = [
 ]
 
 gulp.task('build_', (done)=> {
- 
-  inquirer.prompt(questions_build).then((answers) => {
+  if (process.argv.includes('--brand') && process.argv.includes('--page') && process.argv.includes('--moduleLibrary')){
+    currentBrand = process.argv[process.argv.indexOf('--brand')+1];
+    settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
+    currentPage= process.argv[process.argv.indexOf('--page')+1];
+    moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
+    startBuild();
+  }else{
+    inquirer.prompt(questions_build).then((answers) => {
     
-    console.log('\n Starting Dev: ' + answers.brand + "\n"); 
-    currentBrand=  answers.brand;
-    
-    const questions_build2 = [ {
-      type: 'list',
-      name: 'page',
-      message: 'Select Page to build:',
-      choices: [...getDirectories(`./pages/${currentBrand}/`)],
-    },
-    {
-      type: 'list',
-      name: 'moduleLibrary',
-      message: 'There is Module Library? ',
-      choices: ['no','yes'],
-    },
-  ];
-    
-    inquirer.prompt(questions_build2).then((answers) => {
-      currentPage =answers.page;
-      settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
-      moduleLibrary = answers.moduleLibrary === 'yes' ? true : false;
-      startBuild();
-      done()
-
+      console.log('\n Starting Dev: ' + answers.brand + "\n"); 
+      currentBrand=  answers.brand;
+      
+      const questions_build2 = [ {
+        type: 'list',
+        name: 'page',
+        message: 'Select Page to build:',
+        choices: [...getDirectories(`./pages/${currentBrand}/`)],
+      },
+      {
+        type: 'list',
+        name: 'moduleLibrary',
+        message: 'There is Module Library? ',
+        choices: ['no','yes'],
+      },
+    ];
+      
+      inquirer.prompt(questions_build2).then((answers) => {
+        currentPage =answers.page;
+        settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
+        moduleLibrary = answers.moduleLibrary === 'yes' ? true : false;
+        console.log('\n Quick Command: \n\n' + " gulp build_ --brand \""+currentBrand+"\" --page \""+ currentPage+"\" --moduleLibrary "+answers.moduleLibrary+" \n"); 
+        startBuild();
+        done()
+  
+      })
     })
-  })
+  }
+ 
   done();
 })
 // 
@@ -476,13 +496,10 @@ const arg2 =  (argList => {
 gulp.task('test',done => {
   // fs.writeFileSync(`./pages/${currentPage}/dist/js/temp.min.js`, `document.title="${currentPage}"`);
 //  console.log(currentPage.substring(0,2))
-  inquirer.prompt(questions_dev).then((answers) => {
-    
-    console.log('\n Starting Dev: ' + answers.page + "\n"); 
-    currentPage=  answers.page;
-   
-
+    // console.log('test',process.argv)
+    console.log('brand:',process.argv[process.argv.indexOf('--brand')+1])
+    console.log('page:',process.argv[process.argv.indexOf('--page')+1])
+    console.log('modulelibrary:',process.argv[process.argv.indexOf('--moduleLibrary')+1])
     done()
-  })
 });
 
