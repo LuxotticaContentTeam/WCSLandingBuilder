@@ -1042,12 +1042,12 @@ html.has-scroll-dragging {
 }
 
 .ct_space .ct_ls__top {
-  top: 96px !important;
+  top: 40px !important;
 }
 
 @media (max-width: 1024px) {
   .ct_space .ct_ls__top {
-    top: 61px !important;
+    top: 48px !important;
   }
 }
 
