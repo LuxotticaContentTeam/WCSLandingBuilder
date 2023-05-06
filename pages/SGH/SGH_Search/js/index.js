@@ -56,8 +56,8 @@ window.ct_wow__search = {
       
       this.prod_list.push({
         elem,
-        x:elem.getBoundingClientRect().x - elem.clientWidth/2,
-        y:elem.getBoundingClientRect().y - elem.clientHeight/2,
+        x:elem.getBoundingClientRect().x + elem.clientWidth/2,
+        y:elem.getBoundingClientRect().y + elem.clientHeight/2,
       })
     })
    
@@ -67,7 +67,9 @@ window.ct_wow__search = {
   setPlaceholders:function(){
     const setPlaceholderCircle = (first) =>{
       let circles = Object.keys(this.placeholders.utils);
-      circles.forEach(circleID=>{
+      let comulativePos = 0;
+      circles.forEach((circleID,circleN)=>{
+        
         let container = this.placeholders.utils[circleID].container = document.querySelector(`#ct_wow__search .ct_wow__search__pos_placeholders__${circleID} `)
         if (first){
           for (let i=0; i<this.placeholders.utils[circleID].prodsCount;i++){
@@ -84,10 +86,13 @@ window.ct_wow__search = {
           elem.style.left = coordinates[i].x+'px'
 
           this.placeholders.coordinates.push({
+            elem,
             x:elem.getBoundingClientRect().x + elem.clientWidth/2,
-            y:elem.getBoundingClientRect().y + elem.clientHeight/2
+            y:elem.getBoundingClientRect().y + elem.clientHeight/2,
+            pos: i + comulativePos
           })
         })
+        comulativePos += this.placeholders.utils[circleID].prodsCount;
       })
     
     }
@@ -110,7 +115,7 @@ window.ct_wow__search = {
       this.shuffleData.missingProd=[...this.prod_list];
       this.shuffleData.missingPos=[...this.placeholders.coordinates];
     }
-    if (missingValues === 0){
+    if (missingValues < 0){
       return
     }
    
@@ -118,13 +123,14 @@ window.ct_wow__search = {
       let prod_n = Math.floor(Math.random()*missingValues);
       let pos_n = Math.floor(Math.random()*missingValues);
       
-      console.log(this.shuffleData.missingProd[prod_n].elem,this.shuffleData.missingProd[prod_n].x,this.shuffleData.missingPos[pos_n].x)
-
+      let currentProd = this.shuffleData.missingProd[prod_n]
+      this.prod_list[this.prod_list.indexOf(currentProd)] = {...this.prod_list[this.prod_list.indexOf(currentProd)],elemPos:this.shuffleData.missingPos[pos_n].pos}
       this.shuffleData.missingProd[prod_n].elem.style.transform = `
         translate(
           ${this.shuffleData.missingPos[pos_n].x - this.shuffleData.missingProd[prod_n].x }px,
           ${this.shuffleData.missingPos[pos_n].y - this.shuffleData.missingProd[prod_n].y }px
         )`;
+      
       this.shuffleData.missingProd.splice(prod_n,1)    
       this.shuffleData.missingPos.splice(pos_n,1)    
       this.shuffle(missingValues-1)
@@ -141,12 +147,12 @@ window.ct_wow__search = {
 
 document.addEventListener('DOMContentLoaded',()=>{
   window.ct_wow__search.init();
-  window.prod = document.querySelector('#ct_wow__search > div > ul > li:nth-child(4)')
-  
-
+ 
   // console.log({pos1:pos1,left:pos1.getBoundingClientRect().x,top:pos1.getBoundingClientRect().y})
 
-  // window.prod = prod.querySelector('.ct_wow_search__product__wrap').style.transform = `translate(
-  //   ${ct_wow__search.placeholders.coordinates[25].x - prod.getBoundingClientRect().x - prod.clientWidth/2 }px,
-  //   ${ct_wow__search.placeholders.coordinates[25].y-prod.getBoundingClientRect().y-prod.clientHeight/2}px)`
+  // ct_wow__search.prod_list[0].elem.style.transform =
+  //  `translate(
+  //     ${ct_wow__search.placeholders.coordinates[0].x - ct_wow__search.prod_list[0].x}px,
+  //     ${ct_wow__search.placeholders.coordinates[0].y - ct_wow__search.prod_list[0].y}px
+  //   )`;
 })
