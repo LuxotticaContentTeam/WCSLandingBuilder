@@ -1,4 +1,4 @@
-import { calcCoordinates } from "./utils";
+import { calcCoordinates, debounce } from "./utils";
 
 window.ct_wow__search = {
   container:null,
@@ -31,9 +31,11 @@ window.ct_wow__search = {
     console.log('WOW SEARCH INIT')
     this.prod_list_container = document.querySelector('.ct_wow__search__products_list')
     this.buildHtml();
-    this.setPlaceholders();
+    this.setPlaceholders(true);
     this.entry();
     this.shuffle(this.prod_list.length-1);
+    
+    window.addEventListener('resize',debounce( this.refreshPositions))
     
   },
   buildHtml:function(){
@@ -59,10 +61,11 @@ window.ct_wow__search = {
      /**
      * define start position for each prod
      */
-    document.querySelectorAll( '#ct_wow__search .ct_wow_search__product .ct_wow_search__product__wrap').forEach(elem=>{
+    document.querySelectorAll( '#ct_wow__search .ct_wow_search__product').forEach(elem=>{
       
       this.prod_list.push({
-        elem,
+        originElem:elem,
+        elem:elem.querySelector('.ct_wow_search__product__wrap'),
         x:elem.getBoundingClientRect().x + elem.clientWidth/2,
         y:elem.getBoundingClientRect().y + elem.clientHeight/2,
       })
@@ -70,8 +73,13 @@ window.ct_wow__search = {
    
    
   },
- 
-  setPlaceholders:function(){
+  refreshProdPos:function(){
+    this.prod_list.forEach(prod=>{
+      prod.x = prod.originElem.getBoundingClientRect().x + prod.originElem.clientWidth/2,
+      prod.y = prod.originElem.getBoundingClientRect().y + prod.originElem.clientWidth/2
+    })
+  },
+  setPlaceholders:function(first){
     /**
      *  set placeholders, to positioning the products
      */
@@ -106,27 +114,30 @@ window.ct_wow__search = {
 
           /**
            * saving each placeholder positions
+           * if first set elem, coordinates and position
+           * if !first so on risize, refresh coordinates values
            */
-          this.placeholders.coordinates.push({
-            elem,
-            x:elem.getBoundingClientRect().x + elem.clientWidth/2,
-            y:elem.getBoundingClientRect().y + elem.clientHeight/2,
-            pos: i + comulativePos //adjust the correct position based on the current cirlce
-          })
+          if(first){
+            this.placeholders.coordinates.push({
+              elem,
+              x:elem.getBoundingClientRect().x + elem.clientWidth/2,
+              y:elem.getBoundingClientRect().y + elem.clientHeight/2,
+              pos: i + comulativePos //adjust the correct position based on the current cirlce
+            })
+          }
+          else{
+            this.placeholders.coordinates[i + comulativePos].x = this.placeholders.coordinates[i + comulativePos].elem.getBoundingClientRect().x + this.placeholders.coordinates[i + comulativePos].elem.clientWidth/2;
+            this.placeholders.coordinates[i + comulativePos].y = this.placeholders.coordinates[i + comulativePos].elem.getBoundingClientRect().y + this.placeholders.coordinates[i + comulativePos].elem.clientHeight/2;
+          }
         })
         comulativePos += this.placeholders.utils[circleID].prodsCount;
       })
     
     }
-    const refreshCoordinates = () =>{
-      setPlaceholderCircle(false);
-    }
 
-   
-    setPlaceholderCircle(true);
-    window.addEventListener('resize',refreshCoordinates)
+    setPlaceholderCircle(first);
+    
   },
-
 
   entry:function(){
     // this.container.classList.add('in');
@@ -139,7 +150,7 @@ window.ct_wow__search = {
      * get a random prod and a random pos, then remove the prod positioned and the placeholder used
      * recall recursively the function until all prods are positioned
      */
-    if (missingValues === this.prod_list.length-1){
+    if (missingValues === this.prod_list.length-1){    
       this.shuffleData.missingProd=[...this.prod_list];
       this.shuffleData.missingPos=[...this.placeholders.coordinates];
     }
@@ -173,6 +184,24 @@ window.ct_wow__search = {
     
     this.prod_list;
     this.placeholders.coordinates;
+  },
+  refreshPositions:function(){
+    console.log('refresh')
+   
+    ct_wow__search.setPlaceholders(false);
+    ct_wow__search.refreshProdPos();
+    ct_wow__search.adjustProdPos();
+    
+  },
+  adjustProdPos:function(){
+    
+    this.prod_list.forEach(prod=>{
+      prod.elem.style.transform = `
+      translate(
+        ${this.placeholders.coordinates[prod.elemPos].x - prod.x }px,
+        ${this.placeholders.coordinates[prod.elemPos].y - prod.y }px
+      )`;
+    })
   }
 }
 
@@ -181,3 +210,4 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.ct_wow__search.init();
  
 })
+

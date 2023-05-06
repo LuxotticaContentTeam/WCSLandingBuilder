@@ -10,3 +10,10 @@ export const calcCoordinates = (nSides,radius) =>{
     }
     return points
 }
+export const debounce = (f) =>{
+    var timer;
+    return function(event){
+      if(timer) clearTimeout(timer);
+      timer = setTimeout(f,500,event);
+    };
+}
