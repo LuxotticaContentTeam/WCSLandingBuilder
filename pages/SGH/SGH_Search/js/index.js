@@ -68,6 +68,7 @@ window.ct_wow__search = {
         elem:elem.querySelector('.ct_wow_search__product__wrap'),
         x:elem.getBoundingClientRect().x + elem.clientWidth/2,
         y:elem.getBoundingClientRect().y + elem.clientHeight/2,
+        scalingElem:elem.querySelector('.ct_wow_search__product__wrap a'),
       })
     })
    
@@ -172,6 +173,18 @@ window.ct_wow__search = {
           ${this.shuffleData.missingPos[pos_n].x - this.shuffleData.missingProd[prod_n].x }px,
           ${this.shuffleData.missingPos[pos_n].y - this.shuffleData.missingProd[prod_n].y }px
         )`;
+      
+      //scaling the prod
+      if (this.shuffleData.missingPos[pos_n].pos < 3){
+        this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(2)";
+      }
+      if (this.shuffleData.missingPos[pos_n].pos >= 3 && this.shuffleData.missingPos[pos_n].pos < (this.placeholders.utils.secondCircle.prodsCount + 3) ){
+        this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(1.1)";
+      }
+      if( this.shuffleData.missingPos[pos_n].pos >= (this.placeholders.utils.secondCircle.prodsCount + 3) ){
+        this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(.6)";
+      }
+    
       
       //removing from the clone arrays the prod positioned and the position used
       this.shuffleData.missingProd.splice(prod_n,1)    

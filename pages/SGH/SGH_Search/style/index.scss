@@ -4,6 +4,8 @@
 // @import 'utils';
 
 //modules
+@import './modules/questions';
+@import './modules/utils';
 #ct_wow__search{
   background-color: #D2D2D2;
   height: 100vh;
@@ -51,6 +53,7 @@
           left: 50%;
           top: 50%;
           transform: translate(-50%,-50%);
+          transition: transform .6s ease;
           &:hover{
             img{
               transform: scale(1.1);
@@ -94,9 +97,9 @@
       height: 100vh;
       z-index: 5;
       text-align: center;
-      // opacity: 0;
-      // visibility: hidden;
-      // pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
       .ct_wow__search__pos_placeholders__wrapper{
         position: absolute;
         width: 62.66667vw;
@@ -114,7 +117,7 @@
           outline: 1px dashed blue;
           position: absolute;
           left: 50%;
-          top: 50%;
+          top: 40%;
           transform: translate(-50%,-50%);
           display: flex;
           flex-wrap:wrap ;
@@ -170,5 +173,6 @@
         }
       }
     }
+   
   }
 }
