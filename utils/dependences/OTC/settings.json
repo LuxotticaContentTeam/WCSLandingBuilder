@@ -1,0 +1,16 @@
+{
+    "dependences":{
+        "responsive":true,
+        "desk":"./",
+        "mob":"MOB/brand-us/"
+    },
+
+    "moduleLibrary":{
+        "exist":false,
+        "js":"/path",
+        "css":"/path",
+        "jsDest":"/pathDest",
+        "cssDest":"/pathDest"
+    }
+
+}
