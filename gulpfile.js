@@ -427,7 +427,12 @@ function browserSync_(){
       baseDir: `.`,
       // index: `./pages/${currentBrand}/${currentPage}/dist/index.html`,
       ignore:['./node_modules'],
+      middleware: function (req, res, next) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+      }
     },
+    cors:true,
     startPath:`./pages/${currentBrand}/${currentPage}/dist/index.html`,
     reloadOnRestart: true,
     injectChanges:true,
@@ -446,28 +451,6 @@ function browserSync_(){
   });
 }
 
-gulp.task('browser-sync', (done) => {
-  browserSync.init({
-    server: {
-      baseDir: `.`,
-      // index: `./pages/${currentBrand}/${currentPage}/dist/index.html`
-    },
-   
-    port: 1234,
-    snippetOptions: {
-      rule: {
-        match: /<head[^>]*>/i,
-        fn: function(snippet, match) {
-          return match + snippet;
-        }
-      }
-    },
-    ui:false,
-
-  });
-
-  done();
-});
 
 
 const svgSprite = require('gulp-svg-sprite'),
