@@ -6,9 +6,9 @@
         transform: translateX(-50%);
         z-index: 8;
         border-radius: 4px;
-        width: 40%;
+        min-width: 40%;
         height: 200px;
-         box-sizing: border-box;
+        box-sizing: border-box;
     }
     .ct_wow__search__input_container{
         width: 100%;
@@ -33,6 +33,7 @@
             }
         }
         .ct_wow__search__input_answers{
+            white-space: nowrap;
             .ct_wow__search__input_answer{
 
             }

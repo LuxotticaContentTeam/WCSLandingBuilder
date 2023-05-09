@@ -38,6 +38,8 @@
       padding: 0 2.66667vw;
       box-sizing: border-box;
       margin: 0;
+      transition: transform 1s cubic-bezier(.075,.82,.165,1);
+
       .ct_wow_search__product{
         list-style: none;
         // outline: 1px dashed red;

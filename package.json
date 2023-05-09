@@ -50,6 +50,7 @@
     "yargs": "^17.5.0"
   },
   "dependencies": {
+    "gulp-json-minify": "^1.2.2",
     "inquirer": "^8.2.5",
     "locomotive-scroll": "^4.1.4",
     "vanilla-lazyload": "^17.8.3"

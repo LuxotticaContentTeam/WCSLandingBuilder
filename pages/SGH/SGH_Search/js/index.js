@@ -1,6 +1,7 @@
-import { calcCoordinates, debounce } from "./utils";
+import { storeInfo } from "./modules/storeInfo";
+import { calcCoordinates, debounce } from "./modules/utils";
 
-window.ct_wow__search = {
+window.ct_wow__search_structure = {
   container:null,
   prod_list_container:null,
   prod_list:[],
@@ -27,15 +28,24 @@ window.ct_wow__search = {
     },
     coordinates:[]
   },
-  init:function(){
+  init: async function(){
     console.log('WOW SEARCH INIT')
     this.prod_list_container = document.querySelector('.ct_wow__search__products_list')
     this.buildHtml();
     this.setPlaceholders(true);
     this.entry();
     this.shuffle(this.prod_list.length-1);
+    this.setMouseMove();
     
-    window.addEventListener('resize',debounce( this.refreshPositions))
+    window.addEventListener('resize',debounce( this.refreshPositions));
+    
+    let wcs_config = await storeInfo.getInfo();
+    if(wcs_config){
+      ct_wow__search_questions.init();
+
+    }else{
+      console.log('NOT WCS CONFIG')
+    }
     
   },
   buildHtml:function(){
@@ -43,7 +53,7 @@ window.ct_wow__search = {
     /**
      * Insert Products in HTML
      */
-    window.ct_wow__search__products.forEach(prod=>{
+    window.ct_wow__search__data_products.forEach(prod=>{
     
       this.prod_list_container.innerHTML+=`
       <li class="ct_wow_search__product">
@@ -201,9 +211,9 @@ window.ct_wow__search = {
   refreshPositions:function(){
     console.log('refresh')
    
-    ct_wow__search.setPlaceholders(false);
-    ct_wow__search.refreshProdPos();
-    ct_wow__search.adjustProdPos();
+    ct_wow__search_structure.setPlaceholders(false);
+    ct_wow__search_structure.refreshProdPos();
+    ct_wow__search_structure.adjustProdPos();
     
   },
   adjustProdPos:function(){
@@ -215,12 +225,48 @@ window.ct_wow__search = {
         ${this.placeholders.coordinates[prod.elemPos].y - prod.y }px
       )`;
     })
+  },
+  setMouseMove:function(){
+    this.prod_list_container.addEventListener('mousemove',e=>{
+      this.prod_list_container.style.transform = `translate(${-(e.clientX - window.innerWidth/2)*.01}px,${-(e.clientY - window.innerHeight/2)*.01}px)`
+    })
+    document.querySelector('#ct_wow__search__input').addEventListener('mouseenter',e=>{
+      this.prod_list_container.style.transform = `translate(0,0)`
+    })
+  }
+}
+
+window.ct_wow__search_questions = {
+  container:null,
+  stepsCount:0,
+  progress:{
+    container:null,
+    state:0,
+  },
+  questions:{
+    container:null,
+    state:0
+  },
+  answers:{
+    container:null,
+    state:{}
+  },
+  init:function(){
+    this.container = document.querySelector('#ct_wow__search__input');
+    this.progress.container = document.querySelector('.ct_wow__search__input_progress');
+    this.questions.container = document.querySelector('.ct_wow__search__input_questions');
+    this.answers.container = document.querySelector('.ct_wow__search__input_answers');
+    this.fillData();
+  },
+  fillData:function(){
+    this.stepsCount = ct_wow__search__data_question.length;
+    console.log(this.stepsCount)
   }
 }
 
 
 document.addEventListener('DOMContentLoaded',()=>{
-  window.ct_wow__search.init();
+  window.ct_wow__search_structure.init();
  
 })
 
