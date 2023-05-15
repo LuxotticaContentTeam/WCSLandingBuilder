@@ -8,17 +8,19 @@
 }
   
 #ct_rtr{
-  
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-    height: auto;
-    margin-top: 0;
-    margin-bottom: 80px;
-    @media (max-width: 768px) {
-      flex-direction: column;
-      margin-top: 40px;
+    .ct_rtr__container{
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      height: auto;
+      margin-top: 0;
+      margin-bottom: 80px;
+      @media (max-width: 768px) {
+        flex-direction: column;
+        margin-top: 40px;
+      }
     }
+  
     .ct_rtr__content{
       width: 50%;
       display: flex;

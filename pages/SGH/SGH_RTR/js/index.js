@@ -1,6 +1,6 @@
 const ct_rtr__data = {
   data: {
-    selector: '#cm-placement-main_placement_10',
+    selector: '#ct_rtr',
     products: [
       {
         upc: '8056597837170',
@@ -33,8 +33,8 @@ const ct_rtr__data = {
       m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAAXNSR0IArs4c6QAAACFJREFUOE9jvHn26H8GMgHjqGbSQm40wEgLL4bRACMxwABB2jax9PD9WAAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/3D_dx_3.png',
-      m: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/3D_bottom_new.png' // 75:56
+      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHn26H8ACFkDa0isWt4AAAAASUVORK5CYII=',
+      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA4CAYAAAC1+AWFAAAAAXNSR0IArs4c6QAAAMVJREFUeF7t1LENwDAMBLF4/7lSZoBMYwOeQNdT9VXEQ+v/3v24kcCCNXK6Eay5FaxgBQtWEQitnwUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCIT0AMqPv2mP9Ua7AAAAAElFTkSuQmCC' // 75:56
     },
     img_dx_loader:{
       d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHn26H8ACFkDa0isWt4AAAAASUVORK5CYII=',
@@ -177,7 +177,6 @@ function ct_rtr__init(){
   // document.querySelector(ct_rtr__data.data.selector).appendChild(ct_rtr__text);
 
   var ct_rtr__container = document.createElement("div");
-  ct_rtr__container.id = 'ct_rtr'
   ct_rtr__container.className = 'ct_rtr__container';
   ct_rtr__container.innerHTML = `
     <div class="ct_rtr__content">
