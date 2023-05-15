@@ -107,6 +107,7 @@
                     left: 50%;
                     transition: transform .6s ease;
                     transform: translateX(-50%) scale(.9);
+                    box-shadow: none !important;
                     // animation: levitateShadow 8s linear infinite;
                     // animation-play-state: paused;
                    
