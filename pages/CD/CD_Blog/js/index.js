@@ -1,3 +1,5 @@
+// $(".ct_nav__container ul").animate({scrollLeft: $('li#contactscare').position().left - ($('li#contactscare').width()/2) }, 500);
+
 function ct_filter__articles(category){
     document.querySelector('#ct_blog .ct_articles').style.opacity = 0;
     let ct_articles = document.querySelectorAll('#ct_blog .ct_article');
@@ -29,6 +31,25 @@ function ct_nav__handler(){
     })
 }
 
+function ct_getCategory(category){
+    let result;
+    switch(category){
+        case 'contactscare':
+            result = "Contacts Care"
+            break;
+        case "contactstypes":
+            result = "Contacts Types"
+            break;
+        case "eyehealth":
+            result = "Eye Health"
+            break;
+        case "guideshowto":
+            result = "Guides & How to"
+            break;
+    }
+    return result;
+}
+
 function  ct_load__article(){
     let ct_articles_container = document.querySelector('.ct_articles');
     let ct_dom_articles = document.querySelectorAll('#ct_blog .ct_article.ct_loading');
@@ -36,6 +57,9 @@ function  ct_load__article(){
     ct_blog_articles.forEach((article,i)=>{
         if (i < 4){
             ct_dom_articles[i].setAttribute('data-category',article.category);
+            ct_dom_articles[i].querySelector('.ct_text__badge').setAttribute('data-category', article.category);
+            ct_dom_articles[i].querySelector('.ct_text__badge svg').innerHTML = "<use xlink:href='#CD_" + article.category + "'></use>"
+            ct_dom_articles[i].querySelector('.ct_text__badge span').innerHTML = ct_getCategory(article.category[0]);
             ct_dom_articles[i].querySelector('a').href = location.origin + "/"+article.url;
             ct_dom_articles[i].querySelector('a').setAttribute('aria-label',article.url); 
             ct_dom_articles[i].querySelector('a').dataset.description = article.url; 
@@ -61,6 +85,12 @@ function  ct_load__article(){
                         <img class="lazy ct_article_img" data-src="${!ct_is_mobile() ? article.img:article.imgmob }" alt="${article.title}">
                     </div>
                     <div class="ct_text">
+                        <div class="ct_text__badge" data-category="${article.category}">
+                            <svg class="ct_icon" width="14" height="14" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#CD_${article.category}"></use>
+                            </svg>
+                            <span>${ct_getCategory(article.category[0])}</span>
+                        </div>
                         <h2 class="ct_lh__1-5 ct_font__bold ct_mb__20 ct_mb__mob__10">${article.title}</h2>
                         <p>${article.desc}</p>
                         <span class="ct_font__bold ">Continue reading</span>

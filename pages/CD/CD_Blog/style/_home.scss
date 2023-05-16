@@ -6,16 +6,25 @@
 
 .ct_space {
   .ct_blog {
+    .ct_blog__title{
+      padding: 32px 0px;
+      text-align: center;
+      font-size: 32px;
+      font-family: $font-bold;
+      @media (max-width: $break-portrait-min){
+        font-size: 24px;
+      }
+    }
     .ct_nav__container {
-      padding: 34px 12% 12px 12%;
+      padding: 20px 20% 10px 20%;
       width: 100%;
       position: relative;
       @media (max-width: 1400px) {
-        padding: 34px 10%;
+        padding: 20px 10%;
       }
       @media (max-width: 1024px) {
         padding: 20px 0;
-        height: 110px;
+        height: 72px;
         overflow: hidden;
       }
       ul {
@@ -33,15 +42,16 @@
         li {
           min-width: 100px;
           @media (max-width: 1024px) {
-            min-width: 120px;
+            min-width: auto;
+            padding: 0px 16px;
           }
           a {
             border: none;
             background-color: transparent;
             display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             position: relative;
             margin: auto;
             cursor: pointer;
@@ -51,26 +61,63 @@
               pointer-events: none;
             }
             .ct_icon__container {
-              margin-bottom: 12px;
+              margin-right: 16px;
               .ct_icon {
-                width: 30px;
-                height: 30px;
+                width: 28px;
+                height: 28px;
                 @media (max-width: 1024px) {
-                  width: 30px;
-                  height: 30px;
+                  width: 28px;
+                  height: 28px;
                 }
               }
             }
             &.ct_active {
-              span,
-              h1 {
+              span, h1 {
                 font-family: $font-regular;
+                @media (max-width: $break-portrait-min){
+                  font-family: $font-bold;
+                }
                 &::after {
                   width: 100% !important;
                   left: 4% !important;
                 }
                 &::before {
                   font-weight: bold;
+                }
+              }
+              &[data-category="all"]{
+                span, h1{
+                  &::after{
+                    background-color: #000;
+                  }
+                }
+              }
+              &[data-category="contactscare"]{
+                span{
+                  &::after{
+                    background-color: #7AE5D8;
+                  }
+                }
+              }
+              &[data-category="contactstypes"]{
+                span{
+                  &::after{
+                    background-color: #AEADE9;
+                  }
+                }
+              }
+              &[data-category="eyehealth"]{
+                span{
+                  &::after{
+                    background-color: #6FC0DA;
+                  }
+                }
+              }
+              &[data-category="guideshowto"]{
+                span{
+                  &::after{
+                    background-color: #EEA27F;
+                  }
                 }
               }
             }
@@ -85,26 +132,60 @@
                   }
                 }
               }
+              &[data-category="all"]{
+                span{
+                  &::after{
+                    background-color: #000;
+                  }
+                }
+              }
+              &[data-category="contactscare"]{
+                span{
+                  &::after{
+                    background-color: #7AE5D8;
+                  }
+                }
+              }
+              &[data-category="contactstypes"]{
+                span{
+                  &::after{
+                    background-color: #AEADE9;
+                  }
+                }
+              }
+              &[data-category="eyehealth"]{
+                span{
+                  &::after{
+                    background-color: #6FC0DA;
+                  }
+                }
+              }
+              &[data-category="guideshowto"]{
+                color: red;
+                span{
+                  &::after{
+                    background-color: #EEA27F;
+                  }
+                }
+              }
             }
             span,
             h1 {
               white-space: nowrap;
-              font-size: 20px;
+              font-size: 16px;
               position: relative;
               color: transparent;
-              @media (max-width: 1024px) {
-                font-size: 14px;
-              }
-              &::after {
-                content: "";
-                position: absolute;
-                left: 2%;
-                bottom: -10px;
-                width: 0;
-                height: 2px;
-                transition: width 0.3s ease;
-                text-transform: capitalize;
-                background-color: #0080a9;
+              @media (min-width: $break-portrait-min){       
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 2%;
+                  bottom: -10px;
+                  width: 0;
+                  height: 2px;
+                  transition: width 0.3s ease;
+                  text-transform: capitalize;
+                }
               }
               &::before {
                 content: attr(title);
@@ -166,7 +247,7 @@
         padding: 20px 0px;
       }
       .ct_article {
-        width: 50%;
+        width: calc(100% / 3);
         padding: 20px;
         @media (max-width: 1024px) {
           width: 100%;
@@ -202,31 +283,71 @@
             }
           }
           .ct_text {
-            padding: 24px;
+            padding: 16px;
+
+            .ct_text__badge{
+              display: inline-block;
+              padding: 8px 8px;
+              border-radius: 100px;
+              position: relative;
+
+              &[data-category="contactscare"]{
+                  background-color: #7AE5D8;
+              }
+
+              &[data-category="contactstypes"]{
+                  background-color: #AEADE9;
+              }
+
+              &[data-category="eyehealth"]{
+                  background-color: #6FC0DA;
+              }
+
+              &[data-category="guideshowto"]{
+                  background-color: #EEA27F;
+              }
+
+              svg{
+                position: absolute;
+                top: 10px;
+                left: 10px;
+              }
+              span{
+                color: #02212C;
+                font-size: 14px;
+                font-family: $font-regular;
+                letter-spacing: 0.5px;
+                margin-left: 20px;
+                text-decoration: none;
+              }
+            }
             h2 {
               color: $black;
-              min-height: 73px;
+              min-height: 52px;
               position: relative;
-              font-size: 28px;
+              font-size: 20px;
               font-family: $font-medium;
+              margin-top: 12px;
               @media (max-width: 1024px) {
                 font-size: 20px;
               }
             }
             p {
               display: -webkit-box;
-              -webkit-line-clamp: 3;
+              -webkit-line-clamp: 2;
               -webkit-box-orient: vertical;
               overflow: hidden;
               text-overflow: ellipsis;
               position: relative;
-              min-height: 75px;
+              min-height: 52px;
               color: $black;
-              margin-bottom: 40px;
+              //margin-bottom: 40px;
               font-size: 16px;
               letter-spacing: 0.889px;
               font-family: $font-regular;
-              line-height: 1.8;
+              line-height: 1.5;
+              margin-bottom: 12px;
+              margin: 5px 0px;
               @media (max-width: 767px) {
                 min-height: 88px;
                 -webkit-line-clamp: 4;
@@ -237,7 +358,7 @@
               font-family: $font-medium;
               color: $blue;
               text-decoration: underline;
-              font-size: 20px;
+              font-size: 16px;
               letter-spacing: 0.889px;
               @media (max-width: 1024px) {
                 font-size: 16px;
