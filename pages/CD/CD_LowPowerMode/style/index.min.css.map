@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "index.scss",
+        "_resetLP.scss"
+    ],
+    "names": [],
+    "file": "index.min.css"
+}

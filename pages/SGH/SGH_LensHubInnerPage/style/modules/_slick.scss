@@ -13,7 +13,7 @@
 
 @keyframes opacity {
   0% {
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   100% {
@@ -129,7 +129,7 @@
     }
   }
   .ct_carousel.slick-slider .slick-cloned span {
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   .ct_carousel.slick-slider .slick-track,
@@ -150,7 +150,7 @@
       line-height: 0.9;
       font-weight: 300;
       color: #000;
-      opacity: 0.3;
+      opacity: 0.2;
       padding: 0px 30px;
 
       @media (min-width: $tab-max) and (max-width: 1206px) {
