@@ -14,6 +14,7 @@ const del = require("del");
 const argv = require('yargs').argv;
 const fs = require("fs");
 const inquirer = require('inquirer');
+const jsonMinify = require('gulp-json-minify');
 
 const browserSync = require('browser-sync').create();
 
@@ -209,6 +210,13 @@ gulp.task('landing_ds_css', (done) => {
       .pipe(browserSync.stream());
 });
 
+gulp.task('json', (done) => {
+  gulp.src(`./pages/${currentBrand}/${currentPage}/json/**`)
+  .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist/json`));
+  done()
+});
+
+
 
 const getDirectories = source =>
 fs.readdirSync(source, { withFileTypes: true })
@@ -278,7 +286,7 @@ async function startDev(){
   gulp.watch([`./pages/${currentBrand}/${currentPage}/index.html`], gulp.task('devLandingSeries')).on('done', browserSync.reload);
   gulp.watch([`./pages/${currentBrand}/${currentPage}/js/*.js`], gulp.task('script_land_js_dev')).on('change', browserSync.reload);
   gulp.watch([`./pages/${currentBrand}/${currentPage}/style/*.scss`,`./pages/${currentBrand}/${currentPage}/style/**/*.scss`], gulp.task('landing_css'));
-  
+  gulp.watch([`./pages/${currentBrand}/${currentPage}/json/*`],gulp.task('json')).on('change', browserSync.reload);
   if (moduleLibrary){
     gulp.watch([`${settings.moduleLibrary.jsPath}*.js`,`${settings.moduleLibrary.jsPath}/**/*.js`], gulp.task('landing_ds_js')).on('change', browserSync.reload);
     gulp.watch([`${settings.moduleLibrary.cssPath}*.scss`,`${settings.moduleLibrary.cssPath}**/*.scss`], gulp.task('landing_ds_css'))
@@ -294,12 +302,12 @@ async function startDev(){
 async function dev(){
   return new Promise(function (resolve, reject) {
     if (moduleLibrary){
-      gulp.series(['devLandingSeries','script_land_js_dev','landing_css','landing_ds_js','landing_ds_css'], (done) => {
+      gulp.series(['devLandingSeries','script_land_js_dev','landing_css','landing_ds_js','landing_ds_css',"json"], (done) => {
         resolve();
         done();
       })();
     }else{
-      gulp.series(['devLandingSeries','script_land_js_dev','landing_css'], (done) => {
+      gulp.series(['devLandingSeries','script_land_js_dev','landing_css','json'], (done) => {
         resolve();
         done();
       })();
@@ -333,12 +341,12 @@ async function startBuild(){
 async function build(){
   return new Promise(function (resolve, reject) {
     if(moduleLibrary){
-      gulp.series(['landing_js','landing_css','landing_ds_css','landing_ds_js'], (done) => {
+      gulp.series(['landing_js','landing_css','landing_ds_css','landing_ds_js','json'], (done) => {
         resolve();
         done();
       })();
     }else{
-      gulp.series(['landing_js','landing_css'],(done) => {
+      gulp.series(['landing_js','landing_css','json'],(done) => {
         resolve();
         done();
       })();
@@ -419,7 +427,12 @@ function browserSync_(){
       baseDir: `.`,
       // index: `./pages/${currentBrand}/${currentPage}/dist/index.html`,
       ignore:['./node_modules'],
+      middleware: function (req, res, next) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+      }
     },
+    cors:true,
     startPath:`./pages/${currentBrand}/${currentPage}/dist/index.html`,
     reloadOnRestart: true,
     injectChanges:true,
@@ -438,28 +451,6 @@ function browserSync_(){
   });
 }
 
-gulp.task('browser-sync', (done) => {
-  browserSync.init({
-    server: {
-      baseDir: `.`,
-      // index: `./pages/${currentBrand}/${currentPage}/dist/index.html`
-    },
-   
-    port: 1234,
-    snippetOptions: {
-      rule: {
-        match: /<head[^>]*>/i,
-        fn: function(snippet, match) {
-          return match + snippet;
-        }
-      }
-    },
-    ui:false,
-
-  });
-
-  done();
-});
 
 
 const svgSprite = require('gulp-svg-sprite'),

@@ -297,6 +297,10 @@
         z-index: 9;
         transform: translate(0, -50%);
 
+        @media(max-width: $tab-max){
+          padding: 0px 0px;
+        }
+
         .ct_title {
           font-size: 60px;
           font-weight: 300;

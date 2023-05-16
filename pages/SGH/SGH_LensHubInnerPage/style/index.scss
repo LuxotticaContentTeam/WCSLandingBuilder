@@ -296,6 +296,10 @@
         z-index: 9;
         transform: translate(0, -50%);
 
+        @media(max-width: $tab-max){
+          padding: 0px 30px;
+        }
+
         .ct_title {
           font-size: 60px;
           font-weight: 300;
@@ -326,7 +330,7 @@
           }
           .ct_desc__content{
             .ct_desc{
-              margin: 20px 0;
+              margin: 15px 0;
             }
           }
         }

@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Gotham-Bold";
+    src: url(./fonts/Gotham-Bold.otf);
+}
+@font-face {
+    font-family: "Gotham-Medium";
+    src: url(./fonts/Gotham-Medium.otf);
+}
+@font-face {
+    font-family: "Gotham-Book";
+    src: url(./fonts/Gotham-Book.otf);
+}
+@font-face {
+    font-family: "Gotham-Light";
+    src: url(./fonts/Gotham-Light.otf);
+}
+
+*{
+    font-family: "Gotham-Book";
+}
+
+#header{
+    width: 100%;
+    height: 139px;
+    border-bottom: 1px solid  hsla(0,0%,86.7%,.3);
+}
+ .header__first-row{
+    width: 100%;
+    height: 32px;
+    background-color: #326fa8;        
+}
