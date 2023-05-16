@@ -195,7 +195,7 @@ window.ct_wow__search__data_question = [
     },
     {   
         question:{
-            "en":"How would you describe your style?",
+            "en":"Question 2?",
             "fr":"..",
             "es":"..",
             "de":"..",
@@ -235,7 +235,7 @@ window.ct_wow__search__data_question = [
     },
     {   
         question:{
-            "en":"How would you describe your style?",
+            "en":"Question 3?",
             "fr":"..",
             "es":"..",
             "de":"..",
@@ -275,7 +275,7 @@ window.ct_wow__search__data_question = [
     },
     {   
         question:{
-            "en":"How would you describe your style?",
+            "en":"Question 4?",
             "fr":"..",
             "es":"..",
             "de":"..",
@@ -315,7 +315,7 @@ window.ct_wow__search__data_question = [
     },
     {   
         question:{
-            "en":"How would you describe your style?",
+            "en":"Question 5?",
             "fr":"..",
             "es":"..",
             "de":"..",

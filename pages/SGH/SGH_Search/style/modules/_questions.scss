@@ -1,4 +1,6 @@
+
 #ct_wow__search{
+   
     #ct_wow__search__input{
         position: fixed;
         left: 50%;
@@ -22,6 +24,41 @@
         .ct_wow__search__input_progress{
             width: 100%;
             text-align: center;
+            --ct-wow-search-input-progress-after-opacity:0;
+            --ct-wow-search-input-progress-before-opacity:0;
+            --ct-wow-search-input-progress-after-translate:translateY(0);   
+            --ct-wow-search-input-progress-before-translate:translateY(0);                 
+            .ct_wow__search__input_progress__current{
+                margin-right: -4px;
+                position: relative;
+                >span{
+                 
+                }
+               &.animation{
+                &::after,&::before{
+                    transition: all .3s ease;
+                }
+               }
+               
+                &::after{
+                    content: attr(data-next);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: var(--ct-wow-search-input-progress-after-opacity);
+                    transform: var(--ct-wow-search-input-progress-after-translate);
+                }
+                &::before{
+                    content: attr(data-current);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    transform: translateY(100%);
+                    opacity: var(--ct-wow-search-input-progress-before-opacity);
+                    transform: var(--ct-wow-search-input-progress-before-translate);
+                }
+               
+            }
         }
         .ct_wow__search__input_questions{
             margin-bottom: 24px;
@@ -53,12 +90,17 @@
                 font-size: 14px;
                 color: #000;
                 cursor: pointer;
+                transition: opacity .3s ease;
                 svg{
                     color: #000;
                     fill: currentColor;
                     width: 16px;
                     height: 16px;
                     transition: all .3s cubic-bezier(.19,1,.22,1);
+                }
+                &.disabled{
+                    pointer-events: none;
+                    opacity: .5;
                 }
             }
             .ct_wow__search__input_commands__next{

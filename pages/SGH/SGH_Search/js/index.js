@@ -1,5 +1,5 @@
 import { storeInfo } from "./modules/storeInfo";
-import { calcCoordinates, debounce } from "./modules/utils";
+import { calcCoordinates, customLog, debounce } from "./modules/utils";
 
 window.ct_wow__search_structure = {
   container:null,
@@ -239,9 +239,12 @@ window.ct_wow__search_structure = {
 window.ct_wow__search_questions = {
   container:null,
   stepsCount:0,
+  blockerActive:false,
   progress:{
     container:null,
-    state:0,
+    current:null,
+    state:1,
+    style:null
   },
   questions:{
     container:null,
@@ -251,17 +254,113 @@ window.ct_wow__search_questions = {
     container:null,
     state:{}
   },
+  buttons:{
+    next:null,
+    prev:null
+  },
   init:function(){
+    this.setElements()
+    this.fillData();
+    this.setButtonsHandler();
+  },
+  setElements:function(){
     this.container = document.querySelector('#ct_wow__search__input');
-    this.progress.container = document.querySelector('.ct_wow__search__input_progress');
+    this.progress.container = document.querySelector('.ct_wow__search__input_progress'); 
+    this.progress.current = document.querySelector('.ct_wow__search__input_progress .ct_wow__search__input_progress__current'); 
     this.questions.container = document.querySelector('.ct_wow__search__input_questions');
     this.answers.container = document.querySelector('.ct_wow__search__input_answers');
-    this.fillData();
+    this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next')
+    this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev')
+
   },
   fillData:function(){
     this.stepsCount = ct_wow__search__data_question.length;
+    this.progress.container.querySelector('.ct_wow__search__input_progress__current + span').innerHTML = ` /${this.stepsCount}`
+    this.updateProgress()
+    this.updateQuestionCopy();
     console.log(this.stepsCount)
+  },
+  setButtonsHandler:function(){
+    customLog('set buttons')
+    this.buttons.prev.addEventListener('click',()=>{this.changeQuestions('prev')});
+    this.buttons.next.addEventListener('click',()=>{this.changeQuestions('next')});
+  },
+  updateProgress:function(dir){
+    this.blockerActive = true;
+   
+    if (dir){
+      //set element positioning
+      this.progress.current.dataset.next = this.progress.state; 
+      this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-opacity',"1");
+      this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-opacity',"0");
+      this.progress.current.querySelector('span').style.opacity = 0;
+      this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-translate',"translateY(0)");
+      if (dir ==='next'){
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-translate',"translateY(-100%)");  
+      }else{
+         this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-translate',"translateY(100%)");  
+      }
+
+      setTimeout(()=>{
+        // start animation
+        this.progress.current.classList.add('animation');
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-translate',"translateY(0%)");  
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-opacity',"1");  
+        if (dir ==='next'){
+          this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-translate',"translateY(100%)");
+        }else{
+          this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-translate',"translateY(-100%)");
+        }
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-opacity',"0");
+      },10)
+     
+    }
+    
+    setTimeout(()=>{
+      this.progress.container.querySelector('.ct_wow__search__input_progress__current span').innerHTML = this.progress.state;
+      this.progress.current.dataset.current =this.progress.state;
+      this.progress.current.querySelector('span').style.opacity = 1;
+      this.progress.current.classList.remove('animation');
+      this.blockerActive = false;
+    },310)
+    
+  
+   
+    
+   
+  },
+  updateQuestionCopy:function(){
+    this.questions.container.querySelector('h3').innerHTML = window.ct_wow__search__data_question[this.progress.state - 1].question["en"]
+  },
+  changeQuestions:function(dir){
+  
+    if (!this.blockerActive){
+      if (dir ==='next'){
+        this.progress.state+= 1;
+        if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('disabled')){
+          this.buttons.next.classList.add('disabled')
+        }
+        if(this.buttons.prev.classList.contains('disabled')){
+          this.buttons.prev.classList.remove('disabled')
+        }
+         
+      }else{
+        this.progress.state-= 1;
+        if (this.progress.state === 1 && !this.buttons.prev.classList.contains('disabled')){
+          this.buttons.prev.classList.add('disabled')
+        }
+        if(this.buttons.next.classList.contains('disabled')){
+          this.buttons.next.classList.remove('disabled')
+        }
+       
+      }
+      this.updateProgress(dir);
+      this.updateQuestionCopy();
+    }
+  
   }
+
+  
 }
 
 

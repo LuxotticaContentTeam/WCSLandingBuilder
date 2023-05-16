@@ -10,7 +10,7 @@ footer{
   display: block;
 }
   
-#ct_rtr{
+// #ct_rtr{
  
     .ct_rtr__container{
       display: flex;
@@ -210,9 +210,6 @@ footer{
       &:active{
         #ct_rtr__besideMouse{
           opacity: 0;
-       
-        
-         
         }
       }
       @media (max-width: 768px) {
@@ -360,7 +357,7 @@ footer{
         }
       }
     }
-}
+// }
   
 
 @keyframes ct_rtr__rotate {
