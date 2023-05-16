@@ -34,11 +34,11 @@ const ct_rtr__data = {
     },
     img_dx:{
       d: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA4CAYAAAC1+AWFAAAAAXNSR0IArs4c6QAAAMVJREFUeF7t1LENwDAMBLF4/7lSZoBMYwOeQNdT9VXEQ+v/3v24kcCCNXK6Eay5FaxgBQtWEQitnwUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCIT0AMqPv2mP9Ua7AAAAAElFTkSuQmCC' // 75:56
+      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom.jpg' // 75:56
     },
     img_dx_loader:{
       d: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA4CAYAAAC1+AWFAAAAAXNSR0IArs4c6QAAAMVJREFUeF7t1LENwDAMBLF4/7lSZoBMYwOeQNdT9VXEQ+v/3v24kcCCNXK6Eay5FaxgBQtWEQitnwUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCIT0AMqPv2mP9Ua7AAAAAElFTkSuQmCC'
+      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom.jpg'
     }
   },
   labels: {

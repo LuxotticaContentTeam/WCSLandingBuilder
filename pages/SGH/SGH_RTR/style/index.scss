@@ -38,6 +38,9 @@ footer{
         aspect-ratio: 5 / 4;
         min-height: 0;
       }
+      @media (max-width: 380px) {
+        aspect-ratio: 1 / 1;
+      }
       .ct_rtr__bg{
         width: 100%;
         height: 100%;
@@ -53,7 +56,7 @@ footer{
         width: 100%;
         box-sizing: border-box;
         @media (max-width: 1024px) {
-          padding: 32px;
+          padding: 20px;
         }
         
         .ct_rtr__headline{
@@ -78,6 +81,7 @@ footer{
             @media (max-width: 768px) {
               width: 62px;
               height: 62px;
+              margin: 0 8px;
             }
             &.ct_active{
               background-color: #fff;
@@ -187,6 +191,12 @@ footer{
           bottom: 68px;
           color: #000;
           font-size: 16px;
+          @media (max-width: 1024px) {
+            position: relative;
+            left: unset;
+            bottom: unset;
+            margin-top: 32px;
+          }
         }
       }
     }
@@ -307,10 +317,10 @@ footer{
         text-transform: uppercase;
         white-space: nowrap;
         @media (max-width: 768px) {
-          bottom: 24px;
+          bottom: 18px;
           right: 50%;
           transform: translateX(50%);
-          font-size: 14px;
+          font-size: 12px;
         }
         img{
           width: 26px;
