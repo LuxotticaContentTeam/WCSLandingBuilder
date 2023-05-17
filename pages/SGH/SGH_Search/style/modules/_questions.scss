@@ -67,12 +67,45 @@
                 color: #000;
                 font-weight: 400;
                 margin-bottom: 0;
+                transition: opacity .4s ease;
             }
         }
         .ct_wow__search__input_answers{
             white-space: nowrap;
+            position: relative;
+            overflow: hidden;
             .ct_wow__search__input_answer{
-
+                display: flex;
+                justify-content: center;
+                gap:8px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                opacity: 0;
+                pointer-events: none;
+                transition: all .4s ease;
+                &:first-child{
+                    position: relative;
+                }
+                &.ct_active{
+                    opacity: 1;
+                    pointer-events: all;
+                    button{
+                        transform: translateY(0);
+                        opacity: 1;
+                        @for $i from 1 through 5 {
+                            &:nth-child(#{$i}) {
+                                transition-delay: 0s,0s, 0s, #{$i * 0.1}s;  
+                            }
+                        }
+                    }
+                }
+                button{
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                
             }
         }
         .ct_wow__search__input_commands{

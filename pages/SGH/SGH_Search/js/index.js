@@ -258,6 +258,7 @@ window.ct_wow__search_questions = {
     next:null,
     prev:null
   },
+
   init:function(){
     this.setElements()
     this.fillData();
@@ -278,7 +279,8 @@ window.ct_wow__search_questions = {
     this.progress.container.querySelector('.ct_wow__search__input_progress__current + span').innerHTML = ` /${this.stepsCount}`
     this.updateProgress()
     this.updateQuestionCopy();
-    console.log(this.stepsCount)
+    this.buildAnswers();
+    this.updateAnswer()
   },
   setButtonsHandler:function(){
     customLog('set buttons')
@@ -330,7 +332,32 @@ window.ct_wow__search_questions = {
    
   },
   updateQuestionCopy:function(){
-    this.questions.container.querySelector('h3').innerHTML = window.ct_wow__search__data_question[this.progress.state - 1].question["en"]
+    this.questions.container.querySelector('h3').style.opacity = 0;
+    setTimeout(()=>{
+      this.questions.container.querySelector('h3').innerHTML = window.ct_wow__search__data_question[this.progress.state - 1].question["en"];
+      this.questions.container.querySelector('h3').style.opacity = 1;
+    },400)
+   
+  },
+  buildAnswers:function(){
+    let answers="";
+    window.ct_wow__search__data_question.forEach((question,i)=>{
+      answers+=`<div class="ct_wow__search__input_answer" data-answer="${i}">`
+      
+      question.answers.forEach(answer=>{
+        answers += `
+        <button class="ct_cta ct_cta__white ">${answer["en"]}</button>
+        `
+      })
+      answers+="</div>"
+    })
+    this.answers.container.innerHTML = answers;
+  },
+  updateAnswer:function(){
+    if(this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active')){
+      this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active').classList.remove('ct_active')
+    }
+    this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state - 1}"]`).classList.add('ct_active')
   },
   changeQuestions:function(dir){
   
@@ -356,6 +383,7 @@ window.ct_wow__search_questions = {
       }
       this.updateProgress(dir);
       this.updateQuestionCopy();
+      this.updateAnswer();
     }
   
   }

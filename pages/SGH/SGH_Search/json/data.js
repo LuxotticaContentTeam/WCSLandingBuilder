@@ -219,12 +219,7 @@ window.ct_wow__search__data_question = [
                 "es":"..",
                 "de":"..",
             },
-            {
-                "en":"Outdoorsy",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
+           
             {
                 "en":"City hustler",
                 "fr":"..",
@@ -293,18 +288,7 @@ window.ct_wow__search__data_question = [
                 "es":"..",
                 "de":"..",
             },
-            {
-                "en":"Avid reader",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-            {
-                "en":"Outdoorsy",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
+           
             {
                 "en":"City hustler",
                 "fr":"..",
