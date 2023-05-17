@@ -2,9 +2,7 @@
 // @import 'resetLP';
 @import 'utils';
 
-footer{
-  height: 50px !important;
-}
+
 //modules
 #ct_rtr__lazyImage{
   display: block;
@@ -78,10 +76,19 @@ footer{
             border: 1px solid #fff;
             border-radius: 50%;
             transition: all .3s ease;
+            @media (min-width: 1025px) {
+              &:hover,&:focus{
+                background-color: rgba(255, 255, 255, 0.5);
+              }
+            }
+            
             @media (max-width: 768px) {
               width: 62px;
               height: 62px;
               margin: 0 8px;
+              &:active{
+                background-color: rgba(255, 255, 255, 0.5);
+              }
             }
             &.ct_active{
               background-color: #fff;

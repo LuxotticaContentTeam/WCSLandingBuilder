@@ -3,7 +3,7 @@ import LazyLoad from "vanilla-lazyload";
 
 var ct_cos__data = {
     container: '#ct_wow_module',
-    dataElement: "X_HomePage_Placement30-IMG",
+    dataElement: "X_X_MainPlacement18_Banner-CTA0",
   
     lang: "",
     lang_short: "",
@@ -121,7 +121,7 @@ var ct_cos__data = {
   
     ct_cos__data.items.forEach((item, index) => {
       ct_cos__list.innerHTML += `
-        <a class="ct_cos__list_item" data-cos-item="${index}" href="${ct_cos__data.homeUrl + ct_cos__get_lang(item.link)}" aria-label="${ct_cos__get_lang(item.title)}">
+        <a class="ct_cos__list_item" data-cos-item="${index}" href="${ct_cos__data.homeUrl + ct_cos__get_lang(item.link)}" data-description="${item.title["en"]}" aria-label="${ct_cos__get_lang(item.title)}">
           <h3></h3>
         </a>
       `;
