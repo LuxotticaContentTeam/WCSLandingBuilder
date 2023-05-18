@@ -305,7 +305,7 @@ window.ct_wow__search_questions = {
 
       setTimeout(()=>{
         // start animation
-        this.progress.current.classList.add('animation');
+        this.progress.current.classList.add('ct_animation');
         this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-translate',"translateY(0%)");  
         this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-opacity',"1");  
         if (dir ==='next'){
@@ -322,9 +322,9 @@ window.ct_wow__search_questions = {
       this.progress.container.querySelector('.ct_wow__search__input_progress__current span').innerHTML = this.progress.state;
       this.progress.current.dataset.current =this.progress.state;
       this.progress.current.querySelector('span').style.opacity = 1;
-      this.progress.current.classList.remove('animation');
+      this.progress.current.classList.remove('ct_animation');
       this.blockerActive = false;
-    },310)
+    },410)
     
   
    
@@ -352,6 +352,20 @@ window.ct_wow__search_questions = {
       answers+="</div>"
     })
     this.answers.container.innerHTML = answers;
+    this.answersButtonHandler();
+  },
+  answersButtonHandler:function(){
+    this.answers.container.querySelectorAll('button').forEach(button=>{
+      button.addEventListener('click',()=>{
+        window.ct_wow__search_structure.shuffle(29);
+        if(button.parentNode.querySelector('button.ct_active')){
+          button.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
+        }
+        button.classList.add('ct_active');
+        button.parentNode.classList.add('ct_aswered');
+        this.container.classList.add('ct_can_proceed');
+      })
+    })
   },
   updateAnswer:function(){
     if(this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active')){
@@ -364,20 +378,26 @@ window.ct_wow__search_questions = {
     if (!this.blockerActive){
       if (dir ==='next'){
         this.progress.state+= 1;
-        if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('disabled')){
-          this.buttons.next.classList.add('disabled')
+        if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('ct_disabled') ){
+          this.buttons.next.classList.add('ct_disabled')
         }
-        if(this.buttons.prev.classList.contains('disabled')){
-          this.buttons.prev.classList.remove('disabled')
+        if (!this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
+          this.container.classList.remove('ct_can_proceed');
+        }
+        if(this.buttons.prev.classList.contains('ct_disabled')){
+          this.buttons.prev.classList.remove('ct_disabled')
         }
          
       }else{
         this.progress.state-= 1;
-        if (this.progress.state === 1 && !this.buttons.prev.classList.contains('disabled')){
-          this.buttons.prev.classList.add('disabled')
+        if (this.progress.state === 1 && !this.buttons.prev.classList.contains('ct_disabled')){
+          this.buttons.prev.classList.add('ct_disabled')
         }
-        if(this.buttons.next.classList.contains('disabled')){
-          this.buttons.next.classList.remove('disabled')
+        if(this.buttons.next.classList.contains('ct_disabled')){
+          this.buttons.next.classList.remove('ct_disabled')
+        }
+        if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
+          this.container.classList.add('ct_can_proceed');
         }
        
       }
