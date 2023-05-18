@@ -91,14 +91,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             locale: "en_GB",
             storeId: "11352"
         }
-    },20)
-    window.wcs_config= {
-        catalogId: "20603",
-        currency:"GBP",
-        langId: "-24",
-        locale: "en_GB",
-        storeId: "11352"
-    }
+    },200)
+   
     document.addEventListener("scroll", function(){ 
         menuPositionHandler()
     })

@@ -7,10 +7,27 @@
         height: 100%;
         z-index: 10;
         background-color: #D2D2D2;
-        transition:opacity .3s cubic-bezier(.25,.46,.45,.94);
+        transition:opacity .6s cubic-bezier(.25,.46,.45,.94);
         &:not(.ct_in){
             opacity: 0;
             pointer-events: none;
+        }
+        .ct_wow__search__loader__images{
+            svg{
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+              width: 200px;
+              height: 200px;
+              use{
+                transition: opacity .2s ease;
+                opacity: 0;
+                  &.ct_active{
+                    opacity: 1;
+                  }
+              }
+            }
         }
     }
 }
