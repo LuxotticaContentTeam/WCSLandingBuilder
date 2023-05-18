@@ -1,32 +1,36 @@
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const imgdxParam = urlParams.get('imgdx');
+const imgsxParam = urlParams.get('imgsx');
 
 
 const ct_rtr__data = {
   data: {
-    selector: '#ct_rtr',
+    selector: '[data-element-id="X_X_Footer_Newsletter_Banner"]',
     products: [
       {
+        upc: '8056597837170',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597837187__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_clubmaster.svg',
+        name: 'Ray-Ban'
+      },
+      {
         upc: '888392601629',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/clubmaster.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_clubmaster.svg',
-        name: 'Ray-Ban Clubmaster'
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392601629__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
+        name: 'Oakley'
       },
+    //   {
+    //     upc: '8056597744430',
+    //     img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
+    //     title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
+    //     name: 'Mega Wayfarer'
+    //   },
       {
-        upc: '8056597720670',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Mega Wayfarer'
-      },
-      {
-        upc: '8056597720670',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Mega Wayfarer'
-      },
-      {
-        upc: '8056597720670',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Mega Wayfarer'
+        upc: '8056597895651',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597895651__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
+        name: 'Versace'
       }
     ],
     hdr: 'https://media.ray-ban.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
@@ -35,11 +39,11 @@ const ct_rtr__data = {
       m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAAXNSR0IArs4c6QAAACFJREFUOE9jvHn26H8GMgHjqGbSQm40wEgLL4bRACMxwABB2jax9PD9WAAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg',
+      d:imgdxParam ? 'https://media.sunglasshut.com/2023/utility/RTR/' + imgdxParam : 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg',
       m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom.jpg' // 75:56
     },
     img_dx_loader:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg',
+      d: "https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg",
       m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom.jpg'
     }
   },
@@ -61,11 +65,17 @@ const ct_rtr__data = {
     }
   },
   links: {
-    '888392601629': {
-      'en': 'sunglasses/RB0316Smega%20clubmaster-tortoise%20on%20gold/8056597837170?rtrpdp'
+    '8056597837170': {
+      'en': '/ray-ban/rb0316s-8056597837187?rtrpdp'
     },
-    '8056597720670': {
-      'en': 'sunglasses/RB0840mega%20wayfarer-black/8056597720670?rtrpdp'
+    '888392601629': {
+      'en': '/oakley/oo9235-888392601629?rtrpdp'
+    },
+    '8056597744430': {
+      'en': '/prada/pr-13zs-8056597744430?rtrpdp'
+    },
+    '8056597895651': {
+      'en': '/versace/ve4425u-8056597895651?rtrpdp'
     }
   },
   libraries: [
