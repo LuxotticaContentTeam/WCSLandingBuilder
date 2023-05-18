@@ -1,3 +1,4 @@
+import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
 import { calcCoordinates, customLog, debounce } from "./modules/utils";
 
@@ -29,12 +30,13 @@ window.ct_wow__search_structure = {
     coordinates:[]
   },
   init: async function(){
-    console.log('WOW SEARCH INIT')
+    console.log('WOW SEARCH INIT');
+    this.container = document.querySelector('#ct_wow__search')
     this.prod_list_container = document.querySelector('.ct_wow__search__products_list')
     this.buildHtml();
     this.setPlaceholders(true);
     this.entry();
-    this.shuffle(this.prod_list.length-1);
+   
     this.setMouseMove();
     
     window.addEventListener('resize',debounce( this.refreshPositions));
@@ -42,11 +44,12 @@ window.ct_wow__search_structure = {
     let wcs_config = await storeInfo.getInfo();
     if(wcs_config){
       ct_wow__search_questions.init();
-
     }else{
       console.log('NOT WCS CONFIG')
     }
     
+    document.addEventListener('loaderOut',this.animationIn)
+    this.setCloseHandler()
   },
   buildHtml:function(){
     
@@ -233,6 +236,12 @@ window.ct_wow__search_structure = {
     document.querySelector('#ct_wow__search__input').addEventListener('mouseenter',e=>{
       this.prod_list_container.style.transform = `translate(0,0)`
     })
+  },
+  animationIn:function(){
+    window.ct_wow__search_structure.prod_list_container.classList.add('ct_in')
+  },
+  setCloseHandler:function(){
+    this.container.querySelector('#ct_wow__search__close').addEventListener('click',()=>{this.container.classList.remove('ct_in')});
   }
 }
 
@@ -283,7 +292,6 @@ window.ct_wow__search_questions = {
     this.updateAnswer()
   },
   setButtonsHandler:function(){
-    customLog('set buttons')
     this.buttons.prev.addEventListener('click',()=>{this.changeQuestions('prev')});
     this.buttons.next.addEventListener('click',()=>{this.changeQuestions('next')});
   },
@@ -357,13 +365,21 @@ window.ct_wow__search_questions = {
   answersButtonHandler:function(){
     this.answers.container.querySelectorAll('button').forEach(button=>{
       button.addEventListener('click',()=>{
-        window.ct_wow__search_structure.shuffle(29);
-        if(button.parentNode.querySelector('button.ct_active')){
-          button.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
+        if (!button.classList.contains('ct_active')){
+          
+          window.ct_wow__search_structure.shuffle(29);
+          if(button.parentNode.querySelector('button.ct_active')){
+            button.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
+          }
+          button.classList.add('ct_active');
+          button.parentNode.classList.add('ct_aswered');
+          this.container.classList.add('ct_can_proceed');
+          if (this.progress.state < 5){
+
+            this.changeQuestions('next');
+          }
         }
-        button.classList.add('ct_active');
-        button.parentNode.classList.add('ct_aswered');
-        this.container.classList.add('ct_can_proceed');
+
       })
     })
   },
@@ -413,6 +429,7 @@ window.ct_wow__search_questions = {
 
 
 document.addEventListener('DOMContentLoaded',()=>{
+  loader.init(true)
   window.ct_wow__search_structure.init();
  
 })

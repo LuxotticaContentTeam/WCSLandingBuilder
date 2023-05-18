@@ -11,9 +11,8 @@
         letter-spacing: normal;
         text-shadow: none;
         box-shadow: none;
-        transition-property: background-color,color,transform;
-        transition-timing-function: ease,ease,ease;
-        transition-duration: .6s,.6s,.4s;
+        transition: background-color .6s ease,color .6s ease,transform .4s ease;
+      
         height: 40px;
         display: inline-flex;
         box-sizing: border-box;
