@@ -314,7 +314,10 @@ window.ct_wow__search_questions = {
     next:null,
     prev:null
   },
-
+  results:{
+    container:null,
+    state:{}
+  },
   init:function(reopen){
     
     this.setElements()
@@ -328,8 +331,10 @@ window.ct_wow__search_questions = {
     this.progress.current = document.querySelector('.ct_wow__search__input_progress .ct_wow__search__input_progress__current'); 
     this.questions.container = document.querySelector('.ct_wow__search__input_questions');
     this.answers.container = document.querySelector('.ct_wow__search__input_answers');
-    this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next')
-    this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev')
+    this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next');
+    this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev');
+
+    this.results.container = document.querySelector('#ct_wow__search__results');
 
   },
   fillData:function(){
@@ -471,6 +476,50 @@ window.ct_wow__search_questions = {
       this.updateAnswer();
     }
   
+  },
+  showResult:function(){
+    this.results.container.classList.add('ct_in')
+    this.results.container.classList.add('ct_loader_in')
+    this.results.container.querySelector('#ct_wow__search__results_loader').classList.add('ct_in')
+    this.setResult();
+    setTimeout(()=>{
+      this.results.container.querySelector('#ct_wow__search__results_loader').classList.remove('ct_in')
+      this.results.container.classList.remove('ct_loader_in')
+    },2000)
+  },
+  setResult:function(){
+    let productsContainer = this.results.container.querySelector('#ct_wow__search__results_products');
+    let resultsProd=[//to change
+      {
+        prodId:"8056597523493",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597523493__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Ray-Ban'
+      },
+      {
+        prodId:"8056597328111",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597328111__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Oakley'
+      },
+      {
+        prodId:"8056597656054",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597656054__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Prada'
+      },
+      {
+        prodId:"888392489333",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392489333__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Versace'
+      },
+    ] 
+    resultsProd.forEach(prod=>{
+      productsContainer.innerHTML+=`
+        <a href="/${prod.prodId}" class="ct_wow__search__results_product">
+          <img src="${prod.prodImg}" />
+          <span>${prod.brandName}</span>
+        </a>
+      `
+    })
+
   },
   resetQuestions:function(){
     customLog('resetQuestions');
