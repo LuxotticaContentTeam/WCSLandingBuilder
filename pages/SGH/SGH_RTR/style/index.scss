@@ -58,7 +58,7 @@
         }
         
         .ct_rtr__headline{
-          font-size: 12px;
+          font-size: 16px;
           color: #000;
           letter-spacing: 0.24px;
           font-weight: 400;
@@ -308,19 +308,20 @@
 
       .ct_rtr__icon{
         position: absolute;
-        bottom: 64px;
-        right: 64px;
+        top: 32px;
+        right: 40px;
         display: block;
         pointer-events: none;
         color: #000;
         font-family: 'Oswald', sans-serif;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         display: flex;
         align-items: center;
         text-transform: uppercase;
         white-space: nowrap;
         @media (max-width: 768px) {
+          top: unset;
           bottom: 18px;
           right: 50%;
           transform: translateX(50%);

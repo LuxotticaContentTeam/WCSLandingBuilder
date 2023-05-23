@@ -1,8 +1,3 @@
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const imgdxParam = urlParams.get('imgdx');
-const imgsxParam = urlParams.get('imgsx');
-
 
 const ct_rtr__data = {
   data: {
@@ -20,12 +15,12 @@ const ct_rtr__data = {
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
         name: 'Oakley'
       },
-    //   {
-    //     upc: '8056597744430',
-    //     img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
-    //     title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-    //     name: 'Mega Wayfarer'
-    //   },
+      {
+        upc: '8056597744430',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597744430__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
+        name: 'Prada'
+      },
       {
         upc: '8056597895651',
         img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597895651__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
@@ -35,16 +30,16 @@ const ct_rtr__data = {
     ],
     hdr: 'https://media.ray-ban.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
     img_sx:{
-      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHn26H8ACFkDa0isWt4AAAAASUVORK5CYII=',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAAXNSR0IArs4c6QAAACFJREFUOE9jvHn26H8GMgHjqGbSQm40wEgLL4bRACMxwABB2jax9PD9WAAAAABJRU5ErkJggg==' // 15:16
+      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHnpzH8ACHYDd/HVOUQAAAAASUVORK5CYII=',
+      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHhkz38GCgDjqAEMo2HAMBoGDIMhDACVnDHATGTYawAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d:imgdxParam ? 'https://media.sunglasshut.com/2023/utility/RTR/' + imgdxParam : 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg',
-      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom.jpg' // 75:56
+      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1.jpg',
+      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_RTR.png' // 75:56
     },
     img_dx_loader:{
-      d: "https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg",
-      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom.jpg'
+      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1_loader.jpg',
+      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_loader.png'
     }
   },
   labels: {
@@ -58,7 +53,7 @@ const ct_rtr__data = {
       "en": "Shop now"
     },
     rotate: {
-      'en': 'ROTATE AND MOVE AROUND'
+      'en': 'DRAG TO ROTATE THE GLASSES'
     },
     cursor: {
       'en': 'DRAG'
@@ -80,7 +75,7 @@ const ct_rtr__data = {
   },
   libraries: [
     {
-      url : 'https://rtr-viewer.luxottica.com/lib/v/2.2.0/main.js',
+      url : 'https://rtr-viewer.luxottica.com/lib/v/2.2.1/main.js',
       callback: ()=>{
         console.log(`RTR BANNER - rtr viewer loaded - ${window.rtrViewer}`);
       }
@@ -160,6 +155,7 @@ function ct_rtr__init(){
     },
     metadata: {
         env: 'production',
+        //env: 'qa',
     },
     callbacks: {
       onError: ({ code, context, error }) =>  {

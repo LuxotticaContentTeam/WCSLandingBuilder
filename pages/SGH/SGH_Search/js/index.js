@@ -11,6 +11,7 @@ window.ct_wow__search__start = function(){
     document.querySelector(SELECTOR).appendChild(div)
     loader.init(true)
     window.ct_wow__search_structure.init();
+
   }else{
     
     window.ct_wow__search_structure.init({reopen:true});
@@ -62,7 +63,7 @@ window.ct_wow__search_structure = {
     if (!reopen){
       this.setMouseMove();
       this.setCloseHandler()
-      window.addEventListener('resize',debounce( this.refreshPositions));
+      
       document.addEventListener('loaderOut',this.animationIn)
       let wcs_config = await storeInfo.getInfo();
       if(wcs_config){
@@ -189,6 +190,7 @@ window.ct_wow__search_structure = {
     if (missingValues === this.prod_list.length-1){    
       this.shuffleData.missingProd=[...this.prod_list];
       this.shuffleData.missingPos=[...this.placeholders.coordinates];
+   
     }
     if (missingValues < 0){
       return
@@ -229,18 +231,26 @@ window.ct_wow__search_structure = {
     }
    
     
-    
-    this.prod_list;
-    this.placeholders.coordinates;
+    if (missingValues === this.prod_list.length-1){    
+      this.refreshPositions()
+      window.addEventListener('resize', this.refreshPositions);
+    }
+    // this.prod_list;
+    // this.placeholders.coordinates;
   },
-  refreshPositions:function(){
+  /**
+   * apply debounce function to resize refresh, 
+   * so it refresh the position only when the resize it's ended
+   */
+ 
+  refreshPositions:debounce(()=>{
     console.log('refresh')
    
     ct_wow__search_structure.setPlaceholders(false);
     ct_wow__search_structure.refreshProdPos();
     ct_wow__search_structure.adjustProdPos();
     
-  },
+  }),
   adjustProdPos:function(){
     
     this.prod_list.forEach(prod=>{
@@ -269,6 +279,7 @@ window.ct_wow__search_structure = {
       document.body.style.overflow = 'auto'
       this.resetStructure();
       window.ct_wow__search_questions.resetQuestions();
+      window.removeEventListener('resize',window.ct_wow__search_structure.refreshPositions)
     });
    
   },
