@@ -1,3 +1,184 @@
+#ct_wow__search #ct_wow__search__input {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 8;
+  border-radius: 4px;
+  min-width: 40%;
+  height: 200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#ct_wow__search .ct_wow__search__input_container {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: relative;
+  border-radius: 4px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_progress {
+  width: 100%;
+  text-align: center;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_questions {
+  margin-bottom: 24px;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_questions h3 {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_answers {
+  white-space: nowrap;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__next,
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__prev {
+  position: absolute;
+  bottom: 20px;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__next svg,
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__prev svg {
+  color: #000;
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+  -webkit-transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__next {
+  right: 20px;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__next:hover {
+  text-decoration: none;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__next:hover svg {
+  -webkit-transform: translateX(3px);
+          transform: translateX(3px);
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__prev {
+  left: 20px;
+}
+
+#ct_wow__search .ct_wow__search__input_container .ct_wow__search__input_commands .ct_wow__search__input_commands__prev:hover svg {
+  -webkit-transform: translateX(-3px);
+          transform: translateX(-3px);
+}
+
+.ct_space .ct_cta {
+  text-align: center;
+  border-radius: 40px;
+  padding: 9px 25px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: normal;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  height: 40px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  white-space: nowrap;
+  min-width: 130px;
+  cursor: pointer;
+}
+
+.ct_space .ct_cta.ct_cta__black {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #222;
+}
+
+@media (min-width: 1025px) {
+  .ct_space .ct_cta.ct_cta__black:hover {
+    background-color: #555;
+    border-color: #555;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ct_space .ct_cta.ct_cta__black:active {
+    background-color: #555;
+    border-color: #555;
+  }
+}
+
+.ct_space .ct_cta.ct_cta__white {
+  background-color: #fff;
+  color: #222;
+  border: 1px solid black;
+}
+
+@media (min-width: 1025px) {
+  .ct_space .ct_cta.ct_cta__white:hover, .ct_space .ct_cta.ct_cta__white:focus {
+    background-color: #222;
+    border-color: #222;
+    color: #fff;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ct_space .ct_cta.ct_cta__white:active {
+    background-color: #222;
+    border-color: #222;
+    color: #fff;
+  }
+}
+
+.ct_space .ct_cta.ct_cta__white.ct_active {
+  background-color: #222;
+  border-color: #222;
+  color: #fff;
+}
+
+.ct_space .ct_cta.ct_cta__large {
+  min-width: 180px;
+}
+
 #ct_wow__search {
   background-color: #D2D2D2;
   height: 100vh;
@@ -40,15 +221,21 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #ct_wow__search .ct_wow__search__products_container .ct_wow__search__products_list .ct_wow_search__product {
   list-style: none;
   height: 12vw;
   position: relative;
+  pointer-events: none;
 }
 
 #ct_wow__search .ct_wow__search__products_container .ct_wow__search__products_list .ct_wow_search__product a {
+  pointer-events: auto;
   display: block;
   width: 80%;
   height: 80%;
@@ -57,6 +244,10 @@
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform .6s ease;
+  transition: -webkit-transform .6s ease;
+  transition: transform .6s ease;
+  transition: transform .6s ease, -webkit-transform .6s ease;
 }
 
 #ct_wow__search .ct_wow__search__products_container .ct_wow__search__products_list .ct_wow_search__product a:hover img {
@@ -112,6 +303,9 @@
   height: 100vh;
   z-index: 5;
   text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 #ct_wow__search .ct_wow__search__products_container .ct_wow__search__pos_placeholders .ct_wow__search__pos_placeholders__wrapper {
@@ -132,7 +326,7 @@
   outline: 1px dashed blue;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 40%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   display: -webkit-box;

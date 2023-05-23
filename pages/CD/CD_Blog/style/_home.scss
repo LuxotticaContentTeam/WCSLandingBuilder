@@ -1,3 +1,8 @@
+$contactscare: #6DF0D9;
+$contactstypes: #AEADE9;
+$guideshowto: #67CDEE;
+$eyehealth: #EEA27F;
+
 #content {
   margin: 0px;
   padding: 0px;
@@ -9,7 +14,7 @@
     .ct_blog__title{
       padding: 32px 0px;
       text-align: center;
-      font-size: 32px;
+      font-size: 32px !important;
       font-family: $font-bold;
       @media (max-width: $break-portrait-min){
         font-size: 24px;
@@ -73,13 +78,12 @@
             }
             &.ct_active {
               span, h1 {
-                font-family: $font-regular;
+                font-family: $font-medium;
                 @media (max-width: $break-portrait-min){
                   font-family: $font-bold;
                 }
                 &::after {
                   width: 100% !important;
-                  left: 4% !important;
                 }
                 &::before {
                   font-weight: bold;
@@ -93,30 +97,30 @@
                 }
               }
               &[data-category="contactscare"]{
-                span{
+                span, h1{
                   &::after{
-                    background-color: #7AE5D8;
+                    background-color: $contactscare;
                   }
                 }
               }
               &[data-category="contactstypes"]{
-                span{
+                span, h1{
                   &::after{
-                    background-color: #AEADE9;
+                    background-color: $contactstypes;
                   }
                 }
               }
               &[data-category="eyehealth"]{
-                span{
+                span, h1{
                   &::after{
-                    background-color: #6FC0DA;
+                    background-color: $eyehealth;
                   }
                 }
               }
               &[data-category="guideshowto"]{
-                span{
+                span, h1{
                   &::after{
-                    background-color: #EEA27F;
+                    background-color: $guideshowto;
                   }
                 }
               }
@@ -133,38 +137,37 @@
                 }
               }
               &[data-category="all"]{
-                span{
+                span, h1{
                   &::after{
                     background-color: #000;
                   }
                 }
               }
               &[data-category="contactscare"]{
-                span{
+                span, h1{
                   &::after{
-                    background-color: #7AE5D8;
+                    background-color: $contactscare;
                   }
                 }
               }
               &[data-category="contactstypes"]{
-                span{
+                span, h1{
                   &::after{
-                    background-color: #AEADE9;
+                    background-color: $contactstypes;
                   }
                 }
               }
               &[data-category="eyehealth"]{
-                span{
+                span, h1{
                   &::after{
-                    background-color: #6FC0DA;
+                    background-color: $eyehealth;
                   }
                 }
               }
               &[data-category="guideshowto"]{
-                color: red;
-                span{
+                span, h1{
                   &::after{
-                    background-color: #EEA27F;
+                    background-color: $guideshowto;
                   }
                 }
               }
@@ -172,7 +175,7 @@
             span,
             h1 {
               white-space: nowrap;
-              font-size: 16px;
+              font-size: 16px !important;
               position: relative;
               color: transparent;
               @media (min-width: $break-portrait-min){       
@@ -292,19 +295,19 @@
               position: relative;
 
               &[data-category="contactscare"]{
-                  background-color: #7AE5D8;
+                  background-color: $contactscare;
               }
 
               &[data-category="contactstypes"]{
-                  background-color: #AEADE9;
+                  background-color: $contactstypes;
               }
 
               &[data-category="eyehealth"]{
-                  background-color: #6FC0DA;
+                  background-color: $eyehealth;
               }
 
               &[data-category="guideshowto"]{
-                  background-color: #EEA27F;
+                  background-color: $guideshowto;
               }
 
               svg{
@@ -323,11 +326,13 @@
             }
             h2 {
               color: $black;
-              min-height: 52px;
+              min-height: 60px;
               position: relative;
               font-size: 20px;
               font-family: $font-medium;
               margin-top: 12px;
+              display: flex;
+              align-items: center;
               @media (max-width: 1024px) {
                 font-size: 20px;
               }
