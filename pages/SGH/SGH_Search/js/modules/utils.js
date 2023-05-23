@@ -17,3 +17,7 @@ export const debounce = (f) =>{
       timer = setTimeout(f,500,event);
     };
 }
+
+export const customLog = (log,entraStyle) =>{
+    console.log('%c ' + log,`background:#E8DBBD;padding:3px 5px; border-radius:4px; color:#000;font-family:helvetica; ${entraStyle};`)
+}

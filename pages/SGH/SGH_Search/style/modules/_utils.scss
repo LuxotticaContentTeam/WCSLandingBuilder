@@ -11,7 +11,8 @@
         letter-spacing: normal;
         text-shadow: none;
         box-shadow: none;
-        transition: all .6s;
+        transition: background-color .6s ease,color .6s ease,transform .4s ease;
+      
         height: 40px;
         display: inline-flex;
         box-sizing: border-box;

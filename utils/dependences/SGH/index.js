@@ -91,7 +91,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             locale: "en_GB",
             storeId: "11352"
         }
-    },20)
+    },200)
+   
     document.addEventListener("scroll", function(){ 
         menuPositionHandler()
     })

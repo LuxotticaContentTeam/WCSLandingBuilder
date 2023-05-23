@@ -1,5 +1,23 @@
+import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
-import { calcCoordinates, debounce } from "./modules/utils";
+import { calcCoordinates, customLog, debounce } from "./modules/utils";
+
+window.ct_wow__search__start = function(){
+  if (!window.ct_wow__search_structure.container){
+    const SELECTOR="body";
+    let div = document.createElement('div')
+    div.id = "ct_wow__search__container"
+    div.innerHTML= window.ct_wow__search__template;
+    document.querySelector(SELECTOR).appendChild(div)
+    loader.init(true)
+    window.ct_wow__search_structure.init();
+  }else{
+    
+    window.ct_wow__search_structure.init({reopen:true});
+  }
+
+}
+
 
 window.ct_wow__search_structure = {
   container:null,
@@ -28,28 +46,35 @@ window.ct_wow__search_structure = {
     },
     coordinates:[]
   },
-  init: async function(){
-    console.log('WOW SEARCH INIT')
-    this.prod_list_container = document.querySelector('.ct_wow__search__products_list')
-    this.buildHtml();
-    this.setPlaceholders(true);
-    this.entry();
-    this.shuffle(this.prod_list.length-1);
-    this.setMouseMove();
-    
-    window.addEventListener('resize',debounce( this.refreshPositions));
-    
-    let wcs_config = await storeInfo.getInfo();
-    if(wcs_config){
-      ct_wow__search_questions.init();
-
-    }else{
-      console.log('NOT WCS CONFIG')
+  init: async function(reopen){
+    customLog('WOW SEARCH INIT');
+    if (!reopen){
+      this.container = document.querySelector('#ct_wow__search');
+      this.prod_list_container = document.querySelector('.ct_wow__search__products_list')
+      this.buildHtml();
+      this.setPlaceholders(true);
     }
+    this.entry();
+    
+   
+   
+   
+    if (!reopen){
+      this.setMouseMove();
+      this.setCloseHandler()
+      window.addEventListener('resize',debounce( this.refreshPositions));
+      document.addEventListener('loaderOut',this.animationIn)
+      let wcs_config = await storeInfo.getInfo();
+      if(wcs_config){
+        ct_wow__search_questions.init();
+      }else{
+        console.log('NOT WCS CONFIG')
+      }
+    }
+    
     
   },
   buildHtml:function(){
-    
     /**
      * Insert Products in HTML
      */
@@ -151,7 +176,7 @@ window.ct_wow__search_structure = {
   },
 
   entry:function(){
-    // this.container.classList.add('in');
+    this.container.classList.add('ct_in');
     document.body.style.overflow = 'hidden'
   },
   shuffle:function(missingValues){
@@ -233,15 +258,38 @@ window.ct_wow__search_structure = {
     document.querySelector('#ct_wow__search__input').addEventListener('mouseenter',e=>{
       this.prod_list_container.style.transform = `translate(0,0)`
     })
+  },
+  animationIn:function(){
+    customLog('animationIIN')
+    window.ct_wow__search_structure.prod_list_container.classList.add('ct_in')
+  },
+  setCloseHandler:function(){
+    this.container.querySelector('#ct_wow__search__close').addEventListener('click',()=>{
+      this.container.classList.remove('ct_in');
+      document.body.style.overflow = 'auto'
+      this.resetStructure();
+      window.ct_wow__search_questions.resetQuestions();
+    });
+   
+  },
+  resetStructure:function(){
+    customLog('rest')
+    this.prod_list_container.querySelectorAll('.ct_wow_search__product__wrap').forEach(prod=>{
+      prod.style.transform = "none";
+      prod.querySelector('a').style.transform = "translate(-50%,-50%)";
+    });
   }
 }
 
 window.ct_wow__search_questions = {
   container:null,
   stepsCount:0,
+  blockerActive:false,
   progress:{
     container:null,
-    state:0,
+    current:null,
+    state:1,
+    style:null
   },
   questions:{
     container:null,
@@ -251,22 +299,179 @@ window.ct_wow__search_questions = {
     container:null,
     state:{}
   },
-  init:function(){
+  buttons:{
+    next:null,
+    prev:null
+  },
+
+  init:function(reopen){
+    
+    this.setElements()
+    this.fillData();
+    this.setButtonsHandler();
+
+  },
+  setElements:function(){
     this.container = document.querySelector('#ct_wow__search__input');
-    this.progress.container = document.querySelector('.ct_wow__search__input_progress');
+    this.progress.container = document.querySelector('.ct_wow__search__input_progress'); 
+    this.progress.current = document.querySelector('.ct_wow__search__input_progress .ct_wow__search__input_progress__current'); 
     this.questions.container = document.querySelector('.ct_wow__search__input_questions');
     this.answers.container = document.querySelector('.ct_wow__search__input_answers');
-    this.fillData();
+    this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next')
+    this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev')
+
   },
   fillData:function(){
     this.stepsCount = ct_wow__search__data_question.length;
-    console.log(this.stepsCount)
+    this.progress.container.querySelector('.ct_wow__search__input_progress__current + span').innerHTML = ` /${this.stepsCount}`
+    this.updateProgress()
+    this.updateQuestionCopy();
+    this.buildAnswers();
+    this.updateAnswer()
+  },
+  setButtonsHandler:function(){
+    this.buttons.prev.addEventListener('click',()=>{this.changeQuestions('prev')});
+    this.buttons.next.addEventListener('click',()=>{this.changeQuestions('next')});
+  },
+  updateProgress:function(dir){
+    this.blockerActive = true;
+   
+    if (dir){
+      //set element positioning
+      this.progress.current.dataset.next = this.progress.state; 
+      this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-opacity',"1");
+      this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-opacity',"0");
+      this.progress.current.querySelector('span').style.opacity = 0;
+      this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-translate',"translateY(0)");
+      if (dir ==='next'){
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-translate',"translateY(-100%)");  
+      }else{
+         this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-translate',"translateY(100%)");  
+      }
+
+      setTimeout(()=>{
+        // start animation
+        this.progress.current.classList.add('ct_animation');
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-translate',"translateY(0%)");  
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-opacity',"1");  
+        if (dir ==='next'){
+          this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-translate',"translateY(100%)");
+        }else{
+          this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-translate',"translateY(-100%)");
+        }
+        this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-opacity',"0");
+      },10)
+     
+    }
+    
+    setTimeout(()=>{
+      this.progress.container.querySelector('.ct_wow__search__input_progress__current span').innerHTML = this.progress.state;
+      this.progress.current.dataset.current =this.progress.state;
+      this.progress.current.querySelector('span').style.opacity = 1;
+      this.progress.current.classList.remove('ct_animation');
+      this.blockerActive = false;
+    },410)
+    
+  
+   
+    
+   
+  },
+  updateQuestionCopy:function(){
+    this.questions.container.querySelector('h3').style.opacity = 0;
+    setTimeout(()=>{
+      this.questions.container.querySelector('h3').innerHTML = window.ct_wow__search__data_question[this.progress.state - 1].question["en"];
+      this.questions.container.querySelector('h3').style.opacity = 1;
+    },400)
+   
+  },
+  buildAnswers:function(){
+    let answers="";
+    window.ct_wow__search__data_question.forEach((question,i)=>{
+      answers+=`<div class="ct_wow__search__input_answer" data-answer="${i}">`
+      
+      question.answers.forEach(answer=>{
+        answers += `
+        <button class="ct_cta ct_cta__white ">${answer["en"]}</button>
+        `
+      })
+      answers+="</div>"
+    })
+    this.answers.container.innerHTML = answers;
+    this.answersButtonHandler();
+  },
+  answersButtonHandler:function(){
+    this.answers.container.querySelectorAll('button').forEach(button=>{
+      button.addEventListener('click',()=>{
+        if (!button.classList.contains('ct_active')){
+          
+          window.ct_wow__search_structure.shuffle(29);
+          if(button.parentNode.querySelector('button.ct_active')){
+            button.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
+          }
+          button.classList.add('ct_active');
+          button.parentNode.classList.add('ct_aswered');
+          this.container.classList.add('ct_can_proceed');
+          if (this.progress.state < 5){
+
+            this.changeQuestions('next');
+          }
+        }
+
+      })
+    })
+  },
+  updateAnswer:function(){
+    if(this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active')){
+      this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active').classList.remove('ct_active')
+    }
+    this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state - 1}"]`).classList.add('ct_active')
+  },
+  changeQuestions:function(dir){
+  
+    if (!this.blockerActive){
+      if (dir ==='next'){
+        this.progress.state+= 1;
+        if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('ct_disabled') ){
+          this.buttons.next.classList.add('ct_disabled')
+        }
+        if (!this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
+          this.container.classList.remove('ct_can_proceed');
+        }
+        if(this.buttons.prev.classList.contains('ct_disabled')){
+          this.buttons.prev.classList.remove('ct_disabled')
+        }
+         
+      }else{
+        this.progress.state-= 1;
+        if (this.progress.state === 1 && !this.buttons.prev.classList.contains('ct_disabled')){
+          this.buttons.prev.classList.add('ct_disabled')
+        }
+        if(this.buttons.next.classList.contains('ct_disabled')){
+          this.buttons.next.classList.remove('ct_disabled')
+        }
+        if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
+          this.container.classList.add('ct_can_proceed');
+        }
+       
+      }
+      this.updateProgress(dir);
+      this.updateQuestionCopy();
+      this.updateAnswer();
+    }
+  
+  },
+  resetQuestions:function(){
+    customLog('resetQuestions');
+    this.progress.state = 0;
+    this.answers.container.querySelectorAll('button.ct_active').forEach(button=>button.classList.remove('ct_active'))
+    this.answers.container.querySelectorAll('ct_aswered').forEach(aswered=>aswered.classList.remove('ct_aswered'))
+    this.container.classList.remove('ct_can_proceed');
+    this.changeQuestions('next')
   }
+  
 }
 
 
-document.addEventListener('DOMContentLoaded',()=>{
-  window.ct_wow__search_structure.init();
- 
-})
+
 

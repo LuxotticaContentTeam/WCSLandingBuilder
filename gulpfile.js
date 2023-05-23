@@ -284,7 +284,7 @@ async function startDev(){
   browserSync_()
   
   gulp.watch([`./pages/${currentBrand}/${currentPage}/index.html`], gulp.task('devLandingSeries')).on('done', browserSync.reload);
-  gulp.watch([`./pages/${currentBrand}/${currentPage}/js/*.js`], gulp.task('script_land_js_dev')).on('change', browserSync.reload);
+  gulp.watch([`./pages/${currentBrand}/${currentPage}/js/*.js`,`./pages/${currentBrand}/${currentPage}/js/**/*.js`], gulp.task('script_land_js_dev')).on('change', browserSync.reload);
   gulp.watch([`./pages/${currentBrand}/${currentPage}/style/*.scss`,`./pages/${currentBrand}/${currentPage}/style/**/*.scss`], gulp.task('landing_css'));
   gulp.watch([`./pages/${currentBrand}/${currentPage}/json/*`],gulp.task('json')).on('change', browserSync.reload);
   if (moduleLibrary){
