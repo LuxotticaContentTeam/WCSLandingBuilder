@@ -11,6 +11,7 @@ window.ct_wow__search__start = function(){
     document.querySelector(SELECTOR).appendChild(div)
     loader.init(true)
     window.ct_wow__search_structure.init();
+
   }else{
     
     window.ct_wow__search_structure.init({reopen:true});
@@ -62,7 +63,7 @@ window.ct_wow__search_structure = {
     if (!reopen){
       this.setMouseMove();
       this.setCloseHandler()
-      window.addEventListener('resize',debounce( this.refreshPositions));
+      
       document.addEventListener('loaderOut',this.animationIn)
       let wcs_config = await storeInfo.getInfo();
       if(wcs_config){
@@ -189,6 +190,7 @@ window.ct_wow__search_structure = {
     if (missingValues === this.prod_list.length-1){    
       this.shuffleData.missingProd=[...this.prod_list];
       this.shuffleData.missingPos=[...this.placeholders.coordinates];
+   
     }
     if (missingValues < 0){
       return
@@ -229,18 +231,26 @@ window.ct_wow__search_structure = {
     }
    
     
-    
-    this.prod_list;
-    this.placeholders.coordinates;
+    if (missingValues === this.prod_list.length-1){    
+      this.refreshPositions()
+      window.addEventListener('resize', this.refreshPositions);
+    }
+    // this.prod_list;
+    // this.placeholders.coordinates;
   },
-  refreshPositions:function(){
+  /**
+   * apply debounce function to resize refresh, 
+   * so it refresh the position only when the resize it's ended
+   */
+ 
+  refreshPositions:debounce(()=>{
     console.log('refresh')
    
     ct_wow__search_structure.setPlaceholders(false);
     ct_wow__search_structure.refreshProdPos();
     ct_wow__search_structure.adjustProdPos();
     
-  },
+  }),
   adjustProdPos:function(){
     
     this.prod_list.forEach(prod=>{
@@ -269,6 +279,7 @@ window.ct_wow__search_structure = {
       document.body.style.overflow = 'auto'
       this.resetStructure();
       window.ct_wow__search_questions.resetQuestions();
+      window.removeEventListener('resize',window.ct_wow__search_structure.refreshPositions)
     });
    
   },
@@ -303,7 +314,10 @@ window.ct_wow__search_questions = {
     next:null,
     prev:null
   },
-
+  results:{
+    container:null,
+    state:{}
+  },
   init:function(reopen){
     
     this.setElements()
@@ -317,8 +331,10 @@ window.ct_wow__search_questions = {
     this.progress.current = document.querySelector('.ct_wow__search__input_progress .ct_wow__search__input_progress__current'); 
     this.questions.container = document.querySelector('.ct_wow__search__input_questions');
     this.answers.container = document.querySelector('.ct_wow__search__input_answers');
-    this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next')
-    this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev')
+    this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next');
+    this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev');
+
+    this.results.container = document.querySelector('#ct_wow__search__results');
 
   },
   fillData:function(){
@@ -460,6 +476,50 @@ window.ct_wow__search_questions = {
       this.updateAnswer();
     }
   
+  },
+  showResult:function(){
+    this.results.container.classList.add('ct_in')
+    this.results.container.classList.add('ct_loader_in')
+    this.results.container.querySelector('#ct_wow__search__results_loader').classList.add('ct_in')
+    this.setResult();
+    setTimeout(()=>{
+      this.results.container.querySelector('#ct_wow__search__results_loader').classList.remove('ct_in')
+      this.results.container.classList.remove('ct_loader_in')
+    },2000)
+  },
+  setResult:function(){
+    let productsContainer = this.results.container.querySelector('#ct_wow__search__results_products');
+    let resultsProd=[//to change
+      {
+        prodId:"8056597523493",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597523493__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Ray-Ban'
+      },
+      {
+        prodId:"8056597328111",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597328111__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Oakley'
+      },
+      {
+        prodId:"8056597656054",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597656054__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Prada'
+      },
+      {
+        prodId:"888392489333",
+        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392489333__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
+        brandName:'Versace'
+      },
+    ] 
+    resultsProd.forEach(prod=>{
+      productsContainer.innerHTML+=`
+        <a href="/${prod.prodId}" class="ct_wow__search__results_product">
+          <img src="${prod.prodImg}" />
+          <span>${prod.brandName}</span>
+        </a>
+      `
+    })
+
   },
   resetQuestions:function(){
     customLog('resetQuestions');
