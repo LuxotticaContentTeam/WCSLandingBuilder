@@ -2,14 +2,14 @@ import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
 import { calcCoordinates, customLog, debounce } from "./modules/utils";
 
-window.ct_wow__search__start = function(){
+window.ct_wow__search__start = function(load){
   if (!window.ct_wow__search_structure.container){
     const SELECTOR="body";
     let div = document.createElement('div')
     div.id = "ct_wow__search__container"
     div.innerHTML= window.ct_wow__search__template;
     document.querySelector(SELECTOR).appendChild(div)
-    loader.init(true)
+    loader.init(load)
     window.ct_wow__search_structure.init();
 
   }else{
@@ -277,8 +277,12 @@ window.ct_wow__search_structure = {
     this.container.querySelector('#ct_wow__search__close').addEventListener('click',()=>{
       this.container.classList.remove('ct_in');
       document.body.style.overflow = 'auto'
+      //reset structure
       this.resetStructure();
+      //reset questions
       window.ct_wow__search_questions.resetQuestions();
+      
+      
       window.removeEventListener('resize',window.ct_wow__search_structure.refreshPositions)
     });
    
@@ -312,7 +316,9 @@ window.ct_wow__search_questions = {
   },
   buttons:{
     next:null,
-    prev:null
+    prev:null,
+    results:null,
+    restart:null
   },
   results:{
     container:null,
@@ -331,8 +337,11 @@ window.ct_wow__search_questions = {
     this.progress.current = document.querySelector('.ct_wow__search__input_progress .ct_wow__search__input_progress__current'); 
     this.questions.container = document.querySelector('.ct_wow__search__input_questions');
     this.answers.container = document.querySelector('.ct_wow__search__input_answers');
+    
     this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next');
     this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev');
+    this.buttons.results = document.querySelector('.ct_wow__search__input_commands__results');
+    this.buttons.restart = document.querySelector('.ct_wow__search__restart');
 
     this.results.container = document.querySelector('#ct_wow__search__results');
 
@@ -348,6 +357,8 @@ window.ct_wow__search_questions = {
   setButtonsHandler:function(){
     this.buttons.prev.addEventListener('click',()=>{this.changeQuestions('prev')});
     this.buttons.next.addEventListener('click',()=>{this.changeQuestions('next')});
+    this.buttons.results.addEventListener('click',()=>{this.showResult()});
+    this.buttons.restart.addEventListener('click',()=>{this.restartQuiz()});
   },
   updateProgress:function(dir){
     this.blockerActive = true;
@@ -450,6 +461,11 @@ window.ct_wow__search_questions = {
         this.progress.state+= 1;
         if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('ct_disabled') ){
           this.buttons.next.classList.add('ct_disabled')
+          this.buttons.results.classList.remove('ct_disabled');
+        }
+        if (this.progress.state === 1 && !this.buttons.results.classList.contains('ct_disabled')){
+          this.buttons.results.classList.add('ct_disabled');
+          this.buttons.next.classList.remove('ct_disabled')
         }
         if (!this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
           this.container.classList.remove('ct_can_proceed');
@@ -464,7 +480,8 @@ window.ct_wow__search_questions = {
           this.buttons.prev.classList.add('ct_disabled')
         }
         if(this.buttons.next.classList.contains('ct_disabled')){
-          this.buttons.next.classList.remove('ct_disabled')
+          this.buttons.next.classList.remove('ct_disabled');
+          this.buttons.results.classList.add('ct_disabled');
         }
         if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
           this.container.classList.add('ct_can_proceed');
@@ -489,6 +506,7 @@ window.ct_wow__search_questions = {
   },
   setResult:function(){
     let productsContainer = this.results.container.querySelector('#ct_wow__search__results_products');
+    productsContainer.innerHTML=''
     let resultsProd=[//to change
       {
         prodId:"8056597523493",
@@ -512,6 +530,7 @@ window.ct_wow__search_questions = {
       },
     ] 
     resultsProd.forEach(prod=>{
+      
       productsContainer.innerHTML+=`
         <a href="/${prod.prodId}" class="ct_wow__search__results_product">
           <img src="${prod.prodImg}" />
@@ -521,12 +540,24 @@ window.ct_wow__search_questions = {
     })
 
   },
+  restartQuiz:function(){
+    loader.init(true,1000);
+  
+    setTimeout(()=>{
+      window.ct_wow__search_structure.resetStructure();
+      this.resetQuestions();
+      this.results.container.classList.remove('ct_in')
+      this.results.container.classList.add('ct_loader_in')
+    },400)
+    
+  },
   resetQuestions:function(){
     customLog('resetQuestions');
     this.progress.state = 0;
     this.answers.container.querySelectorAll('button.ct_active').forEach(button=>button.classList.remove('ct_active'))
-    this.answers.container.querySelectorAll('ct_aswered').forEach(aswered=>aswered.classList.remove('ct_aswered'))
+    this.answers.container.querySelectorAll('.ct_aswered').forEach(aswered=>aswered.classList.remove('ct_aswered'))
     this.container.classList.remove('ct_can_proceed');
+    this.results.container.classList.remove('ct_in')
     this.changeQuestions('next')
   }
   

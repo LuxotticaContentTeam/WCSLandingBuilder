@@ -45,7 +45,7 @@
                 h3{
                     opacity: 1;
                     transition-delay: .7s;
-                    margin: 0;
+                  
                 }
             }
             .ct_wow__search__results_loader__img_container{
@@ -102,6 +102,7 @@
                 font-weight: 300;
                 opacity: 0;
                 transition: opacity .6s ease;
+                margin: 0;
             }
         }
         .ct_wow__search__results_container{

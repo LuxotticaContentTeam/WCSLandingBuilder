@@ -3,7 +3,7 @@ import { customLog } from "./utils";
 export const loader = {
     elem:null,
     time:2400,
-    init:function(loader){
+    init:function(loader,time){
         this.elem = document.querySelector("#ct_wow__search__loader");
         var loaderEvent = new CustomEvent('loaderOut');
         this.loaderAnim();
@@ -15,11 +15,13 @@ export const loader = {
                 this.elem.classList.remove('ct_in');
                 customLog('loader out 1')
                 
-            },this.time)
+            },time?time:this.time)
            
         }else{
-            document.dispatchEvent(loaderEvent);
-            customLog('loader out 2')
+            setTimeout(()=>{
+                document.dispatchEvent(loaderEvent);
+                customLog('loader out 2')
+            },20);
         }
     },
     loaderAnim:function(){
@@ -47,3 +49,4 @@ export const loader = {
         }, 300);
     }
 }
+
