@@ -11,6 +11,13 @@
         min-width: 40%;
         height: 200px;
         box-sizing: border-box;
+        
+        @media(max-width:1024px){
+            overflow: hidden;
+            min-width: 1px;
+            width: 96%;
+            bottom:20px
+        }
         &:not(.ct_can_proceed){
             .ct_wow__search__input_commands__next{
                 pointer-events: none;
@@ -27,13 +34,20 @@
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
+        @media(max-width:1024px){
+            padding: 0;
+        }
         .ct_wow__search__input_progress{
             width: 100%;
             text-align: center;
+            
             --ct-wow-search-input-progress-after-opacity:0;
             --ct-wow-search-input-progress-before-opacity:0;
             --ct-wow-search-input-progress-after-translate:translateY(0);   
-            --ct-wow-search-input-progress-before-translate:translateY(0);                 
+            --ct-wow-search-input-progress-before-translate:translateY(0);    
+            @media(max-width:1024px){
+                padding-top: 16px;
+            }             
             .ct_wow__search__input_progress__current{
                 margin-right: -4px;
                 position: relative;
@@ -67,19 +81,28 @@
             }
         }
         .ct_wow__search__input_questions{
-            margin-bottom: 24px;
+            margin-bottom: 8px;
             h3{
                 font-size: 16px;
                 color: #000;
                 font-weight: 400;
                 margin-bottom: 0;
                 transition: opacity .4s ease;
+                height: 40px;
+            
+                @media(max-width:1024px){
+                    margin-top: 0;
+                    padding: 8px 16px;
+                }
             }
         }
         .ct_wow__search__input_answers{
             white-space: nowrap;
             position: relative;
             overflow: hidden;
+            @media(max-width:1024px){
+                height: 40px;
+            }
             .ct_wow__search__input_answer{
                 display: flex;
                 justify-content: center;
@@ -91,13 +114,21 @@
                 opacity: 0;
                 pointer-events: none;
                 transition: all .4s ease;
+                @media(max-width:1024px){
+                    justify-content: flex-start;
+                    padding: 0 16px;
+                    overflow-x: scroll;
+                    padding-bottom: 40px;
+                    gap: 0;
+                    
+                }
                 &:first-child{
                     position: relative;
                 }
                 &.ct_active{
                     opacity: 1;
                     pointer-events: all;
-                    button{
+                    .ct_wow__search__button_wrap{
                         transform: translateY(0);
                         opacity: 1;
                         @for $i from 1 through 5 {
@@ -107,9 +138,23 @@
                         }
                     }
                 }
-                button{
+                .ct_wow__search__button_wrap{
+                    
+                }
+                .ct_wow__search__button_wrap{
                     transform: translateY(100%);
                     opacity: 0;
+                    transition: background-color .6s ease,color .6s ease,transform .4s ease;
+                    box-sizing: content-box;
+                    @media(max-width:1024px){
+                        padding: 0 4px;
+                        &:first-child{
+                            padding-left: 0;
+                        }
+                        &:last-child{
+                            padding-right: 32px;
+                        }
+                    }
                 }
                 
             }
@@ -131,6 +176,10 @@
                 color: #000;
                 cursor: pointer;
                 transition: all .4s ease;
+                @media(max-width:1024px){
+                    padding: 12px;
+                    bottom: 4px;
+                }
                 svg{
                     color: #000;
                     fill: currentColor;
@@ -147,6 +196,9 @@
             .ct_wow__search__input_commands__next,
             .ct_wow__search__input_commands__results{
                 right: 20px;
+                @media(max-width:1024px){
+                    right: 4px;
+                }
                 &:hover{
                     text-decoration: none;
                     svg{
@@ -156,6 +208,9 @@
             }
             .ct_wow__search__input_commands__prev{
                 left: 20px;
+                @media(max-width:1024px){
+                    left: 4px;
+                }
                 &:hover{
                     svg{
                         transform: translateX(-3px);

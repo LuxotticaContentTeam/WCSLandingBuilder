@@ -1,6 +1,6 @@
 import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
-import { calcCoordinates, customLog, debounce } from "./modules/utils";
+import { calcCoordinates, customLog, debounce, getDevice } from "./modules/utils";
 
 window.ct_wow__search__start = function(load){
   if (!window.ct_wow__search_structure.container){
@@ -21,6 +21,7 @@ window.ct_wow__search__start = function(load){
 
 
 window.ct_wow__search_structure = {
+  device:getDevice(),
   container:null,
   prod_list_container:null,
   prod_list:[],
@@ -49,8 +50,16 @@ window.ct_wow__search_structure = {
   },
   init: async function(reopen){
     customLog('WOW SEARCH INIT');
+    
     if (!reopen){
       this.container = document.querySelector('#ct_wow__search');
+    }
+    if (this.device != 'D'){
+      this.calcHeight();
+    }
+  
+    if (!reopen){
+      
       this.prod_list_container = document.querySelector('.ct_wow__search__products_list')
       this.buildHtml();
       this.setPlaceholders(true);
@@ -61,7 +70,9 @@ window.ct_wow__search_structure = {
    
    
     if (!reopen){
-      this.setMouseMove();
+      if (this.device === 'D'){
+        this.setMouseMove();
+      }
       this.setCloseHandler()
       
       document.addEventListener('loaderOut',this.animationIn)
@@ -74,6 +85,10 @@ window.ct_wow__search_structure = {
     }
     
     
+  },
+  calcHeight:function(){
+    customLog('Calc Height')
+    window.ct_wow__search_structure.container.style.setProperty("--ct-wow-search-height", `${window.innerHeight}px`)
   },
   buildHtml:function(){
     /**
@@ -270,7 +285,6 @@ window.ct_wow__search_structure = {
     })
   },
   animationIn:function(){
-    customLog('animationIIN')
     window.ct_wow__search_structure.prod_list_container.classList.add('ct_in')
   },
   setCloseHandler:function(){
@@ -281,14 +295,12 @@ window.ct_wow__search_structure = {
       this.resetStructure();
       //reset questions
       window.ct_wow__search_questions.resetQuestions();
-      
-      
       window.removeEventListener('resize',window.ct_wow__search_structure.refreshPositions)
     });
    
   },
   resetStructure:function(){
-    customLog('rest')
+    customLog('- RESET Structure -')
     this.prod_list_container.querySelectorAll('.ct_wow_search__product__wrap').forEach(prod=>{
       prod.style.transform = "none";
       prod.querySelector('a').style.transform = "translate(-50%,-50%)";
@@ -419,7 +431,9 @@ window.ct_wow__search_questions = {
       
       question.answers.forEach(answer=>{
         answers += `
-        <button class="ct_cta ct_cta__white ">${answer["en"]}</button>
+        <div class="ct_wow__search__button_wrap">
+          <button class="ct_cta ct_cta__white ">${answer["en"]}</button>
+        </div>
         `
       })
       answers+="</div>"
@@ -433,11 +447,11 @@ window.ct_wow__search_questions = {
         if (!button.classList.contains('ct_active')){
           
           window.ct_wow__search_structure.shuffle(29);
-          if(button.parentNode.querySelector('button.ct_active')){
-            button.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
+          if(button.parentNode.parentNode.querySelector('button.ct_active')){
+            button.parentNode.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
           }
           button.classList.add('ct_active');
-          button.parentNode.classList.add('ct_aswered');
+          button.parentNode.parentNode.classList.add('ct_aswered');
           this.container.classList.add('ct_can_proceed');
           if (this.progress.state < 5){
 

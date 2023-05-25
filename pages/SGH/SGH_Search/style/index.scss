@@ -9,7 +9,7 @@
 @import './modules/loader';
 @import './modules/results';
 
-
+:root{ }
 #ct_wow__search{
   background-color: #D2D2D2;
   height: 100vh;
@@ -21,13 +21,21 @@
   left: 0;
   transform: translateY(100%);
   transition: all  .6s cubic-bezier(.25,.46,.45,.94);
-  
+  @media(max-width:1024px){
+    --ct-wow-search-height:100vh;
+    height: 100vh;
+    height: var(--ct-wow-search-height);
+    transform: translateY(100vh);
+  }
   &.ct_in{
     transform: translateY(0%);
   }
   .ct_wow__search__products_container{
     width: 100%;
     height: 100%;
+    @media(max-width:1024px){
+    
+    }
     .ct_wow__search__products_list{
       display: grid;
       align-items: center;
@@ -44,6 +52,23 @@
       box-sizing: border-box;
       margin: 0;
       transition: transform 1s cubic-bezier(.075,.82,.165,1);
+      @media(max-width:1024px){
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(8,1fr);
+        padding: 0;
+        padding-top: 35px;
+        align-items: end;
+        grid-template-areas:
+            ". . . . "
+            ". . . . "
+            ". . . . "
+            ". . . . "
+            ". . . . "
+            ". . . . "
+            ".  input input  ."
+            ". . . . "
+          
+          }
       &:not(.ct_in){
         .ct_wow_search__product{
           img{
@@ -72,6 +97,10 @@
           top: 50%;
           transform: translate(-50%,-50%);
           transition: transform .6s ease;
+          @media(max-width:1024px){
+            width: 90%;
+            height: 90%;
+          }
           &:hover{
             img{
               transform: scale(1.1);
@@ -100,6 +129,9 @@
         min-height: 150px;
         opacity: 0;
         visibility: hidden;
+        @media(max-width:1024px){
+          min-height: 1px;
+        }
       }
     }
     .ct_wow_search__product__wrap{
@@ -119,6 +151,9 @@
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+      @media(max-width:1024px){
+        height: 100%;
+      }
       .ct_wow__search__pos_placeholders__wrapper{
         position: absolute;
         width: 62.66667vw;
@@ -130,6 +165,9 @@
         
         margin: 0 auto;
         display: inline-block;
+        @media(max-width:1024px){
+          top: calc(((62.66667vw - 100%) / 2) * -1);
+        }
         .ct_wow__search__pos_placeholders__mainCircle{
           width: 24vw;
           height: 24vw;
@@ -206,6 +244,10 @@
     cursor: pointer;
     box-sizing: content-box;
     z-index: 11;
+    @media(max-width:1024px){
+      right: 8px;
+      top: 8px;
+    }
     svg{
       width: 100%;
       height: 100%;
