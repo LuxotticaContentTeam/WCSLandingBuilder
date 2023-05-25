@@ -442,6 +442,8 @@ window.ct_wow__search_questions = {
           if (this.progress.state < 5){
 
             this.changeQuestions('next');
+          }else{
+            this.buttons.results.classList.remove('ct_disabled');
           }
         }
 
@@ -460,8 +462,10 @@ window.ct_wow__search_questions = {
       if (dir ==='next'){
         this.progress.state+= 1;
         if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('ct_disabled') ){
-          this.buttons.next.classList.add('ct_disabled')
-          this.buttons.results.classList.remove('ct_disabled');
+          this.buttons.next.classList.add('ct_disabled');
+          if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
+            this.buttons.results.classList.remove('ct_disabled');
+          }
         }
         if (this.progress.state === 1 && !this.buttons.results.classList.contains('ct_disabled')){
           this.buttons.results.classList.add('ct_disabled');
