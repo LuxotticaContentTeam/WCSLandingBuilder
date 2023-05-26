@@ -247,6 +247,10 @@ window.ct_wow__search_structure = {
    
     
     if (missingValues === this.prod_list.length-1){    
+      
+      if (this.device != 'D'){
+        this.prod_list_container.parentNode.scrollTop = 0;
+      }
       this.refreshPositions()
       window.addEventListener('resize', this.refreshPositions);
     }
