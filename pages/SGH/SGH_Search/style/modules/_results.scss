@@ -60,7 +60,10 @@
                     width: 50vw;
                     height: 50vw;
                     transition-delay: 0;
-                  
+                    @media(max-width:1024px){
+                        width: 80vw;
+                        height: 80vw;
+                    }
                     img{
                         animation: rotate_ 20s linear infinite forwards;
                     }
@@ -69,6 +72,10 @@
                     width: 70vw;
                     height: 70vw;
                     transition-delay: .2s;
+                    @media(max-width:1024px){
+                        width: 120vw;
+                        height: 120vw;
+                    }
                     img{
                         animation: rotate_ 25s linear infinite forwards;
                     }
@@ -77,6 +84,10 @@
                     width: 100vw;
                     height: 100vw;
                     transition-delay: .5s;
+                    @media(max-width:1024px){
+                        width: 160vw;
+                        height: 160vw;
+                    }
                     img{
                         animation: rotate_ 30s linear infinite forwards;
                     }
@@ -103,6 +114,9 @@
                 opacity: 0;
                 transition: opacity .6s ease;
                 margin: 0;
+                @media(max-width:1024px){
+                    font-size: 4.5vw;
+                }
             }
         }
         .ct_wow__search__results_container{
@@ -111,7 +125,10 @@
             top: 50%;
             transform: translate(-50%,-50%);
             text-align: center;
-
+            @media(max-width:1024px){
+                width: 100%;
+                padding: 20px;
+            }
             h2{
                 text-align: center;
                 font-weight: 300;
@@ -122,6 +139,7 @@
                 font-weight: 400;
                 text-align: center;
                 color: #000;
+                font-size: 16px;
             }
             #ct_wow__search__results_products{
                 display: flex;
@@ -130,10 +148,16 @@
                 margin-top: 32px;
                 margin-bottom: 48px;
                 gap: 10px;
+                @media(max-width:1024px){
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
                 .ct_wow__search__results_product{
                     text-decoration: none;
                     width: 15vw;
-                    
+                    @media(max-width:1024px){
+                        width:40vw;
+                    }
                     @media(min-width:1025px){
                         &:hover,&:focus{
                             img{

@@ -21,6 +21,8 @@
   left: 0;
   transform: translateY(100%);
   transition: all  .6s cubic-bezier(.25,.46,.45,.94);
+  
+
   @media(max-width:1024px){
     --ct-wow-search-height:100vh;
     height: 100vh;
@@ -35,7 +37,13 @@
     height: 100%;
     @media(max-width:1024px){
       overflow-y: scroll;
-      overflow-x: hidden;
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+          -webkit-appearance: none;
+          width: 0;
+          height: 0;
+          display: none;
+      }
     }
     .ct_wow__search__products_list{
       display: grid;
@@ -70,7 +78,7 @@
             ". input input . ";
         height: 120%;
         padding-bottom: 20%;
-        
+      
       }
       &:not(.ct_in){
         .ct_wow_search__product{
@@ -154,6 +162,7 @@
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+      
       @media(max-width:1024px){
         height: 100%;
       }

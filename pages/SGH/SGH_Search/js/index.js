@@ -84,6 +84,10 @@ window.ct_wow__search_structure = {
       }
     }
     
+    if (this.device === "M"){
+      this.zoomHandler()
+    }
+   
     
   },
   calcHeight:function(){
@@ -249,10 +253,13 @@ window.ct_wow__search_structure = {
     if (missingValues === this.prod_list.length-1){    
       
       if (this.device != 'D'){
+        window.ct_wow__search_structure.prod_list_container.style.transform = `scale(1)`
         this.prod_list_container.parentNode.scrollTop = 0;
+        this.prod_list_container.parentNode.scrollLeft = this.prod_list_container.parentNode.clientWidth / 4;
       }
+      
       this.refreshPositions()
-      window.addEventListener('resize', this.refreshPositions);
+      window.addEventListener('resize', this.refreshPositionsDebounced);
     }
     // this.prod_list;
     // this.placeholders.coordinates;
@@ -262,14 +269,18 @@ window.ct_wow__search_structure = {
    * so it refresh the position only when the resize it's ended
    */
  
-  refreshPositions:debounce(()=>{
-    console.log('refresh')
-   
+  refreshPositionsDebounced:debounce(()=>{ 
     ct_wow__search_structure.setPlaceholders(false);
     ct_wow__search_structure.refreshProdPos();
     ct_wow__search_structure.adjustProdPos();
     
   }),
+  refreshPositions:function(){ 
+    ct_wow__search_structure.setPlaceholders(false);
+    ct_wow__search_structure.refreshProdPos();
+    ct_wow__search_structure.adjustProdPos();
+    
+  },
   adjustProdPos:function(){
     
     this.prod_list.forEach(prod=>{
@@ -288,6 +299,41 @@ window.ct_wow__search_structure = {
       this.prod_list_container.style.transform = `translate(0,0)`
     })
   },
+  zoomHandler:function(){
+    var scaling = false;
+    function touchHandler(event){
+      if(event.touches.length > 1){
+      
+        console.log('start pinch',event)
+        scaling = true;
+        event.preventDefault()
+      }
+    }
+    function touchMove(event){
+      if(scaling){
+        console.log('moving',event.scale)
+
+        if (event.scale > 1){
+          window.ct_wow__search_structure.prod_list_container.style.transform = `scale(${Math.min(1.25,event.scale)})`
+
+        }else{
+          window.ct_wow__search_structure.prod_list_container.style.transform = `scale(${Math.max(1,event.scale)})`
+        }
+      }
+    }
+    function touchEnd(event){
+      if (scaling) {
+        console.log('end',event)
+        scaling = false;
+      }
+    }
+    this.prod_list_container.addEventListener("touchstart", touchHandler, false);
+    this.prod_list_container.addEventListener("touchmove", touchMove, false);
+    this.prod_list_container.addEventListener("touchend", touchEnd, false);
+    
+    
+
+  },
   animationIn:function(){
     window.ct_wow__search_structure.prod_list_container.classList.add('ct_in')
   },
@@ -299,12 +345,13 @@ window.ct_wow__search_structure = {
       this.resetStructure();
       //reset questions
       window.ct_wow__search_questions.resetQuestions();
-      window.removeEventListener('resize',window.ct_wow__search_structure.refreshPositions)
+      window.removeEventListener('resize',window.ct_wow__search_structure.refreshPositionsDebounced)
     });
    
   },
   resetStructure:function(){
     customLog('- RESET Structure -')
+    window.ct_wow__search_structure.prod_list_container.style.transform = `scale(1)`
     this.prod_list_container.querySelectorAll('.ct_wow_search__product__wrap').forEach(prod=>{
       prod.style.transform = "none";
       prod.querySelector('a').style.transform = "translate(-50%,-50%)";
