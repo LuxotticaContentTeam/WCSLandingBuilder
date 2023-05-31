@@ -177,10 +177,10 @@ window.ct_wow__search.data.products  = [
         upc: '8053672611649',
         url: "/ray-ban/rb3548n-8053672611649",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [2,3,6,9], //question 1, scores for option 1 to 4
+            [8,7,6,9], //question 2, scores for option 1 to 4
+            [5,0,9], //question 3, scores for option 1 to 4
+            [],
         ]
     
     },
@@ -189,10 +189,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597422574',
         url: "/vogue-eyewear/vo4199s-8056597422574",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [3,4,5,8],
+            [3,5,2,8],
+            [3,1,8],
+            [7,6,3,9],
         ]
     
     },
@@ -201,10 +201,10 @@ window.ct_wow__search.data.products  = [
         upc: '888392568762',
         url: "/oakley/oo9208-888392568762",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [8,8,9,1],
+            [8,4,9,5],
+            [9,3,2],
+            [8,8,7,3],
         ]
     
     },
@@ -213,10 +213,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597844475',
         url: "/dolce-and-gabbana/dg4437-8056597844475",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [6,5,2,7],
+            [5,6,3,9],
+            [0,9,7],
+            [7,7,6,4],
         ]
     
     },
@@ -225,10 +225,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597551960',
         url: "/persol/po0714-8056597551960",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [5,3,4,8],
+            [8,7,3,9],
+            [3,2,9],
+            [6,7,7,3],
         ]
     
     },
@@ -237,10 +237,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597529006',
         url: "/dolce-and-gabbana/dg2279-8056597529006",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [5,5,2,7],
+            [5,6,3,9],
+            [7,0,5],
+            [7,7,8,2],
         ]
     
     },
@@ -249,10 +249,10 @@ window.ct_wow__search.data.products  = [
         upc: '889652047560',
         url: "/gucci/gc000970-889652047560",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [4,3,6,7],
+            [5,6,3,9],
+            [0,9,7],
+            [7,8,9,0],
         ]
     
     },
@@ -262,10 +262,10 @@ window.ct_wow__search.data.products  = [
         upc: '805289304456',
         url: "/ray-ban/rb3016-805289304456",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [3,3,6,9],
+            [8,7,6,9],
+            [5,2,9],
+            [8,9,3,8],
         ]
     
     },
@@ -274,10 +274,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597810982',
         url: "/persol/po3313s-8056597810982",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [5,3,4,8],
+            [8,7,3,9],
+            [4,2,9],
+            [7,7,8,2],
         ]
     
     },
@@ -286,10 +286,10 @@ window.ct_wow__search.data.products  = [
         upc: '725125391627',
         url: "/coach/hc8353u-725125391627",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [6,5,5,7],
+            [3,5,2,6],
+            [3,2,9],
+            [6,4,3,9],
         ]
     
     },
@@ -298,10 +298,10 @@ window.ct_wow__search.data.products  = [
         upc: '700285658667',
         url: "/oakley/oo9102-700285658667",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [3,8,9,6],
+            [8,4,9,5],
+            [9,3,2],
+            [8,8,3,8],
         ]
     
     },
@@ -310,10 +310,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597328111',
         url: "/ray-ban/rb3025-8056597328111",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [2,3,6,9],
+            [8,7,6,9],
+            [0,9,7],
+            [9,9,5,5],
         ]
     
     },
@@ -322,10 +322,10 @@ window.ct_wow__search.data.products  = [
         upc: '888392577931',
         url: "/oakley/oo9406-888392577931",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [8,8,9,1],
+            [8,4,9,5],
+            [9,3,2],
+            [8,8,3,7],
         ]
     
     },
@@ -334,10 +334,10 @@ window.ct_wow__search.data.products  = [
         upc: '8053672947397',
         url: "/versace/ve4361-8053672947397",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [6,6,6,7],
+            [5,6,3,9],
+            [0,8,7],
+            [7,9,7,3],
         ]
     
     },
@@ -347,10 +347,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597823043',
         url: "/persol/po3310s-8056597823043",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [6,3,4,8],
+            [8,7,3,9],
+            [3,2,9],
+            [6,7,7,3],
         ]
     
     },
@@ -359,10 +359,10 @@ window.ct_wow__search.data.products  = [
         upc: '8053672968354',
         url: "/vogue-eyewear/vo5246s-8053672968354",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [4,5,5,8],
+            [3,5,2,8],
+            [0,9,7],
+            [6,6,3,9],
         ]
     
     },
@@ -371,10 +371,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597843072',
         url: "/dolce-and-gabbana/dg2296-8056597843072",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [5,6,6,5],
+            [5,6,3,9],
+            [3,1,9],
+            [8,7,8,2],
         ]
     
     },
@@ -383,10 +383,10 @@ window.ct_wow__search.data.products  = [
         upc: '889652048123',
         url: "/gucci/gc000976-889652048123",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [6,5,2,7],
+            [5,6,3,9],
+            [0,9,7],
+            [7,8,6,4],
         ]
     
     },
@@ -395,10 +395,10 @@ window.ct_wow__search.data.products  = [
         upc: '889214402547',
         url: "/tom-ford/tr001510-889214402547",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [9,8,4,4],
+            [5,6,3,9],
+            [9,2,6],
+            [5,7,9,0],
         ]
     
     },
@@ -407,10 +407,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597384902',
         url: "/versace/ve4406-8056597384902",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [7,5,6,7],
+            [5,6,3,9],
+            [0,9,7],
+            [6,9,5,5],
         ]
     
     },
@@ -419,10 +419,10 @@ window.ct_wow__search.data.products  = [
         upc: '889652394046',
         url: "/gucci/gc001938-889652394046",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [5,4,6,7],
+            [5,6,3,9],
+            [3,1,8],
+            [8,8,9,0],
         ]
     
     },
@@ -431,10 +431,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597844642',
         url: "/dolce-and-gabbana/dg4439-8056597844642",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [6,6,2,5],
+            [5,6,3,9],
+            [0,9,7],
+            [7,7,6,4],
         ]
     
     },
@@ -444,10 +444,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597046312',
         url: "/burberry/be4291-8056597046312",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [9,7,4,4],
+            [5,6,3,9],
+            [0,9,6],
+            [6,9,5,5],
         ]
     
     },
@@ -456,10 +456,10 @@ window.ct_wow__search.data.products  = [
         upc: '805289126591',
         url: "/ray-ban/rb2140-805289126591",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [3,3,6,9],
+            [8,7,6,9],
+            [1,6,7],
+            [8,9,5,5],
         ]
     
     },
@@ -468,10 +468,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597140249',
         url: "/prada-linea-rossa/ps-51vs-8056597140249",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [5,4,6,7],
+            [6,6,8,6],
+            [0,9,7],
+            [7,6,8,2],
         ]
     
     },
@@ -480,10 +480,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597744409',
         url: "/prada/pr-13zs-8056597744409",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [7,6,2,5],
+            [5,6,3,9],
+            [9,0,2],
+            [6,9,9,0],
         ]
     
     },
@@ -492,10 +492,10 @@ window.ct_wow__search.data.products  = [
         upc: '8053672923087',
         url: "/versace/ve2199-8053672923087",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [7,5,6,7],
+            [5,6,3,9],
+            [0,9,7],
+            [6,9,8,2],
         ]
     
     },
@@ -504,10 +504,10 @@ window.ct_wow__search.data.products  = [
         upc: '8056597440240',
         url: "/prada/pr-19ws-8056597440240",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [5,5,6,7],
+            [5,6,3,9],
+            [0,9,7],
+            [6,9,9,0],
         ]
     
     },
@@ -516,14 +516,16 @@ window.ct_wow__search.data.products  = [
         upc: '97963652346',
         url: "/costa-del-mar/6s9018-97963652346",
         specs:[
-            [6,6,6,7], //question 1, scores for option 1 to 4
-            [5,6,3,9], //question 2, scores for option 1 to 4
-            [0,9,7], //question 3, scores for option 1 to 4
-            [7,9,9,0] //question 4, scores for option 1 to 4
+            [2,5,6,7],
+            [6,4,9,4],
+            [9,3,2],
+            [6,3,7,3],
         ]
     
     },
 ]
+
+
 
 window.ct_wow__search.data.questions = [
     {   
