@@ -1,5 +1,5 @@
 
-window.ct_wow__search__data_products  = [
+window.ct_wow__search.data.products  = [
     {
         brand:'Ray-Ban',
         upc: '8056597523493'
@@ -152,7 +152,7 @@ window.ct_wow__search__data_products  = [
     },
 ]
 
-window.ct_wow__search__data_question = [
+window.ct_wow__search.data.questions = [
     {   
         question:{
             "en":"How would you describe your style?",
@@ -180,68 +180,21 @@ window.ct_wow__search__data_question = [
                 "de":"..",
             },
             {
-                "en":"Scholarly",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-            {
                 "en":"Classic",
                 "fr":"..",
                 "es":"..",
                 "de":"..",
-            },
+            }
         ]
     },
     {   
         question:{
-            "en":"What is the most important quality you look for in your sunglasses?			",
+            "en":"Which word describes your lifestyle best?			",
             "fr":"..",
             "es":"..",
             "de":"..",
         },
         answers:[
-            {
-                "en":"Adventurous",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-            {
-                "en":"On the road",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-            {
-                "en":"Avid reader",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-           
-            {
-                "en":"City hustler",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-        ]
-    },
-    {   
-        question:{
-            "en":"Question 3?",
-            "fr":"..",
-            "es":"..",
-            "de":"..",
-        },
-        answers:[
-            {
-                "en":"Adventurous",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
             {
                 "en":"On the road",
                 "fr":"..",
@@ -260,34 +213,6 @@ window.ct_wow__search__data_question = [
                 "es":"..",
                 "de":"..",
             },
-            {
-                "en":"City hustler",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-        ]
-    },
-    {   
-        question:{
-            "en":"Question 4?",
-            "fr":"..",
-            "es":"..",
-            "de":"..",
-        },
-        answers:[
-            {
-                "en":"Adventurous",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-            {
-                "en":"On the road",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
            
             {
                 "en":"City hustler",
@@ -299,47 +224,70 @@ window.ct_wow__search__data_question = [
     },
     {   
         question:{
-            "en":"Question 5?",
+            "en":"Which colors do you wear the most?",
             "fr":"..",
             "es":"..",
             "de":"..",
         },
         answers:[
             {
-                "en":"Adventurous",
+                "en":"Brights",
                 "fr":"..",
                 "es":"..",
                 "de":"..",
             },
             {
-                "en":"On the road",
+                "en":"Black",
                 "fr":"..",
                 "es":"..",
                 "de":"..",
             },
             {
-                "en":"Avid reader",
+                "en":"Neutrals",
+                "fr":"..",
+                "es":"..",
+                "de":"..",
+            }
+        ]
+    },
+    {   
+        question:{
+            "en":"What is the most important quality you look for in your sunglasses?",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        answers:[
+            {
+                "en":"Comfort",
                 "fr":"..",
                 "es":"..",
                 "de":"..",
             },
             {
-                "en":"Outdoorsy",
+                "en":"On-trend",
+                "fr":"..",
+                "es":"..",
+                "de":"..",
+            },
+           
+            {
+                "en":"Quality",
                 "fr":"..",
                 "es":"..",
                 "de":"..",
             },
             {
-                "en":"City hustler",
+                "en":"Low price",
                 "fr":"..",
                 "es":"..",
                 "de":"..",
             },
         ]
-    },
+    }
 ]
 
-window.ct_wow__search__template = `
+window.ct_wow__search.template = `
 <div id="ct_wow__search" class="ct_space ">
     <div id="ct_wow__search__loader">
         <div class="ct_wow__search__loader__images">

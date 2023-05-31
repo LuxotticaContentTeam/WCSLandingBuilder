@@ -6,35 +6,32 @@ function ct_wow__search__download_script(url,name){
   script.src = url;
   script.addEventListener("load", function() {
     console.log(`WOW SEARCH - ${name} script loaded :)`);
-    return new Promise((resolve, reject) => {
-      resolve("Hi! ");
-    });
   });
   document.body.appendChild(script);
 }
-
-
-async function ct_wow__search__download_scripts(){
-    let promise = await Promise.all([
-      ct_wow__search__download_script('./json/data.js','dati'),
-      ct_wow__search__download_script('./js/main.min.js','core'),
-  ]);
-  return new Promise((resolve, reject) => {
-      resolve("Scripts Loaded!");
-  });
- 
+function ct_wow__search__download_scripts(){
+  ct_wow__search__download_script('./json/data.js','data');
+  ct_wow__search__download_script('./js/main.min.js','core');
 } 
-window.ct_wow__search__config = {
-  selector:'body'
-}
-window.ct_wow__search__start = async function(){
-  if (!window.ct_wow__search_structure?.container){
-    console.log('waiting..')
-    await ct_wow__search__download_scripts()
-    console.log('waited')
-  }else{
-    window.ct_wow__search_structure.init({reopen:true});
+window.ct_wow__search = {
+  start:null,
+  structure:{},
+  inputManagement:{},
+  config:{
+    selector:'body'
+  },
+  template:{},
+  data:{
+    products:[],
+    questions:[]
   }
 }
   
-  
+window.ct_wow__search.start = function(){
+  if (!window.ct_wow__search.structure?.container){
+     ct_wow__search__download_scripts()
+  }else{
+    window.ct_wow__search.structure.init({reopen:true});
+  }
+}
+
