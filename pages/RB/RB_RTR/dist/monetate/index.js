@@ -44,7 +44,7 @@ const ct_rtr__data = {
   },
   labels: {
     headline:{
-      "en":"See our bestsellers in 3D"
+      "en":"VIEW 3D PRODUCTS"
     },
     bottom_text:{
       "en":"Expertly crafted shades from every angle."
@@ -78,33 +78,22 @@ const ct_rtr__data = {
       url : 'https://rtr-viewer.luxottica.com/lib/v/2.2.1/main.js',
       callback: ()=>{
         console.log(`RTR BANNER - rtr viewer loaded - ${window.rtrViewer}`);
-        if(!document.querySelector('.ct_rtr__container') && window.rtrViewer && window.wcs_config){
-          console.log('RTR BANNER - lazy callback');
-          ct_rtr__init();
-        }else{
-          const checkRtrViewer = setInterval(() => {
-            if(window.rtrViewer && window.wcs_config){
-              clearInterval(checkRtrViewer);
-              ct_rtr__init();
-            }
-          },200);
-        }
       }
     },
-    // {
-    //   url: 'https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js',
-    //   callback: ()=>{
-    //     //lazy execution of whole function
-    //     var ct_rtr__lazyImage = document.createElement("img");
-    //     ct_rtr__lazyImage.classList.add('lazy_rtr');
-    //     ct_rtr__lazyImage.id = "ct_rtr__lazyImage";
-    //     ct_rtr__lazyImage.setAttribute('data-src', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII=');
+    {
+      url: 'https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js',
+      callback: ()=>{
+        //lazy execution of whole function
+        var ct_rtr__lazyImage = document.createElement("img");
+        ct_rtr__lazyImage.classList.add('lazy_rtr');
+        ct_rtr__lazyImage.id = "ct_rtr__lazyImage";
+        ct_rtr__lazyImage.setAttribute('data-src', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII=');
 
-    //     document.querySelector(ct_rtr__data.data.selector).appendChild(ct_rtr__lazyImage);
+        document.querySelector(ct_rtr__data.data.selector).appendChild(ct_rtr__lazyImage);
 
-    //     ct_rtr__lazy();
-    //   }
-    // }
+        ct_rtr__lazy();
+      }
+    }
   ]
 }
 
@@ -118,7 +107,7 @@ function ct_rtr__lazy(){
     },
     callback_enter: () => {
       console.log('RTR BANNER - lazy callback enter');
-      if(!document.querySelector('.ct_rtr__container') && window.rtrViewer && window.wcs_config){
+      if(!document.querySelector('.ct_rtr__container') && window.rtrViewer){
         console.log('RTR BANNER - lazy callback');
         ct_rtr__init();
       }else{
@@ -270,7 +259,7 @@ function ct_rtr__init(){
       </a>
     `;
 
-    // window.lazyLoadInstance.update();
+    window.lazyLoadInstance.update();
 
   });
 

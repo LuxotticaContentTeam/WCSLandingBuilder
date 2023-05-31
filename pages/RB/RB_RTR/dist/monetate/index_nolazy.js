@@ -1,4 +1,7 @@
 
+const urlParams = new URLSearchParams(location.search);
+var imgRTR = 'https://media.sunglasshut.com/utilities/WebEFX/RTR/test/reverse/'+ urlParams.get('imgRTR')
+var imgLoader ='https://media.sunglasshut.com/utilities/WebEFX/RTR/test/reverse/'+ urlParams.get('imgLoader')
 const ct_rtr__data = {
   data: {
     selector: '[data-element-id="X_X_Footer_Newsletter_Banner"]',
@@ -34,17 +37,17 @@ const ct_rtr__data = {
       m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHhkz38GCgDjqAEMo2HAMBoGDIMhDACVnDHATGTYawAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1.jpg',
+      d: imgRTR ? imgRTR : 'https://media.sunglasshut.com/utilities/WebEFX/RTR/test/reverse/dx_RTR.jpg',
       m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_RTR.png' // 75:56
     },
     img_dx_loader:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1_loader.jpg',
+      d: imgLoader ? imgLoader : 'https://media.sunglasshut.com/utilities/WebEFX/RTR/test/reverse/dx_bkg.jpg',
       m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_loader.png'
     }
   },
   labels: {
     headline:{
-      "en":"See our bestsellers in 3D"
+      "en":"VIEW 3D PRODUCTS"
     },
     bottom_text:{
       "en":"Expertly crafted shades from every angle."
