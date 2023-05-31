@@ -1,5 +1,5 @@
 
-window.ct_wow__search.data.products  = [
+window.ct_wow__search.data.products_old  = [
     {
         brand:'Ray-Ban',
         upc: '8056597523493'
@@ -148,6 +148,379 @@ window.ct_wow__search.data.products  = [
     {
         brand:'Ray-Ban',
         upc: '8056597328111'
+    
+    },
+]
+
+/**
+ * objects structure:
+ * * brand
+ * * upc
+ * * url
+ * * specs => an array of array, each array rappresents a question, each value in the array rappresent a score for each option
+ */
+window.ct_wow__search.data.products  = [
+    {
+        brand:'Prada',
+        upc: '8056597418478',
+        url: "/prada/pr-17ws-8056597418478",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Ray-Ban',
+        upc: '8053672611649',
+        url: "/ray-ban/rb3548n-8053672611649",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Vogue Eyewear',
+        upc: '8056597422574',
+        url: "/vogue-eyewear/vo4199s-8056597422574",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Oakley',
+        upc: '888392568762',
+        url: "/oakley/oo9208-888392568762",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Dolce and Gabbana',
+        upc: '8056597844475',
+        url: "/dolce-and-gabbana/dg4437-8056597844475",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Persol',
+        upc: '8056597551960',
+        url: "/persol/po0714-8056597551960",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Dolce and Gabbana',
+        upc: '8056597529006',
+        url: "/dolce-and-gabbana/dg2279-8056597529006",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Gucci',
+        upc: '889652047560',
+        url: "/gucci/gc000970-889652047560",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    //8
+    {
+        brand:'Ray-Ban',
+        upc: '805289304456',
+        url: "/ray-ban/rb3016-805289304456",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Persol',
+        upc: '8056597810982',
+        url: "/persol/po3313s-8056597810982",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Coach',
+        upc: '725125391627',
+        url: "/coach/hc8353u-725125391627",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Oakley',
+        upc: '700285658667',
+        url: "/oakley/oo9102-700285658667",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Ray-Ban',
+        upc: '8056597328111',
+        url: "/ray-ban/rb3025-8056597328111",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Oakley',
+        upc: '888392577931',
+        url: "/oakley/oo9406-888392577931",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Versace',
+        upc: '8053672947397',
+        url: "/versace/ve4361-8053672947397",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    //16
+    {
+        brand:'Persol',
+        upc: '8056597823043',
+        url: "/persol/po3310s-8056597823043",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Vogue Eyewear',
+        upc: '8053672968354',
+        url: "/vogue-eyewear/vo5246s-8053672968354",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Dolce and Gabbana',
+        upc: '8056597843072',
+        url: "/dolce-and-gabbana/dg2296-8056597843072",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Gucci',
+        upc: '889652048123',
+        url: "/gucci/gc000976-889652048123",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Tom Ford',
+        upc: '889214402547',
+        url: "/tom-ford/tr001510-889214402547",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Versace',
+        upc: '8056597384902',
+        url: "/versace/ve4406-8056597384902",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Gucci',
+        upc: '889652394046',
+        url: "/gucci/gc001938-889652394046",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Dolce and Gabbana',
+        upc: '8056597844642',
+        url: "/dolce-and-gabbana/dg4439-8056597844642",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    //24
+    {
+        brand:'Burberry',
+        upc: '8056597046312',
+        url: "/burberry/be4291-8056597046312",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Ray-Ban',
+        upc: '805289126591',
+        url: "/ray-ban/rb2140-805289126591",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Prada Linea Rossa',
+        upc: '8056597140249',
+        url: "/prada-linea-rossa/ps-51vs-8056597140249",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Prada',
+        upc: '8056597744409',
+        url: "/prada/pr-13zs-8056597744409",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Versace',
+        upc: '8053672923087',
+        url: "/versace/ve2199-8053672923087",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Prada',
+        upc: '8056597440240',
+        url: "/prada/pr-19ws-8056597440240",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
+    
+    },
+    {
+        brand:'Costa del mar',
+        upc: '97963652346',
+        url: "/costa-del-mar/6s9018-97963652346",
+        specs:[
+            [6,6,6,7], //question 1, scores for option 1 to 4
+            [5,6,3,9], //question 2, scores for option 1 to 4
+            [0,9,7], //question 3, scores for option 1 to 4
+            [7,9,9,0] //question 4, scores for option 1 to 4
+        ]
     
     },
 ]

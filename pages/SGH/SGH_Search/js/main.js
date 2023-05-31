@@ -79,12 +79,13 @@ window.ct_wow__search.structure = {
     /**
      * Insert Products in HTML
      */
+    let url_first_part = 'https://www.sunglasshut.com/us'//tochange
     window.ct_wow__search.data.products.forEach(prod=>{
     
       this.prod_list_container.innerHTML+=`
       <li class="ct_wow_search__product">
         <div class="ct_wow_search__product__wrap">
-          <a href="/${prod.upc}">
+          <a href="${url_first_part+prod.url}">
               <div class="ct_wow_search__img_container">
                   <img src="https://assets.sunglasshut.com/is/image/LuxotticaRetail/${prod.upc}__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640" alt="">
               </div>
