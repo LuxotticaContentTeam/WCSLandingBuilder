@@ -34,7 +34,7 @@ window.ct_wow__search.structure = {
   },
   init: async function(reopen){
     customLog('WOW SEARCH INIT');
-    
+    window.ct_wow__search.inputManagement.answers.state = [];
     if (!reopen){
       this.container = document.querySelector('#ct_wow__search');
     }
@@ -55,7 +55,7 @@ window.ct_wow__search.structure = {
         this.setMouseMove();
       }
       this.setCloseHandler()
-      
+      window.addEventListener('resize', this.refreshPositionsDebounced);
       document.addEventListener('loaderOut',this.animationIn)
       let wcs_config = await storeInfo.getInfo();
       if(wcs_config){
@@ -184,71 +184,71 @@ window.ct_wow__search.structure = {
     this.container.classList.add('ct_in');
     document.body.style.overflow = 'hidden'
   },
-  shuffle:function(missingValues){
-    /**
-     * random positioning the products
-     * creating a clone of the original prods and pos(placeholders) arrays
-     * get a random prod and a random pos, then remove the prod positioned and the placeholder used
-     * recall recursively the function until all prods are positioned
-     */
-    if (missingValues === this.prod_list.length-1){    
-      this.shuffleData.missingProd=[...this.prod_list];
-      this.shuffleData.missingPos=[...this.placeholders.coordinates];
+  // shuffle:function(missingValues){
+  //   /**
+  //    * random positioning the products
+  //    * creating a clone of the original prods and pos(placeholders) arrays
+  //    * get a random prod and a random pos, then remove the prod positioned and the placeholder used
+  //    * recall recursively the function until all prods are positioned
+  //    */
+  //   if (missingValues === this.prod_list.length-1){    
+  //     this.shuffleData.missingProd=[...this.prod_list];
+  //     this.shuffleData.missingPos=[...this.placeholders.coordinates];
    
-    }
-    if (missingValues < 0){
-      return
-    }
+  //   }
+  //   if (missingValues < 0){
+  //     return
+  //   }
    
-    else{
-      let prod_n = Math.floor(Math.random()*missingValues);
-      let pos_n = Math.floor(Math.random()*missingValues);
+  //   else{
+  //     let prod_n = Math.floor(Math.random()*missingValues);
+  //     let pos_n = Math.floor(Math.random()*missingValues);
       
-      //saving for each prod the position asigned in absolute value [0,1,2...n-1]
-      let currentProd = this.shuffleData.missingProd[prod_n]
-      this.prod_list[this.prod_list.indexOf(currentProd)] = {...this.prod_list[this.prod_list.indexOf(currentProd)],elemPos:this.shuffleData.missingPos[pos_n].pos}
+  //     //saving for each prod the position asigned in absolute value [0,1,2...n-1]
+  //     let currentProd = this.shuffleData.missingProd[prod_n]
+  //     this.prod_list[this.prod_list.indexOf(currentProd)] = {...this.prod_list[this.prod_list.indexOf(currentProd)],elemPos:this.shuffleData.missingPos[pos_n].pos}
       
-      //positioning the prod 
-      this.shuffleData.missingProd[prod_n].elem.style.transform = `
-        translate(
-          ${this.shuffleData.missingPos[pos_n].x - this.shuffleData.missingProd[prod_n].x }px,
-          ${this.shuffleData.missingPos[pos_n].y - this.shuffleData.missingProd[prod_n].y }px
-        )`;
+  //     //positioning the prod 
+  //     this.shuffleData.missingProd[prod_n].elem.style.transform = `
+  //       translate(
+  //         ${this.shuffleData.missingPos[pos_n].x - this.shuffleData.missingProd[prod_n].x }px,
+  //         ${this.shuffleData.missingPos[pos_n].y - this.shuffleData.missingProd[prod_n].y }px
+  //       )`;
       
-      //scaling the prod
-      if (this.shuffleData.missingPos[pos_n].pos < 3){
-        this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(2)";
-      }
-      if (this.shuffleData.missingPos[pos_n].pos >= 3 && this.shuffleData.missingPos[pos_n].pos < (this.placeholders.utils.secondCircle.prodsCount + 3) ){
-        this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(1.1)";
-      }
-      if( this.shuffleData.missingPos[pos_n].pos >= (this.placeholders.utils.secondCircle.prodsCount + 3) ){
-        this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(.6)";
-      }
+  //     //scaling the prod
+  //     if (this.shuffleData.missingPos[pos_n].pos < 3){
+  //       this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(2)";
+  //     }
+  //     if (this.shuffleData.missingPos[pos_n].pos >= 3 && this.shuffleData.missingPos[pos_n].pos < (this.placeholders.utils.secondCircle.prodsCount + 3) ){
+  //       this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(1.1)";
+  //     }
+  //     if( this.shuffleData.missingPos[pos_n].pos >= (this.placeholders.utils.secondCircle.prodsCount + 3) ){
+  //       this.shuffleData.missingProd[prod_n].scalingElem.style.transform = "translate(-50%,-50%) scale(.6)";
+  //     }
     
       
-      //removing from the clone arrays the prod positioned and the position used
-      this.shuffleData.missingProd.splice(prod_n,1)    
-      this.shuffleData.missingPos.splice(pos_n,1)    
-      this.shuffle(missingValues-1)
+  //     //removing from the clone arrays the prod positioned and the position used
+  //     this.shuffleData.missingProd.splice(prod_n,1)    
+  //     this.shuffleData.missingPos.splice(pos_n,1)    
+  //     this.shuffle(missingValues-1)
       
-    }
+  //   }
    
     
-    if (missingValues === this.prod_list.length-1){    
+  //   if (missingValues === this.prod_list.length-1){    
       
-      if (this.device != 'D'){
-        window.ct_wow__search.structure.prod_list_container.style.transform = `scale(1)`
-        this.prod_list_container.parentNode.scrollTop = 0;
-        this.prod_list_container.parentNode.scrollLeft = this.prod_list_container.parentNode.clientWidth / 4;
-      }
+  //     if (this.device != 'D'){
+  //       window.ct_wow__search.structure.prod_list_container.style.transform = `scale(1)`
+  //       this.prod_list_container.parentNode.scrollTop = 0;
+  //       this.prod_list_container.parentNode.scrollLeft = this.prod_list_container.parentNode.clientWidth / 4;
+  //     }
       
-      this.refreshPositions()
-      window.addEventListener('resize', this.refreshPositionsDebounced);
-    }
-    // this.prod_list;
-    // this.placeholders.coordinates;
-  },
+  //     this.refreshPositions()
+  //     window.addEventListener('resize', this.refreshPositionsDebounced);
+  //   }
+  //   // this.prod_list;
+  //   // this.placeholders.coordinates;
+  // },
   rankingProducts:function(qIndex,aIndex){
     window.ct_wow__search.inputManagement.answers.state[qIndex] = parseInt( aIndex)
     console.log({question:qIndex,answer:aIndex});
@@ -298,24 +298,36 @@ window.ct_wow__search.structure = {
    */
  
   refreshPositionsDebounced:debounce(()=>{ 
-    ct_wow__search.structure.setPlaceholders(false);
-    ct_wow__search.structure.refreshProdPos();
-    ct_wow__search.structure.adjustProdPos();
+    if (ct_wow__search.structure.device != 'D'){
+      ct_wow__search.structure.prod_list_container.parentNode.scrollTop = 0;
+      ct_wow__search.structure.prod_list_container.parentNode.scrollLeft = this.prod_list_container.parentNode.clientWidth / 4;
+    }
+    if (ct_wow__search.structure.container.classList.contains('ct_shuffled')){
+      ct_wow__search.structure.setPlaceholders(false);
+      ct_wow__search.structure.refreshProdPos();
+      ct_wow__search.structure.adjustProdPos();
+    }
     
   }),
   refreshPositions:function(){ 
-    ct_wow__search.structure.setPlaceholders(false);
-    ct_wow__search.structure.refreshProdPos();
-    ct_wow__search.structure.adjustProdPos();
+    if (ct_wow__search.structure.device != 'D'){
+      ct_wow__search.structure.prod_list_container.parentNode.scrollTop = 0;
+      ct_wow__search.structure.prod_list_container.parentNode.scrollLeft = ct_wow__search.structure.prod_list_container.parentNode.clientWidth / 4;
+    }
+    if (this.container.classList.contains('ct_shuffled')){
+      ct_wow__search.structure.setPlaceholders(false);
+      ct_wow__search.structure.refreshProdPos();
+      ct_wow__search.structure.adjustProdPos();
+    }
     
   },
   adjustProdPos:function(){
     
-    this.prod_list.forEach(prod=>{
+    this.prod_list.forEach((prod,i)=>{
       prod.elem.style.transform = `
       translate(
-        ${this.placeholders.coordinates[prod.elemPos].x - prod.x }px,
-        ${this.placeholders.coordinates[prod.elemPos].y - prod.y }px
+        ${this.placeholders.coordinates[i].x - prod.x }px,
+        ${this.placeholders.coordinates[i].y - prod.y }px
       )`;
     })
   },
@@ -525,16 +537,10 @@ window.ct_wow__search.inputManagement = {
       button.addEventListener('click',()=>{
         if (!button.classList.contains('ct_active')){
           
-          // window.ct_wow__search.structure.shuffle(29);
-        
-      
-          // if (this.device != 'D'){
-          //   this.prod_list_container.parentNode.scrollTop = 0;
-          //   this.prod_list_container.parentNode.scrollLeft = this.prod_list_container.parentNode.clientWidth / 4;
-          // }
-          
-          // this.refreshPositions()
-          // window.addEventListener('resize', this.refreshPositionsDebounced);
+          if (!window.ct_wow__search.structure.container.classList.contains('ct_shuffled')){
+            window.ct_wow__search.structure.container.classList.add('ct_shuffled')
+          }
+          window.ct_wow__search.structure.refreshPositions()
           window.ct_wow__search.structure.rankingProducts(button.dataset.q,button.dataset.a);
           
           if(button.parentNode.parentNode.querySelector('button.ct_active')){
@@ -615,28 +621,7 @@ window.ct_wow__search.inputManagement = {
   setResult:function(){
     let productsContainer = this.results.container.querySelector('#ct_wow__search__results_products');
     productsContainer.innerHTML=''
-    let resultsProd=[//to change
-      {
-        prodId:"8056597523493",
-        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597523493__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
-        brandName:'Ray-Ban'
-      },
-      {
-        prodId:"8056597328111",
-        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597328111__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
-        brandName:'Oakley'
-      },
-      {
-        prodId:"8056597656054",
-        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597656054__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
-        brandName:'Prada'
-      },
-      {
-        prodId:"888392489333",
-        prodImg:"https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392489333__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640",
-        brandName:'Versace'
-      },
-    ] 
+   
     let url_first_part = 'https://www.sunglasshut.com/us'//tochange
   
     this.results.state.forEach(upc=>{
@@ -667,7 +652,9 @@ window.ct_wow__search.inputManagement = {
     this.answers.container.querySelectorAll('button.ct_active').forEach(button=>button.classList.remove('ct_active'))
     this.answers.container.querySelectorAll('.ct_aswered').forEach(aswered=>aswered.classList.remove('ct_aswered'))
     this.container.classList.remove('ct_can_proceed');
-    this.results.container.classList.remove('ct_in')
+    window.ct_wow__search.structure.container.classList.remove('ct_shuffled');
+    this.results.container.classList.remove('ct_in');
+  
     this.changeQuestions('next')
   }
   
