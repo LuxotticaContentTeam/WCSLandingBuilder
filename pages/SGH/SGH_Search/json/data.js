@@ -550,7 +550,7 @@ window.ct_wow__search.data.copy = {
             "de":"..",
         },
         "showResults":{
-            "en":"show results",
+            "en":"Show results",
             "fr":"..",
             "es":"..",
             "de":"..",

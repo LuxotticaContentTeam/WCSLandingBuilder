@@ -55,6 +55,9 @@ window.ct_wow__search.structure = {
       ct_wow__search.inputManagement.init(); 
     }
     this.entry();
+    if(!reopen){
+      loader.init(1500)
+    }
     window.addEventListener('resize', this.refreshPositionsDebounced);
 
     // if (this.device === "M"){
@@ -178,7 +181,7 @@ window.ct_wow__search.structure = {
     document.addEventListener('loaderOut', ()=>{ 
       window.ct_wow__search.structure.prod_list_container.classList.add('ct_in')
     })
-    loader.init(1500)
+    
   },
   // shuffle:function(missingValues){
   //   /**
@@ -504,8 +507,8 @@ window.ct_wow__search.inputManagement = {
    
   },
   setButtonCopy:function(){
-    this.buttons.prev.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.next);
-    this.buttons.next.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.prev);
+    this.buttons.next.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.next);
+    this.buttons.prev.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.prev);
     this.buttons.results.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.showResults);
     this.buttons.restart.innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.restart);
   },
