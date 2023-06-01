@@ -446,10 +446,12 @@ window.ct_wow__search.inputManagement = {
   fillData:function(){
     this.stepsCount = ct_wow__search.data.questions.length;
     this.progress.container.querySelector('.ct_wow__search__input_progress__current + span').innerHTML = ` /${this.stepsCount}`
-    this.updateProgress()
+    this.updateProgress();
+    this.setButtonCopy();
     this.updateQuestionCopy();
     this.buildAnswers();
-    this.updateAnswer()
+    this.updateAnswer();
+    this.setResultsCopy();
   },
   setButtonsHandler:function(){
     this.buttons.prev.addEventListener('click',()=>{this.changeQuestions('prev')});
@@ -501,10 +503,16 @@ window.ct_wow__search.inputManagement = {
     
    
   },
+  setButtonCopy:function(){
+    this.buttons.prev.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.next);
+    this.buttons.next.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.prev);
+    this.buttons.results.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.showResults);
+    this.buttons.restart.innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.restart);
+  },
   updateQuestionCopy:function(){
     this.questions.container.querySelector('h3').style.opacity = 0;
     setTimeout(()=>{
-      this.questions.container.querySelector('h3').innerHTML = window.ct_wow__search.data.questions[this.progress.state - 1].question["en"];
+      this.questions.container.querySelector('h3').innerHTML = storeInfo.getLang( window.ct_wow__search.data.questions[this.progress.state - 1].question);
       this.questions.container.querySelector('h3').style.opacity = 1;
     },400)
    
@@ -517,7 +525,7 @@ window.ct_wow__search.inputManagement = {
       question.answers.forEach((answer,aindex)=>{
         answers += `
         <div class="ct_wow__search__button_wrap">
-          <button class="ct_cta ct_cta__white " data-q="${ qindex }" data-a="${aindex}">${answer["en"]}</button>
+          <button class="ct_cta ct_cta__white " data-q="${ qindex }" data-a="${aindex}">${storeInfo.getLang( answer)}</button>
         </div>
         `
       })
@@ -559,6 +567,12 @@ window.ct_wow__search.inputManagement = {
       this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active').classList.remove('ct_active')
     }
     this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state - 1}"]`).classList.add('ct_active')
+  },
+  setResultsCopy:function(){
+    this.results.container.querySelector('h2').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.title);
+    this.results.container.querySelector('p').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.subtitle);
+    this.results.container.querySelector('.ct_cta.ct_cta__black').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.viewAll.label);
+    this.results.container.querySelector('.ct_cta.ct_cta__black').href = storeInfo.getLang(window.ct_wow__search.data.copy.results.viewAll.url);
   },
   changeQuestions:function(dir){
   

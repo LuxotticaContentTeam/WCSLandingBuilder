@@ -554,38 +554,45 @@ window.ct_wow__search.data.copy = {
             "fr":"..",
             "es":"..",
             "de":"..",
-        },
-        "results":{
-            "title":{
-                "en":"show results",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-            "viewAll":{
-                "lable":{
-                    "en":"view all",
-                    "fr":"..",
-                    "es":"..",
-                    "de":"..",
-                },
-                "url":{
-                    "en":"/view-all",
-                    "fr":"..",
-                    "es":"..",
-                    "de":"..",
-                }
-              
-            },
-            "restart":{
-                "en":"restart",
-                "fr":"..",
-                "es":"..",
-                "de":"..",
-            },
-            
         }
+    },
+    "results":{
+        "title":{
+            "en":"show results",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        "subtitle":{
+            "en":"Based on your answers, we think these styles are a perfect fit!",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        "viewAll":{
+            "label":{
+                "en":"view all",
+                "fr":"..",
+                "es":"..",
+                "de":"..",
+            },
+            "url":{
+                "en":"/view-all",
+                "fr":"..",
+                "es":"..",
+                "de":"..",
+            }
+            
+        },
+        "restart":{
+            "en":"restart",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        
     }
+    
 }
 
 window.ct_wow__search.template = `
@@ -632,29 +639,23 @@ window.ct_wow__search.template = `
                     <h3></h3>
                 </div>
                 <div class="ct_wow__search__input_answers">
-                    <!-- <div class="ct_wow__search__input_answer">
-                        <button class="ct_cta ct_cta__white ct_active">Bold</button>
-                        <button class="ct_cta ct_cta__white ct_active">Bold</button>
-                        <button class="ct_cta ct_cta__white ct_active">Bold</button>
-                        <button class="ct_cta ct_cta__white ct_active">Bold</button>
-                    </div> -->
-                    
+                 
                 </div>
                 <div class="ct_wow__search__input_commands">
                     <button class="ct_wow__search__input_commands__prev ct_disabled">
                         <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.64672 11.8535L2.79297 5.99998L8.64672 0.146484L9.35372 0.853484L4.20747 5.99998L9.35372 11.1465L8.64672 11.8535Z" />
                         </svg>
-                        Back
+                        <span></span>
                     </button>
                     <button class="ct_wow__search__input_commands__next">
-                        Next
+                        <span></span>
                         <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.35348 11.8535L3.64648 11.1465L8.79273 5.99998L3.64648 0.853484L4.35348 0.146484L10.2072 5.99998L4.35348 11.8535Z" />
                         </svg>    
                     </button>
                     <button class="ct_wow__search__input_commands__results ct_disabled">
-                        Show Results
+                        <span></span>
                         <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.35348 11.8535L3.64648 11.1465L8.79273 5.99998L3.64648 0.853484L4.35348 0.146484L10.2072 5.99998L4.35348 11.8535Z" />
                         </svg>    
@@ -665,14 +666,14 @@ window.ct_wow__search.template = `
     </div>
     <div id="ct_wow__search__results">
         <div class="ct_wow__search__results_container">
-            <h2>Your Results</h2>
-            <p>Based on your answers, we think these styles are a perfect fit!</p>
+            <h2></h2>
+            <p></p>
             <div id="ct_wow__search__results_products">
                
                 
             </div>
-            <button class="ct_cta ct_cta__black">View all</button><br>
-            <button class="ct_wow__search__restart">restart</button>
+            <a class="ct_cta ct_cta__black" aria-label="view all" data-element-id="X_X_Search_Banner" data-description="view all"></a><br>
+            <button class="ct_wow__search__restart"></button>
         </div>
     </div>
     
