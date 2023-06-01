@@ -31,7 +31,8 @@ window.ct_wow__search = {
     }
   }
 }
-  
+
+
 window.ct_wow__search.start = function(){
   if (!window.ct_wow__search.structure?.container){
     window.ct_wow__search.data.storeInfo.lang = window.wcs_config ? wcs_config.locale.toLowerCase().replace('_','-'):undefined,

@@ -558,7 +558,7 @@ window.ct_wow__search.data.copy = {
     },
     "results":{
         "title":{
-            "en":"show results",
+            "en":"Your Results",
             "fr":"..",
             "es":"..",
             "de":"..",
