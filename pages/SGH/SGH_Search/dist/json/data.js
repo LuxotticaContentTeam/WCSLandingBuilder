@@ -248,6 +248,7 @@ window.ct_wow__search.data.products  = {
         brand:'Gucci',
         upc: '889652047560',
         url: "/gucci/gc000970-889652047560",
+        img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [4,3,6,7],
             [5,6,3,9],
@@ -382,6 +383,7 @@ window.ct_wow__search.data.products  = {
         brand:'Gucci',
         upc: '889652048123',
         url: "/gucci/gc000976-889652048123",
+        img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [6,5,2,7],
             [5,6,3,9],
@@ -394,6 +396,7 @@ window.ct_wow__search.data.products  = {
         brand:'Tom Ford',
         upc: '889214402547',
         url: "/tom-ford/tr001510-889214402547",
+        img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [9,8,4,4],
             [5,6,3,9],
@@ -418,6 +421,7 @@ window.ct_wow__search.data.products  = {
         brand:'Gucci',
         upc: '889652394046',
         url: "/gucci/gc001938-889652394046",
+        img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [5,4,6,7],
             [5,6,3,9],
@@ -443,7 +447,8 @@ window.ct_wow__search.data.products  = {
         brand:'Burberry',
         upc: '8056597046312',
         url: "/burberry/be4291-8056597046312",
-        img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597046312_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
+        // img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597046312_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
+        img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [9,7,4,4],
             [5,6,3,9],
@@ -468,7 +473,8 @@ window.ct_wow__search.data.products  = {
         brand:'Prada Linea Rossa',
         upc: '8056597140249',
         url: "/prada-linea-rossa/ps-51vs-8056597140249",
-        img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597140249_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
+        // img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597140249_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
+        img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [5,4,6,7],
             [6,6,8,6],
@@ -667,15 +673,16 @@ window.ct_wow__search.data.questions = [
 window.ct_wow__search.template = `
 <div id="ct_wow__search" class="ct_space ">
     <div id="ct_wow__search__loader">
-        <div class="ct_wow__search__loader__images">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use xlink:href="#183" data-elem="1"></use>
-                <use xlink:href="#184" data-elem="2"></use>
-                <use xlink:href="#186" data-elem="4"></use>
-                <use xlink:href="#188" data-elem="5"></use>
-                <use xlink:href="#191" data-elem="6"></use>
-            </svg>
+        <div class="ct_wow__search__results_loader__img_container">
+            <img src="https://media.sunglasshut.com/2023/utility/WOW/search/first.png"/>
         </div>
+        <div class="ct_wow__search__results_loader__img_container">
+            <img src="https://media.sunglasshut.com/2023/utility/WOW/search/second.png"/>
+        </div>
+        <div class="ct_wow__search__results_loader__img_container">
+            <img src="https://media.sunglasshut.com/2023/utility/WOW/search/third.png"/>
+        </div>
+        <h3></h3>
     </div>
     <button id="ct_wow__search__close">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -739,18 +746,6 @@ window.ct_wow__search.template = `
         </div>
     </div>
     <div id="ct_wow__search__results">
-        <div id="ct_wow__search__results_loader" class="">
-            <div class="ct_wow__search__results_loader__img_container">
-                <img src="https://media.sunglasshut.com/2023/utility/WOW/search/first.png"/>
-            </div>
-            <div class="ct_wow__search__results_loader__img_container">
-                <img src="https://media.sunglasshut.com/2023/utility/WOW/search/second.png"/>
-            </div>
-            <div class="ct_wow__search__results_loader__img_container">
-                <img src="https://media.sunglasshut.com/2023/utility/WOW/search/third.png"/>
-            </div>
-            <h3>Preparing your results...</h3>
-        </div>
         <div class="ct_wow__search__results_container">
             <h2>Your Results</h2>
             <p>Based on your answers, we think these styles are a perfect fit!</p>

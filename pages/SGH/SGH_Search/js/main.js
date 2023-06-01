@@ -55,7 +55,7 @@ window.ct_wow__search.structure = {
         this.setMouseMove();
       }
       this.setCloseHandler()
-      window.addEventListener('resize', this.refreshPositionsDebounced);
+      
       document.addEventListener('loaderOut',this.animationIn)
       let wcs_config = await storeInfo.getInfo();
       if(wcs_config){
@@ -64,7 +64,7 @@ window.ct_wow__search.structure = {
         console.log('NOT WCS CONFIG')
       }
     }
-    
+    window.addEventListener('resize', this.refreshPositionsDebounced);
     // if (this.device === "M"){
     //   this.zoomHandler()
     // }
@@ -251,7 +251,7 @@ window.ct_wow__search.structure = {
   // },
   rankingProducts:function(qIndex,aIndex){
     window.ct_wow__search.inputManagement.answers.state[qIndex] = parseInt( aIndex)
-    console.log({question:qIndex,answer:aIndex});
+    // console.log({question:qIndex,answer:aIndex});
     //calc each product score
     this.prod_list.forEach(prod=>{
        prod.score = this.calcScore(prod.upc);
@@ -300,7 +300,7 @@ window.ct_wow__search.structure = {
   refreshPositionsDebounced:debounce(()=>{ 
     if (ct_wow__search.structure.device != 'D'){
       ct_wow__search.structure.prod_list_container.parentNode.scrollTop = 0;
-      ct_wow__search.structure.prod_list_container.parentNode.scrollLeft = this.prod_list_container.parentNode.clientWidth / 4;
+      ct_wow__search.structure.prod_list_container.parentNode.scrollLeft = ct_wow__search.structure.prod_list_container.parentNode.clientWidth / 4;
     }
     if (ct_wow__search.structure.container.classList.contains('ct_shuffled')){
       ct_wow__search.structure.setPlaceholders(false);
@@ -609,12 +609,12 @@ window.ct_wow__search.inputManagement = {
   
   },
   showResult:function(){
-    this.results.container.classList.add('ct_in')
-    this.results.container.classList.add('ct_loader_in')
-    this.results.container.querySelector('#ct_wow__search__results_loader').classList.add('ct_in')
+    this.results.container.classList.add('ct_in');
+    this.results.container.classList.add('ct_loader_in');
+    loader.loaderIn(2000,"results");
+  
     this.setResult();
     setTimeout(()=>{
-      this.results.container.querySelector('#ct_wow__search__results_loader').classList.remove('ct_in')
       this.results.container.classList.remove('ct_loader_in')
     },2000)
   },
@@ -636,7 +636,7 @@ window.ct_wow__search.inputManagement = {
 
   },
   restartQuiz:function(){
-    loader.init(true,1000);
+    loader.loaderIn(1000,"restart");
   
     setTimeout(()=>{
       window.ct_wow__search.structure.resetStructure();
@@ -668,7 +668,7 @@ if (!window.ct_wow__search.structure?.container){
   }else{
     div.innerHTML= window.ct_wow__search.template;
     document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
-    loader.init(true)
+    loader.init(1500)
     window.ct_wow__search.structure.init();
 
   }
