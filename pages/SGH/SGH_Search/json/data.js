@@ -159,8 +159,8 @@ window.ct_wow__search.data.products_old  = [
  * * url
  * * specs => an array of array, each array rappresents a question, each value in the array rappresent a score for each option
  */
-window.ct_wow__search.data.products  = [
-    {
+window.ct_wow__search.data.products  = {
+    "8056597418478":{
         brand:'Prada',
         upc: '8056597418478',
         url: "/prada/pr-17ws-8056597418478",
@@ -172,7 +172,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8053672611649":{
         brand:'Ray-Ban',
         upc: '8053672611649',
         url: "/ray-ban/rb3548n-8053672611649",
@@ -180,11 +180,11 @@ window.ct_wow__search.data.products  = [
             [2,3,6,9], //question 1, scores for option 1 to 4
             [8,7,6,9], //question 2, scores for option 1 to 4
             [5,0,9], //question 3, scores for option 1 to 4
-            [],
+            [9,9,3,8],
         ]
     
     },
-    {
+    "8056597422574":{
         brand:'Vogue Eyewear',
         upc: '8056597422574',
         url: "/vogue-eyewear/vo4199s-8056597422574",
@@ -196,7 +196,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "888392568762":{
         brand:'Oakley',
         upc: '888392568762',
         url: "/oakley/oo9208-888392568762",
@@ -208,7 +208,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597844475":{
         brand:'Dolce and Gabbana',
         upc: '8056597844475',
         url: "/dolce-and-gabbana/dg4437-8056597844475",
@@ -220,7 +220,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597551960":{
         brand:'Persol',
         upc: '8056597551960',
         url: "/persol/po0714-8056597551960",
@@ -232,7 +232,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597529006":{
         brand:'Dolce and Gabbana',
         upc: '8056597529006',
         url: "/dolce-and-gabbana/dg2279-8056597529006",
@@ -244,7 +244,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "889652047560":{
         brand:'Gucci',
         upc: '889652047560',
         url: "/gucci/gc000970-889652047560",
@@ -257,7 +257,7 @@ window.ct_wow__search.data.products  = [
     
     },
     //8
-    {
+    "805289304456":{
         brand:'Ray-Ban',
         upc: '805289304456',
         url: "/ray-ban/rb3016-805289304456",
@@ -269,7 +269,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597810982":{
         brand:'Persol',
         upc: '8056597810982',
         url: "/persol/po3313s-8056597810982",
@@ -281,7 +281,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "725125391627":{
         brand:'Coach',
         upc: '725125391627',
         url: "/coach/hc8353u-725125391627",
@@ -293,7 +293,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "700285658667":{
         brand:'Oakley',
         upc: '700285658667',
         url: "/oakley/oo9102-700285658667",
@@ -305,7 +305,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597328111":{
         brand:'Ray-Ban',
         upc: '8056597328111',
         url: "/ray-ban/rb3025-8056597328111",
@@ -317,7 +317,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "888392577931":{
         brand:'Oakley',
         upc: '888392577931',
         url: "/oakley/oo9406-888392577931",
@@ -329,7 +329,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8053672947397":{
         brand:'Versace',
         upc: '8053672947397',
         url: "/versace/ve4361-8053672947397",
@@ -342,7 +342,7 @@ window.ct_wow__search.data.products  = [
     
     },
     //16
-    {
+    "8056597823043":{
         brand:'Persol',
         upc: '8056597823043',
         url: "/persol/po3310s-8056597823043",
@@ -354,7 +354,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8053672968354":{
         brand:'Vogue Eyewear',
         upc: '8053672968354',
         url: "/vogue-eyewear/vo5246s-8053672968354",
@@ -366,7 +366,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+   "8056597843072": {
         brand:'Dolce and Gabbana',
         upc: '8056597843072',
         url: "/dolce-and-gabbana/dg2296-8056597843072",
@@ -378,7 +378,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "889652048123":{
         brand:'Gucci',
         upc: '889652048123',
         url: "/gucci/gc000976-889652048123",
@@ -390,7 +390,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "889214402547":{
         brand:'Tom Ford',
         upc: '889214402547',
         url: "/tom-ford/tr001510-889214402547",
@@ -402,7 +402,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+   "8056597384902": {
         brand:'Versace',
         upc: '8056597384902',
         url: "/versace/ve4406-8056597384902",
@@ -414,7 +414,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "889652394046":{
         brand:'Gucci',
         upc: '889652394046',
         url: "/gucci/gc001938-889652394046",
@@ -426,7 +426,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597844642":{
         brand:'Dolce and Gabbana',
         upc: '8056597844642',
         url: "/dolce-and-gabbana/dg4439-8056597844642",
@@ -439,10 +439,11 @@ window.ct_wow__search.data.products  = [
     
     },
     //24
-    {
+    "8056597046312":{
         brand:'Burberry',
         upc: '8056597046312',
         url: "/burberry/be4291-8056597046312",
+        img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597046312_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
         specs:[
             [9,7,4,4],
             [5,6,3,9],
@@ -451,7 +452,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "805289126591":{
         brand:'Ray-Ban',
         upc: '805289126591',
         url: "/ray-ban/rb2140-805289126591",
@@ -463,10 +464,11 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597140249":{
         brand:'Prada Linea Rossa',
         upc: '8056597140249',
         url: "/prada-linea-rossa/ps-51vs-8056597140249",
+        img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597140249_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
         specs:[
             [5,4,6,7],
             [6,6,8,6],
@@ -475,7 +477,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597744409":{
         brand:'Prada',
         upc: '8056597744409',
         url: "/prada/pr-13zs-8056597744409",
@@ -487,7 +489,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8053672923087":{
         brand:'Versace',
         upc: '8053672923087',
         url: "/versace/ve2199-8053672923087",
@@ -499,7 +501,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "8056597440240":{
         brand:'Prada',
         upc: '8056597440240',
         url: "/prada/pr-19ws-8056597440240",
@@ -511,7 +513,7 @@ window.ct_wow__search.data.products  = [
         ]
     
     },
-    {
+    "97963652346":{
         brand:'Costa del mar',
         upc: '97963652346',
         url: "/costa-del-mar/6s9018-97963652346",
@@ -522,8 +524,8 @@ window.ct_wow__search.data.products  = [
             [6,3,7,3],
         ]
     
-    },
-]
+    }
+}
 
 
 

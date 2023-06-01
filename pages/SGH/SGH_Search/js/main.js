@@ -80,14 +80,14 @@ window.ct_wow__search.structure = {
      * Insert Products in HTML
      */
     let url_first_part = 'https://www.sunglasshut.com/us'//tochange
-    window.ct_wow__search.data.products.forEach(prod=>{
+    Object.keys(window.ct_wow__search.data.products).forEach(upc=>{
     
       this.prod_list_container.innerHTML+=`
-      <li class="ct_wow_search__product">
+      <li class="ct_wow_search__product" data-upc="${upc}">
         <div class="ct_wow_search__product__wrap">
-          <a href="${url_first_part+prod.url}">
+          <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}">
               <div class="ct_wow_search__img_container">
-                  <img src="https://assets.sunglasshut.com/is/image/LuxotticaRetail/${prod.upc}__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640" alt="">
+                  <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
               </div>
           </a>
         </div>
@@ -106,6 +106,9 @@ window.ct_wow__search.structure = {
         x:elem.getBoundingClientRect().x + elem.clientWidth/2,
         y:elem.getBoundingClientRect().y + elem.clientHeight/2,
         scalingElem:elem.querySelector('.ct_wow_search__product__wrap a'),
+        upc: elem.dataset.upc,
+        pos:null,
+        score:0,
       })
     })
    
@@ -246,6 +249,49 @@ window.ct_wow__search.structure = {
     // this.prod_list;
     // this.placeholders.coordinates;
   },
+  rankingProducts:function(qIndex,aIndex){
+    window.ct_wow__search.inputManagement.answers.state[qIndex] = parseInt( aIndex)
+    console.log({question:qIndex,answer:aIndex});
+    //calc each product score
+    this.prod_list.forEach(prod=>{
+       prod.score = this.calcScore(prod.upc);
+    })
+    //ordering based on score
+    this.prod_list.sort((a,b)=>(a.score < b.score)?1:-1);
+
+    //positioning and scaling products based on order
+    this.prod_list.forEach((prod,i)=>{
+      prod.elem.style.transform = `
+      translate(
+        ${this.placeholders.coordinates[i].x - prod.x }px,
+        ${this.placeholders.coordinates[i].y - prod.y  }px
+      )`;
+
+      if (i < 3){
+        prod.scalingElem.style.transform = "translate(-50%,-50%) scale(2)";
+      }
+      if(i>=3 && i<this.placeholders.utils.secondCircle.prodsCount + 3){
+        prod.scalingElem.style.transform = "translate(-50%,-50%) scale(1.1)";
+      }
+      if(i>=this.placeholders.utils.secondCircle.prodsCount + 3){
+        prod.scalingElem.style.transform = "translate(-50%,-50%) scale(.6)";
+      }
+    });
+   
+    window.ct_wow__search.inputManagement.results.state = [
+      this.prod_list[0].upc,
+      this.prod_list[1].upc,
+      this.prod_list[2].upc,
+      this.prod_list[3].upc,
+    ]
+  },
+  calcScore:function(upc){
+    let score = 0;
+    window.ct_wow__search.inputManagement.answers.state.forEach((answer,question)=>{
+      score += window.ct_wow__search.data.products[upc].specs[question][answer]
+    })
+    return score
+  },
   /**
    * apply debounce function to resize refresh, 
    * so it refresh the position only when the resize it's ended
@@ -357,7 +403,7 @@ window.ct_wow__search.inputManagement = {
   },
   answers:{
     container:null,
-    state:{}
+    state:[]
   },
   buttons:{
     next:null,
@@ -367,7 +413,7 @@ window.ct_wow__search.inputManagement = {
   },
   results:{
     container:null,
-    state:{}
+    state:[]
   },
   init:function(reopen){
     
@@ -459,13 +505,13 @@ window.ct_wow__search.inputManagement = {
   },
   buildAnswers:function(){
     let answers="";
-    window.ct_wow__search.data.questions.forEach((question,i)=>{
-      answers+=`<div class="ct_wow__search__input_answer" data-answer="${i}">`
-      
-      question.answers.forEach(answer=>{
+  
+    window.ct_wow__search.data.questions.forEach((question,qindex)=>{
+      answers+=`<div class="ct_wow__search__input_answer" data-answer="${qindex}">`
+      question.answers.forEach((answer,aindex)=>{
         answers += `
         <div class="ct_wow__search__button_wrap">
-          <button class="ct_cta ct_cta__white ">${answer["en"]}</button>
+          <button class="ct_cta ct_cta__white " data-q="${ qindex }" data-a="${aindex}">${answer["en"]}</button>
         </div>
         `
       })
@@ -479,7 +525,18 @@ window.ct_wow__search.inputManagement = {
       button.addEventListener('click',()=>{
         if (!button.classList.contains('ct_active')){
           
-          window.ct_wow__search.structure.shuffle(29);
+          // window.ct_wow__search.structure.shuffle(29);
+        
+      
+          // if (this.device != 'D'){
+          //   this.prod_list_container.parentNode.scrollTop = 0;
+          //   this.prod_list_container.parentNode.scrollLeft = this.prod_list_container.parentNode.clientWidth / 4;
+          // }
+          
+          // this.refreshPositions()
+          // window.addEventListener('resize', this.refreshPositionsDebounced);
+          window.ct_wow__search.structure.rankingProducts(button.dataset.q,button.dataset.a);
+          
           if(button.parentNode.parentNode.querySelector('button.ct_active')){
             button.parentNode.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
           }
@@ -580,12 +637,14 @@ window.ct_wow__search.inputManagement = {
         brandName:'Versace'
       },
     ] 
-    resultsProd.forEach(prod=>{
+    let url_first_part = 'https://www.sunglasshut.com/us'//tochange
+  
+    this.results.state.forEach(upc=>{
       
       productsContainer.innerHTML+=`
-        <a href="/${prod.prodId}" class="ct_wow__search__results_product">
-          <img src="${prod.prodImg}" />
-          <span>${prod.brandName}</span>
+      <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" class="ct_wow__search__results_product">
+          <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
+          <span>${window.ct_wow__search.data.products[upc].brand}</span>
         </a>
       `
     })
