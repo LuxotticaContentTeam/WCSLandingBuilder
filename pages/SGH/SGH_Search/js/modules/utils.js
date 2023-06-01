@@ -26,3 +26,4 @@ export const getDevice = () => {
     customLog('Get Device')
     return window.innerWidth > 1025 ? "D" : window.innerWidth < 1025 && window.innerWidth >= 768 ? "T" :  window.innerWidth < 768 ? "M" : "not recognized";
 }
+

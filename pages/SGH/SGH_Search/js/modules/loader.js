@@ -1,3 +1,4 @@
+import { storeInfo } from "./storeInfo";
 import { customLog } from "./utils";
 
 export const loader = {
@@ -10,13 +11,14 @@ export const loader = {
     loaderIn:function(time,type){
         customLog('loader in')
         if (!type || type === 'init'){
-            this.elem.querySelector('h3').innerHTML = 'Preparing your quiz...'
+            console.log(window.ct_wow__search.data.copy.loader.init)
+            this.elem.querySelector('h3').innerHTML =  storeInfo.getLang(window.ct_wow__search.data.copy.loader.init)
         }
         if (type === "restart"){
-            this.elem.querySelector('h3').innerHTML = 'Restarting quiz...'
+            this.elem.querySelector('h3').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.loader.restart)
         }
         if (type === "results"){
-            this.elem.querySelector('h3').innerHTML = 'Preparing your results...'
+            this.elem.querySelector('h3').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.loader.results)
         }
         
         this.elem.classList.add('ct_in');

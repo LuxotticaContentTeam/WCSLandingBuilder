@@ -30,41 +30,33 @@ window.ct_wow__search.structure = {
         prodsCount:14,
       }
     },
-    coordinates:[]
+    coordinates:[],
   },
-  init: async function(reopen){
+  init: function(reopen){
     customLog('WOW SEARCH INIT');
-    window.ct_wow__search.inputManagement.answers.state = [];
+    storeInfo.getInfo();
+    
     if (!reopen){
       this.container = document.querySelector('#ct_wow__search');
+      this.setCloseHandler();
+      this.prod_list_container = document.querySelector('.ct_wow__search__products_list');
+      if (this.device === 'D'){
+        this.setMouseMove();
+      }
     }
+
     if (this.device != 'D'){
       this.calcHeight();
     }
   
     if (!reopen){
-      
-      this.prod_list_container = document.querySelector('.ct_wow__search__products_list')
       this.buildHtml();
       this.setPlaceholders(true);
+      ct_wow__search.inputManagement.init(); 
     }
     this.entry();
-    
-    if (!reopen){
-      if (this.device === 'D'){
-        this.setMouseMove();
-      }
-      this.setCloseHandler()
-      
-      document.addEventListener('loaderOut',this.animationIn)
-      let wcs_config = await storeInfo.getInfo();
-      if(wcs_config){
-        ct_wow__search.inputManagement.init();
-      }else{
-        console.log('NOT WCS CONFIG')
-      }
-    }
     window.addEventListener('resize', this.refreshPositionsDebounced);
+
     // if (this.device === "M"){
     //   this.zoomHandler()
     // }
@@ -85,7 +77,7 @@ window.ct_wow__search.structure = {
       this.prod_list_container.innerHTML+=`
       <li class="ct_wow_search__product" data-upc="${upc}">
         <div class="ct_wow_search__product__wrap">
-          <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}">
+          <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="X_X_WowSearch_Banner" data-description-="${upc}">
               <div class="ct_wow_search__img_container">
                   <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
               </div>
@@ -182,7 +174,11 @@ window.ct_wow__search.structure = {
 
   entry:function(){
     this.container.classList.add('ct_in');
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('loaderOut', ()=>{ 
+      window.ct_wow__search.structure.prod_list_container.classList.add('ct_in')
+    })
+    loader.init(1500)
   },
   // shuffle:function(missingValues){
   //   /**
@@ -374,9 +370,7 @@ window.ct_wow__search.structure = {
     
 
   // },
-  animationIn:function(){
-    window.ct_wow__search.structure.prod_list_container.classList.add('ct_in')
-  },
+ 
   setCloseHandler:function(){
     this.container.querySelector('#ct_wow__search__close').addEventListener('click',()=>{
       this.container.classList.remove('ct_in');
@@ -577,17 +571,19 @@ window.ct_wow__search.inputManagement = {
             this.buttons.results.classList.remove('ct_disabled');
           }
         }
-        if (this.progress.state === 1 && !this.buttons.results.classList.contains('ct_disabled')){
-          this.buttons.results.classList.add('ct_disabled');
-          this.buttons.next.classList.remove('ct_disabled')
-        }
+      
         if (!this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
           this.container.classList.remove('ct_can_proceed');
         }
         if(this.buttons.prev.classList.contains('ct_disabled')){
           this.buttons.prev.classList.remove('ct_disabled')
         }
-         
+        if (this.progress.state === 1 ){
+          this.buttons.results.classList.add('ct_disabled');
+          this.buttons.next.classList.remove('ct_disabled');
+          this.buttons.prev.classList.add('ct_disabled');
+        } 
+
       }else{
         this.progress.state-= 1;
         if (this.progress.state === 1 && !this.buttons.prev.classList.contains('ct_disabled')){
@@ -651,10 +647,11 @@ window.ct_wow__search.inputManagement = {
     this.progress.state = 0;
     this.answers.container.querySelectorAll('button.ct_active').forEach(button=>button.classList.remove('ct_active'))
     this.answers.container.querySelectorAll('.ct_aswered').forEach(aswered=>aswered.classList.remove('ct_aswered'))
+    this.answers.state = [];
     this.container.classList.remove('ct_can_proceed');
     window.ct_wow__search.structure.container.classList.remove('ct_shuffled');
     this.results.container.classList.remove('ct_in');
-  
+    
     this.changeQuestions('next')
   }
   
@@ -668,7 +665,7 @@ if (!window.ct_wow__search.structure?.container){
   }else{
     div.innerHTML= window.ct_wow__search.template;
     document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
-    loader.init(1500)
+   
     window.ct_wow__search.structure.init();
 
   }

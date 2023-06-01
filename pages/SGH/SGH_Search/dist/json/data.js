@@ -1,157 +1,4 @@
 
-window.ct_wow__search.data.products_old  = [
-    {
-        brand:'Ray-Ban',
-        upc: '8056597523493'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597328111'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '888392489333'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597523493'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597328111'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '888392489333'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597523493'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597328111'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '888392489333'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597523493'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597328111'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '888392489333'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597657778'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597766333'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '888392404756'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597656054'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597657778'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597657778'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597766333'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597328111'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '888392489333'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597523493'
-    
-    },
-    {
-        brand:'Ray-Ban',
-        upc: '8056597328111'
-    
-    },
-]
-
 /**
  * objects structure:
  * * brand
@@ -533,8 +380,6 @@ window.ct_wow__search.data.products  = {
     }
 }
 
-
-
 window.ct_wow__search.data.questions = [
     {   
         question:{
@@ -669,6 +514,79 @@ window.ct_wow__search.data.questions = [
         ]
     }
 ]
+
+window.ct_wow__search.data.copy = {
+    "loader":{
+        "init":{
+            "en":"Preparing your quiz...",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        "restart":{
+            "en":"Restarting quiz...",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        "results":{
+            "en":"Preparing your results...",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        }
+    },
+    "inputs":{
+        "next":{
+            "en":"next",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        "prev":{
+            "en":"back",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        "showResults":{
+            "en":"show results",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        "results":{
+            "title":{
+                "en":"show results",
+                "fr":"..",
+                "es":"..",
+                "de":"..",
+            },
+            "viewAll":{
+                "lable":{
+                    "en":"view all",
+                    "fr":"..",
+                    "es":"..",
+                    "de":"..",
+                },
+                "url":{
+                    "en":"/view-all",
+                    "fr":"..",
+                    "es":"..",
+                    "de":"..",
+                }
+              
+            },
+            "restart":{
+                "en":"restart",
+                "fr":"..",
+                "es":"..",
+                "de":"..",
+            },
+            
+        }
+    }
+}
 
 window.ct_wow__search.template = `
 <div id="ct_wow__search" class="ct_space ">

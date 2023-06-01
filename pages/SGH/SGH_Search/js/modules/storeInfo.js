@@ -1,15 +1,12 @@
 export const storeInfo ={
-    homeUrl:location.origin + location.pathname,
-    lang:null,
-    lang_short:null,
     getInfo:function(){
         let time = 0;
         return new Promise((resolve, reject) => {
             let interval = setInterval(() => {
                 time+=200;
                 if (window.wcs_config){
-                    storeInfo.lang = wcs_config.locale.toLowerCase().replace('_','-');
-                    storeInfo.lang_short = wcs_config.locale.match("^[^_]+")[0];
+                    window.ct_wow__search.data.storeInfo.lang = wcs_config.locale.toLowerCase().replace('_','-');
+                    window.ct_wow__search.data.storeInfo.lang_short = wcs_config.locale.match("^[^_]+")[0];
                     clearInterval(interval)
                 
                     resolve(true)
@@ -26,11 +23,12 @@ export const storeInfo ={
     },
     getLang:function(field){
         let keys = Object.keys(field);
-        if (keys.includes(this.lang)){
-            return field[this.lang]
+        console.log(keys)
+        if (keys.includes(window.ct_wow__search.data.storeInfo.lang)){
+            return field[window.ct_wow__search.data.storeInfo.lang]
         }
-        if (keys.includes(this.lang_short)){
-            return field[this.lang_short]
+        if (keys.includes(window.ct_wow__search.data.storeInfo.lang_short)){ 
+            return field[window.ct_wow__search.data.storeInfo.lang_short]
         }
         return field['en']
     }
