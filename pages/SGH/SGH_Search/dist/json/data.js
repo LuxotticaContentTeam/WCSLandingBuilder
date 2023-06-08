@@ -571,7 +571,7 @@ window.ct_wow__search.data.copy = {
         },
         "viewAll":{
             "label":{
-                "en":"view all",
+                "en":"View all",
                 "fr":"..",
                 "es":"..",
                 "de":"..",

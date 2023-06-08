@@ -68,7 +68,8 @@ window.ct_wow__search.structure = {
   },
   calcHeight:function(){
     customLog('Calc Height')
-    window.ct_wow__search.structure.container.style.setProperty("--ct-wow-search-height", `${window.innerHeight}px`)
+    window.ct_wow__search.structure.container.style.setProperty("--ct-wow-search-height", `${window.innerHeight}px`);
+    window.addEventListener('resize', this.calcHeight);
   },
   buildHtml:function(){
     /**
@@ -383,6 +384,9 @@ window.ct_wow__search.structure = {
       //reset questions
       window.ct_wow__search.inputManagement.resetQuestions();
       window.removeEventListener('resize',window.ct_wow__search.structure.refreshPositionsDebounced)
+      if (this.device != "D"){
+        window.removeEventListener('resize',window.ct_wow__search.structure.calcHeight)
+      }
     });
    
   },
