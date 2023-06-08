@@ -75,7 +75,7 @@ const ct_rtr__data = {
   },
   libraries: [
     {
-      url : 'https://rtr-viewer.luxottica.com/lib/v/2.2.1/main.js',
+      url : 'https://rtr-viewer.luxottica.com/lib/v/2.3.0/main.js',
       callback: ()=>{
         console.log(`RTR BANNER - rtr viewer loaded - ${window.rtrViewer}`);
       }

@@ -75,7 +75,7 @@ const ct_rtr__data = {
   },
   libraries: [
     {
-      url : 'https://rtr-viewer.luxottica.com/lib/v/2.2.1/main.js',
+      url : 'https://rtr-viewer.luxottica.com/lib/v/2.3.0/main.js',
       callback: ()=>{
         console.log(`RTR BANNER - rtr viewer loaded - ${window.rtrViewer}`);
         if(!document.querySelector('.ct_rtr__container') && window.rtrViewer && window.wcs_config){
@@ -215,8 +215,8 @@ function ct_rtr__init(){
         <div class="ct_rtr__products"></div>
         <div class="ct_rtr__titles"></div>
         <div class="ct_rtr__cta">
-          <a href="${ ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang_short] }" 
-          data-element-id="X_HomePage_Placement10_ShopNow" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
+         <a href="${ ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang_short] }" 
+          data-element-id="X_X_MainPlacement18_RTR-CTA0" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
             ${ ct_rtr__data.labels.shop_now[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.shop_now[ct_rtr__lang] : ct_rtr__data.labels.shop_now[ct_rtr__lang_short] }
           </a>
         </div>
@@ -265,7 +265,7 @@ function ct_rtr__init(){
       </div>
     `;
     document.querySelector('.ct_rtr__container .ct_rtr__text .ct_rtr__products').innerHTML += `
-      <a class="ct_rtr__product ${ct_rtr__active_class}" data-upc="${product.upc}" href="javascript:void(0)" data-element-id="X_HomePage_Placement10" data-description="${product.name}">
+      <a class="ct_rtr__product ${ct_rtr__active_class}" data-upc="${product.upc}" href="javascript:void(0)" data-element-id="X_X_MainPlacement18_RTR" data-description="Select ${product.name}">
         <img src="${product.img}" alt="${product.upc}">
       </a>
     `;

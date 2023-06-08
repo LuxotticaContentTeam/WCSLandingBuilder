@@ -3,7 +3,7 @@ import LazyLoad from "vanilla-lazyload";
 
 var ct_cos__data = {
     container: '#ct_wow_module',
-    dataElement: "X_X_MainPlacement18_Banner-CTA0",
+    dataElement: "X_X_MainPlacement18_CardOnSlider",
     // dataElement: "X_X_MainPlacement18_Banner-CTA0",
   
     lang: "",

@@ -507,8 +507,6 @@ window.ct_wow__search.inputManagement = {
    
   },
   setButtonCopy:function(){
-    this.buttons.next.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.next);
-    this.buttons.prev.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.prev);
     this.buttons.results.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.showResults);
     this.buttons.restart.innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.restart);
   },
@@ -559,6 +557,7 @@ window.ct_wow__search.inputManagement = {
             this.changeQuestions('next');
           }else{
             this.buttons.results.classList.remove('ct_disabled');
+            this.container.classList.add('ct_last_step')
           }
         }
 
@@ -586,6 +585,7 @@ window.ct_wow__search.inputManagement = {
           this.buttons.next.classList.add('ct_disabled');
           if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
             this.buttons.results.classList.remove('ct_disabled');
+            this.container.classList.add('ct_last_step')
           }
         }
       
@@ -599,6 +599,7 @@ window.ct_wow__search.inputManagement = {
           this.buttons.results.classList.add('ct_disabled');
           this.buttons.next.classList.remove('ct_disabled');
           this.buttons.prev.classList.add('ct_disabled');
+          this.container.classList.remove('ct_last_step')
         } 
 
       }else{
@@ -609,6 +610,7 @@ window.ct_wow__search.inputManagement = {
         if(this.buttons.next.classList.contains('ct_disabled')){
           this.buttons.next.classList.remove('ct_disabled');
           this.buttons.results.classList.add('ct_disabled');
+          this.container.classList.remove('ct_last_step')
         }
         if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
           this.container.classList.add('ct_can_proceed');
