@@ -35,8 +35,8 @@ const ct_rtr__data = {
       m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHhkz38GCgDjqAEMo2HAMBoGDIMhDACVnDHATGTYawAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1.jpg',
-      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_RTR.png' // 75:56
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SNGH_3D-1.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_RTR.png' // 75:56
     },
     img_dx_loader:{
       d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1_loader.jpg',
@@ -205,7 +205,7 @@ function ct_rtr__init(){
         <div class="ct_rtr__titles"></div>
         <div class="ct_rtr__cta">
           <a href="${ ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang_short] }" 
-          data-element-id="X_X_MainPlacement18_RTR-CTA0" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
+          data-element-id="X_X_MainPlacement12_RTR-CTA0" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
             ${ ct_rtr__data.labels.shop_now[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.shop_now[ct_rtr__lang] : ct_rtr__data.labels.shop_now[ct_rtr__lang_short] }
           </a>
         </div>
@@ -254,7 +254,7 @@ function ct_rtr__init(){
       </div>
     `;
     document.querySelector('.ct_rtr__container .ct_rtr__text .ct_rtr__products').innerHTML += `
-      <a class="ct_rtr__product ${ct_rtr__active_class}" data-upc="${product.upc}" href="javascript:void(0)" data-element-id="X_X_MainPlacement18_RTR" data-description="Select ${product.name}">
+      <a class="ct_rtr__product ${ct_rtr__active_class}" data-upc="${product.upc}" href="javascript:void(0)" data-element-id="X_X_MainPlacement12_RTR" data-description="Select ${product.name}">
         <img src="${product.img}" alt="${product.upc}">
       </a>
     `;
@@ -290,7 +290,7 @@ function ct_rtr__analytics_rotate() {
   tealium_data2track.push({
     'id':'Click',
     'Tracking_Type': 'link',
-    'data_element_id': 'X_HomePage_Placement10_Rotate', // max 25 characters
+    'data_element_id': 'X_X_MainPlacement12_RTR_Rotate', // max 25 characters
     'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
     'data_analytics_available_call':"1"
   });
@@ -303,7 +303,7 @@ function ct_rtr__analytics_zoom() {
   tealium_data2track.push({
     'id':'Click',
     'Tracking_Type': 'link',
-    'data_element_id': 'X_HomePage_Placement10_Zoom', // max 25 characters
+    'data_element_id': 'X_X_MainPlacement12_RTR_Zoom', // max 25 characters
     'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
     'data_analytics_available_call':"1"
   });

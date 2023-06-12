@@ -4,13 +4,14 @@
     #ct_wow__search__input{
         position: fixed;
         left: 50%;
-        bottom: 30px;
+        bottom: 64px;
         transform: translateX(-50%);
         z-index: 8;
         border-radius: 4px;
         min-width: 55%;
         height: 200px;
         box-sizing: border-box;
+        transition: height .6s cubic-bezier(.19,1,.22,1);
         @media(max-width:1280px){
             min-width: 65%;
         }
@@ -47,6 +48,12 @@
                 }
             }
             
+        }
+        &.ct_last_step_2{
+            height: 220px;
+            @media(max-width:1024px){
+                height: 200px;
+            }
         }
     }
     .ct_wow__search__input_container{
