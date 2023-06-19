@@ -48,11 +48,64 @@
 <div id="espot">
 
 <link rel="stylesheet" href="./style/index.min.css">
-<script src="./json/data.js"></script>
+<!-- <script src="./json/data.js"></script> -->
 
+<style>
+    .ct_cta{
+        text-align: center;
+        border-radius: 40px;
+        padding: 9px 25px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: normal;
+        text-shadow: none;
+        box-shadow: none;
+        transition: background-color .6s ease,color .6s ease,transform .4s ease;
+      
+        height: 40px;
+        display: inline-flex;
+        box-sizing: border-box;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+        white-space: nowrap;
+        min-width: 130px;
+        cursor: pointer;
+        border: none;
+
+        background-color:black;
+        color: #fff;
+    }
+    .ct_cta:hover{
+        background-color: #292828;
+        border-color: #292828;
+    }
+     
+</style>
 <div class="ct_space">
-    <button class="ct_cta ct_cta__black"  onclick="window.ct_wow__search__start()">START SEARCH</button>
+    <button class="ct_cta ct_cta__black"  onclick="window.ct_wow__search.start(true)">START SEARCH</button>
+    <div style="background-color: #a9a9a9; width: 100%;height: 200vh;" >
+        scrollable
+    </div>
+    <button class="ct_cta ct_cta__black"  onclick="window.ct_wow__search.start(true)">START SEARCH</button>
+    <!-- <button class="ct_cta ct_cta__black"  >START SEARCH</button> -->
 </div>
+
+
+<!-- DEV -->
+<!-- <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        window.ct_wow__search__start(false)
+    })
+    
+</script>
+<style>
+    #ct_wow__search{
+        transition: none !important;
+    }
+</style> -->
+<!-- DEV -->
 <script defer src="./js/index.min.js"></script>
 <script src="./js/temp.min.js"></script>
 

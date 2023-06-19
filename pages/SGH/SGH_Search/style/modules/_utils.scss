@@ -1,11 +1,11 @@
-.ct_space{
+#ct_wow__search{
 
     //CTA
     .ct_cta{
         text-align: center;
         border-radius: 40px;
         padding: 9px 25px;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 500;
         line-height: normal;
         letter-spacing: normal;
@@ -22,11 +22,12 @@
         white-space: nowrap;
         min-width: 130px;
         cursor: pointer;
+        border: none;
         //COLOR VARIANT
         &.ct_cta__black{
             background-color: $black;
             color: #fff;
-            border: 1px solid  $black;;
+           
             @media(min-width:1025px){
                 &:hover{
                     background-color: $black_hover;
@@ -36,14 +37,14 @@
             @media(max-width:1024px){
                 &:active{
                     background-color: $black_hover;
-                    border-color: $black_hover;
+                
                 }
             }
         }
         &.ct_cta__white{
             background-color: #fff;
             color: $black;
-            border: 1px solid black;
+        
             @media(min-width:1025px){
                 &:hover,&:focus{
                     background-color: $black;
@@ -60,7 +61,7 @@
             }
             &.ct_active{
                 background-color: $black;
-                border-color: $black;
+              
                 color: #fff;
             }
         }

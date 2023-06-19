@@ -1,49 +1,32 @@
+import { storeInfo } from "./storeInfo";
 import { customLog } from "./utils";
 
 export const loader = {
     elem:null,
-    time:2400,
-    init:function(loader){
+    loaderEvent: new CustomEvent('loaderOut'),
+    init:function(time){
         this.elem = document.querySelector("#ct_wow__search__loader");
-        var loaderEvent = new CustomEvent('loaderOut');
-        this.loaderAnim();
-        if (loader){
-            this.elem.classList.add('ct_in');
-            customLog('loader in')
-            setTimeout(()=>{
-                document.dispatchEvent(loaderEvent);
-                this.elem.classList.remove('ct_in');
-                customLog('loader out 1')
-                
-            },this.time)
-           
-        }else{
-            document.dispatchEvent(loaderEvent);
-            customLog('loader out 2')
-        }
+        this.loaderIn(time);
     },
-    loaderAnim:function(){
-        let count=1;
-        let currentId;
-        let loaderInvterval = setInterval(() => { 
-            
-            
-            if(!this.elem.querySelector('use.ct_active')){
-                this.elem.querySelector('use:nth-child(1)').classList.add('ct_active');
-            }else{
-                this.elem.querySelector('use.ct_active').classList.remove('ct_active');
-                if (currentId < 5){
-                    currentId +=1
-                }else{
-                    currentId=1
-                }
-                this.elem.querySelector(`use:nth-child(${currentId})`).classList.add('ct_active');
-            }
-
-            count+=300;
-            if (count >= this.time*2){
-                clearInterval(loaderInvterval)
-            }
-        }, 300);
+    loaderIn:function(time,type){
+        if (!type || type === 'init'){
+            this.elem.querySelector('h3').innerHTML =  storeInfo.getLang(window.ct_wow__search.data.copy.loader.init)
+        }
+        if (type === "restart"){
+            this.elem.querySelector('h3').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.loader.restart)
+        }
+        if (type === "results"){
+            this.elem.querySelector('h3').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.loader.results)
+        }
+        
+        this.elem.classList.add('ct_in');
+        setTimeout(()=>{
+            this.loaderOut()    
+        },time)
+    },
+    loaderOut:function(){
+        this.elem.classList.remove('ct_in');
+        document.dispatchEvent(this.loaderEvent);
     }
 }
+
