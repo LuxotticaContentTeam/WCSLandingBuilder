@@ -1,35 +1,3 @@
-
-function ct_filter__articles(category){
-    document.querySelector('#ct_blog .ct_articles').style.opacity = 0;
-    let ct_articles = document.querySelectorAll('#ct_blog .ct_article');
-    setTimeout(()=>{
-       
-        ct_articles.forEach(article=>{
-            if(article.dataset.category.includes(category) || category == 'all' ){
-                article.classList.remove('ct_art_hidden');
-            }else{
-                article.classList.add('ct_art_hidden');
-            }
-        });
-        lazyLo();
-        document.querySelector('#ct_blog .ct_articles').style.opacity = 1;
-    },200)
-    
-}
-
-function ct_nav__handler(){
-    let ct_nav__button = document.querySelectorAll('.ct_nav__container button');
-    ct_nav__button.forEach((button)=>{
-        button.addEventListener('click',(e)=>{
-            if(!e.target.classList.contains('ct_active')){
-                document.querySelector('.ct_nav__container .ct_active').classList = '';
-                e.target.classList = 'ct_active';
-                ct_filter__articles(e.target.dataset.category);
-            }
-        });
-    })
-}
-
 function ct_getCategory(category){
     let result;
     switch(category){
@@ -49,12 +17,10 @@ function ct_getCategory(category){
     return result;
 }
 
-function  ct_load__article(){
-    let ct_articles_container = document.querySelector('.ct_articles');
+function  ct_init_load__article(){
     let ct_dom_articles = document.querySelectorAll('#ct_blog .ct_article.ct_loading');
-    let current_article
     ct_blog_articles.forEach((article,i)=>{
-        if (i < 3){
+        if (i < 6){
             ct_dom_articles[i].setAttribute('data-category',article.category);
             ct_dom_articles[i].querySelector('.ct_text__badge').setAttribute('data-category', article.category);
             ct_dom_articles[i].querySelector('.ct_text__badge svg').innerHTML = "<use xlink:href='#CD_" + article.category + "'></use>"
@@ -72,7 +38,16 @@ function  ct_load__article(){
             ct_dom_articles[i].querySelector('h2').innerHTML = article.title;
             ct_dom_articles[i].querySelector('p').innerHTML = article.desc;
             ct_dom_articles[i].classList.remove("ct_loading");
-        }else{
+        }
+    });
+}
+
+function  ct_load__article(){
+    let ct_articles_container = document.querySelector('.ct_articles');
+    let current_article;
+    let ct_articles = "";
+    ct_blog_articles.forEach((article,i)=>{
+        if (i >= 6){
             current_article =  `
             <div class="ct_article ct_loaded" data-category="${article.category}">
                 <a href="${location.origin + "/"+article.url}" aria-label="${article.url}" data-description="${article.url}" data-element-id="X_X_Blog_CTA">
@@ -92,13 +67,14 @@ function  ct_load__article(){
                         </div>
                         <h2 class="ct_lh__1-5 ct_font__bold">${article.title}</h2>
                         <p>${article.desc}</p>
-                        <span class="ct_font__bold ">Continue reading</span>
+                        <span class="ct_font__bold">Continue reading</span>
                     </div>
                 </a>
             </div>`
-            ct_articles_container.innerHTML+=current_article;
+            ct_articles+=current_article;
         }
     });
+    ct_articles_container.insertAdjacentHTML("beforeend", ct_articles);
 }
 
 function initLazyLoading(selector){
@@ -153,15 +129,12 @@ function ct_is_mobile(){
         return false;
     }else{
         if ($(window).width() === 1024){
-            if ( window.innerHeight > window.innerWidth){
+            if ( window.innerHeight > window.innerWidth)
                 return true
-            }
-            else{ 
+            else
                 return false 
-            }
-        }else{
+        }else
             return true
-        }
     }
 }
 
@@ -171,12 +144,12 @@ function nav_scrollTo_category(){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    //ct_nav__handler();
+    ct_init_load__article();
     ct_load__article();
     initLazyLoading();
+
     if(ct_is_mobile()){
         nav_letter__scroll();
         nav_scrollTo_category();
-        // $(".ct_nav__container ul").animate({scrollLeft: $('li#contactscare').position().left - ($('li#contactscare').width()/2) }, 500);
-    }
+    } 
 });
