@@ -32,31 +32,11 @@
             }
         }
         &.ct_last_step{
-            .ct_wow__search__input_questions{
-                transform: scale(.8);
-                @media(max-width:1024px){
-                    transform: scale(.8) translateY(-30%);
-                }
-            }
-            .ct_wow__search__input_answers{
-                transform: scale(.8) translateY(-70%);
-                @media(max-width:1024px){
-                    transform: scale(.8) translateY(-70%) translateX(-13%);
-                    width: 128%;
-                    
-                    // .ct_wow__search__input_answer{
-                    //     transform: scale(.8);
-                    //     width: 150%;
-                    // }
-                }
-            }
+          
             
         }
         &.ct_last_step_2{
-            height: 220px;
-            @media(max-width:1024px){
-                height: 200px;
-            }
+          
         }
     }
     .ct_wow__search__input_container{

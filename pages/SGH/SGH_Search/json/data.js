@@ -512,6 +512,22 @@ window.ct_wow__search.data.questions = [
                 "de":"..",
             },
         ]
+    },
+    {   
+        question:{
+            "en":"Show your results",
+            "fr":"..",
+            "es":"..",
+            "de":"..",
+        },
+        answers:[
+            {
+                "en":"Show results",
+                "fr":"..",
+                "es":"..",
+                "de":"..",
+            },
+        ]
     }
 ]
 
@@ -549,12 +565,6 @@ window.ct_wow__search.data.copy = {
             "es":"..",
             "de":"..",
         },
-        "showResults":{
-            "en":"Show results",
-            "fr":"..",
-            "es":"..",
-            "de":"..",
-        }
     },
     "results":{
         "title":{
@@ -634,9 +644,6 @@ window.ct_wow__search.template = `
                         <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.35348 11.8535L3.64648 11.1465L8.79273 5.99998L3.64648 0.853484L4.35348 0.146484L10.2072 5.99998L4.35348 11.8535Z" />
                         </svg>    
-                    </button>
-                    <button class="ct_wow__search__input_commands__results ct_disabled">
-                        <span></span>
                     </button>
                 </div>
             </div>  
