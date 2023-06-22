@@ -110,13 +110,16 @@
           }
         }
         .ct_rtr__titles{
-          margin-top: 32px;
+          margin-top: 48px;
           margin-bottom: 16px;
           display: block;
           position: relative;
           color: #000;
+          @media (max-width: 1400px) {
+            margin-top: 32px;
+          }
           @media (max-width: 768px) {
-            margin-top: 16px;
+            margin-top: 24px;
           }
           .ct_rtr__title{
             width: 90%;
@@ -130,10 +133,25 @@
               width: 100%;
             
             }
+            span{
+              display: block;
+              font-size: 18px;
+              text-transform: uppercase;
+              font-weight: 400;
+              @media (max-width: 1400px) {
+                font-size: 16px;
+                
+              }
+              @media(max-width:768px){
+                margin-bottom: 4px;
+              }
+            }
             h2{
               font-weight: 300;
               font-size: 3.7vw;
               margin: 0;
+              line-height: 1;
+             
               @media (max-width: 768px) {
                 font-size: 9.7vw;
               }

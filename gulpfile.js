@@ -16,6 +16,8 @@ const fs = require("fs");
 const inquirer = require('inquirer');
 const jsonMinify = require('gulp-json-minify');
 const glob = require('glob');
+const replace = require('gulp-string-replace');
+
 
 const browserSync = require('browser-sync').create();
 
@@ -63,6 +65,7 @@ function concat_html() {
         addRootSlash: false,
         addPrefix: 'http://localhost:1234'
       })
+      // .pipe(replace('@pathUtils', settings.paths.devUtils ))
       .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist`))
       .pipe(browserSync.stream());
     
@@ -93,6 +96,7 @@ function concat_build() {
 
   return gulp.src(concatElement) 
       .pipe(concat("ESPOT.html"))
+      // .pipe(replace('@pathUtils', settings.paths.prodUtils ))
       .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist`))
 }
 
@@ -125,6 +129,7 @@ gulp.task("landing_js" ,() => {
       .pipe(source('.'))
       .pipe(buffer())
       .pipe(uglify())
+      // .pipe(replace('@path', settings.page.paths.productionConf ))
       .pipe(rename(function (path) {
         path.basename = entry.replace(`pages/${currentBrand}/${currentPage}/js/`,'').replace('.js','')
         path.extname = ".min.js";
@@ -147,6 +152,7 @@ gulp.task("script_land_js_dev" ,() => {
       .bundle()
       .pipe(source('.'))
       .pipe(buffer())
+      // .pipe(replace('@path', settings.page.paths.developmentConf ))
       .pipe(rename(function (path) {
         path.basename = entry.replace(`pages/${currentBrand}/${currentPage}/js/`,'').replace('.js','')
         path.extname = ".min.js";
@@ -184,7 +190,7 @@ gulp.task("landing_ds_js" ,(done) => {
 });
 
 gulp.task('landing_css', () => {
-  return gulp.src([`./pages/${currentBrand}/${currentPage}/style/index.scss`])
+  return gulp.src([`./pages/${currentBrand}/${currentPage}/style/*.scss`])
       .pipe(sass({
           outputStyle: "compressed"
       }).on('error', sass.logError))
@@ -248,6 +254,7 @@ gulp.task('dev_', (done)=> {
     settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
+    settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
     if (process.argv.includes('--newTab')){
       newTab = process.argv[process.argv.indexOf('--newTab')+1] === "yes" ? true : false;
     }else{
@@ -389,6 +396,7 @@ gulp.task('build_', (done)=> {
     settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
+    settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
     startBuild();
   }else{
     inquirer.prompt(questions_build).then((answers) => {

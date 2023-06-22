@@ -9,17 +9,14 @@ function ct_wow__search__download_script(url,name){
   document.body.appendChild(script);
 }
 function ct_wow__search__download_scripts(){
-  ct_wow__search__download_script('./json/data.js','data');
-  ct_wow__search__download_script('./js/main.min.js','core');
-  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.js','data');
-  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
+  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.min.js','data');
+  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
 } 
 
 function ct_wow__search__download_style(){
 
   var ct_linkforCSSfile = document.createElement("link");
-  // ct_linkforCSSfile.href = 'https://media.sunglasshut.com/2023/utility/WOW/search/style/main.min.css';
-  ct_linkforCSSfile.href = './style/main.min.css';
+  ct_linkforCSSfile.href = 'https://media.sunglasshut.com/2023/utility/WOW/search/style/main.min.css';
   ct_linkforCSSfile.type = 'text/css';
   ct_linkforCSSfile.rel = 'stylesheet';
   document.body.appendChild(ct_linkforCSSfile);
@@ -36,7 +33,7 @@ window.ct_wow__search = {
   inputManagement:{},
   config:{
     selector:'body',
-    openingElem:'.ct_cta.ct_cta__black'
+    openingElem:'#heroBanner'
   },
   initTemplate:'',
   template:{},
@@ -78,6 +75,7 @@ window.ct_wow__search.start = function(e){
   let this_ = this;
   this_.style.pointerEvents = 'none';
   if (!document.querySelector('#ct_wow__search') && window.ct_wow__search.init === false){
+    console.log('MONETATE INJECT SEARCH')
     window.ct_wow__search.init = true;
     ct_wow__search__download_style();
     window.ct_wow__search.data.storeInfo.lang = window.wcs_config ? wcs_config.locale.toLowerCase().replace('_','-'):undefined;
@@ -86,6 +84,7 @@ window.ct_wow__search.start = function(e){
     div.id = "ct_wow__search__container";
     div.innerHTML= window.ct_wow__search.initTemplate;
     document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
+    
     ct_wow__search__download_scripts();
     setTimeout(function(){
       this_.style.pointerEvents = 'all';

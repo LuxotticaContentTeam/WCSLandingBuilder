@@ -33,11 +33,14 @@ window.ct_wow__search.structure = {
     coordinates:[],
   },
   init: function(reopen){
+    window.ct_wow__search.opening = true;
     customLog('WOW SEARCH INIT');
+
     storeInfo.getInfo();
     
     if (!reopen){
       this.container = document.querySelector('#ct_wow__search');
+      this.container.classList.add('ct_active');
       this.setCloseHandler();
       this.prod_list_container = document.querySelector('.ct_wow__search__products_list');
       if (this.device === 'D'){
@@ -63,8 +66,8 @@ window.ct_wow__search.structure = {
     // if (this.device === "M"){
     //   this.zoomHandler()
     // }
-   
     
+    window.ct_wow__search.opening = false;
   },
   calcHeight:function(){
     customLog('Calc Height')
@@ -376,7 +379,7 @@ window.ct_wow__search.structure = {
   // },
  
   setCloseHandler:function(){
-    this.container.querySelector('#ct_wow__search__close').addEventListener('click',()=>{
+    document.querySelector('#ct_wow__search__close').addEventListener('click',()=>{
       this.container.classList.remove('ct_in');
       document.body.style.overflow = 'auto'
       //reset structure
@@ -681,16 +684,25 @@ window.ct_wow__search.inputManagement = {
 }
 
 if (!window.ct_wow__search.structure?.container){
-  let div = document.createElement('div')
-  div.id = "ct_wow__search__container";
-  if(!window.ct_wow__search.template){
-
-  }else{
-    div.innerHTML= window.ct_wow__search.template;
-    document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
-   
+ 
+  if(window.ct_wow__search.template){
+    document.querySelector('#ct_wow__search').innerHTML+= window.ct_wow__search.template;
     window.ct_wow__search.structure.init();
-
+  }else{
+    var timeout_ = 0;
+    var ct_wow__search_interval = setInterval(()=>{
+      if(window.ct_wow__search.template){
+        document.querySelector('#ct_wow__search').innerHTML+= window.ct_wow__search.template;
+        window.ct_wow__search.structure.init();
+        clearInterval(ct_wow__search_interval)
+      }else{
+        timeout_+=200;
+        if (timeout_ > 5000){
+          customLog('WOW SEARCH - Search not initialized!')
+          clearInterval(ct_wow__search_interval)
+        }
+      }
+    },200)
   }
 }
 

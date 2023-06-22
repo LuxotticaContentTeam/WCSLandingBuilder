@@ -8,28 +8,32 @@ const ct_rtr__data = {
         upc: '8056597837170',
         img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597837187__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_clubmaster.svg',
-        name: 'Ray-Ban'
+        brand: "Ray-Ban",
+        name: 'Mega Clubmaster'
       },
       {
         upc: '888392601629',
         img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392601629__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Oakley'
+        brand: "Oakley",
+        name: 'Encoder Strike',
       },
       {
         upc: '8056597744430',
         img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597744430__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Prada'
+        brand:"Prada",
+        name: 'PR 13ZS'
       },
       {
         upc: '8056597895651',
         img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597895651__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Versace'
+        brand:"Versace",
+        name: 'Medusa Biggie'
       }
     ],
-    hdr: 'https://media.ray-ban.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
+    hdr: 'https://media.sunglasshut.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
     img_sx:{
       d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHnpzH8ACHYDd/HVOUQAAAAASUVORK5CYII=',
       m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHhkz38GCgDjqAEMo2HAMBoGDIMhDACVnDHATGTYawAAAABJRU5ErkJggg==' // 15:16
@@ -250,6 +254,7 @@ function ct_rtr__init(){
 
     document.querySelector('.ct_rtr__container .ct_rtr__text .ct_rtr__titles').innerHTML += `
       <div class="ct_rtr__title ${ct_rtr__active_class}" data-upc="${product.upc}">
+        <span>${product.brand}</span>
         <h2>${product.name}</h2>
       </div>
     `;

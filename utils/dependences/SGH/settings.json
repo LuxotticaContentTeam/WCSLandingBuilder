@@ -3,8 +3,12 @@
         "responsive":true,
         "desk":"./",
         "mob":"MOB/brand-us/"
+        
     },
-
+    "paths": {  
+        "devUtils":"../../../..",
+        "prodUtils":"/WCSLandingBuilder"
+    },
     "moduleLibrary":{
         "exist":false,
         "js":"/path",
@@ -12,5 +16,4 @@
         "jsDest":"/pathDest",
         "cssDest":"/pathDest"
     }
-
 }
