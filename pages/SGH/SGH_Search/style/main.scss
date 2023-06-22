@@ -30,7 +30,7 @@
     transform: translateY(100vh);
   }
   &.ct_in{
-    transform: translateY(0%);
+    transform: translateY(0%) !important;
   }
   &.ct_active{
     opacity: 1 !important;

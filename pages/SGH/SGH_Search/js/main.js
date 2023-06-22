@@ -677,16 +677,13 @@ window.ct_wow__search.inputManagement = {
   
 }
 
-if (!window.ct_wow__search.structure?.container){
  
-  if(window.ct_wow__search.template){
-    document.querySelector('#ct_wow__search').innerHTML+= window.ct_wow__search.template;
+  if(document.querySelector('#ct_wow__search')){
     window.ct_wow__search.structure.init();
   }else{
     var timeout_ = 0;
     var ct_wow__search_interval = setInterval(()=>{
-      if(window.ct_wow__search.template){
-        document.querySelector('#ct_wow__search').innerHTML+= window.ct_wow__search.template;
+      if(document.querySelector('#ct_wow__search')){
         window.ct_wow__search.structure.init();
         clearInterval(ct_wow__search_interval)
       }else{
@@ -698,6 +695,6 @@ if (!window.ct_wow__search.structure?.container){
       }
     },200)
   }
-}
+
 
 
