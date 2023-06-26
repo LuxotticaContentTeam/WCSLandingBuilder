@@ -8,6 +8,7 @@
 @import './modules/utils';
 @import './modules/loader';
 @import './modules/results';
+@import './modules/accessibility';
 
 
 #ct_wow__search{
@@ -116,7 +117,7 @@
             width: 90%;
             height: 90%;
           }
-          &:hover{
+          &:hover,&:focus{
             img{
               transform: scale(1.1);
             }

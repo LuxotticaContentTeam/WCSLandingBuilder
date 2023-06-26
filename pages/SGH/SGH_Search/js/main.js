@@ -1,3 +1,4 @@
+import { accessibility } from "./modules/accessibility";
 import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
 import { calcCoordinates, customLog, debounce, getDevice } from "./modules/utils";
@@ -13,6 +14,7 @@ window.ct_wow__search.structure = {
     missingProd:null,
     missingPos:null
   },
+  accessibility_mode: false,
   placeholders:{
     utils:{
       mainCircle:{
@@ -62,6 +64,12 @@ window.ct_wow__search.structure = {
       loader.init(1500)
     }
     window.addEventListener('resize', this.refreshPositionsDebounced);
+    this.container.addEventListener('keyup',(e)=>{
+
+      if((e.keyCode === 9 || e.which === 9) && this.accessibility_mode === false){
+        accessibility.init(true)
+      }
+    })
 
     // if (this.device === "M"){
     //   this.zoomHandler()
@@ -84,7 +92,7 @@ window.ct_wow__search.structure = {
       this.prod_list_container.innerHTML+=`
       <li class="ct_wow_search__product" data-upc="${upc}">
         <div class="ct_wow_search__product__wrap">
-          <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="X_X_WowSearch_Banner" data-description-="${upc}">
+          <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="X_X_WowSearch_Banner" data-description-="${upc}" tabindex="0">
               <div class="ct_wow_search__img_container">
                   <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
               </div>
@@ -527,11 +535,11 @@ window.ct_wow__search.inputManagement = {
     let answers="";
   
     window.ct_wow__search.data.questions.forEach((question,qindex)=>{
-      answers+=`<div class="ct_wow__search__input_answer" data-answer="${qindex}">`
+      answers+=`<div class="ct_wow__search__input_answer"  data-answer="${qindex}">`
       question.answers.forEach((answer,aindex)=>{
         answers += `
         <div class="ct_wow__search__button_wrap">
-          <button class="ct_cta ct_cta__white " data-q="${ qindex }" data-a="${aindex}">${storeInfo.getLang( answer)}</button>
+          <button class="ct_cta ct_cta__white " data-q="${ qindex }" tabindex="-1" data-a="${aindex}">${storeInfo.getLang( answer)}</button>
         </div>
         `
       })
@@ -570,7 +578,7 @@ window.ct_wow__search.inputManagement = {
   },
   updateAnswer:function(){
     if(this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active')){
-      this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active').classList.remove('ct_active')
+      this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active').classList.remove('ct_active');
     }
     this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state - 1}"]`).classList.add('ct_active')
   },

@@ -9,17 +9,17 @@ function ct_wow__search__download_script(url,name){
   document.body.appendChild(script);
 }
 function ct_wow__search__download_scripts(){
-  // ct_wow__search__download_script('./json/data.js','data');
-  // ct_wow__search__download_script('./js/main.min.js','core');
-  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.min.js','data');
-  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
+  ct_wow__search__download_script('./json/data.js','data');
+  ct_wow__search__download_script('./js/main.min.js','core');
+  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.min.js','data');
+  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
 } 
 
 function ct_wow__search__download_style(){
 
   var ct_linkforCSSfile = document.createElement("link");
-  ct_linkforCSSfile.href = 'https://media.sunglasshut.com/2023/utility/WOW/search/style/main.min.css';
-  // ct_linkforCSSfile.href = './style/main.min.css';
+  // ct_linkforCSSfile.href = 'https://media.sunglasshut.com/2023/utility/WOW/search/style/main.min.css';
+  ct_linkforCSSfile.href = './style/main.min.css';
   ct_linkforCSSfile.type = 'text/css';
   ct_linkforCSSfile.rel = 'stylesheet';
   document.body.appendChild(ct_linkforCSSfile);
@@ -36,7 +36,7 @@ window.ct_wow__search = {
   inputManagement:{},
   config:{
     selector:'body',
-    openingElem:'#heroBanner'
+    openingElem:'.ct_cta'
   },
   template:'',
   data:{
