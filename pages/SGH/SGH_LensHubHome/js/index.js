@@ -1,6 +1,6 @@
-import { lazyLo } from "./lazy";
-import { navManger } from "./nav";
-import { videoManager } from "./video";
+import { lazyLo } from "./modules/lazy";
+import { navManger } from "./modules/nav";
+import { videoManager } from "./modules/video";
 
 
 function currentDevice() {
