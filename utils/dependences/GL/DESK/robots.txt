@@ -1,0 +1,15 @@
+User-agent: *
+
+Disallow: /cart*
+Disallow: /exclusive-deals*
+Disallow: /Logoff?*
+Disallow: /krypto
+Disallow: /myAccount?*
+Disallow: /ProductDisplay?*
+Disallow: /AjaxLoadMoreCategoryDisplay?*
+Disallow: /CategoryDisplay?*
+Disallow: /exclusive-offer*
+Disallow: /gl-us/under-200
+Disallow: /gl-us/promo
+
+sitemap: https://www.glasses.com/sitemap.xml

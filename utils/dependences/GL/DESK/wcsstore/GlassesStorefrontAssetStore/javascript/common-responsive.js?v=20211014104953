@@ -1,0 +1,882 @@
+var evaluatingScrollingEvent = true;
+
+const isMobile = function() {
+    if ($(window).width() <= 1024) {
+        return true;
+    }
+};
+
+$(document).ready(function() {
+    let header_nav_items = $(".header-main-nav .nav-element");
+    const brands_container = $(".brands-category-container .brands-container");
+    const scroll_left = $(".brands-category-container > .scroll-left");
+    const scroll_right = $(".brands-category-container > .scroll-right");
+    
+    /* Remove DDM */
+    const removeActiveContainer = function() {
+        let active_container = $('.active-nav-container');
+        $(active_container).hide();
+        $(active_container).removeClass('active-nav-container');
+    };
+
+    /* Removes DDM if user leaves header with pointer */
+    $('#header_wrapper').on('mouseleave', removeActiveContainer);
+    
+    /* Removes DDM if user hovers menu items */
+    $('.bb-global-slider-container').on('hover', removeActiveContainer);
+    $('.header-logo').on('hover', removeActiveContainer);
+    $('.header-main-buttons').on('hover', removeActiveContainer);
+
+    function hasScroll(element, direction) {
+        if (!element) return false;
+        if (direction == 'vertical') {
+            return element[0].scrollHeight > brands_container.innerHeight();
+        } else if (direction == 'horizontal') {
+            return element[0].scrollWidth > brands_container.innerWidth();
+        }
+        return false;
+    };
+
+    /* Hover event on DDM */
+    const onHoverStartItem = function(e) {
+        if (isMobile()) {
+            e.preventDefault();
+        }
+
+        /* If there's an active DDM, replace it */
+        removeActiveContainer();
+        
+        let target_category = null;
+        if(e.target.tagName.toLowerCase() === 'a') {
+            target_category = e.target.dataset["description"];
+        } else {
+            target_category = $(e.target).find('a')[0].dataset["description"];
+        }
+
+        if (target_category == "undefined" || target_category == null) {
+            console.error("Cannot find target category.");
+            return;
+        }
+
+        let main_nav_container = $('.'+target_category+'-category-container');
+        if (!main_nav_container) return;
+
+        if(!isMobile()) {
+            main_nav_container.on("mouseleave", onHoverEndItem);
+        }
+
+        main_nav_container.css("display", "flex");
+        main_nav_container.addClass('active-nav-container');
+        if (target_category == 'brands') initBrandsContainer();
+    };
+
+    const onHoverEndItem = function() {
+        removeActiveContainer();
+    };
+
+    header_nav_items.each(function(_, item) {
+        if (isMobile()) $(item).click(onHoverStartItem);
+        else $(item).hover(onHoverStartItem);
+    });
+
+    $(".mobile-close-nav-list-btn").on('click', function() {
+        removeActiveContainer();
+    });
+
+    const initBrandsContainer = function() {
+        if (!hasScroll(brands_container, 'horizontal') || isMobile()) {
+            scroll_left.hide();
+            scroll_right.hide();
+        } else {
+            scroll_left.on("click", function() {
+                brands_container.stop().animate({
+                    scrollLeft: '-=300'
+                }, 500);
+            });
+            scroll_right.on("click", function() {
+                brands_container.stop().animate({
+                    scrollLeft: '+=300'
+                }, 500);
+            });
+        }
+    };
+
+    $('.mobile-list-icon.list-icon-container').on('click', function() {
+        $(".header-menu-container .header-main-nav").toggleClass("display-flex");
+        removeActiveContainer();
+        $(this).toggleClass("cross");
+        $("body").toggleClass("stop-scrolling");
+        $("body").toggleClass("mobile-menu-open");
+        $('.header-strip-global-container').toggleClass('hidden');
+        glHeaderGlobalStripeUnSlick();
+        glHeaderGlobalStripeSlick();
+    });
+    
+    if(!isMobile())
+    	$('.nm-content').removeClass("tps_bg-opale3");
+    
+    $('.nm-content').on('click', function() {
+    	if(isMobile())
+    		$('.nm-content').removeClass("tps_bg-opale3");
+    }); 
+
+    glHeaderGlobalStripeSlick();
+
+    $('#x-x-telecomando-overlay').on("click", toggleTelecomando);
+    $('.x-x-telecomando-container .x-x-telecomando-content .close').on("click", toggleTelecomando);
+
+    // Footer
+    var arrowsContainers = $('.footer-top-container .column .column-title');
+    arrowsContainers.each(function(_, el) {
+        $(el).click(function(ev) {
+            if ($(window).width() <= 1024) {
+                var target = ev.target;
+                var id = target.dataset.id;
+                var list_items = $('ul.'+id+'-items');
+                list_items.parent().slideToggle(500);
+                $('.mobile-arrow', this).toggleClass("open");
+            }
+        });
+    });
+    $(document).ready(function() {
+        $("#email-sign-up-form input[name='langId']").val(constants.ajaxParams["langId"]);
+        $("#email-sign-up-form input[name='storeId']").val(constants.ajaxParams["storeId"]);
+        $("#email-sign-up-form input[name^='lcGeneralEmailOptIn']").attr("name", "lcGeneralEmailOptIn_" + constants.ajaxParams["storeId"] + "_r_1");
+        $("#email-sign-up-form input[name^='ageCheck']").attr("name", "ageCheck_" + constants.ajaxParams["storeId"] + "_r_1");
+        $("#email-sign-up-form input[name='email']").attr("placeholder", $(".email-sign-up-form.emailVal").val());
+    });
+
+    /* Footer copy button inside newsletter form */
+    $('.fn-copy-btn, .fn-copy-btn-mobile').click(function (e) { 
+        e.preventDefault();
+        const el = document.createElement('textarea');
+        el.value = $('#fn-code').text();
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        $('.footer-newsletter-tooltip').addClass('show-tooltip');
+        setTimeout(() => {
+            $('.footer-newsletter-tooltip').removeClass('show-tooltip');
+        }, 2000);
+    });
+
+    /* Update wishlist icon */
+    window.addEventListener('wishListReady', function (e) {
+        var wishListSKUs = $('#wishListSKUs').val();
+        if (wishListSKUs && wishListSKUs != "") {
+            var splittedWishListSKUs = wishListSKUs.split(",");
+            var countWishListItems = splittedWishListSKUs.length - 1;
+            $('.favorites-icon-circle').addClass("favorites-not-empty");
+            $('.favorites-icon-circle').text(countWishListItems);
+        } else {
+            $('.favorites-icon-circle').removeClass("favorites-not-empty");
+        }
+    }, false);  
+});
+
+function toggleTelecomando() {
+    if ($(".x-x-telecomando-container .x-x-telecomando-content").css("display") === "flex") {
+        $(".x-x-telecomando-container .x-x-telecomando-content").css("display", "none");
+        $('html').removeClass('noScroll');
+    } else {
+        $(".x-x-telecomando-container .x-x-telecomando-content").css("display", "flex");
+        $('html').addClass('noScroll');
+    }
+    $("#x-x-telecomando-overlay").toggle()
+}
+
+//READY
+$(document).ready(function(){
+
+    var filterBar = $('#filterBar');
+    
+    var espotPlpDashButtons = $('.espot-plp-dashbuttons');
+    var offsetDashButtons = 0;
+    if (espotPlpDashButtons != "undefined" && espotPlpDashButtons.length > 0) {
+        offsetDashButtons = espotPlpDashButtons.offset().top;
+    }
+
+    var offerBar = $('.header-strip-global-container.stick');
+
+    function windowOnScrollCallback() {
+        var windowScrollTop = $(window).scrollTop();
+
+        filterBar = $('#filterBar');
+        espotPlpDashButtons = $('.espot-plp-dashbuttons');
+        offerBar = $('.header-strip-global-container.stick');
+
+        if (windowScrollTop == windowLastScrollTop || $("body").hasClass("filter-overlay-active")) {
+            return;
+        }
+
+        var headerHeight = 0;
+        var filterBarHeight = 0;
+        if(filterBar != "undefined" && filterBar.length > 0) {
+            filterBarHeight = filterBar.outerHeight(true);
+            if (filterBarHeight < 5)
+                filterBarHeight = 0;
+        }
+
+        var offerBarHeight = 0;
+        if (offerBar != "undefined" && offerBar.length > 0) {
+            offerBarHeight = offerBar.outerHeight(true);
+        }
+
+        scrollDownDirection = windowScrollTop > windowLastScrollTop;
+        headerHeight = $('#header_wrapper').outerHeight(true);
+        
+        if (!scrollDownDirection) { /* Scroll up */
+            if (((scrolledDown - windowScrollTop) >= 100 && windowScrollTop > 90) || windowScrollTop <= 90) {
+                $('body').addClass('sticky-inversion');
+                $('body').removeClass('inverse-translate');
+                filterBar.css('transform', '');
+                $('#header_wrapper').removeClass('inverse-translate');
+                if (espotPlpDashButtons.hasClass('sticky-dashbuttons-bar')) {
+                    espotPlpDashButtons.css('transform', 'translateY(0)');
+                }
+            }
+        } else { /* Scroll down */
+            $('body').removeClass('sticky-inversion');
+            if (windowScrollTop > 90) {
+                $('body').addClass('inverse-translate');
+                filterBar.css('transform', 'translateY(-'+headerHeight+'px)');
+                if (espotPlpDashButtons.hasClass('sticky-dashbuttons-bar')) {
+                    espotPlpDashButtons.css('transform', 'translateY(-'+headerHeight+'px)');
+                }
+            }
+            scrolledDown = windowScrollTop;
+        }
+
+        if ((window.pageYOffset >= offsetDashButtons - filterBarHeight - headerHeight - offerBarHeight) && offsetDashButtons != 0 && filterBarHeight != 0) {
+            if (!espotPlpDashButtons.hasClass('sticky-dashbuttons-bar')) {
+                stickyTopVal = parseInt(headerHeight) + parseInt(filterBarHeight) + parseInt(offerBarHeight);
+                espotPlpDashButtons.addClass('sticky-dashbuttons-bar');
+                $('body').addClass('sticky-dashbuttons');
+                espotPlpDashButtons.css('transform', 'translateY(-'+headerHeight+'px)');
+                espotPlpDashButtons.css('top', stickyTopVal + 'px');
+            }
+        } else {
+            espotPlpDashButtons.removeClass('sticky-dashbuttons-bar');
+            $('body').removeClass('sticky-dashbuttons');
+            espotPlpDashButtons.css('transform', 'translateY(0)');
+        }
+
+        windowLastScrollTop = windowScrollTop;
+        
+        // GLDP-5014 - Fix VM box position
+        if(typeof moveVMOverProduct == 'function' && $(".detail_box div").find(".c-pdp-det__pres-img").length > 0) {
+	        moveVMOverProduct($(".detail_box div"));
+        }
+    }
+
+    var windowLastScrollTop = 0;
+    var scrolledDown = 0;
+    
+    $(document).scroll(function() {
+        if(!evaluatingScrollingEvent){
+            evaluatingScrollingEvent = true;
+            windowOnScrollCallback();
+            evaluatingScrollingEvent = false;
+        };
+    });
+    
+	if ($('.gl-slider-tags').length){
+	    setTimeout(function(){
+	        $('.gl-dash-menu .gl-row .gl-slider-tags').css('opacity','1');
+	    },1000)
+	  
+		$('.gl-item').click(function(){
+			$('.gl-item').css({
+				'outline': 'none'
+			})
+		});
+		
+		updateDashButtonsStatus();
+	}
+	
+	let gender =$('h1.category-title-page').text().toLocaleLowerCase();
+	let currentHref;
+    if (gender.indexOf('women') > -1){
+        $('.gl-tag.gender').each(function(){
+            currentHref = $(this).find('a').attr("href");
+            currentHref = currentHref + '&facet=ads_f28505_ntk_cs%3A"Women"';
+            $(this).find('a').attr("href",currentHref);
+        });
+    } else if (gender.indexOf('men') > -1){
+        $('.gl-tag.gender').each(function(){
+            currentHref = $(this).find('a').attr("href");
+            currentHref = currentHref + '&facet=ads_f28505_ntk_cs%3A"Men"';
+            $(this).find('a').attr("href",currentHref);
+        });
+    }  
+
+    /* i3Chat - START */
+    var checkAvailableChatBox = 1; // in second
+
+    /*
+	 * No 'Access-Control-Allow-Origin - CROSS SITE ORIGIN error if not call
+	 * from www.glasses.com !!!!
+	 */
+    var urlForCheckAgentGlassesChat = urlCheckAgentGlassesChat; //'https://api.luxnacc.com/Nacc/Organization/Schedules/7/ScheduleStatus';
+    
+    // appair after 10 seconds page loaded
+    setTimeout(function() {
+    	if (typeof isLandingMobilePdp != 'undefined' && isLandingMobilePdp === true) {
+            return;
+        }
+        $.get(urlForCheckAgentGlassesChat, {}, function (data) {
+            if (data.isScheduleOpen == true && data.isScheduleHoopExecption == false ) {
+				initWebChat();
+            }
+        }).fail(function(){
+            initWebChat();
+        });
+        
+    }, checkAvailableChatBox * 150);
+    /* i3Chat - END */
+    
+});
+
+var glassesTestEnvs = ['localhost', 'uat2stage.glasses.com', 'uat2.glasses.com'];
+
+function initWebChat(){
+	var webChatKey = 'eyJpZCI6IkdsYXNzZXNQcm9kIiwiaWNTZXJ2ZXJzIjpbImluZDE1OGdpYzA3NS5jYWFzLmxvY2FsIiwiZGVuMTU4Z2ljMDc1LmNhYXMubG9jYWwiXSwicmV2ZXJzZVByb3h5VXJsIjoiaHR0cHM6Ly9pdy0wMTctaW5kLnVzLmNhYXMuaG9zdGVkLWluaW4uY29tL0x1eG90dGljYVJldGFpbE5BL2N1c3RvbWljd3MvIiwidXNlQ2FhUyI6dHJ1ZSwiY2Fhc1VybCI6Imh0dHBzOi8vaXctMDE3LWluZC51cy5jYWFzLmhvc3RlZC1pbmluLmNvbS9MdXhvdHRpY2FSZXRhaWxOQS8iLCJ1c2VIdHRwcyI6dHJ1ZX0=';
+	try {
+		if (glassesTestEnvs.includes(location.hostname)){
+			webChatKey = 'eyJpZCI6IkdsYXNzZXNEZXYiLCJpY1NlcnZlcnMiOlsiaW5kMTU4Z2ljMTk3LmNhYXMubG9jYWwiXSwicmV2ZXJzZVByb3h5VXJsIjoiaHR0cHM6Ly9pdy0wMTctaW5kLnVzLmNhYXMuaG9zdGVkLWluaW4uY29tL0x1eG90dGljYVJldGFpbE5BRGV2L2N1c3RvbWljd3MvIiwidXNlQ2FhUyI6dHJ1ZSwiY2Fhc1VybCI6Imh0dHBzOi8vaXctMDE3LWluZC51cy5jYWFzLmhvc3RlZC1pbmluLmNvbS9MdXhvdHRpY2FSZXRhaWxOQURldi8iLCJ1c2VIdHRwcyI6dHJ1ZX0=';
+			console.log("UAT env");
+		}
+	} catch (err) {
+		console.error(err);
+	}
+	
+    var script = document.createElement('script');
+    script.setAttribute("src", "https://apps.mypurecloud.com/pureconnect-widgets");
+    script.setAttribute("pureconnect-widgets-data", webChatKey);
+    document.body.append(script);
+    checkAvailableAgentAfterCheckAjax = 1;
+
+    $('body').on('click', '.cx-widget.cx-side-button .cx-icon', function () {
+        tealium_data2track.push({
+            id: 'Click',
+            data_element_id: "X_X_ChatBot_Open",
+            data_description: "ChatWithUs"
+        });
+        
+        // Deny analytics default call on alert buttons click
+        setTimeout(function(){ 
+        	$('.cx-widget .cx-alert.cx-chat-close .cx-button-group button').attr('data-analytics_available_call', '0');
+            $('.cx-widget .cx-icon .cx-button-close').attr('data-analytics_available_call', '0');
+            $('.cx-widget .cx-button-group.cx-buttons-window-control').attr('data-analytics_available_call', '0');
+        }, 500);        
+    });
+
+    $('body').on('click', '.cx-widget.cx-minimized .cx-buttons-window-control .cx-button-minimize', function () {
+        tealium_data2track.push({
+            id: 'Click',
+            data_element_id: "X_X_ChatBot_Open",
+            data_description: "ChatWithUs"
+        });
+    });
+
+    $('body').on('click', '.cx-widget.cx-close.cx-minimize .cx-buttons-window-control .cx-button-close', function () {
+        tealium_data2track.push({
+            id: 'Click',
+            data_element_id: "X_X_ChatBot_Close",
+            data_description: "ChatWithUs"
+        });
+    });
+
+    $('body').on('click', '.cx-submit.cx-btn.cx-btn-primary', function () {
+        tealium_data2track.push({
+            id: 'Click',
+            data_element_id: "X_X_ChatBot_Open",
+            data_description: "ChatWithUs"
+        });
+    });
+}
+
+ /* STICKY HEADER */
+ $(window).load(function(){
+    evaluatingScrollingEvent=false;
+ });
+
+function glHeaderGlobalStripeUnSlick() {
+    try {
+        $('.header-global-stripe').slick("unslick");
+    } catch(err) {
+        console.log("Cannot unslick header-global-stripe");
+    }
+}
+
+function glHeaderGlobalStripeSlick() {
+    $('.header-global-stripe').slick({
+        infinite: true,
+        prevArrow: $('.header-strip-global-container .scroll-left'),
+        nextArrow: $('.header-strip-global-container .scroll-right')
+    });
+}
+
+function updateDashButtonsStatus(title){
+	if (title == null)
+		title = $('h1').eq(0).text();
+	if (title == null)
+		title = $('h1').text();
+	title = (''+title).trim();	
+	$('.gl-dash-title').text(title);
+	
+	activateCurrentDashButton();
+	preserveFiltersInDashButtons();
+}
+
+function activateCurrentDashButton(){
+	var currentUrlPath = window.location.pathname;
+	$('.gl-slider-tags .gl-tag a').removeClass('active');
+	$('.gl-slider-tags .gl-tag').each(function(e){
+        var anchorUrl = $(this).find('a').attr("href")+"";
+        anchorUrl = anchorUrl.split("?")[0];
+        if (anchorUrl == currentUrlPath) {
+        	$(this).find('a').addClass("active");
+        }
+    });
+}
+
+function preserveFiltersInDashButtons(){
+	var appliedFilters = $('#selectedFacetsToURL').val();
+	if (appliedFilters != null && appliedFilters != ''){
+        appliedFilters = appliedFilters.split('facet=');
+        var filtersToPreserve = [];
+        appliedFilters.forEach(function(item){
+            if (item.indexOf(facetGender) > -1 || item.indexOf(facetGlassesType) > -1)
+                filtersToPreserve.push('facet='+item);
+        });
+        filtersToPreserve = filtersToPreserve.join();
+		$('.gl-slider-tags .gl-tag:not(".no-filters")').each(function(e){
+	        var anchorUrl = $(this).find('a').attr("href");
+	        if ((anchorUrl+"").indexOf('?') > -1)
+	        	anchorUrl = anchorUrl.substr(0, anchorUrl.indexOf('?'));
+	        if (filtersToPreserve.charAt(0) != '?')
+                filtersToPreserve = '?' + filtersToPreserve;
+	        $(this).find('a').attr("href", anchorUrl + filtersToPreserve);
+	    });
+	}
+}
+
+/* Update footer newsletter box */
+updateNewsletterBox = function(options) {
+    
+    /* If coming from registration callback, update the cookie */
+    if (options && options.calledFrom == 'registration' && newsletterRewardCode && newsletterRewardCode.length) {
+        document.cookie = "newsletter-box-success=" + newsletterRewardCode + "; path=/";
+    }
+
+    /* Update footer box reading reward code from the response of a service, and save it to a cookie */
+    if (options && options.responseData) {
+        var responseData = options.responseData;
+        if (responseData['rewardCode'] != undefined && responseData['rewardCode'] != null && responseData['rewardCode'].length > 0) {
+            $('#fn-code').text(responseData["rewardCode"]);
+            document.cookie = "newsletter-box-success=" + responseData["rewardCode"] + "; path=/";
+        }
+    }
+
+    /* Update footer box reading reward code saved in a cookie */
+    if (options && options.readRewardFromCookie) {
+        if ($.cookie('newsletter-box-success') && $.cookie('newsletter-box-success').length) {
+            var rewardCode = $.cookie('newsletter-box-success');
+            $('#fn-code').text(rewardCode);
+        }
+    }
+
+    $('.footer-top-container .form-container').addClass("success");
+    
+    /* Set cookie */
+    nmSetCookie();
+}
+
+/* Newsletter Modal Functions - START */
+nmSubmitHandler = function () {
+    var nmSubmitURL = getAbsoluteURL() + 'EmailSubscription';
+    var user = window.userDetails;
+    var nmForm = $('#nm-form');
+    
+    $('#nm-form #nm-button').attr('disabled', true);
+    $('#nm-form #nm-button .fa-spinner').css('display', 'inline-block');
+    
+    $.ajax({
+        url: nmSubmitURL,
+        data: nmForm.serialize(),
+        dataType: 'json',
+        type: 'post',
+        complete: function(response){        	
+
+            $('#nm-form #nm-button').attr('disabled', false);
+            $('#nm-form #nm-button .fa-spinner').hide();
+        	
+            /* Sets the eaactivity cookie */
+            document.cookie = "eaactivity=true; path=/";
+            
+            try{
+                var responseData = $.parseJSON(response.responseText);
+                if(responseData['statusCode'] == '0' || responseData['statusCode'] == '200' || responseData['status'] == '0' || responseData['status'] == '200'){
+                    
+                    nmSuccessHandler(responseData);
+
+                    //Analytics
+                    try{
+                        var obj = {
+                            id : 'SignupForm',
+                            User_Email_MD5 : user.getEmail_MD5(), //@Blue
+                            User_EmailOptin: user.getEmailOptin()
+                        };
+                        
+                        tealium_data2track.push(obj);
+                    }catch(err){
+                        var obj = {
+                            id : 'Account-Create-Tentative',
+                            Error_Source : 'User', 
+                            Error_Code : 'SignupForm - Error in push'
+                        };
+                        tealium_data2track.push(obj);
+                    }
+                    
+                }else if( (responseData['statusCode'] == '100' || responseData['statusCode'] == '300' || responseData['status'] == '100' || responseData['status'] == '300') && nmForm.find('[name=showRegister]').val() == 'true'){
+                    nmAlreadySubscribedHandler();
+                }else{
+                    nmErrorHandler();						
+                }
+                
+            }catch(err){
+                nmErrorHandler();
+                console.log(err);
+            }
+        }
+    });
+}
+
+nmSuccessHandler = function (responseData) {
+    /* Update modal status */
+    $('.nm-content').addClass("success");
+
+    /* Update footer status */
+    updateNewsletterBox({responseData: responseData, calledFrom: 'newslettermodal'});
+}
+
+nmAlreadySubscribedHandler = function () {
+    $('.nm-error').text("This email is already in use.");
+    //Analytics
+    try{
+        var obj = {
+            id : 'Account-Create-Tentative',
+            Error_Source : 'User', 
+            Error_Code : 'SignupForm - User already subscribed'
+        };
+        tealium_data2track.push(obj);
+    }catch(err){
+        console.log("Error in tealium Account-Create-Tentative " + err);
+    }
+}
+
+nmErrorHandler = function () {
+    $('.nm-error').text(constants.error.ajax);
+    //Analytics
+    try{
+        var obj = {
+            id : 'Account-Create-Tentative',
+            Error_Source : 'User', 
+            Error_Code : 'SignupForm - Undefined error'
+        };
+        tealium_data2track.push(obj);
+    }catch(err){
+        console.log("Error in tealium Account-Create-Tentative " + err);
+    }
+}
+
+/* Setup newsletter modal form */
+nmFormSetup = function() {
+    $("#nm-form input[name='langId']").val(constants.ajaxParams["langId"]);
+    $("#nm-form input[name='storeId']").val(constants.ajaxParams["storeId"]);
+    $("#nm-form input[name^='lcGeneralEmailOptIn']").attr("name", "lcGeneralEmailOptIn_" + constants.ajaxParams["storeId"] + "_r_1");
+    $("#nm-form input[name^='ageCheck']").attr("name", "ageCheck_" + constants.ajaxParams["storeId"] + "_r_1");
+
+    $("#nm-icon-x").mousedown(function (e) {
+    	if(isMobile())
+    		$('.nm-content').addClass("tps_bg-opale3");
+        var nmModal = $('#newsletter-modal');
+        
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (nmModal.hasClass("mobile-expanded")) {
+            nmModal.removeClass('mobile-expanded');
+        } else {
+            nmModalHide();
+        }
+    });
+}
+
+/* Set a cookie when newsletter modal is dismissed */
+nmSetCookie = function() {
+    var nmExpirationDate = new Date();
+    nmExpirationDate.setTime(nmExpirationDate.getTime() + parseInt(newsletterModalCookieInterval));
+    
+    $.cookie('newsletter-dismissed', 'true', {
+        expires: nmExpirationDate
+    });
+}
+
+nmModalShowBasedOnConditions = function() {
+    if (typeof isLandingMobilePdp != 'undefined' && isLandingMobilePdp === true) {
+        return;
+    }
+    if (!$.cookie('newsletter-dismissed') && !$.cookie('newsletter-box-success')) {
+        if (constants.ajaxParams['loggedIn']) {
+            if (newsletterModalShowForRegisteredUsers == "true" && constants.ajaxParams['emailOptinStatus'] != "true") {
+                nmModalShow();
+            }
+        } else {
+            nmModalShow();
+        }
+    }
+}
+
+/* Show newsletter modal */
+nmModalShow = function () {
+    var nmModal = $('#newsletter-modal');
+
+    if (!nmModal.length) {
+        return;
+    }
+
+    /* Do not open the newsletter modal on the crawler version of the website */
+    if (window.location.href.indexOf("?crawler=true") > -1 || window.location.href.indexOf("&crawler=true") > -1) {
+        return;
+    }
+
+    if (!isMobile()) {
+        $("html").addClass("noScroll-menu");
+    } else {
+        $("body").addClass("has-promo-overlay");
+    }
+    nmModal.addClass('open')
+    setTimeout(function () {
+        nmModal.addClass('translate');
+    }, 250);
+
+}
+
+/* Hide newsletter modal */
+nmModalHide = function () {
+    var nmModal = $('#newsletter-modal');
+
+    $("html").removeClass("noScroll-menu");
+    $("body").removeClass("has-promo-overlay");
+    nmModal.removeClass('translate');
+    setTimeout(function () {
+        nmModal.removeClass('open');
+    }, 250);
+
+    /* Set cookie */
+    nmSetCookie();
+}
+
+$(document).ready(function () {
+    var nmModal = $('#newsletter-modal');
+    var nmForm = $('#nm-form');
+
+    nmFormSetup();
+
+    /* If mobile, set the data-element-id on the newsletter modal */
+    if (isMobile()) {
+        nmModal.attr('data-element-id', 'X_HP_OverlayRWD_CTA');
+    }
+
+    nmModal.mousedown(function (e) {
+        if (isMobile()) {        
+            $(this).addClass("mobile-expanded");
+        } else if (e.target === this) { 
+            /* When clicking on the grey background area of the desktop newsletter modal */
+            nmModalHide();
+        }
+    });
+    
+    nmForm.validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            email: MessageHelper.messages["ERROR_EMAIL_EMPTY_FOOTER"]
+        },
+        submitHandler: function (form) {
+            nmSubmitHandler();
+        },
+        errorPlacement: function (error, element) {
+            $('.nm-error').empty();
+            $('.nm-error').append(error);
+        },
+    });
+
+    /* Update newsletter box in the footer based on cookie */
+    if ($.cookie('newsletter-box-success') && $.cookie('newsletter-box-success').length) {
+        updateNewsletterBox({readRewardFromCookie: true, calledFrom: 'onready'});
+    }
+    
+});
+
+/* Newsletter Modal Functions - END */
+
+/* Early Access Page Functions - START */
+
+/* Setup early access page form */
+earlyAccessFormSetup = function () {
+    var EAForm = $('#ea-form');
+
+    $("#ea-form input[name='langId']").val(constants.ajaxParams["langId"]);
+    $("#ea-form input[name='storeId']").val(constants.ajaxParams["storeId"]);
+    $("#ea-form input[name^='lcGeneralEmailOptIn']").attr("name", "lcGeneralEmailOptIn_" + constants.ajaxParams["storeId"] + "_r_1");
+    $("#ea-form input[name^='ageCheck']").attr("name", "ageCheck_" + constants.ajaxParams["storeId"] + "_r_1");
+
+    $("#ea-form input[name='dateOfBirth']").mask('99/99/9999');
+
+    /* Validate dateOfBirth mm/dd/yyyy */
+    $.validator.addMethod("EAFormDateOfBirthValidator", function (value, element) {
+        var validationStatus = true;
+        var today = new Date();
+
+        var dateComplete = $("#ea-form input[name='dateOfBirth']").val();
+        var dateSplit = dateComplete.split("/");
+        var month = dateSplit[0];
+        var day = dateSplit[1];
+        var year = dateSplit[2];
+
+        if (isNaN(year) || isNaN(month) || isNaN(day)) {
+            validationStatus = false;
+        } else {
+            var date = new Date(year, month - 1, day);
+            while (year.charAt(0) === '0') {
+                year = year.substr(1);
+            }
+
+            if (date >= today || year.length != 4 || (date.getFullYear() != year || date.getMonth() != (month - 1) || date.getDate() != day)) {
+                validationStatus = false;
+            }
+        }
+
+        return validationStatus;
+    });
+
+    EAForm.validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            firstName: {
+                required: true
+            },
+            lastName: {
+                required: true
+            },
+            dateOfBirth: {
+                required: true,
+                EAFormDateOfBirthValidator: true,
+            },
+
+        },
+        messages: {
+            email: "Please enter your email address",
+            firstName: "Please enter your first name",
+            lastName: "Please enter your last name",
+            dateOfBirth: "Please enter a date of birth",
+        },
+        submitHandler: function (form) {
+            earlyAccessFormSubmitHandler();
+        },
+        errorClass: 'required',
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            if ($(element).hasClass('selectBox')) {
+                var selectID = $(element).data('select');
+                if ($('#'+selectID).length)
+                    $('#'+selectID).closest('.select_container_gl').css('border-bottom-color', '#d0021b');		
+            } else {  
+                $(element).next().show();
+                var line = $(element).parent().next();
+                line.addClass('error-red');
+                $(line).after(error);
+            }
+        },
+    });
+
+    // If you go back after submitting the module, this function triggers the label-on-top behaviour
+    $( ".ea-form-visible-container .input-x-container input" ).change(function(){
+        if($(this).val() !== ''){
+			$(this).prev().addClass('label-on-top');
+			$(this).parent().addClass('label-height');
+		}
+    })
+}
+
+/* Submit event on early access page form */
+earlyAccessFormSubmitHandler = function () {
+    var EASubmitURL = getAbsoluteURL() + 'EarlyAccessSubscription';
+    var EAForm = $('#ea-form');
+
+    $.ajax({
+        url: EASubmitURL,
+        data: EAForm.serialize(),
+        dataType: 'json',
+        type: 'post',
+        complete: function (response) {
+
+            try {
+                var responseData = $.parseJSON(response.responseText);
+                if (responseData['statusCode'] == '0' || responseData['statusCode'] == '200' || responseData['status'] == '0' || responseData['status'] == '200') {
+                    /* Sets the eaactivity cookie */
+                    document.cookie = "eaactivity=true; path=/";
+
+                    earlyAccessFormSuccessHandler(responseData);
+                } else if ((responseData['statusCode'] == '100' || responseData['statusCode'] == '300' || responseData['status'] == '100' || responseData['status'] == '300') && EAForm.find('[name=showRegister]').val() == 'true') {
+                    /* Sets the eaactivity cookie */
+                    document.cookie = "eaactivity=true; path=/";
+
+                    earlyAccessFormAlreadySubscribedHandler();
+                } else {
+                    earlyAccessFormErrorHandler(responseData);
+                }
+
+            } catch (err) {
+                earlyAccessFormErrorHandler(null);
+                console.log(err);
+            }
+        }
+    });
+}
+
+earlyAccessFormSuccessHandler = function () {
+	$('.ea-container').addClass("success");
+}
+
+earlyAccessFormAlreadySubscribedHandler = function () {
+    /* Treat already subscribed like a success */
+    earlyAccessFormSuccessHandler();
+}
+
+earlyAccessFormErrorHandler = function (responseData) {
+    var EAForm = $('#ea-form');
+    if(responseData){
+    	$('.ea-error').text(responseData.message);
+    }
+    else{
+    	$('.ea-error').text("Generic error message");
+    }
+    	
+}
+
+$(document).ready(function () {
+    earlyAccessFormSetup();
+});
+
+/* Early Access Page Functions - END */

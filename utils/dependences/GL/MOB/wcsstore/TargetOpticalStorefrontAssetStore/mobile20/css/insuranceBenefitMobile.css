@@ -1,0 +1,1975 @@
+@CHARSET  "utf-8"; 
+/*body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFF;
+  color: #666;
+}*/
+.insuranceBenefit .padding-bottom-20 {
+  padding-bottom: 20px !important;
+}
+.insuranceBenefit .yellow {
+  color: #D3A625 !important;
+}
+.insuranceBenefit .green {
+  color: green;
+}
+.insuranceBenefit .sticky {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 10px;
+  background-color: #750207;
+  color: #FFF;
+  padding: 20px;
+  padding-left: 85px;
+  padding-right: 40px;
+  font-weight: 100 !important;
+  font-size: 14px;
+}
+.insuranceBenefit .sticky div.fa {
+  cursor: pointer;
+}
+.insuranceBenefit .sticky .page-container {
+  /*width: 950px;*/
+  position: relative;
+  height: 29px;
+  background-color: #750207;
+  /* border-bottom: 1px solid #8C5353; */
+}
+.insuranceBenefit .sticky-box {
+  display: none;
+  z-index: 1000;
+  visibility: visible;
+  width: 100%;
+  min-height: 200px;
+}
+.insuranceBenefit .sticky-box .page-container {
+  /*width: 950px;*/
+  min-height: 200px;
+  position: relative;
+  margin: 0 auto;
+  background-color: #750207;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky {
+  border-top: 1px solid #8C5353;
+  padding-top: 20px;
+  margin-left: 85px;
+  color: #fff;
+  /*width: 950px;*/
+  min-height: 400px;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky #header-page {
+  margin-top: 10px !important;
+  border: none;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky #header-page h1 {
+  font-size: 24px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px !important;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky #sub-header {
+  margin-top: 0px !important;
+  margin-bottom: 30px;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky #sub-header h3 {
+  font-size: 18px;
+  margin-top: 0px !important;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky .loader h3 {
+  margin-top: 25px;
+  font-size: 20px;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky .col {
+  /*width: 255px;*/
+  color: #fff;
+  font-size: 18px;
+}
+.insuranceBenefit .sticky-box .page-container .content-sticky .col span {
+  clear: left;
+  float: left;
+  font-weight: 100;
+}
+.insuranceBenefit .sticky-box #sticky-open-text {
+  display: none;
+  visibility: hidden;
+}
+.insuranceBenefit .sticky-box .bottom {
+  /*width: 1080px;*/
+  text-align: right;
+}
+.insuranceBenefit .sticky-box .btn-info {
+    background-color: #CC0504;
+    border-color: #CC0504;
+    color: #fff !important;
+}
+.insuranceBenefit .sticky-box .modale-form {
+  background-color: rgba(117, 2, 7, 0.95);
+  /*width: 950px;*/
+  margin-left: 85px;
+  min-height: 400px;
+  height: 655px;
+}
+
+.insuranceBenefit .text-right {
+  text-align: right;
+}
+.insuranceBenefit .text-left {
+  text-align: left;
+}
+.insuranceBenefit .text-center {
+  text-align: center;
+}
+.insuranceBenefit .full-row {
+  width: 100% !important;
+}
+.insuranceBenefit .two-row {
+  width: 50% !important;
+}
+.insuranceBenefit .three-row {
+  width: 33% !important;
+}
+.insuranceBenefit .four-row {
+  width: 25% !important;
+}
+.insuranceBenefit .clear {
+  clear: left;
+}
+.insuranceBenefit .font-14 {
+  font-size: 14px !important;
+}
+.insuranceBenefit .font-16 {
+  font-size: 16px !important;
+}
+.insuranceBenefit .font-18 {
+  font-size: 18px !important;
+}
+.insuranceBenefit .margin-top-20 {
+  margin-top: 22px;
+}
+.insuranceBenefit .margin-top-30 {
+  margin-top: 30px;
+}
+.insuranceBenefit .margin-top-40 {
+  margin-top: 40px;
+}
+.insuranceBenefit .margin-top-50 {
+  margin-top: 50px;
+}
+.insuranceBenefit .margin-top-60 {
+  margin-top: 60px;
+}
+.insuranceBenefit .margin-top-70 {
+  margin-top: 70px;
+}
+.insuranceBenefit .margin-top-100 {
+  margin-top: 100px;
+}
+.insuranceBenefit .margin-top-165 {
+  margin-top: 165px;
+}
+.insuranceBenefit .margin-left-25 {
+  margin-left: 25px;
+}
+.insuranceBenefit .margin-left-10 {
+  margin-left: 10px;
+}
+.insuranceBenefit .bottom-position {
+  position: relative !important;
+  bottom: 0px !important;
+}
+.insuranceBenefit .padding-left-20 {
+  padding-left: 20px;
+}
+.insuranceBenefit .link-selected:link,
+.insuranceBenefit .link-selected:visited,
+.insuranceBenefit .link-selected:hover,
+.insuranceBenefit .link-selected:active {
+  color: #FDD530 !important;
+  text-decoration: underline;
+}
+.insuranceBenefit .link-selected:link div.fa,
+.insuranceBenefit .link-selected:visited div.fa,
+.insuranceBenefit .link-selected:hover div.fa,
+.insuranceBenefit .link-selected:active div.fa {
+  margin-right: 3px;
+}
+.insuranceBenefit .underline {
+  text-decoration: underline;
+}
+/* ------------------------------- Implementation ------------------------------- */
+.insuranceBenefit .link-faq:link,
+.insuranceBenefit .link-faq:visited,
+.insuranceBenefit .link-faq:active {
+  color: #0281D0;
+  text-decoration: none;
+}
+.insuranceBenefit .link-faq:hover {
+  color: #0281D0;
+}
+.insuranceBenefit .link-history:link,
+.insuranceBenefit .link-history:visited,
+.insuranceBenefit .link-history:active {
+  color: #0281D0;
+  text-decoration: none;
+}
+.insuranceBenefit .link-history:hover {
+  color: #0281D0;
+}
+.insuranceBenefit .link-blue:link,
+.insuranceBenefit .link-blue:visited,
+.insuranceBenefit .link-blue:active {
+  color: #666;
+  text-decoration: underline;
+}
+.insuranceBenefit .link-blue:hover {
+  color: #0281D0;
+}
+.insuranceBenefit .float-left {
+  float: left;
+  text-decoration: none;
+}
+.insuranceBenefit .float-right {
+  float: right;
+}
+.insuranceBenefit .border-top-form {
+  border-top: 1px solid #cccccc;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+.insuranceBenefit .btn-info {
+  border: 1px solid #CC0504;
+  background-color: #CC0504;
+  color: #ffffff;
+  height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+  width: 145px;
+}
+.insuranceBenefit .btn-red {
+  border: 1px solid #CC0504;
+  background-color: #CC0504;
+  color: #ffffff;
+  height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  min-width: 145px;
+}
+.insuranceBenefit .btn-info:disabled {
+  border: 1px solid #AAAAAA;
+  background-color: #ffffff;
+  color: #AAAAAA;
+  height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+  width: 145px;
+}
+.insuranceBenefit .or-form {
+  width: 80px;
+  float: left;
+  position: relative;
+  margin-top: 10px;
+  padding-top: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+.insuranceBenefit .hr-verticale-top {
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  /* per IE 9 e versioni superiori (la 10 su Windows 8) */
+  -moz-transform: rotate(-90deg);
+  /* per Firefox */
+  -webkit-transform: rotate(-90deg);
+  /* per Safari e Chrome */
+  -o-transform: rotate(-90deg);
+  /* per Opera */
+  width: 60px;
+  margin-bottom: 10px;
+}
+.insuranceBenefit .hr-verticale-bottom {
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  /* per IE 9 e versioni superiori (la 10 su Windows 8) */
+  -moz-transform: rotate(-90deg);
+  /* per Firefox */
+  -webkit-transform: rotate(-90deg);
+  /* per Safari e Chrome */
+  -o-transform: rotate(-90deg);
+  /* per Opera */
+  width: 25px;
+  margin-top: 15px;
+}
+.insuranceBenefit .radio-button {
+  width: 42.5%;
+  position: relative;
+  min-height: 20px;
+  float: left;
+}
+@media screen and (max-width: 350px) {
+	.radio-button.ssn-mobile {
+	    width: 115px !important;
+	}
+}
+.insuranceBenefit .radio-button label {
+  float: left;
+  margin-top: 10px;
+}
+.insuranceBenefit #page_wrapper {
+  width: 100%;
+}
+.insuranceBenefit #page-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px;
+  padding-bottom: 50px;
+  position: relative;
+}
+.insuranceBenefit .page-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px;
+  padding-right: 150px;
+  position: relative;
+}
+.insuranceBenefit .container-form {
+  width: 96%;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+.insuranceBenefit .modale-form {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  position: absolute;
+  left: 0px;
+  /*width: 1022px;*/
+  min-height: 602px;
+  /**border: 1px solid #CCCCCC;**/
+  z-index: 10000;
+}
+.insuranceBenefit .modale-form .p-text {
+  margin-top: 200px;
+}
+.insuranceBenefit .modale-form .text1 {
+  font-size: 28px;
+}
+.insuranceBenefit .modale-form .text-red {
+  font-size: 28px;
+  font-weight: bold;
+  color: #cd0000;
+}
+.insuranceBenefit .box {
+  /*width: 440px;*/
+  height: 160px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  float: left;
+  margin-bottom: 30px;
+  padding: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.insuranceBenefit .box:nth-child(even) {
+  margin-left: 0px;
+}
+.insuranceBenefit .box:nth-child(odd) {
+  margin-left: 20px;
+}
+.insuranceBenefit .box-success {
+  background-color: #F5F5F5;
+  border: 1px solid #40B676;
+}
+.insuranceBenefit .box-success .header-box {
+  color: #40B676;
+  font-size: 18px; 
+  min-height: 80px;
+}
+.insuranceBenefit .box-success .header-box h4 {
+  font-size: 20px;
+  float: left;
+  font-weight: 400;
+}
+.insuranceBenefit .box-success .header-box h4 div.fa {
+  font-size: 24px;
+  font-weight: normal;
+}
+.insuranceBenefit .box-success .header-box h5 {
+  font-size: 16px;
+  float: right;
+  font-weight: 400;
+}
+.insuranceBenefit .box-success .header-box span {
+  float: left;
+  margin-top: 10px;
+  clear: left;
+  color: #777777;
+  font-size: 14px;
+  font-weight: normal;
+}
+.insuranceBenefit .box-success .footer-box {
+  line-height: 24px;
+  color: #777777;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.insuranceBenefit .box-success .footer-box strong {
+  color: #777777;
+}
+.insuranceBenefit .box-success .footer-box .left {
+  float: left;
+}
+.insuranceBenefit .box-success .footer-box .right {
+  float: right;
+}
+.insuranceBenefit .box-error {
+  background-color: #FFFFFF;
+  border: 1px solid #E89898;
+}
+.insuranceBenefit .box-error .header-box {
+  color: #E6A4A5;
+  font-size: 18px; 
+  min-height: 80px;
+}
+.insuranceBenefit .box-error .header-box h4 {
+  font-size: 20px;
+  float: left;
+  font-weight: 400;
+}
+.insuranceBenefit .box-error .header-box h4 div.fa {
+  font-size: 24px;
+  font-weight: normal;
+}
+.insuranceBenefit .box-error .header-box h5 {
+  font-size: 16px;
+  float: right;
+  font-weight: 400;
+  color: #C90F16;
+}
+.insuranceBenefit .box-error .footer-box {
+  line-height: 24px;
+  color: #777777;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.insuranceBenefit .box-error .footer-box strong {
+  color: #777777;
+}
+.insuranceBenefit .box-error .footer-box .left {
+  float: left;
+}
+.insuranceBenefit .box-error .footer-box .right {
+  float: right;
+}
+.insuranceBenefit #header-page { 
+  border-bottom: 1px solid #cccccc;
+}
+.insuranceBenefit #header-page h1 {
+  font-size: 40px;
+  color: #565656;
+}
+.insuranceBenefit #header-page span {
+  font-size: 40px;
+  color: #565656;
+}
+.insuranceBenefit #sub-header {
+  margin-top: 20px;
+}
+.insuranceBenefit #sub-header h3 {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #565656;
+  font-weight: 100;
+}
+.insuranceBenefit #form-container form {
+  /*width: 500px;*/
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  position: relative;
+  min-height: 150px;
+  margin: 0;
+  padding: 0px;
+  margin-top: 30px;
+}
+.insuranceBenefit #form-container .container-form-data {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 25px;
+  margin-bottom: 41px;
+}
+.insuranceBenefit #form-container label {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.insuranceBenefit #form-container label span {
+  color: #cd0000;
+}
+.insuranceBenefit #form-container select {
+  height: 40px;
+  border: 1px solid #333;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-left: 15px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 200;
+}
+.insuranceBenefit #form-container input {
+  margin-top: 10px;
+  padding-left: 22px;
+  padding-right: 22px;
+  /*width: 406px;*/
+  height: 40px;
+  border: 1px solid #333;
+  -webkit-border-radius: 3px !important;
+  -moz-border-radius: 3px !important;
+  border-radius: 3px !important;
+  font-weight: bold;
+  font-size: 16px;
+  color: #666;
+  font-style: normal;
+}
+.insuranceBenefit #form-container ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #666;
+  font-style: normal;
+  font-weight: normal;
+}
+.insuranceBenefit #form-container ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #666;
+  font-style: normal;
+  font-weight: normal;
+}
+.insuranceBenefit #form-container :-ms-input-placeholder {
+  /* IE 10+ */
+  color: #666;
+  font-style: normal;
+  font-weight: normal;
+}
+.insuranceBenefit #form-container :-moz-placeholder {
+  /* Firefox 18- */
+  color: #666;
+  font-style: normal;
+  font-weight: normal;
+}
+.insuranceBenefit #form-container #personal-info {
+  float: left;
+  margin-top: 20px;
+}
+.insuranceBenefit #form-container #plan-info {
+  float: right;
+  margin-right: 1px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.insuranceBenefit #form-container h4 {
+  font-size: 20px;
+  color: #565656;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+.insuranceBenefit #form-container .container-header-form { 
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+.insuranceBenefit #form-container .container-input {
+  margin-top: 15px;
+}
+.insuranceBenefit #form-container .container-input img {
+  vertical-align: middle;
+  height: 20px;
+}
+.insuranceBenefit #form-container .container-input input {
+  font-weight: normal;
+}
+.insuranceBenefit .select-style-birth {
+  float: left;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 80px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  background: #fff url("https://www.targetoptical.com/wcsstore/TargetOpticalStorefrontAssetStore/mobile20/image/optical-arrowdown.png") no-repeat 90% 50%;
+}
+.insuranceBenefit .select-style-birth select {
+  padding: 5px 8px;
+  width: 100%;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.insuranceBenefit .select-style-birth select:focus {
+  outline: none;
+}
+.insuranceBenefit label.error {
+  color: #CC0504;
+  clear: left;
+}
+.insuranceBenefit input.error {
+  color: #CC0504;
+  border: 1px solid #CC0504 !important;
+}
+.insuranceBenefit .flash-message {
+  /*width: 975px;*/
+  height: 15px;
+  padding: 25px;
+  padding-top: 20px;
+}
+.insuranceBenefit .errore {
+  background-color: #FAE6E7;
+  border: 1px solid #FAE6E7;
+}
+.insuranceBenefit .errore strong {
+  color: #CC0504;
+  font-size: 20px;
+}
+.insuranceBenefit .errore span {
+  font-size: 12px;
+}
+/* ------------------------------- ------------------------------- */
+.insuranceBenefit .loader {
+  position: relative;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+.insuranceBenefit .loader h4 {
+  font-weight: normal;
+}
+/* ------------------------------- MODALE ------------------------------- */
+.insuranceBenefit .ui-widget-overlay {
+  background: #3e3838 !important;
+  opacity: .9 !important;
+}
+.insuranceBenefit .ui-widget.ui-widget-content {
+  border: 1px solid #CC0504 !important;
+  background-color: #fff !important;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  top: 25% !important;
+  left: 50% !important;
+  /*width: 760px !important;*/
+  min-height: 400px;
+}
+.insuranceBenefit .ui-widget.ui-widget-content h2 {
+  text-transform: none !important;
+}
+.insuranceBenefit .ui-widget-content {
+  border: none !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane button {
+  margin-top: 24px !important;
+  text-align: center !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane {
+  text-align: center !important;
+  padding-bottom: 0px !important;
+}
+.insuranceBenefit .ui-widget-header {
+  background-color: #fff !important;
+  border: none !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-titlebar {
+  padding: 0px !important;
+  padding-top: 40px !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-content {
+  text-align: center !important;
+  padding-bottom: 23px !important;
+  overflow: hidden !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-content h2 {
+  font-size: 40px;
+  color: #666;
+  margin-bottom: 0px;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-content h4 {
+  font-size: 28px;
+  color: #666;
+  font-weight: normal;
+  margin-top: 0px;
+}
+.insuranceBenefit .ui-state-default,
+.insuranceBenefit .ui-widget-content .ui-state-default,
+.insuranceBenefit .ui-widget-header .ui-state-default,
+.insuranceBenefit .ui-button,
+html .insuranceBenefit .ui-button.ui-state-disabled:hover,
+html .insuranceBenefit .ui-button.ui-state-disabled:active {
+  border: 1px solid #CC0504 !important;
+  background-color: #CC0504 !important;
+  color: #ffffff !important;
+  height: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 16px !important;
+  padding: 10px;
+  cursor: pointer;
+  width: 145px;
+  font-weight: bold;
+}
+.insuranceBenefit .ui-state-default span,
+.insuranceBenefit .ui-widget-content .ui-state-default span,
+.insuranceBenefit .ui-widget-header .ui-state-default span,
+.insuranceBenefit .ui-button span,
+html .insuranceBenefit .ui-button.ui-state-disabled:hover span,
+html .insuranceBenefit .ui-button.ui-state-disabled:active span {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-titlebar-close {
+  width: 30px !important;
+}
+.insuranceBenefit .ui-state-hover {
+  background: none !important;
+  border: none !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane {
+  margin: 0 auto !important;
+  padding: 0 auto !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: none !important;
+  margin: 0 auto !important;
+  position: relative;
+}
+.insuranceBenefit .ui-icon.ui-icon-myCloseButton {
+  background-image: url("https://www.targetoptical.com/wcsstore/TargetOpticalStorefrontAssetStore/mobile20/image/close.png") !important;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 25px;
+}
+​  .ui-dialog-buttonset {
+  text-align: center !important;
+}
+/* ----------------- fine modale ---------------- */
+.insuranceBenefit .footer-dialog {
+  margin-top: 50px;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 60px;
+}
+.insuranceBenefit .control-group {
+  display: inline-block;
+  width: 200px;
+  height: 210px;
+  margin: 10px;
+  padding: 30px;
+  text-align: left;
+  vertical-align: top;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.insuranceBenefit .control {
+  font-size: 12px;
+  position: relative;
+  display: block;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  cursor: pointer;
+  padding-top: 5px;
+}
+.insuranceBenefit .control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.insuranceBenefit .control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 1px solid #333333;
+}
+.insuranceBenefit .control--radio .control__indicator {
+  border-radius: 50%;
+}
+/* Hover and focus states */
+.insuranceBenefit .control:hover input ~ .control__indicator,
+.insuranceBenefit .control input:focus ~ .control__indicator {
+  background: #ffffff;
+  border: 1px solid #333333;
+}
+/* Checked state */
+.insuranceBenefit .control input:checked ~ .control__indicator {
+  background: #ffffff;
+  border: 1px solid #333333;
+}
+.insuranceBenefit .control input[type=checkbox]:checked ~ .control__indicator {
+  /* background: #8C5353 !important;
+  border: 1px solid #8C5353; */
+  background: #750207 !important;
+  border: 1px solid #333333;
+}
+/* Hover state whilst checked */
+.insuranceBenefit .control:hover input:not([disabled]):checked ~ .control__indicator,
+.insuranceBenefit .control input:checked:focus ~ .control__indicator {
+  background: #ffffff;
+}
+/* Disabled state */
+.insuranceBenefit .control input:disabled ~ .control__indicator {
+  pointer-events: none;
+  opacity: .6;
+  background: #333333 !important;
+}
+/* Check mark */
+.insuranceBenefit .control__indicator:after {
+  position: absolute;
+  display: none;
+  content: '';
+}
+/* Show check mark */
+.insuranceBenefit .control input:checked ~ .control__indicator:after {
+  display: block;
+}
+/* Checkbox tick */
+.insuranceBenefit .control--checkbox .control__indicator:after {
+  top: 4px;
+  left: 8px;
+  width: 3px;
+  height: 8px;
+  transform: rotate(45deg);
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+}
+/* Disabled tick colour */
+.insuranceBenefit .control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+/* Radio button inner circle */
+.insuranceBenefit .control--radio .control__indicator:after {
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #750207;
+}
+/* Disabled circle colour */
+.insuranceBenefit .control--radio input:disabled ~ .control__indicator:after {
+  background: #666666;
+}
+.insuranceBenefit .select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.insuranceBenefit .select select {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #7b7b7b;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: #ffffff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-transform: uppercase;
+}
+.insuranceBenefit .select select::-ms-expand {
+  display: none;
+}
+.insuranceBenefit .select select:hover,
+.insuranceBenefit .select select:focus {
+  color: #666666;
+  background: #ffffff;
+}
+.insuranceBenefit .select select:disabled {
+  pointer-events: none;
+  opacity: .5;
+}
+.insuranceBenefit .select__arrow {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+  pointer-events: none;
+  background-image: url("https://www.targetoptical.com/wcsstore/TargetOpticalStorefrontAssetStore/mobile20/image/optical-arrowdown.png");
+}
+.insuranceBenefit .select select:hover ~ .select__arrow,
+.insuranceBenefit .select select:focus ~ .select__arrow {
+  border-top-color: #000;
+}
+.insuranceBenefit .select select:disabled ~ .select__arrow {
+  border-top-color: #ccc;
+}
+/* ------------------------ accordion ------------------------ */
+.insuranceBenefit div.accordion { 
+  color: #444;
+  cursor: pointer;
+  padding: 20px;
+  /* width: 100%; */
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.insuranceBenefit div.accordion div {
+  position: relative;
+  width: 250px;
+  display: inline-block;
+}
+.insuranceBenefit div.accordion .corpo-sinistra.no-accordion {
+  margin-left: 0px;
+}
+.insuranceBenefit div.accordion .corpo-sinistra {
+  color: #171717;
+  font-weight: bold !important;
+  margin-left: 8px;
+  position: relative;
+  font-size: 16px;
+  width: 70%
+}
+.insuranceBenefit div.accordion .corpo-center {
+  position: relative;
+  color: #26A252;
+  font-size: 16px;
+}
+.insuranceBenefit div.accordion .corpo-destra {
+  position: relative;
+  float: right;
+  max-width: 300px;
+  margin-right: 0px;
+  text-align: right;
+}
+.insuranceBenefit div.accordion .unavailable {
+  color: #666666;
+}
+.insuranceBenefit div.accordion.active,
+.insuranceBenefit button.accordion:hover {
+  background-color: #FFF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.insuranceBenefit div.panel {
+  padding: 0 18px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #fff;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out; 
+}
+.insuranceBenefit div.panel p {
+  padding-left: 15px;
+  padding-bottom: 15px;
+  width: 200px;
+  font-size: 14px;
+  color: #666666;
+}
+.insuranceBenefit div.panel:last-child {
+  border: none;
+}
+.insuranceBenefit div.accordion.ok:after {
+  /*content: '\002B';*/
+  content: url("https://www.targetoptical.com/wcsstore/TargetOpticalStorefrontAssetStore/mobile20/image/arrow-down.png");
+  color: #777;
+  font-weight: bold;
+  float: left;
+  margin-right: 5px;
+  line-height: 20px;
+}
+.insuranceBenefit div.accordion.active.ok:after {
+  /* content: "\2212"; */
+  content: url("https://www.targetoptical.com/wcsstore/TargetOpticalStorefrontAssetStore/mobile20/image/arrow-up.png");
+}
+.insuranceBenefit .container-accordion {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #FFF;
+  border: 1px solid #999;
+}
+.insuranceBenefit .col-3 {
+  width: 33% !important;
+  float: left;
+}
+.insuranceBenefit .container-intestazione-accordion {
+  min-height: 30px;
+  border-bottom: 1px solid #D9D9D9;
+  padding-top: 15px;
+}
+.insuranceBenefit .container-intestazione-accordion .intestazione-accordion {
+  color: #8F8F8F;
+  padding-bottom: 10px;
+  padding-left: 60px;
+  font-size: 14px;
+  width: 200px;
+}
+.insuranceBenefit .container-intestazione-accordion .intestazione-accordion:last-child {
+  /*width: 340px;*/
+}
+.insuranceBenefit .container-body-accordion {
+  /*padding: 10px;*/
+}
+
+/* ------------------------------- One more chance ------------------------------- */
+.insuranceBenefit .flash-message {
+  /*width: 975px;*/
+  height: 15px;
+  padding: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+.insuranceBenefit .errore strong {
+    font-size: 20px;
+}
+
+.insuranceBenefit strong {
+    font-size: 20px;
+}
+
+/* ------------------------------- not found ------------------------------- */
+
+.insuranceBenefit .ui-widget-overlay {
+  background: #3e3838 !important;
+  opacity: .9 !important;
+}
+.insuranceBenefit .ui-widget.ui-widget-content {
+  /* border: 1px solid #CC0504 !important;*/
+  background-color: #fff !important;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  /*top: 25% !important;
+  left: 25% !important;*/
+  top: 118px !important;
+  left: 27% !important; /* 318px !important; */
+  /*width: 760px !important;*/
+  min-height: 400px;
+}
+.insuranceBenefit .ui-widget.ui-widget-content h2 {
+  text-transform: none !important;
+}
+.insuranceBenefit .ui-widget-content {
+  border: none !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane button {
+  margin-top: 24px !important;
+  text-align: center !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane {
+  text-align: center !important;
+  padding-bottom: 0px !important;
+}
+.insuranceBenefit .ui-widget-header {
+  background-color: #fff !important;
+  border: none !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-titlebar {
+  padding: 0px !important;
+  padding-top: 40px !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-content {
+  text-align: center !important;
+  padding-bottom: 23px !important;
+  overflow: hidden !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-content h2 {
+  font-size: 40px;
+  color: #666;
+  margin-bottom: 0px;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-content h4 {
+  font-size: 28px;
+  color: #666;
+  font-weight: normal;
+  margin-top: 0px;
+}
+.insuranceBenefit .ui-state-default,
+.insuranceBenefit .ui-widget-content .ui-state-default,
+.insuranceBenefit .ui-widget-header .ui-state-default,
+.insuranceBenefit .ui-button,
+html .insuranceBenefit .ui-button.ui-state-disabled:hover,
+html .insuranceBenefit .ui-button.ui-state-disabled:active {
+  border: 1px solid #CC0504 !important;
+  background-color: #CC0504 !important;
+  color: #ffffff !important;
+  height: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 16px !important;
+  padding: 10px;
+  cursor: pointer;
+  width: 145px;
+  font-weight: bold;
+}
+.insuranceBenefit .ui-state-default span,
+.insuranceBenefit .ui-widget-content .ui-state-default span,
+.insuranceBenefit .ui-widget-header .ui-state-default span,
+.insuranceBenefit .ui-button span,
+html .insuranceBenefit .ui-button.ui-state-disabled:hover span,
+html .insuranceBenefit .ui-button.ui-state-disabled:active span {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-titlebar-close {
+  width: 30px !important;
+}
+.insuranceBenefit .ui-state-hover {
+  background: none !important;
+  border: none !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane {
+  margin: 0 auto !important;
+  padding: 0 auto !important;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: none !important;
+  margin: 0 auto !important;
+  position: relative;
+}
+.insuranceBenefit .ui-icon.ui-icon-myCloseButton {
+  background-image: url("https://www.targetoptical.com/wcsstore/TargetOpticalStorefrontAssetStore/mobile20/image/close.png") !important;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 25px;
+}
+​ .ui-dialog-buttonset {
+  text-align: center !important;
+}
+/*------------------------------- wait a moment -------------------------------  */
+
+.insuranceBenefit loader h2 {
+    	color: #fff;
+    }
+    
+.insuranceBenefit loader h3 {
+	color: #fff;
+}
+
+.insuranceBenefit .loading-spinner,
+.insuranceBenefit .TGTLazyLoading,
+.insuranceBenefit #subLoader {
+  position: relative;
+  display: block;
+  font-size: 8px;
+  margin: 1em auto;
+  width: 7em;
+  height: 7em;
+}
+.insuranceBenefit .loading-spinner > svg,
+.insuranceBenefit .TGTLazyLoading > svg,
+.insuranceBenefit #subLoader > svg {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: targetSpin 650ms infinite linear;
+  animation: targetSpin 650ms infinite linear;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes targetSpin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes targetSpin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*------------------------------- wait a moment -------------------------------  */
+
+.insuranceBenefit .modale-form .p-text {
+    margin-top: 200px;
+}
+.insuranceBenefit .modale-form .p-text {
+    margin-top: 200px;
+}
+.insuranceBenefit modale-form .text-red {
+    font-size: 28px;
+    font-weight: bold;
+    color: #cd0000;
+}
+.insuranceBenefit .modale-form .text1 {
+    font-size: 28px;
+}
+.insuranceBenefit .margin-top-30 {
+    margin-top: 30px;
+}
+
+
+.insuranceBenefit .tooltip {
+  display: block;
+  width: 200px;
+  padding: 5px;
+  background: #000;
+  border: 1px solid #000;
+  font-size: small;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  position: absolute;
+  color: #fff;
+}
+
+.insuranceBenefit .arrow-down {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #000;
+  bottom: -20px;
+  left: 80px;
+}
+
+.insuranceBenefit #form-container .container-input img {
+    vertical-align: middle;
+    height: 20px;
+}
+
+.insuranceBenefit .div-insurance {
+  /*width: 500px;*/
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  position: relative;
+  min-height: 150px;
+  margin: 0;
+  padding: 0px;
+  margin-top: 30px;
+}
+
+.insuranceBenefit .service-message
+{
+	color: #fff;
+}
+
+.insuranceBenefit .sticky-box .div-insurance {
+    background-color: #fff;
+    /*width: 450px !important;*/
+}
+
+.insuranceBenefit .sticky-box #form-container label {
+    color: #000 !important;
+}
+
+.insuranceBenefit .sticky-box #zip_input, .sticky-box #ssn_input {
+    margin-left: 3px;
+    font-weight: normal !important;
+}
+
+.insuranceBenefit .sticky-box .btn-info:disabled {
+    color: #000 !important;
+}
+
+.insuranceBenefit .sticky-box input {
+    /*width: 350px !important;*/
+}
+
+.insuranceBenefit #sticky-close-text img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.insuranceBenefit #sticky-open-text img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.insuranceBenefit .sticky-box .page-container .content-sticky #header-chance-login-text h1 {
+    font-size: 24px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px !important;
+}
+
+.insuranceBenefit .sticky-box .page-container .content-sticky #chance-login-text h2 {
+    font-size: 18px;
+    margin-top: 0px !important;
+    font-weight: 100;
+    text-transform: none !important;
+}
+
+.insuranceBenefit .sticky-box .page-container .content-sticky #chance-login-text span {
+    font-size: 18px;
+    margin-top: 0px !important;
+    font-weight: 100;
+    text-transform: none !important;
+}
+
+/*** modifiche mie ***/
+
+.insuranceBenefit .sticky {
+    height: 100%;
+    padding: 10px;    
+}
+
+.insuranceBenefit .sticky-box {
+	display: none;	  	
+	position: absolute;
+}
+
+.insuranceBenefit .sticky .right {
+    float: right;
+    position: relative;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.insuranceBenefit .sticky .left {
+    float: left;
+    position: relative;
+    margin-left: 10px;
+}
+@media screen and (min-width : 319px) and (max-width : 322px){
+	.insuranceBenefit .sticky #sticky-text-open,
+	.insuranceBenefit .sticky #sticky-text-close {
+		margin-left: 8px;
+	}
+}
+
+.insuranceBenefit .sticky .page-container {
+    width: auto;
+}
+
+.insuranceBenefit .sticky-box .page-container {
+    width: auto;
+}
+
+.insuranceBenefit .sticky-box .page-container .content-sticky {    
+    width: auto; margin-left: 3%; margin-right: 3%; 
+}
+
+.insuranceBenefit .page-container {   
+    padding-right: 0;   
+} 
+
+.insuranceBenefit .sticky-box .page-container .content-sticky #chance-login-text h2 {
+    margin-top: 20px !important;
+    color: #fff;
+}
+
+.insuranceBenefit .sticky-box .div-insurance {
+    width: auto !important;
+}
+
+.insuranceBenefit #form-container #personal-info, #form-container #plan-info {
+    float: left;
+    width: 100% !important;
+    margin-left: 0px !important;
+    xbackground-color: rgb(238, 238, 238) !important;
+}
+
+.insuranceBenefit .sticky-box input {
+    width: 100% !important;
+}
+
+.insuranceBenefit label.control.control--radio, label.control.control--checkbox {
+    padding-left: 30px;
+    padding-top: 5px;
+}
+
+.insuranceBenefit .control--radio .control__indicator:after {
+    background: #333333;
+}
+
+.insuranceBenefit .control__indicator {   
+    width: 22px;
+    height: 22px;
+    border: 1px solid #333333;
+}
+
+.insuranceBenefit .control input[type=checkbox]:checked ~ .control__indicator {
+    background: #333333!important; 
+}
+
+.insuranceBenefit .or-form {
+    width: 15%;
+    float: left;
+    position: relative;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 15px;
+}
+
+.insuranceBenefit .hr-verticale-top {   
+    width: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.insuranceBenefit .sticky-box #zip_input, 
+.sticky-box #ssn_input,
+#iphonecontent #form-container input#zip_input,
+#iphonecontent #form-container input#ssn_input {
+    width: 95%;
+}
+
+.insuranceBenefit .select__arrow {
+    background-image: url(../images/insurance/mobile/optical-arrowdown.png);
+}
+
+.insuranceBenefit hr {   
+    margin: auto;
+}
+
+/** search user **/
+
+.insuranceBenefit .class_loading_search_user{	
+	    top: 0;
+	    height: 100%;
+	    background-color: #750207;
+	    z-index: 1000;
+	    min-height: 100%;
+	    left: 0;
+	    right: 0;
+	}
+	
+/*	
+.insuranceBenefit h2.service-message{
+	    color: #666;
+	    font-size: 18px;
+	    font-weight: bold;
+	    text-transform: lowercase;
+	    margin: 7px;
+	    padding: 0;
+	}
+	
+	h3.service-message{
+	    color: #666;
+	    font-size: 14px !important;
+	    font-weight: bold;
+	    margin: 0 0 5px;
+	    text-transform: lowercase;
+	}*/
+
+/** user not found **/ 
+
+.insuranceBenefit .ui-widget.ui-widget-content {	
+	border-radius: 10px;
+    top: 20% !important;
+    left: 5% !important;
+    width: 90% !important;
+    min-height: 500px;
+    height: 10% !important;
+}
+
+.insuranceBenefit .accordion-hide-benefit-left {
+    font-family: "HelveticaNeueforTarget-Md";
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    text-align: left;
+    color: #666;
+}
+
+.insuranceBenefit .ui-dialog .ui-dialog-content h1 {
+    font-size: 35px;
+    color: #666;
+    margin-bottom: 0px;
+}
+.insuranceBenefit .ui-dialog .ui-dialog-content span {
+    font-size: 35px;
+    color: #666;
+    margin-bottom: 0px;
+}
+
+.insuranceBenefit .ui-dialog .ui-dialog-content h2 {
+    font-size: 25px;
+    color: #666;
+    font-weight: normal;
+    margin-top: 0px;
+}
+
+.insuranceBenefit .ui-dialog .ui-dialog-titlebar-close {
+    margin: -65px -30px 0 0;
+}
+
+.insuranceBenefit .ui-widget-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.insuranceBenefit .ui-widget-overlay {
+    background: #000 !important;
+    opacity: .8 !important;
+}
+
+/** registrazione ok **/
+
+.insuranceBenefit .sticky-box .page-container .content-sticky {
+	border-top: 1px solid #8C5353;
+    padding-top: 20px !important;
+    min-height: 565px;
+}
+
+.insuranceBenefit #register_success {
+	background-color: #fff;
+}
+
+.insuranceBenefit .sticky-box .page-container .content-sticky #sub-header h3 {
+    text-transform: none;
+}
+
+.insuranceBenefit div.accordion.ok:after {
+	    content: url(../images/insurance/mobile/arrow-down.png);
+	}
+	
+.insuranceBenefit div.accordion.active.ok:after {
+    /* content: "\2212"; */
+    content: url(../images/insurance/mobile/arrow-up.png);
+}
+
+.insuranceBenefit .container-intestazione-accordion {
+	display: none;
+}
+
+.insuranceBenefit div.accordion .corpo-destra {
+    float: none;
+    margin-top: 10px;
+    text-align: initial; 
+}
+
+.insuranceBenefit div.accordion .corpo-center {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+/** lock 60 minuts **/
+.insuranceBenefit .sticky-box .modale-form {
+    background-color: rgba(117, 2, 7, 0.95);
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    top: 0px;
+}
+
+.insuranceBenefit .modale-form .text1 {
+    font-size: 18px !important;
+}
+
+/** login ok **/
+.insuranceBenefit #register_success {
+    background-color: rgba(117, 2, 7, 0.95);
+}
+
+/**.insuranceBenefit #header-page h1,
+#iphonecontent .insuranceBenefit #header-page h1 {
+    color: #ffffff;
+}
+
+.insuranceBenefit #sub-header h3 {
+	color: #ffffff;
+} **/
+
+.insuranceBenefit .corpo-center {
+    color: #26A252;
+    font-size: 16px;
+    margin-top: -10px;
+    margin-left: 20px;
+    position: relative;
+    
+}
+
+.insuranceBenefit div.panel p {    
+    margin-top: 10px;
+    border-bottom: none;
+    width: 90%;
+}
+
+.insuranceBenefit .link-blue:link, .link-blue:visited, .link-blue:active {   
+    margin-left: 20px;
+}
+
+.insuranceBenefit .corpo-destra { 
+    margin-top: 10px;
+	padding-bottom: 15px;
+}
+
+.insuranceBenefit div.panel {  
+    border-bottom: none;
+}
+	
+.insuranceBenefit .text-call {
+    padding-left: 0px;
+    font-size: 14px;
+    color: #666666;
+    margin-top: 10px;
+    border-bottom: none;
+    width: 90%;
+   }
+   
+.insuranceBenefit .text-call strong {
+    font-size: 100%;
+}
+
+.insuranceBenefit .class_loading_search_user .content-sticky {
+	margin-left: auto !important;
+}
+
+/** carrello **/
+
+.insuranceBenefit .container-follow .intestazione {
+    font-weight: bold;
+    margin-left: 5%;
+    margin-bottom: 15px;
+}
+
+.insuranceBenefit .container-follow .follow-option {
+    z-index: 10000;
+    background-color: #fff;
+    /*position: relative;*/
+    width: 90%;
+    margin-right: 5px;
+    margin-right: 5%;
+}
+
+.insuranceBenefit .container-follow .follow-option .row {
+    border-left: 2px solid #E2E2E2;
+    border-right: 2px solid #E2E2E2;
+    height: 70px;
+    margin: 0px;
+}
+
+.insuranceBenefit .container-follow .follow-option .row:first-child {
+    border-top: 2px solid #E2E2E2;
+    border-bottom: 1px solid #E2E2E2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.insuranceBenefit .container-follow .container-row {
+    margin: 0px;
+    padding: 10px;
+}
+
+.insuranceBenefit .container-follow .total {
+    float: right;
+    /* color: #CC0504; */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.insuranceBenefit .container-follow .header-form {
+    font-size: 16px !important;
+}
+
+/*.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.insuranceBenefit .control--radio .control__indicator {
+    border-radius: 50%;
+}
+
+.insuranceBenefit .control__indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 1px solid #333333;
+}*/
+
+.insuranceBenefit .container-follow .header-form {
+    font-size: 16px !important;
+}
+
+.insuranceBenefit .container-follow .control {
+    padding-left: 40px;
+    font-size: 16px;
+    max-width: 200px;
+}
+
+.insuranceBenefit #insurance-discount-choose #page-container
+{
+	width: inherit;
+}
+
+.insuranceBenefit .shopCartTotals {
+    border-top: 0px solid #e2e2e2 !important;
+}
+
+.insuranceBenefit .control {
+    font-size: 12px;
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.insuranceBenefit .header-form {
+    font-size: 18px !important;
+    color: #565656 !important;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    margin-bottom: 8px !important;
+}
+
+.insuranceBenefit .container-follow .flash-follow {
+    margin-top: -5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 65px;
+    background-color: #750207;
+    /*position: relative;*/
+    color: #FFF;
+}
+
+.insuranceBenefit .container-follow .flash-follow .icon {
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+    width: 30px;
+    font-size: 20px;
+}
+
+.insuranceBenefit .green {
+    color: green;
+}
+
+.insuranceBenefit .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.insuranceBenefit .fa-check:before {
+    content: "\f00c";
+}
+
+.insuranceBenefit .container-follow .flash-follow .text {
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.insuranceBenefit .container-follow .flash-follow .text .sub-text {
+    font-weight: bold;
+    clear: left;
+    margin-left: 39px;
+}
+
+.insuranceBenefit .link-white:link, .link-white:visited, .link-white:hover, .link-white:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.insuranceBenefit .container-follow .intestazione {
+    font-weight: bold;
+    margin-left: 5%;
+    margin-bottom: 15px;
+}
+
+.insuranceBenefit #loader-subtotals-discount .loading-spinner
+{
+    position: absolute;
+    display: block;
+    font-size: 8px;
+    margin: 0em auto;
+    width: 80em;
+    height: 3em;
+}
+
+.insuranceBenefit #loader-subtotals-insurance .loading-spinner
+{
+    position: absolute;
+    display: block;
+    font-size: 8px;
+    margin: -5em auto;
+    width: 80em;
+    height: 3em;
+}
+
+.insuranceBenefit #loader-subtotals-insurance-glass .loading-spinner
+{
+    position: absolute;
+    display: block;
+    font-size: 8px;
+    margin: -5em auto;
+    width: 80em;
+    height: 3em;
+}
+
+.insuranceBenefit .flash-bar {
+    min-height: 185px;
+    padding: 3%;
+    background-color: #750207;
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.insuranceBenefit .flash-bar span {
+    margin-top: 5px;
+    float: right;
+}
+
+.insuranceBenefit #box-insurance-not-eligibility .btn-info-trasparent {
+    position: relative;
+    text-align: center;
+    border: 1px solid #AAAAAA;
+    background-color: transparent;
+    color: #FFF;
+    min-height: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px;
+    cursor: pointer;
+    /*min-width: 200px;*/
+    margin-top: 30px !important;
+}
+
+.insuranceBenefit .accordion-hide-benefit-left
+{
+	color: #171717;
+    font-weight: bold !important;
+    margin-left: 15px;
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    /*width: 250px;*/
+}
+
+.insuranceBenefit .accordion-hide-benefit-right
+{
+	position: relative;
+    float: right;
+    /* width: 521px; */
+    margin-right: -16px;
+    text-align: right;
+}
+
+.insuranceBenefit .accordion-hide-benefit-eligibility
+{
+	position: relative;
+    /*width: 250px;*/
+    display: inline-block;
+    position: relative;
+    color: #26A252;
+    font-size: 16px;
+}
+
+.insuranceBenefit div.hide-insurance div {
+  position: relative;
+  /*width: 250px;*/
+  display: inline-block;
+}
+
+.insuranceBenefit div.hide-insurance .unavailable {
+    color: #666666;
+    font-size: 16px;
+}
+
+.insuranceBenefit .accordion-hide-benefit
+{
+	    display: block;
+    /* border-bottom: 2px dotted #5C5C5C !important; */
+    padding: 15px 18px;
+    margin-left: 0px;
+    margin-right: 20px;
+    /*background-color: #F5F5F5;
+     max-height: 0; */
+    overflow: hidden;
+    transition: max-height 0.2s ease-out; 
+}
+
+.insuranceBenefit .corpo-center.unavailable {
+	margin: 0;
+}
+
+.insuranceBenefit .accordion-hide-benefit-right {
+	float: left;
+	text-align: left;
+	margin-right: 0;
+}
+
+.insuranceBenefit .accordion-hide-benefit-right a.link-blue:link, 
+.insuranceBenefit .accordion-hide-benefit-right a.link-blue:visited, 
+.insuranceBenefit .accordion-hide-benefit-right a.link-blue:active {
+	margin-left: 0;
+}
+
+.insuranceBenefit div.hide-insurance div {
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+.panel_border {
+    border-bottom: 1px solid #ededed !important;
+    margin: 0 15px;
+}
