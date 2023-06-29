@@ -15,6 +15,9 @@ const argv = require('yargs').argv;
 const fs = require("fs");
 const inquirer = require('inquirer');
 const jsonMinify = require('gulp-json-minify');
+const glob = require('glob');
+const replace = require('gulp-string-replace');
+
 
 const browserSync = require('browser-sync').create();
 
@@ -52,6 +55,7 @@ var currentBrand;
 var settings; 
 var currentPage;
 var moduleLibrary;
+var newTab;
 
 
 function concat_html() {
@@ -61,6 +65,7 @@ function concat_html() {
         addRootSlash: false,
         addPrefix: 'http://localhost:1234'
       })
+      // .pipe(replace('@pathUtils', settings.paths.devUtils ))
       .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist`))
       .pipe(browserSync.stream());
     
@@ -91,6 +96,7 @@ function concat_build() {
 
   return gulp.src(concatElement) 
       .pipe(concat("ESPOT.html"))
+      // .pipe(replace('@pathUtils', settings.paths.prodUtils ))
       .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist`))
 }
 
@@ -112,7 +118,7 @@ gulp.task('concat_html', (done)=>{
 
 
 gulp.task("landing_js" ,() => {
-  var tasks = [`./pages/${currentBrand}/${currentPage}/js/index.js`].map(function(entry) {
+  var tasks = glob.sync(`./pages/${currentBrand}/${currentPage}/js/*.js`).map(function(entry) {
     return browserify({ entries: [entry] }).transform(babelify, {
       global: true,
       ignore: [/\/node_modules\/(?!@vizuaalog\/)/],
@@ -123,8 +129,10 @@ gulp.task("landing_js" ,() => {
       .pipe(source('.'))
       .pipe(buffer())
       .pipe(uglify())
+      // .pipe(replace('@path', settings.page.paths.productionConf ))
       .pipe(rename(function (path) {
-        path.extname = "index.min.js";
+        path.basename = entry.replace(`pages/${currentBrand}/${currentPage}/js/`,'').replace('.js','')
+        path.extname = ".min.js";
       }))
       .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist/js/`));
     });
@@ -133,7 +141,8 @@ gulp.task("landing_js" ,() => {
 
 
 gulp.task("script_land_js_dev" ,() => {
-  var tasks = [`./pages/${currentBrand}/${currentPage}/js/index.js`].map(function(entry) {
+  // console.log(fs.readdirSync(`./pages/${currentBrand}/${currentPage}/js/`)); // ["file1", "file2"])
+  var tasks = glob.sync(`./pages/${currentBrand}/${currentPage}/js/*.js`).map(function(entry) {
     return browserify({ entries: [entry] }).transform(babelify, {
       global: true,
       ignore: [/\/node_modules\/(?!@vizuaalog\/)/],
@@ -143,8 +152,10 @@ gulp.task("script_land_js_dev" ,() => {
       .bundle()
       .pipe(source('.'))
       .pipe(buffer())
+      // .pipe(replace('@path', settings.page.paths.developmentConf ))
       .pipe(rename(function (path) {
-        path.extname = "index.min.js";
+        path.basename = entry.replace(`pages/${currentBrand}/${currentPage}/js/`,'').replace('.js','')
+        path.extname = ".min.js";
       }))
       .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist/js/`));
     });
@@ -179,7 +190,7 @@ gulp.task("landing_ds_js" ,(done) => {
 });
 
 gulp.task('landing_css', () => {
-  return gulp.src([`./pages/${currentBrand}/${currentPage}/style/index.scss`])
+  return gulp.src([`./pages/${currentBrand}/${currentPage}/style/*.scss`])
       .pipe(sass({
           outputStyle: "compressed"
       }).on('error', sass.logError))
@@ -237,11 +248,18 @@ const questions_dev = [
 
 
 gulp.task('dev_', (done)=> {
-  if (process.argv.includes('--brand') && process.argv.includes('--page') && process.argv.includes('--moduleLibrary')){
+  if (process.argv.includes('--brand') && process.argv.includes('--page') && process.argv.includes('--moduleLibrary') ){
+    
     currentBrand = process.argv[process.argv.indexOf('--brand')+1];
     settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
+    settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
+    if (process.argv.includes('--newTab')){
+      newTab = process.argv[process.argv.indexOf('--newTab')+1] === "yes" ? true : false;
+    }else{
+      newTab = false
+    }
     
     startDev();
   }else{
@@ -260,7 +278,13 @@ gulp.task('dev_', (done)=> {
         type: 'list',
         name: 'moduleLibrary',
         message: 'There is Module Library? ',
-        choices: ['yes','no'],
+        choices: ['no','yes'],
+      },
+      {
+        type: 'list',
+        name: 'newTab',
+        message: 'Open new tab?',
+        choices: ['no','yes'],
       },
     ];
       
@@ -268,7 +292,8 @@ gulp.task('dev_', (done)=> {
         currentPage =answers.page;
         settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
         moduleLibrary = answers.moduleLibrary === 'yes' ? true : false;
-        console.log('\n Quick Command: \n\n' + " gulp dev_ --brand \""+currentBrand+"\" --page \""+ currentPage+"\" --moduleLibrary "+answers.moduleLibrary+" \n"); 
+        newTab = answers.newTab === 'yes' ? true : false;
+        console.log('\n Quick Command: \n\n' + " gulp dev_ --brand \""+currentBrand+"\" --page \""+ currentPage + "\" --moduleLibrary \""+answers.moduleLibrary+"\" --newTab \""+answers.newTab+"\" \n"); 
         startDev();
         done()
   
@@ -284,7 +309,7 @@ async function startDev(){
   browserSync_()
   
   gulp.watch([`./pages/${currentBrand}/${currentPage}/index.html`], gulp.task('devLandingSeries')).on('done', browserSync.reload);
-  gulp.watch([`./pages/${currentBrand}/${currentPage}/js/*.js`], gulp.task('script_land_js_dev')).on('change', browserSync.reload);
+  gulp.watch([`./pages/${currentBrand}/${currentPage}/js/*.js`,`./pages/${currentBrand}/${currentPage}/js/**/*.js`], gulp.task('script_land_js_dev')).on('change', browserSync.reload);
   gulp.watch([`./pages/${currentBrand}/${currentPage}/style/*.scss`,`./pages/${currentBrand}/${currentPage}/style/**/*.scss`], gulp.task('landing_css'));
   gulp.watch([`./pages/${currentBrand}/${currentPage}/json/*`],gulp.task('json')).on('change', browserSync.reload);
   if (moduleLibrary){
@@ -371,6 +396,7 @@ gulp.task('build_', (done)=> {
     settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
+    settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
     startBuild();
   }else{
     inquirer.prompt(questions_build).then((answers) => {
@@ -436,7 +462,7 @@ function browserSync_(){
     startPath:`./pages/${currentBrand}/${currentPage}/dist/index.html`,
     reloadOnRestart: true,
     injectChanges:true,
-    open:true,
+    open:newTab,
     port: 1234,
     snippetOptions: {
       rule: {
@@ -488,6 +514,9 @@ gulp.task('test',done => {
   // fs.writeFileSync(`./pages/${currentPage}/dist/js/temp.min.js`, `document.title="${currentPage}"`);
 //  console.log(currentPage.substring(0,2))
     // console.log('test',process.argv)
+    var brand='SGH';
+    var page = 'SGH_Search'
+    console.log(glob.sync(`./pages/${brand}/${page}/js/*.js`)); // ["file1", "file2"])
     console.log('brand:',process.argv[process.argv.indexOf('--brand')+1])
     console.log('page:',process.argv[process.argv.indexOf('--page')+1])
     console.log('modulelibrary:',process.argv[process.argv.indexOf('--moduleLibrary')+1])

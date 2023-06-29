@@ -1,146 +1,77 @@
-function ct_filter__articles(category){
-    document.querySelector('#ct_blog .ct_articles').style.opacity = 0;
-    let ct_articles = document.querySelectorAll('#ct_blog .ct_article');
-    setTimeout(()=>{
-       
-        ct_articles.forEach(article=>{
-            if(article.dataset.category.includes(category) || category == 'all' ){
-                article.classList.remove('ct_art_hidden');
-            }else{
-                article.classList.add('ct_art_hidden');
-            }
-        });
-        lazyLo();
-        document.querySelector('#ct_blog .ct_articles').style.opacity = 1;
-    },200)
-    
+function ct_set__category(){
+    let ct_category__container = document.querySelector('#ct_blog__article .ct_category__container');
+    // let ct_category = ct_category__container.querySelector('h2').innerHTML.toLocaleLowerCase().trim().replace(/\s/g, '').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+    let ct_category = ct_category__container.querySelector('h2').getAttribute('data-category-icon');
+    ct_category__container.href = ct_category__container.href + `#${ct_category}`
+    ct_category__container.querySelector('svg').innerHTML = `<use xlink:href="#CD_${ct_category}"></use>`;
 }
 
-function ct_nav__handler(){
-    let ct_nav__button = document.querySelectorAll('.ct_nav__container button');
-    ct_nav__button.forEach((button)=>{
-        button.addEventListener('click',(e)=>{
-            if(!e.target.classList.contains('ct_active')){
-                document.querySelector('.ct_nav__container .ct_active').classList = '';
-                e.target.classList = 'ct_active';
-                ct_filter__articles(e.target.dataset.category);
-            }
-        });
-    })
-}
-
-function  ct_load__article(){
-    let ct_articles_container = document.querySelector('.ct_articles');
-    let ct_dom_articles = document.querySelectorAll('#ct_blog .ct_article.ct_loading');
-    let current_article
-    ct_blog_articles.forEach((article,i)=>{
-        if (i < 4){
-            ct_dom_articles[i].setAttribute('data-category',article.category);
-            ct_dom_articles[i].querySelector('a').href = location.origin + "/"+article.url;
-            ct_dom_articles[i].querySelector('a').setAttribute('aria-label',article.url); 
-            ct_dom_articles[i].querySelector('a').dataset.description = article.url; 
-            if (!ct_is_mobile()){
-                ct_dom_articles[i].querySelector('img.ct_article_img').src = article.img;
-            }else{
-                ct_dom_articles[i].querySelector('img.ct_article_img').src = article.imgmob;
-            }
-            ct_dom_articles[i].querySelector('img.ct_article_img').alt = article.title;
-           
-            ct_dom_articles[i].querySelector('h2').innerHTML = article.title;
-            ct_dom_articles[i].querySelector('p').innerHTML = article.desc;
-            ct_dom_articles[i].classList.remove("ct_loading");
-        }else{
-            current_article =  `
-            <div class="ct_article ct_loaded" data-category="${article.category}">
-                <a href="${location.origin + location.pathname+"/"+article.url}" aria-label="${article.url}" data-description="${article.url}" data-element-id="X_X_Blog_CTA">
-                    <div class="ct_img__container">
-                        <picture>
-                            <source media="(max-width:1024px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAFCAYAAACJmvbYAAAAAXNSR0IArs4c6QAAABNJREFUGFdj/P///38GHIBxACQBlgQT8nbCiHIAAAAASUVORK5CYII=">
-                            <img class="ct_skeleton" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAAXNSR0IArs4c6QAAABBJREFUGFdj/P///38GIAAAGfgD/vZGlWAAAAAASUVORK5CYII=" alt="skeleton">
-                        </picture>
-                        <img class="lazy ct_article_img" data-src="${!ct_is_mobile() ? article.img:article.imgmob }" alt="${article.title}">
-                    </div>
-                    <div class="ct_text">
-                        <h2 class="ct_lh__1-5 ct_font__bold ct_mb__20 ct_mb__mob__10">${article.title}</h2>
-                        <p>${article.desc}</p>
-                        <span class="ct_font__bold ">Continue reading</span>
-                    </div>
-                </a>
-            </div>`
-            ct_articles_container.innerHTML+=current_article;
+function ct_build__jsonld(){
+    var ct_struc_data = 
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "id": `${location.href}`
+            },
+            "headline": `${document.querySelector('#ct_article__title').innerHTML.trim()}`,
+            "url": `${location.href}}`,
+            "datePublished": `${document.querySelector('.ct_pub__date time').getAttribute('datetime')}`,
+            "dateModified": `${document.querySelector('.ct_pub__date time').getAttribute('datetime')}`,
+            "author": {
+                "@type": "Person",
+                "name": "contactsdirect.com Editorial Team"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "contactsdirect.com",
+            },
+            "description": `${document.querySelector('.ct_article_content p').innerHTML.trim()}`
         }
-    });
+    const script = document.createElement('script');
+    script.setAttribute('type', 'application/ld+json');
+    script.textContent = JSON.stringify(ct_struc_data);
+    document.head.appendChild(script);
 }
 
-function initLazyLoading(selector){
-	if(selector==undefined) selector="lazy";
-	var lazyImages = [].slice.call(document.querySelectorAll("."+selector));
-
-	  if ("IntersectionObserver" in window) {
-	    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-	      entries.forEach(function(entry) {
-	        if (entry.isIntersecting) {
-	          let lazyImage = entry.target;
-	          if(lazyImage.getAttribute('data-src')!="" && lazyImage.getAttribute('data-src')!=undefined){
-		          
-		          if(lazyImage.nodeName.toLowerCase()=="img"){
-		        	  lazyImage.src = lazyImage.getAttribute('data-src');
-		          }
-		          if(lazyImage.nodeName.toLowerCase()=="source"){
-		        	  lazyImage.srcset = lazyImage.getAttribute('data-src');
-		          }
-		          lazyImage.classList.remove("lazy");
-		          lazyImage.classList.remove("skeleton");
-		          lazyImageObserver.unobserve(lazyImage);
-	          }
-	        }
-	      });
-	    });
-
-	    lazyImages.forEach(function(lazyImage) {
-	      lazyImageObserver.observe(lazyImage);
-	    });
-	  } else {
-		  $.each($(".lazy"), function(){
-			  $(this).attr("src",$(this).attr("data-src"));
-		  });
-	  }
-	
-}
-
-function nav_letter__scroll(){
-    var nav_scoll_percentage;
-    var ct_nav = document.querySelector('#ct_blog .ct_nav__container ul');
-    var ct_nav_scrollbar =  document.querySelector('#ct_blog .ct_nav__scrollbar .ct_nav__scroll');
-    ct_nav.addEventListener('scroll',()=>{
-        nav_scoll_percentage = ct_nav.scrollLeft / (ct_nav.scrollWidth-ct_nav.offsetWidth) * 100; 
-        ct_nav_scrollbar.style.marginLeft = (ct_nav.offsetWidth - 190)/100*nav_scoll_percentage+'px'
-    });
-  
-}
-
-function ct_is_mobile(){ 
-    if ($(window).width() > 1024){
-        return false;
-    }else{
-        if ($(window).width() === 1024){
-            if ( window.innerHeight > window.innerWidth){
-                return true
-            }
-            else{ 
-                return false 
-            }
-        }else{
-            return true
-        }
-    }
+function ct_set__footer_blog_articles(){
+    let template = `
+        <div class="ct_article__cta__container ct_banner ct_banner_top">
+        <div class="ct_assets__container">
+            <div class="ct_img__container">
+                <picture class="ct_img__skeleton">
+                    <source  media="(orientation: portrait) and (max-width: 768px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAECAYAAABLLYUHAAAAAXNSR0IArs4c6QAAABNJREFUGFdjvOTC+p8BChiJ4wAA/FYIbbTEsjQAAAAASUVORK5CYII=">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAABOCAYAAAAkYHPNAAAAAXNSR0IArs4c6QAAAmNJREFUeF7t2TGOwlAQREH7btw/83lAIkFCBnX+auNJpqbVWr7P63E8D38ECOQFTmWQzwAAAm8BZSAIBAgoAxkgQOAj4D8DaSBAwH8GMkCAgP8MZIAAgS8BPxNEggABPxNkgAABPxNkgAABPxNkgACBOwFvBnJBgIA3AxkgQMCbgQwQIODNQAYIEPBmIAMECPwU8IAoHAQIeECUAQIEPCDKAAECHhBlgAABD4gyQICAB0QZIEDgv4CvCRJCgICvCTJAgICvCTJAgICvCTJAgICvCTJAgICvCTJAgICvCTJAgMAg4NPigGSEQEFAGRSubEcCg4AyGJCMECgIKIPCle1IYBBQBgOSEQIFAWVQuLIdCQwCymBAMkKgIKAMCle2I4FBQBkMSEYIFASUQeHKdiQwCCiDAckIgYKAMihc2Y4EBgFlMCAZIVAQUAaFK9uRwCCgDAYkIwQKAsqgcGU7EhgElMGAZIRAQUAZFK5sRwKDgDIYkIwQKAgog8KV7UhgEFAGA5IRAgUBZVC4sh0JDALKYEAyQqAgoAwKV7YjgUFAGQxIRggUBJRB4cp2JDAIKIMByQiBgoAyKFzZjgQGAWUwIBkhUBBQBoUr25HAIKAMBiQjBAoCyqBwZTsSGASUwYBkhEBBQBkUrmxHAoOAMhiQjBAoCCiDwpXtSGAQUAYDkhECBQFlULiyHQkMAspgQDJCoCCgDApXtiOBQUAZDEhGCBQElEHhynYkMAgogwHJCIGCgDIoXNmOBAYBZTAgGSFQEFAGhSvbkcAgoAwGJCMECgLKoHBlOxIYBJTBgGSEQEHgBU6Mo5+gIgDRAAAAAElFTkSuQmCC" alt="structure image">
+                </picture>
+                <picture class="ct_img">
+                    <source  media="(orientation: portrait) and (max-width: 768px)" srcset="https://media.contactsdirect.com/BLOG/CD_GeneralBanner_Blog_M.jpg">
+                    <img src="https://media.contactsdirect.com/BLOG/CD_GeneralBanner_Blog_D.jpg" fetchpriority="high" alt="Hero banner image">
+                </picture>
+            </div>
+        </div>
+        <div class="ct_text__overlay ct_text__overlay_left ct_text__overlay__tab__100">
+            <div>
+                <p class="ct_article__cta__container__title">We’ve got your eyes covered</p>
+                <p class="ct_article__cta__container__desc">
+                    Find everything you need from top contact lens<br> brands to solutions for fresh, happy eyes.
+                </p>
+            </div>
+            <div class="ct_cta__container">
+                <a class="ct_cta ct_cta__white" href="/contacts" data-element-id="x_HP_article_CTA_01" data-description="Shop contacts">SHOP CONTACTS</a>
+                <a class="ct_cta ct_cta__white" href="/solutions" data-element-id="x_HP_article_CTA_01" data-description="Shop solutions">Shop SOLUTIONS</a>
+            </div>
+        </div>
+    </div>
+    <div class="ct_article__disclaimer">
+        Our website content, products, and services are for informational purposes only. ContactsDirect does not provide medical advice, diagnosis, or treatment. Information on the website, apps, newsletter, and products, developed in collaboration with licensed medical professionals and external contributors, including text, graphics, images, and other material, is provided solely for informational purposes and does not constitute medical advice or diagnosis or treatment. You should seek medical care and consult your doctor or pharmacist for any specific health or product issues. Never disregard professional medical advice or delay seeking medical treatment because of information you have read on ContactsDirect.com, or on sites linking to or from ContactsDirect.com.
+    </div>
+    `;
+    document.querySelector(".ct_space #ct_blog__article .ct_article_footer").innerHTML = template;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    //ct_nav__handler();
-    ct_load__article();
-    initLazyLoading();
-    if(ct_is_mobile()){
-        nav_letter__scroll();
-    }
+   ct_set__category();
+   ct_set__footer_blog_articles();
+   ct_build__jsonld();
 });

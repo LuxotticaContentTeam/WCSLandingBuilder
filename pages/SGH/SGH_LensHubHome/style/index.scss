@@ -65,6 +65,16 @@
                 width: 100%;
                 left: 0;
                 padding: 0 20px;
+                line-height: 1.2;
+            }
+            @media(max-width:500px){
+                top: unset;
+                bottom: 105vw;
+              
+            }
+            @media(max-width:380px){
+                bottom: 104vw;
+                font-size: 28px;
             }
         }
         .ct_text__container{
@@ -74,11 +84,14 @@
             width: 33%;
             left: 34vw;
             @media(max-width:$tab-max){
-                top: calc(10vw + 60px);
+                top: calc(13vw + 60px);
                 width: 100%;
                 padding: 0 20px;
                 left: 0;
                 transform: none;
+            }
+            @media(max-width:500px){
+                top: calc(6vw + 90px);
             }
             p{
                 margin-bottom: 16px;

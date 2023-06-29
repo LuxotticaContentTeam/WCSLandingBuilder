@@ -44,10 +44,10 @@ export const navManger = {
             if (ct_current__device !== 'D'){
              
                 if (!down){
-                    if (document.querySelectorAll('.sgh-main-menu__wrapper')[1].classList.contains('sgh-main-menu__down')){
+                    if (document.querySelector('.sgh-main-menu__wrapper').classList.contains('sgh-main-menu__down')){
                         this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
                     }else{
-                        this.menu_offset =     document.querySelectorAll('.sgh-main-menu')[1].clientHeight  + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                        this.menu_offset =     document.querySelector('.sgh-main-menu').clientHeight  + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
                     }
                 }else{
                    
@@ -55,7 +55,7 @@ export const navManger = {
                         this.menu_offset =  document.querySelector('.sgh-header-top').clientHeight
                     }
                     if (down === 'up'){
-                        this.menu_offset =     document.querySelectorAll('.sgh-main-menu')[1].clientHeight  + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
+                        this.menu_offset =     document.querySelector('.sgh-main-menu').clientHeight  + document.querySelector('.sgh-header-top').clientHeight + this.benefitBarHeight;
                     }
                 }
             }else{

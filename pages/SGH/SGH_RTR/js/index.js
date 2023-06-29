@@ -1,68 +1,86 @@
+
+
 const ct_rtr__data = {
   data: {
     selector: '#ct_rtr',
     products: [
       {
         upc: '8056597837170',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/clubmaster.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_clubmaster.svg',
-        name: 'Ray-Ban Clubmaster'
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597837187__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_clubmaster.svg',
+        brand: "Ray-Ban",
+        name: 'Mega Clubmaster'
       },
       {
-        upc: '8056597720670',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Mega Wayfarer'
+        upc: '888392601629',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392601629__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
+        brand: "Oakley",
+        name: 'Encoder Strike',
       },
       {
-        upc: '8056597720670',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Mega Wayfarer'
+        upc: '8056597744430',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597744430__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
+        brand:"Prada",
+        name: 'PR 13ZS'
       },
       {
-        upc: '8056597720670',
-        img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/wayfarer.png',
-        title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Mega Wayfarer'
+        upc: '8056597895651',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597895651__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
+        brand:"Versace",
+        name: 'Medusa Biggie'
       }
     ],
-    hdr: 'https://media.ray-ban.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
+    hdr: 'https://media.sunglasshut.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
     img_sx:{
-      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjePPi8X8ACTIDt7qE5TkAAAAASUVORK5CYII=',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAAXNSR0IArs4c6QAAACFJREFUOE9jvHn26H8GMgHjqGbSQm40wEgLL4bRACMxwABB2jax9PD9WAAAAABJRU5ErkJggg==' // 15:16
+      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHnpzH8ACHYDd/HVOUQAAAAASUVORK5CYII=',
+      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHhkz38GCgDjqAEMo2HAMBoGDIMhDACVnDHATGTYawAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_DX.jpg',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA4CAYAAAC1+AWFAAAAAXNSR0IArs4c6QAAAMVJREFUeF7t1LENwDAMBLF4/7lSZoBMYwOeQNdT9VXEQ+v/3v24kcCCNXK6Eay5FaxgBQtWEQitnwUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCIT0AMqPv2mP9Ua7AAAAAElFTkSuQmCC' // 75:56
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SNGH_3D-1.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_RTR.png' // 75:56
     },
     img_dx_loader:{
-      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjePPi8X8ACTIDt7qE5TkAAAAASUVORK5CYII=',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA4CAYAAAC1+AWFAAAAAXNSR0IArs4c6QAAAMVJREFUeF7t1LENwDAMBLF4/7lSZoBMYwOeQNdT9VXEQ+v/3v24kcCCNXK6Eay5FaxgBQtWEQitnwUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCITUsmAFgZBaFqwgEFLLghUEQmpZsIJASC0LVhAIqWXBCgIhtSxYQSCklgUrCIT0AMqPv2mP9Ua7AAAAAElFTkSuQmCC'
+      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1_loader.jpg',
+      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_loader.png'
     }
   },
   labels: {
     headline:{
-      "en":"VIEW 3D PRODUCTS"
+      "en":"See our bestsellers in 3D"
+    },
+    bottom_text:{
+      "en":"Expertly crafted shades from every angle."
     },
     shop_now: {
       "en": "Shop now"
     },
     rotate: {
-      'en': 'ROTATE AND MOVE AROUND'
+      'en': 'DRAG TO ROTATE THE GLASSES'
+    },
+    cursor: {
+      'en': 'DRAG'
     }
   },
   links: {
     '8056597837170': {
-      'en': 'sunglasses/RB0316Smega%20clubmaster-tortoise%20on%20gold/8056597837170?rtrpdp'
+      'en': '/ray-ban/rb0316s-8056597837187?rtrpdp'
     },
-    '8056597720670': {
-      'en': 'sunglasses/RB0840mega%20wayfarer-black/8056597720670?rtrpdp'
+    '888392601629': {
+      'en': '/oakley/oo9235-888392601629?rtrpdp'
+    },
+    '8056597744430': {
+      'en': '/prada/pr-13zs-8056597744430?rtrpdp'
+    },
+    '8056597895651': {
+      'en': '/versace/ve4425u-8056597895651?rtrpdp'
     }
   },
   libraries: [
     {
-      url : 'https://rtr-viewer.luxottica.com/lib/v/2.0.0/main.js',
+      url : 'https://rtr-viewer.luxottica.com/lib/v/2.3.0/main.js',
       callback: ()=>{
         console.log(`RTR BANNER - rtr viewer loaded - ${window.rtrViewer}`);
       }
@@ -72,7 +90,7 @@ const ct_rtr__data = {
       callback: ()=>{
         //lazy execution of whole function
         var ct_rtr__lazyImage = document.createElement("img");
-        ct_rtr__lazyImage.classList.add('lazy');
+        ct_rtr__lazyImage.classList.add('lazy_rtr');
         ct_rtr__lazyImage.id = "ct_rtr__lazyImage";
         ct_rtr__lazyImage.setAttribute('data-src', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII=');
 
@@ -88,12 +106,13 @@ function ct_rtr__lazy(){
   console.log('RTR BANNER - lazy init');
   window.lazyLoadInstance = new LazyLoad({
     unobserve_entered: true,
+     elements_selector: ".lazy_rtr",
     callback_error: (img) => {
       console.log('RTR BANNER - Error loading image', img);
     },
     callback_enter: () => {
       console.log('RTR BANNER - lazy callback enter');
-      if(!document.querySelector('.ct_rtr__container') && window.rtrViewer){
+      if(!document.querySelector('.ct_rtr__container') && window.rtrViewer && window.wcs_config){
         console.log('RTR BANNER - lazy callback');
         ct_rtr__init();
       }else{
@@ -140,7 +159,7 @@ function ct_rtr__init(){
         },
     },
     metadata: {
-        env: 'static',
+        env: 'production',
     },
     callbacks: {
       onError: ({ code, context, error }) =>  {
@@ -190,10 +209,11 @@ function ct_rtr__init(){
         <div class="ct_rtr__titles"></div>
         <div class="ct_rtr__cta">
           <a href="${ ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang_short] }" 
-          data-element-id="X_HomePage_Placement10_ShopNow" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
+          data-element-id="X_X_MainPlacement12_RTR-CTA0" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
             ${ ct_rtr__data.labels.shop_now[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.shop_now[ct_rtr__lang] : ct_rtr__data.labels.shop_now[ct_rtr__lang_short] }
           </a>
         </div>
+        <div class="ct_rtr__bottom_text"> ${ ct_rtr__data.labels.bottom_text[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.bottom_text[ct_rtr__lang] : ct_rtr__data.labels.bottom_text[ct_rtr__lang_short] }</div>
       </div>
     </div>
     <div class="ct_rtr__view ct_loading ct_first">
@@ -211,20 +231,35 @@ function ct_rtr__init(){
         ${ ct_rtr__data.labels.rotate[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.rotate[ct_rtr__lang] : ct_rtr__data.labels.rotate[ct_rtr__lang_short] }
         <img src="https://media.sunglasshut.com/2023/utility/WOW/rtr/459.svg">
       </div>
+      <p id="ct_rtr__besideMouse">
+        ${ ct_rtr__data.labels.cursor[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.cursor[ct_rtr__lang] : ct_rtr__data.labels.cursor[ct_rtr__lang_short] }
+      </p>
     </div>
   `;
   document.querySelector(ct_rtr__data.data.selector).appendChild(ct_rtr__container);
+
+  $('.ct_rtr__container .ct_rtr__view').mousemove(function(e){
+    var cpos = { top: e.pageY - 8, left: e.pageX + 16 };
+      $('#ct_rtr__besideMouse').offset(cpos);
+  });
+  $('.ct_rtr__container .ct_rtr__view').mouseenter(function(e){
+    $('#ct_rtr__besideMouse').show();
+  });
+  $('.ct_rtr__container .ct_rtr__view').mouseleave(function(e){
+    $('#ct_rtr__besideMouse').hide();
+  });
 
   ct_rtr__data.data.products.forEach((product, index) => {
     let ct_rtr__active_class = index === 0 ? 'ct_active' : '';
 
     document.querySelector('.ct_rtr__container .ct_rtr__text .ct_rtr__titles').innerHTML += `
       <div class="ct_rtr__title ${ct_rtr__active_class}" data-upc="${product.upc}">
+        <span>${product.brand}</span>
         <h2>${product.name}</h2>
       </div>
     `;
     document.querySelector('.ct_rtr__container .ct_rtr__text .ct_rtr__products').innerHTML += `
-      <a class="ct_rtr__product ${ct_rtr__active_class}" data-upc="${product.upc}" href="javascript:void(0)" data-element-id="X_HomePage_Placement10" data-description="${product.name}">
+      <a class="ct_rtr__product ${ct_rtr__active_class}" data-upc="${product.upc}" href="javascript:void(0)" data-element-id="X_X_MainPlacement12_RTR" data-description="Select ${product.name}">
         <img src="${product.img}" alt="${product.upc}">
       </a>
     `;
@@ -260,7 +295,7 @@ function ct_rtr__analytics_rotate() {
   tealium_data2track.push({
     'id':'Click',
     'Tracking_Type': 'link',
-    'data_element_id': 'X_HomePage_Placement10_Rotate', // max 25 characters
+    'data_element_id': 'X_X_MainPlacement12_RTR_Rotate', // max 25 characters
     'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
     'data_analytics_available_call':"1"
   });
@@ -273,7 +308,7 @@ function ct_rtr__analytics_zoom() {
   tealium_data2track.push({
     'id':'Click',
     'Tracking_Type': 'link',
-    'data_element_id': 'X_HomePage_Placement10_Zoom', // max 25 characters
+    'data_element_id': 'X_X_MainPlacement12_RTR_Zoom', // max 25 characters
     'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
     'data_analytics_available_call':"1"
   });
