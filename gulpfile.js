@@ -178,7 +178,7 @@ gulp.task("landing_ds_js" ,(done) => {
       .bundle()
       .pipe(source('.'))
       .pipe(buffer())
-      .pipe(uglify())
+    
     
     
       .pipe(rename(function (path) {
