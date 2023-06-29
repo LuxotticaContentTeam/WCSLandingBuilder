@@ -73,7 +73,7 @@ $borderRadius: 10px;
         }
       }
       .img_primary {
-        width: calc($clipboxWidth / 2);
+        width: 50%;
         z-index: 100;
         border-right: solid 2px #fff;
         @media (max-width: $tab-max) {

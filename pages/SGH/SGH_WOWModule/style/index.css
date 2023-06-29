@@ -47,7 +47,7 @@
 
 .ct_cos .ct_cos__list .ct_cos__list_item h3 {
   white-space: nowrap;
-  font-size: 60px;
+  font-size: 50px;
   vertical-align: middle;
   pointer-events: none;
   -webkit-animation: move 50s linear infinite;
@@ -241,7 +241,7 @@
 }
 
 .ct_cos .ct_cos__card .ct_cos__card_item {
-  width: 336px;
+  width: 300px;
   /* position: absolute;
     top: 0;
     left: 0; */
