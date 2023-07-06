@@ -17,6 +17,7 @@ const inquirer = require('inquirer');
 const jsonMinify = require('gulp-json-minify');
 const glob = require('glob');
 const replace = require('gulp-string-replace');
+const minify = require('gulp-minify');
 
 
 const browserSync = require('browser-sync').create();
@@ -223,6 +224,10 @@ gulp.task('landing_ds_css', (done) => {
 
 gulp.task('json', (done) => {
   gulp.src(`./pages/${currentBrand}/${currentPage}/json/**`)
+  .pipe(minify({
+    ext:{
+        min:'.min.js'
+    }}))
   .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist/json`));
   done()
 });
