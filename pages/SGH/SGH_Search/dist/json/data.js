@@ -546,7 +546,7 @@ window.ct_wow__search.data.questions = [
 window.ct_wow__search.data.copy = {
     "loader":{
         "init":{
-            "en":"Your quiz is loading...",
+            "en":"Your quiz  is loading...",
             "fr":"..",
             "es":"..",
             "de":"..",

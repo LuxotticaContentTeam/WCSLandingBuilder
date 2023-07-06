@@ -28,14 +28,18 @@
             @media(max-width:1024px){
                 width: 100%;
                 padding: 20px;
+                
             }
             h2{
                 text-align: center;
                 font-weight: 300;
-                font-size: 28px;
+                font-size: 40px;
                 color: #000;
-                margin-bottom: 24px;
+                margin-bottom: 12px;
                 margin-top: 0;
+                @media(max-width:1024px){
+                    font-size: 32px;
+                }
             }
             p{
                 font-weight: 400;
@@ -57,7 +61,13 @@
                 @media(max-width:1024px){
                     flex-wrap: wrap;
                     width: 100%;
+
                 }
+                @media(max-width:380px){
+                    margin-top: 24px;
+                    margin-bottom: 24px;
+                }
+             
                 .ct_wow__search__results_product{
                     text-decoration: none;
                     width: 18vw;
