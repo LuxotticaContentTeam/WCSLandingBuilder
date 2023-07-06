@@ -165,7 +165,9 @@
                     overflow-x: scroll;
                     padding-bottom: 40px;
                     gap: 0;
-                    
+                    &:last-child{
+                        justify-content: center;
+                    }
                 }
                 &:first-child{
                     position: relative;
