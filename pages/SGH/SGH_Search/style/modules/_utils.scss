@@ -23,6 +23,7 @@
         min-width: 130px;
         cursor: pointer;
         border: none;
+        border: 1px solid #000;
         //COLOR VARIANT
         &.ct_cta__black{
             background-color: $black;
@@ -32,18 +33,20 @@
                 &:hover{
                     background-color: $black_hover;
                     border-color: $black_hover;
+                    color: #fff;
                 }
             } 
             @media(max-width:1024px){
                 &:active{
-                    background-color: $black_hover;
-                
+                    background-color: #fff;
+                    border-color: #fff;
+                    color: $black;
                 }
             }
             &.ct_active{
-                background-color: $black_hover;
-                border-color: $black_hover;
-                color: #fff;
+                background-color: #fff;
+                border-color: #fff;
+                color: $black;
             }
         }
         &.ct_cta__white{
