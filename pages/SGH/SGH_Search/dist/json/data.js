@@ -527,14 +527,14 @@ window.ct_wow__search.data.questions = [
     },
     {   
         question:{
-            "en":"Show your results",
+            "en":"We're almost there!  Click to find out what we've prepared for you. ",
             "fr":"..",
             "es":"..",
             "de":"..",
         },
         answers:[
             {
-                "en":"Show results",
+                "en":"Show me now",
                 "fr":"..",
                 "es":"..",
                 "de":"..",
@@ -580,7 +580,7 @@ window.ct_wow__search.data.copy = {
     },
     "results":{
         "title":{
-            "en":"Your Results",
+            "en":"Our expert recommendations ",
             "fr":"..",
             "es":"..",
             "de":"..",

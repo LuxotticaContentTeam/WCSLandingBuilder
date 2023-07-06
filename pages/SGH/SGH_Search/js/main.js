@@ -539,7 +539,7 @@ window.ct_wow__search.inputManagement = {
       question.answers.forEach((answer,aindex)=>{
         answers += `
         <div class="ct_wow__search__button_wrap">
-          <button class="ct_cta ct_cta__white " data-q="${ qindex }" tabindex="-1" data-a="${aindex}">${storeInfo.getLang( answer)}</button>
+          <button class="ct_cta ct_cta__black " data-q="${ qindex }" tabindex="-1" data-a="${aindex}">${storeInfo.getLang( answer)}</button>
         </div>
         `
       })
