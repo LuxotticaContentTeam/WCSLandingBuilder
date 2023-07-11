@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             catalogId: "20603",
             currency:"GBP",
             langId: "-24",
-            locale: "en_GB",
+            locale: "fr_fr",
             storeId: "11352"
         }
     },200)

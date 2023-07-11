@@ -64,7 +64,7 @@ function concat_html() {
       .pipe(concat("index.html"),{
         ignorePath: `./pages/${currentBrand}/${currentPage}/dist/` ,
         addRootSlash: false,
-        addPrefix: 'http://localhost:1234'
+        addPrefix: 'http://localhost:347'
       })
       // .pipe(replace('@pathUtils', settings.paths.devUtils ))
       .pipe(gulp.dest(`./pages/${currentBrand}/${currentPage}/dist`))
@@ -468,7 +468,7 @@ function browserSync_(){
     reloadOnRestart: true,
     injectChanges:true,
     open:newTab,
-    port: 1234,
+    port: 347,
     snippetOptions: {
       rule: {
         match: /<head[^>]*>/i,

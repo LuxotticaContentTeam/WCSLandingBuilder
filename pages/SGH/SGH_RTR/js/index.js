@@ -49,19 +49,41 @@ const ct_rtr__data = {
   },
   labels: {
     headline:{
-      "en":"See our bestsellers in 3D"
+      "en":"See our bestsellers in 3D",
+      "fr":"Voyez nos meilleures ventes en 3D",
+      "es":"Vea nuestros bestsellers en 3D",
+      "de":"Sehen Sie unsere Bestseller in 3D", 
+      "it":"Vedi i nostri bestseller in 3D"
+
     },
     bottom_text:{
-      "en":"Expertly crafted shades from every angle."
+      "en":"Expertly crafted shades from every angle.",
+      "fr":"Des lunettes de soleil conçues avec expertise sous tous les angles.",
+      "es":"Gafas de sol de fabricación experta desde todos los ángulos.",
+      "de":"Fachmännisch gefertigte Sonnenbrillen aus jedem Winkel.",
+      "it":"Occhiali da sole realizzati con maestria da ogni angolazione."
+
     },
     shop_now: {
-      "en": "Shop now"
+      "en": "Shop now",
+      "fr": "Acheter maintenant",
+      "es": "Comprar ahora",
+      "de": "Jetzt kaufen",
+      "it": "Acquista ora",
     },
     rotate: {
-      'en': 'DRAG TO ROTATE THE GLASSES'
+      'en': 'DRAG TO ROTATE THE GLASSES',
+      'fr': 'FAITES GLISSER POUR FAIRE TOURNER LES LUNETTES',
+      'es': 'ARRASTRA PARA GIRAR LAS GAFAS',
+      'de': 'ZUM DREHEN DER BRILLEN ZIEHEN',
+      'it': 'TRASCINA PER GIRARE GLI OCCHIALI',
     },
     cursor: {
-      'en': 'DRAG'
+      'en': 'DRAG',
+      'fr': 'FAITES GLISSER',
+      'es': 'ARRASTRA',
+      'de': 'ZIEHEN',
+      'it': 'TRASCINA',
     }
   },
   links: {
@@ -100,6 +122,17 @@ const ct_rtr__data = {
       }
     }
   ]
+}
+
+
+function ct_rtr__getTrad(field,lang,lang_short){
+  if(field[lang]){
+    return field[lang];
+  }
+  if(field[lang_short]){
+    return field[lang_short];
+  }
+  return field['en'];
 }
 
 function ct_rtr__lazy(){
@@ -182,19 +215,6 @@ function ct_rtr__init(){
     }
   };
 
-  var ct_rtr__text = document.createElement("div");
-  ct_rtr__text.innerHTML = `<div class="text-module text-module--theme-dark text-module--text-align-center text-module--vertical-spacing-large" content-position="center" style="padding-top: 0;">
-    <div class="text-module__container text-module__title-and-excerpt-container">
-      <div class="text-module__title">
-        <h2> This is a new arrival</h2>
-      </div>
-      <div class="text-module__excerpt">
-        <p> View it at every angle.</p>
-      </div>
-    </div>
-  </div>`;
-  // document.querySelector(ct_rtr__data.data.selector).appendChild(ct_rtr__text);
-
   var ct_rtr__container = document.createElement("div");
   ct_rtr__container.className = 'ct_rtr__container';
   ct_rtr__container.innerHTML = `
@@ -204,16 +224,16 @@ function ct_rtr__init(){
         <img class="ct_rtr__bg" src="${ct_rtr__data.data.img_sx.d}" alt="3d background" />
       </picture>
       <div class="ct_rtr__text">
-        <h3 class="ct_rtr__headline">${ct_rtr__data.labels.headline["en"]}</h3>
+        <h3 class="ct_rtr__headline">${ct_rtr__getTrad(ct_rtr__data.labels.headline,ct_rtr__lang,ct_rtr__lang_short)}</h3>
         <div class="ct_rtr__products"></div>
         <div class="ct_rtr__titles"></div>
         <div class="ct_rtr__cta">
-          <a href="${ ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang_short] }" 
+          <a href="${ ct_rtr__baseurl + ct_rtr__getTrad(ct_rtr__data.links[ct_rtr__data.data.products[0].upc],ct_rtr__lang,ct_rtr__lang_short) }" 
           data-element-id="X_X_MainPlacement12_RTR-CTA0" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
-            ${ ct_rtr__data.labels.shop_now[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.shop_now[ct_rtr__lang] : ct_rtr__data.labels.shop_now[ct_rtr__lang_short] }
+            ${ ct_rtr__getTrad(ct_rtr__data.labels.shop_now,ct_rtr__lang,ct_rtr__lang_short)}
           </a>
         </div>
-        <div class="ct_rtr__bottom_text"> ${ ct_rtr__data.labels.bottom_text[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.bottom_text[ct_rtr__lang] : ct_rtr__data.labels.bottom_text[ct_rtr__lang_short] }</div>
+        <div class="ct_rtr__bottom_text"> ${ ct_rtr__getTrad( ct_rtr__data.labels.bottom_text,ct_rtr__lang,ct_rtr__lang_short) }</div>
       </div>
     </div>
     <div class="ct_rtr__view ct_loading ct_first">
@@ -228,11 +248,11 @@ function ct_rtr__init(){
       </div>
       <div class="ct_rtr__viewer"></div>
       <div class="ct_rtr__icon">
-        ${ ct_rtr__data.labels.rotate[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.rotate[ct_rtr__lang] : ct_rtr__data.labels.rotate[ct_rtr__lang_short] }
+        ${ ct_rtr__getTrad(ct_rtr__data.labels.rotate,ct_rtr__lang,ct_rtr__lang_short)  }
         <img src="https://media.sunglasshut.com/2023/utility/WOW/rtr/459.svg">
       </div>
       <p id="ct_rtr__besideMouse">
-        ${ ct_rtr__data.labels.cursor[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.cursor[ct_rtr__lang] : ct_rtr__data.labels.cursor[ct_rtr__lang_short] }
+        ${ct_rtr__getTrad(ct_rtr__data.labels.cursor,ct_rtr__lang,ct_rtr__lang_short) }
       </p>
     </div>
   `;
@@ -279,7 +299,7 @@ function ct_rtr__init(){
       document.querySelector('.ct_rtr__container .ct_rtr__product.ct_active').classList.remove('ct_active');
 
       this.classList.add('ct_active');
-      document.querySelector('.ct_rtr__container .ct_rtr__cta a').href = ct_rtr__data.links[this.dataset.upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[this.dataset.upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[this.dataset.upc][ct_rtr__lang_short];
+      document.querySelector('.ct_rtr__container .ct_rtr__cta a').href = ct_rtr__getTrad(ct_rtr__data.links[this.dataset.upc],ct_rtr__lang,ct_rtr__lang_short);
       document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description = this.dataset.upc;
       document.querySelector('.ct_rtr__container .ct_rtr__title[data-upc="'+this.dataset.upc+'"]').classList.add('ct_active');
     });
