@@ -78,7 +78,6 @@ window.ct_wow__search.structure = {
     window.ct_wow__search.opening = false;
   },
   calcHeight:function(){
-    customLog('Calc Height')
     window.ct_wow__search.structure.container.style.setProperty("--ct-wow-search-height", `${window.innerHeight}px`);
     window.addEventListener('resize', this.calcHeight);
   },
@@ -402,7 +401,6 @@ window.ct_wow__search.structure = {
    
   },
   resetStructure:function(){
-    customLog('- RESET Structure -')
     window.ct_wow__search.structure.prod_list_container.style.transform = `scale(1)`
     this.prod_list_container.querySelectorAll('.ct_wow_search__product__wrap').forEach(prod=>{
       prod.style.transform = "none";
@@ -671,7 +669,6 @@ window.ct_wow__search.inputManagement = {
     
   },
   resetQuestions:function(){
-    customLog('resetQuestions');
     this.progress.state = 0;
     this.answers.container.querySelectorAll('button.ct_active').forEach(button=>button.classList.remove('ct_active'))
     this.answers.container.querySelectorAll('.ct_aswered').forEach(aswered=>aswered.classList.remove('ct_aswered'))

@@ -4,7 +4,7 @@ function ct_wow__search__download_script(url,name){
   script.type = "text/javascript";
   script.src = url;
   script.addEventListener("load", function() {
-    console.log(`WOW SEARCH - ${name} script loaded :)`);
+    
   });
   document.body.appendChild(script);
 }
@@ -36,7 +36,7 @@ window.ct_wow__search = {
   inputManagement:{},
   config:{
     selector:'body',
-    openingElem:'.ct_cta'
+    openingElem:['#cta1','#cta2']
   },
   template:'',
   data:{
@@ -143,19 +143,14 @@ window.ct_wow__search.template = `
 window.ct_wow__search.start = function(e){
   let this_ = this;
   this_.style.pointerEvents = 'none';
-  if (!document.querySelector('#ct_wow__search') && window.ct_wow__search.init === false){
+  if ( window.ct_wow__search.init === false){
     window.ct_wow__search.init = true;
     ct_wow__search__download_style();
     window.ct_wow__search.data.storeInfo.lang = window.wcs_config ? wcs_config.locale.toLowerCase().replace('_','-'):undefined;
     window.ct_wow__search.data.storeInfo.lang_short = window.wcs_config ? wcs_config.locale.match("^[^_]+")[0]:undefined;
-    let div = document.createElement('div')
-    div.id = "ct_wow__search__container";
-    div.innerHTML= window.ct_wow__search.template;
-    document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
+  
     ct_wow__search__download_scripts();
-    setTimeout(function(){
-      this_.style.pointerEvents = 'all';
-    },600);
+   
     
   }else{
     if (!window.ct_wow__search.opening){
@@ -165,12 +160,26 @@ window.ct_wow__search.start = function(e){
       })
     }
   }
+  setTimeout(function(){
+    this_.style.pointerEvents = 'all';
+  },600);
 }
 
 function ct_wow__search__start(){
-  
+  if(!document.querySelector('#ct_wow__search')){
+    let div = document.createElement('div')
+    div.id = "ct_wow__search__container";
+    div.innerHTML= window.ct_wow__search.template;
+    document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
+  }
+ 
   if(document.querySelector(window.ct_wow__search.config.openingElem)){
-    document.querySelector(window.ct_wow__search.config.openingElem).addEventListener('click',window.ct_wow__search.start)
+    if( window.ct_wow__search.config.openingElem.length > 0){
+      window.ct_wow__search.config.openingElem.forEach(element => {
+        document.querySelector(element).addEventListener('click',window.ct_wow__search.start)
+      });
+      
+    }
   }
   
 }
