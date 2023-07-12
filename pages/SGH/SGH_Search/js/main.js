@@ -1,7 +1,7 @@
 import { accessibility } from "./modules/accessibility";
 import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
-import { calcCoordinates, customLog, debounce, getDevice } from "./modules/utils";
+import { calcCoordinates, checkData, customLog, debounce, getDevice } from "./modules/utils";
 
 
 
@@ -34,7 +34,7 @@ window.ct_wow__search.structure = {
     },
     coordinates:[],
   },
-  init: function(reopen){
+  init:async function(reopen){
     window.ct_wow__search.opening = true;
     customLog('WOW SEARCH INIT');
 
@@ -53,16 +53,22 @@ window.ct_wow__search.structure = {
     if (this.device != 'D'){
       this.calcHeight();
     }
-  
+    await checkData(window.ct_wow__search.data,3000);
+    if (window.ct_wow__search.data.loaded === false){
+      customLog('WOW SEARCH INIT - TIMEOUT');
+      return
+    }
+    if(!reopen){
+      
+      loader.init(1500)
+    }
     if (!reopen){
       this.buildHtml();
       this.setPlaceholders(true);
       ct_wow__search.inputManagement.init(); 
     }
     this.entry();
-    if(!reopen){
-      loader.init(1500)
-    }
+   
     window.addEventListener('resize', this.refreshPositionsDebounced);
     this.container.addEventListener('keyup',(e)=>{
 
@@ -77,6 +83,7 @@ window.ct_wow__search.structure = {
     
     window.ct_wow__search.opening = false;
   },
+
   calcHeight:function(){
     window.ct_wow__search.structure.container.style.setProperty("--ct-wow-search-height", `${window.innerHeight}px`);
     window.addEventListener('resize', this.calcHeight);
@@ -85,7 +92,7 @@ window.ct_wow__search.structure = {
     /**
      * Insert Products in HTML
      */
-    let url_first_part = 'https://www.sunglasshut.com/us'//tochange
+    let url_first_part = 'https://www.sunglasshut.com/us'//TODO tochange
     Object.keys(window.ct_wow__search.data.products).forEach(upc=>{
     
       this.prod_list_container.innerHTML+=`

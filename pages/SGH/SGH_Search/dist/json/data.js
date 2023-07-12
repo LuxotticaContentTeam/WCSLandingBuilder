@@ -6,6 +6,7 @@
  * * url
  * * specs => an array of array, each array rappresents a question, each value in the array rappresent a score for each option
  */
+window.ct_wow__search.data.loaded = true;
 window.ct_wow__search.data.products  = {
     "8056597418478":{
         brand:'Prada',

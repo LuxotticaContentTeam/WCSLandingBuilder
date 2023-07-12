@@ -9,17 +9,19 @@ function ct_wow__search__download_script(url,name){
   document.body.appendChild(script);
 }
 function ct_wow__search__download_scripts(){
-  ct_wow__search__download_script('./json/data.js','data');
-  ct_wow__search__download_script('./js/main.min.js','core');
-  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.min.js','data');
-  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
+  
+
+  // ct_wow__search__download_script('./json/data.js','data');
+  // ct_wow__search__download_script('./js/main.min.js','core');
+  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.min.js','data');
+  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
 } 
 
 function ct_wow__search__download_style(){
 
   var ct_linkforCSSfile = document.createElement("link");
-  // ct_linkforCSSfile.href = 'https://media.sunglasshut.com/2023/utility/WOW/search/style/main.min.css';
-  ct_linkforCSSfile.href = './style/main.min.css';
+  ct_linkforCSSfile.href = 'https://media.sunglasshut.com/2023/utility/WOW/search/style/main.min.css';
+  // ct_linkforCSSfile.href = './style/main.min.css';
   ct_linkforCSSfile.type = 'text/css';
   ct_linkforCSSfile.rel = 'stylesheet';
   document.body.appendChild(ct_linkforCSSfile);
@@ -40,6 +42,7 @@ window.ct_wow__search = {
   },
   template:'',
   data:{
+    loaded:false,
     products:[],
     questions:[],
     storeInfo:{
@@ -51,7 +54,7 @@ window.ct_wow__search = {
 
 window.ct_wow__search.template = `
 <div id="ct_wow__search" class="ct_space " style="opacity:0;pointer-events:none;  transform: translateY(100%);">
-  <div id="ct_wow__search__loader">
+  <div id="ct_wow__search__loader" class="ct_in">
       <div class="ct_wow__search__results_loader__img_container_wrap">
         <div class="ct_wow__search__results_loader__img_container">
             <img src="https://media.sunglasshut.com/2023/utility/WOW/search/first.png" alt="eyeglasses and sunglasses in circle 1"/>
@@ -157,7 +160,7 @@ window.ct_wow__search.start = function(e){
       window.ct_wow__search.structure.init({reopen:true});
       setTimeout(function(){
         this_.style.pointerEvents = 'all';
-      })
+      },600)
     }
   }
   setTimeout(function(){

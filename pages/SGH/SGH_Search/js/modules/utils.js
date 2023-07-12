@@ -26,3 +26,26 @@ export const getDevice = () => {
     return window.innerWidth > 1025 ? "D" : window.innerWidth < 1025 && window.innerWidth >= 768 ? "T" :  window.innerWidth < 768 ? "M" : "not recognized";
 }
 
+export const checkData = (data,timeout) => {
+    return new Promise((resolve,reject)=>{
+        if (data.loaded === true){
+            resolve()
+        }else{ 
+            let timer = 0;
+            let checkDataInterver = setInterval(()=>{
+                if (data.loaded === true){
+                    console.log('RESOLVED IN: ' + timer + 'ms')
+                    clearInterval(checkDataInterver)
+                    resolve()
+                }else{
+                    timer += 200;
+                    if (timer > timeout){
+                        clearInterval(checkDataInterver)
+                        console.log('TIMEOUT')
+                        resolve()
+                    }
+                }
+            },200)
+        }
+    })
+}
