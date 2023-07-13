@@ -126,6 +126,8 @@
                 transition: opacity .4s ease;
                 height: 40px;
                 margin-top: 12px;
+                box-sizing: content-box;
+                line-height: 1.2;
                 @media(max-width:1550px){
                     font-size: 24px;
                 }
@@ -145,6 +147,7 @@
             position: relative;
             overflow: hidden;
             transition: transform .3s ease;
+            box-sizing: border-box;
             @media(max-width:1024px){
                 height: 40px;
             }
@@ -199,7 +202,7 @@
                             padding-left: 0;
                         }
                         &:last-child{
-                            padding-right: 32px;
+                            padding-right: 0;
                         }
                     }
                 }

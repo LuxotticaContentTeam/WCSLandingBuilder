@@ -69,7 +69,8 @@ const ct_rtr__data = {
       "fr": "Acheter maintenant",
       "es": "Comprar ahora",
       "de": "Jetzt kaufen",
-      "it": "Acquista ora",
+      "it": "Acquista ora"
+    
     },
     rotate: {
       'en': 'DRAG TO ROTATE THE GLASSES',
@@ -77,6 +78,7 @@ const ct_rtr__data = {
       'es': 'ARRASTRA PARA GIRAR LAS GAFAS',
       'de': 'ZUM DREHEN DER BRILLEN ZIEHEN',
       'it': 'TRASCINA PER GIRARE GLI OCCHIALI',
+
     },
     cursor: {
       'en': 'DRAG',

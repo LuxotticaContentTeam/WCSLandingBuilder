@@ -36,7 +36,7 @@ window.ct_wow__search = {
   inputManagement:{},
   config:{
     selector:'body',
-    openingElem:['#quiz']
+    openingElem:['#quiz_cta']
   },
   template:'',
   data:{
@@ -185,7 +185,12 @@ function ct_wow__search__start(){
   
 }
 
-$('.sgh-search-suggestions ').after('<div id="quiz" style="text-align:center;padding:20px;text-decoration:underline;font-size:20px">START QUIZ</div>')
+$('.sgh-search-suggestions ').after(`
+  <div id="quiz">
+    <h3>Can’t decide?</h3>
+    <p>Head to our quiz to find our expert shade recommendations.</p>
+    <div id="quiz_cta" tabindex="0" aria-label="START SHOPPING">START SHOPPING</div>
+  </div>`);
 
 
 ct_wow__search__start()
