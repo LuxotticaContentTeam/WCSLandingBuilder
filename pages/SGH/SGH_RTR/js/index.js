@@ -50,42 +50,57 @@ const ct_rtr__data = {
   labels: {
     headline:{
       "en":"See our bestsellers in 3D",
-      "fr":"Voyez nos meilleures ventes en 3D",
-      "es":"Vea nuestros bestsellers en 3D",
-      "de":"Sehen Sie unsere Bestseller in 3D", 
-      "it":"Vedi i nostri bestseller in 3D"
+      "fr-ca":"Regardez nos articles les plus populaires en 3D",
+      "es":"Compra nuestros bestsellers en 3D",
+      "fr":"Découvrez nos best-sellers en 3D",
+      "de":"Schau dir unsere Bestseller in 3D an", 
+      "pt":"Ver os nossos bestsellers em 3D",
+      "pt-br":"Veja nossos modelos mais vendidos em 3D",
+      "es-mx":"Mira nuestros éxitos de ventas en 3D"
 
     },
     bottom_text:{
       "en":"Expertly crafted shades from every angle.",
-      "fr":"Des lunettes de soleil conçues avec expertise sous tous les angles.",
-      "es":"Gafas de sol de fabricación experta desde todos los ángulos.",
-      "de":"Fachmännisch gefertigte Sonnenbrillen aus jedem Winkel.",
-      "it":"Occhiali da sole realizzati con maestria da ogni angolazione."
+      "fr-ca":"Des lunettes de soleil savamment conçues sous tous les angles.",
+      "es":"Gafas de sol elaboradas por expertos desde todos los ángulos.",
+      "fr":"Des solaires fabriquées d’une main experte, sous tous les angles.",
+      "de":"Fachmännisch gefertigte Sonnenbrillen aus jedem Blickwinkel.", 
+      "pt":"Tons habilmente trabalhados de todos os ângulos.",
+      "pt-br":"Óculos de sol cuidadosamente projetados, vistos de todos os ângulos.",
+      "es-mx":"Lentes elaborados por expertos desde todos los ángulos."
 
     },
     shop_now: {
       "en": "Shop now",
-      "fr": "Acheter maintenant",
-      "es": "Comprar ahora",
-      "de": "Jetzt kaufen",
-      "it": "Acquista ora"
+      "fr-ca":"Magasinez",
+      "es":"Comprar ahora",
+      "fr":"Acheter",
+      "de":"Jetzt shoppen", 
+      "pt":"Comprar",
+      "pt-br":"Compre agora",
+      "es-mx":"Comprar ya"
     
     },
     rotate: {
       'en': 'DRAG TO ROTATE THE GLASSES',
-      'fr': 'FAITES GLISSER POUR FAIRE TOURNER LES LUNETTES',
-      'es': 'ARRASTRA PARA GIRAR LAS GAFAS',
-      'de': 'ZUM DREHEN DER BRILLEN ZIEHEN',
-      'it': 'TRASCINA PER GIRARE GLI OCCHIALI',
+      "fr-ca":"FAIRE GLISSER ET FAIRE PIVOTER",
+      "es":"ARRASTRAR Y GIRAR",
+      "fr":"FAIRE GLISSER ET PIVOTER",
+      "de":"ZIEHEN UND DREHEN", 
+      "pt":"ARRASTAR E RODAR",
+      "pt-br":"ARRASTE E GIRE",
+      "es-mx":"ARRASTRAR Y GIRAR"
 
     },
     cursor: {
       'en': 'DRAG',
-      'fr': 'FAITES GLISSER',
-      'es': 'ARRASTRA',
-      'de': 'ZIEHEN',
-      'it': 'TRASCINA',
+      "fr-ca":"FAIRE GLISSER",
+      "es":"ARRASTRAR",
+      "fr":"FAIRE GLISSER",
+      "de":"ZIEHEN", 
+      "pt":"ARRASTAR",
+      "pt-br":"ARRASTRAR",
+      "es-mx":"Comprar ya"
     }
   },
   links: {

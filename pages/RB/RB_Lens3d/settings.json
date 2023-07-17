@@ -1,0 +1,7 @@
+{
+    "paths": {  
+        "distFolder": "dist/",
+        "developmentConf": ".",
+        "productionConf": ""
+    }
+}

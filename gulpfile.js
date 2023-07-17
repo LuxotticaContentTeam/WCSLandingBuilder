@@ -256,7 +256,9 @@ gulp.task('dev_', (done)=> {
   if (process.argv.includes('--brand') && process.argv.includes('--page') && process.argv.includes('--moduleLibrary') ){
     
     currentBrand = process.argv[process.argv.indexOf('--brand')+1];
-    settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
+    
+      settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
+    
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
     settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
