@@ -29,7 +29,9 @@ export class Env3D {
 		this.orbitControls;
 		this.animate = this.animate.bind(this)
 		this.rotate360 = this.rotate360.bind(this)
-
+		this.rotateDirection = '';
+		this.rotation = 0;
+		this.startRotation = 0;
 
 
 		this.mouseAnimSettings = {
@@ -163,7 +165,7 @@ export class Env3D {
 		Object.assign(this.orbitControls,{
 		//   maxDistance: 5,
 		//   minDistance:1,
-		autoRotate:false,
+		// autoRotate:true,
 		autoRotateSpeed:3.5,
 		enableDamping:true,
 		dampingFactor:.03,
@@ -246,23 +248,29 @@ export class Env3D {
         this.MODEL.rotation.x =-.2+ window.scrollY * .001 
     })
   }
- 
-  rotate360(type){
+  startRotate360(type){
+	this.rotateDirection = type;
+	this.rotation = 0;
+	this.startRotation = this.MODEL.rotation.y
+	this.rotate360();
+  }
+  rotate360(){
 
-	let rotation = 0;
-	if (this.MODEL.rotation.y > -6.28 && this.MODEL.rotation.y < 6.28){
-		
-		requestAnimationFrame(this.rotate360);
+	if (Math.abs(this.startRotation - this.MODEL.rotation.y)  < 6.28){
+	
 		// console.log(this.MODEL.rotation.y)
-		if (type == 'left'){
-			this.MODEL.rotation.y -= .05
+		if (this.rotateDirection == 'left' || this.rotateDirection == ''){
+			this.MODEL.rotation.y -= .1
 		}else{
-			this.MODEL.rotation.y += .15
+			this.MODEL.rotation.y += .1
 		}
-
+		requestAnimationFrame(this.rotate360);
 		
 		this.renderer.render( this.scene, this.camera );
 	}
+  }
+  customOrbitRotation(){
+	
   }
 }
 

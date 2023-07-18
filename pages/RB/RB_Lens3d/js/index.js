@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 	window.my3dEnv.setMouseAnimation(true)
 
 	document.querySelector('#eye').addEventListener('click',()=>{
-		window.my3dEnv.rotate360("left")
+		window.my3dEnv.startRotate360("left")
 	})
 	document.querySelector('#sun').addEventListener('click',()=>{
-		window.my3dEnv.rotate360("rigth")
+		window.my3dEnv.startRotate360("rigth")
 	})
   })
   

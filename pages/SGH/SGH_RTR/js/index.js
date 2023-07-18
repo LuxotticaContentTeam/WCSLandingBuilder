@@ -316,7 +316,7 @@ function ct_rtr__init(){
       document.querySelector('.ct_rtr__container .ct_rtr__product.ct_active').classList.remove('ct_active');
 
       this.classList.add('ct_active');
-      document.querySelector('.ct_rtr__container .ct_rtr__cta a').href = ct_rtr__getTrad(ct_rtr__data.links[this.dataset.upc],ct_rtr__lang,ct_rtr__lang_short);
+      document.querySelector('.ct_rtr__container .ct_rtr__cta a').href =ct_rtr__baseurl + ct_rtr__getTrad(ct_rtr__data.links[this.dataset.upc],ct_rtr__lang,ct_rtr__lang_short);
       document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description = this.dataset.upc;
       document.querySelector('.ct_rtr__container .ct_rtr__title[data-upc="'+this.dataset.upc+'"]').classList.add('ct_active');
     });

@@ -33,7 +33,7 @@
       aspect-ratio: 1 / 1;
       @media (max-width: 768px) {
         width: 100%;
-        aspect-ratio: 5 / 4;
+        aspect-ratio: 1/1;
         min-height: 0;
       }
       @media (max-width: 380px) {
@@ -65,6 +65,7 @@
           margin-bottom: 12px;
           @media (max-width: 1024px) {
             font-size: 28px;
+            line-height: 1.1;
           }
         }
         .ct_rtr__products{
