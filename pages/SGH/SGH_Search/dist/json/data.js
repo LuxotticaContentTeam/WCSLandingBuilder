@@ -600,7 +600,7 @@ window.ct_wow__search.data.copy = {
                 "de":"..",
             },
             "url":{
-                "en":"/view-all",
+                "en":"/designer-sunglasses",
                 "fr":"..",
                 "es":"..",
                 "de":"..",

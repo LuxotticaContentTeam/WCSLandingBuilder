@@ -92,13 +92,13 @@ window.ct_wow__search.structure = {
     /**
      * Insert Products in HTML
      */
-    let url_first_part = 'https://www.sunglasshut.com/us'//TODO tochange
+   
     Object.keys(window.ct_wow__search.data.products).forEach(upc=>{
     
       this.prod_list_container.innerHTML+=`
       <li class="ct_wow_search__product" data-upc="${upc}">
         <div class="ct_wow_search__product__wrap">
-          <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="X_X_WowSearch_Banner" data-description-="${upc}" tabindex="0">
+          <a href="${window.ct_wow__search.data.storeInfo.base_url + window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="X_X_WowSearch_Banner" data-description-="${upc}" tabindex="0">
               <div class="ct_wow_search__img_container">
                   <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
               </div>
@@ -591,7 +591,7 @@ window.ct_wow__search.inputManagement = {
     this.results.container.querySelector('h2').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.title);
     this.results.container.querySelector('p').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.subtitle);
     this.results.container.querySelector('.ct_cta.ct_cta__black').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.viewAll.label);
-    this.results.container.querySelector('.ct_cta.ct_cta__black').href = storeInfo.getLang(window.ct_wow__search.data.copy.results.viewAll.url);
+    this.results.container.querySelector('.ct_cta.ct_cta__black').href =window.ct_wow__search.data.storeInfo.base_url + storeInfo.getLang(window.ct_wow__search.data.copy.results.viewAll.url);
   },
   changeQuestions:function(dir){
   
@@ -651,12 +651,11 @@ window.ct_wow__search.inputManagement = {
     let productsContainer = this.results.container.querySelector('#ct_wow__search__results_products');
     productsContainer.innerHTML=''
    
-    let url_first_part = 'https://www.sunglasshut.com/us'//tochange
-  
+   
     this.results.state.forEach(upc=>{
       
       productsContainer.innerHTML+=`
-      <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" class="ct_wow__search__results_product">
+      <a href="${window.ct_wow__search.data.storeInfo.base_url + window.ct_wow__search.data.products[upc].url}" class="ct_wow__search__results_product">
           <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
           <span>${window.ct_wow__search.data.products[upc].brand}</span>
         </a>

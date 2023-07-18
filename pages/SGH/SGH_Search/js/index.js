@@ -47,7 +47,8 @@ window.ct_wow__search = {
     questions:[],
     storeInfo:{
       lang:'',
-      lang_short: ''
+      lang_short: '',
+      base_url:''
     }
   }
 }

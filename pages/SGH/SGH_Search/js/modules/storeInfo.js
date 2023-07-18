@@ -1,5 +1,6 @@
 export const storeInfo ={
     getInfo:function(){
+        window.ct_wow__search.data.storeInfo.base_url = window.location.origin + window.location.pathname;
         let time = 0;
         let interval = setInterval(() => {
             time+=200;
