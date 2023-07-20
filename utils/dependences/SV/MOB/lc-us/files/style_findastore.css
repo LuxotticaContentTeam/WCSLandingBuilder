@@ -1,0 +1,2002 @@
+/* UX2019 - Find A Store */
+.find-a-store {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  margin: 0 auto;
+  /* New LC accordion */
+  /* New LC textbox */
+  /* New LC checkbox */
+  /* New LC switch */
+}
+
+.find-a-store .find-a-store-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.find-a-store .find-a-store-search img.eye-exam-img {
+  width: 100%;
+}
+
+.find-a-store .find-a-store-search .store-search-form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: #f2f2f2;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find-a-store .find-a-store-search .store-search-form-container > h2 {
+  color: #333333;
+  font: 23px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  letter-spacing: 0px;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.find-a-store .find-a-store-search .store-search-form-container > h3 {
+  font: 16px "FuturaBQLight", Arial, Helvetica, sans-serif !important;
+  color: #333333;
+  margin: 0 0 16px 0 !important;
+  padding: 0;
+  text-transform: lowercase;
+}
+
+.find-a-store .find-a-store-search .store-search-form-container > p {
+  font: 14px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.find-a-store .find-a-store-search .store-search-form-container a.geolocate {
+  color: #326fa8;
+  font: 18px "FuturaBQBookOblique", Arial, Helvetica, sans-serif;
+  margin-top: 16px;
+}
+
+.find-a-store .find-a-store-search .store-search-form-container a.geolocate::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background: url(../../images/gps-fixed-indicator@3x.png) no-repeat;
+  background-size: 100%;
+  vertical-align: text-top;
+}
+
+.find-a-store .store-search-form-container .store-search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  height: 40px;
+}
+
+.find-a-store .store-search-form-container .store-search-form .location-entry-container {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.find-a-store .store-search-form-container .store-search-form input[type="text"].lc-textbox.location-entry {
+  border: 0.3px solid #333333 !important;
+  background-color: white !important;
+}
+
+.find-a-store .store-search-form-container .store-search-form input[type="text"].lc-textbox.location-entry::-webkit-input-placeholder {
+  color: #666666;
+}
+
+.find-a-store .store-search-form-container .store-search-form input[type="text"].lc-textbox.location-entry:-ms-input-placeholder {
+  color: #666666;
+}
+
+.find-a-store .store-search-form-container .store-search-form input[type="text"].lc-textbox.location-entry::-ms-input-placeholder {
+  color: #666666;
+}
+
+.find-a-store .store-search-form-container .store-search-form input[type="text"].lc-textbox.location-entry::placeholder {
+  color: #666666;
+}
+
+.find-a-store .store-search-form-container .store-search-form input[type="submit"].blue-button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 89px;
+          flex: 0 0 89px;
+}
+
+.find-a-store .store-search-form-container span.error-msg {
+  display: block;
+  font: 16px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #D0021B;
+  margin-top: 16px;
+}
+
+.find-a-store .store-search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.find-a-store .store-search-container.full-screen {
+  display: table;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 20000 !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find-a-store .store-search-container .store-search-header {
+  padding: 20px 10px 15px 10px;
+  letter-spacing: 0.5px;
+}
+
+.find-a-store .store-search-container .store-search-header > h2 {
+  color: #333333;
+  font: 20px "FuturaBQMedium", Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.find-a-store .store-search-container .store-search-header > h3 {
+  font: 16px "FuturaBQLight", Arial, Helvetica, sans-serif !important;
+  color: #333333;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.find-a-store .store-search-container .store-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 15px;
+  background-color: #f2f2f2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row .store-search-form-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 23px;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row a.filter-results {
+  position: relative;
+  font: 16px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #333333;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row a.filter-results::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/filters-ico@3x.png) no-repeat;
+  background-size: 100%;
+  margin-right: 8px;
+  vertical-align: bottom;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(102, 102, 102, 0.75);
+  z-index: 99999;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar .store-filters-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: white;
+  width: 80%;
+  height: 100%;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters-header {
+  height: 48px;
+  padding: 12px;
+  font: 20px "FuturaBQMedium", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: #222222;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters-header a.left-arrow::before {
+  content: '<';
+  display: inline-block;
+  font: 18px "FuturaBQMedium", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: #222222;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+  margin-right: 18px;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filters-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #999999;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filters-row:first-child {
+  border-top: 1px solid #999999;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filters-row .store-filters-accordion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filters-row .insurance-provider-container {
+  margin-top: 7px;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filters-row .insurance-provider-container #insuranceProvider.lc-textbox {
+  background-color: white;
+  font-size: 14px;
+  height: 40px;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filters-row .lc-checkbox {
+  margin: 20px 0;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filters-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filter-title {
+  font: 16px "FuturaBQMedium", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: #333333;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters .store-filter-sub {
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #666666;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+  height: 64px;
+  background-color: white;
+  -webkit-box-shadow: 0 -1px 4px 0 rgba(169, 169, 169, 0.5);
+          box-shadow: 0 -1px 4px 0 rgba(169, 169, 169, 0.5);
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters-footer .white-button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  margin-right: 20px;
+  height: 40px;
+}
+
+.find-a-store .store-search-container .store-search .store-search-row.store-search-filters-row .store-filters-sidebar #storeFiltersForm .store-filters-footer .blue-button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.find-a-store .store-search-container .num-results {
+  padding: 15px;
+  font: 14px "FuturaBQBookOblique", Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+
+.find-a-store .store-search-container .store-results-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin: 10px;
+}
+
+.find-a-store .store-search-container .store-results-tabs a.store-results-tab {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  height: 48px;
+  color: #222222;
+  font: 16px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  text-align: center;
+  line-height: 48px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 2px solid #CCCCCC;
+}
+
+.find-a-store .store-search-container .store-results-tabs a.store-results-tab.active {
+  font-family: "FuturaBQBook", Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid #222222;
+}
+
+.find-a-store .store-search-container .store-results-tabs-content {
+  display: table-row;
+  height: 100%;
+}
+
+.find-a-store .store-search-container .store-results-tab-content {
+  height: 100%;
+}
+
+.find-a-store .store-search-container .eye-exam-alternative {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 20px);
+  z-index: 2;
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal {
+  position: fixed;
+  top: 40%;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 4px;
+  z-index: 3;
+}
+
+@media only screen and (max-device-width: 1023px) and (min-device-width: 568px) and (orientation: landscape) {
+  .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal {
+    height: 45%;
+  }
+}
+
+@media only screen and (max-device-width: 568px) and (orientation: landscape) {
+  .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal {
+    height: 50%;
+  }
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal .title, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal .title {
+  font: 16px "FuturaBQMedium", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal .text, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal .text {
+  margin-top: 15px;
+  font: 15px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal .buttons, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal .buttons {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal .buttons a, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal .buttons a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 6px;
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal .buttons .white-button, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal .buttons .white-button {
+  margin-left: auto;
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal .buttons .blue-button, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal .buttons .blue-button {
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 320px) {
+  .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal {
+    height: 40%;
+  }
+  .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-california-modal .buttons .white-button, .find-a-store .store-search-container .eye-exam-alternative .eye-exam-in-texas-modal .buttons .white-button {
+    margin-left: 35%;
+  }
+}
+
+.find-a-store .store-search-container .eye-exam-alternative .eye-exam-alternative-overlay {
+  position: fixed;
+  background-color: rgba(51, 51, 51, 0.6);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  overflow: hidden;
+}
+
+.find-a-store .store-search-container ul.store-list {
+  padding: 15px;
+  overflow: hidden auto;
+  -ms-overflow-style: none;
+}
+
+.find-a-store .store-search-container ul.store-list li.store {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px;
+  border: 1px solid #979797;
+  border-top: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find-a-store .store-search-container ul.store-list li.store:first-child {
+  border-top: 1px solid #979797;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-row.fill-row {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-row.centered {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-row.centered a:nth-of-type(2n) {
+  margin-top: 12px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-info {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-info .store-name-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-info .store-name-logo .macys-logo {
+  display: block;
+  background: transparent url(../images/macyslogo.png) no-repeat;
+  background-size: 100%;
+  width: 30px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-info .store-name-logo .store-name {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-info .store-name-logo .store-name > h3 {
+  font: 18px "FuturaBQBook", Arial, Helvetica, sans-serif !important;
+  color: #333333;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-info > p {
+  font: 15px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  color: #333333;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-info a {
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #333333;
+  text-decoration: underline;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-favourite {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-favourite .empty-heart-icon {
+  display: block;
+  background: transparent url(../images/heart-empty.png) no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-favourite .full-heart-icon {
+  display: block;
+  background: transparent url(../images/heart-full.png) no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-phone-directions-distance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-distance-logo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  margin-top: 10px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-distance-logo .store-distance {
+  font: 12px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #5a5a5a;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-distance-logo .store-distance.spot-pin-icon::before {
+  width: 20px;
+  height: 20px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status {
+  display: none;
+  width: 43px;
+  height: 31px;
+  background: transparent url(../../images/sprites/fas-actions.jpg) no-repeat;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.store-closed, .find-a-store .store-search-container ul.store-list li.store .store-status.recently-moved, .find-a-store .store-search-container ul.store-list li.store .store-status.now-open, .find-a-store .store-search-container ul.store-list li.store .store-status.new-look, .find-a-store .store-search-container ul.store-list li.store .store-status.temporary-closed, .find-a-store .store-search-container ul.store-list li.store .store-status.coming-soon, .find-a-store .store-search-container ul.store-list li.store .store-status.one-hour {
+  display: block;
+  margin-top: 10px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.store-closed {
+  background-position: -58px -33px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.recently-moved {
+  background-position: 0 -65px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.now-open {
+  background-position: 0 -33px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.new-look {
+  background-position: 0 -97px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.temporary-closed {
+  background-position: -58px 0;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.coming-soon {
+  background-position: 0 0;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-status.one-hour {
+  background-position: right -68px;
+  width: 35px;
+  height: 37px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-favourite-distance-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-hours {
+  color: #333333;
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  margin-top: 12px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-hours .open {
+  color: #2f8656;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-hours-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-hours-content .week-day span, .find-a-store .store-search-container ul.store-list li.store .store-hours-content .week-hours span {
+  display: block;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .store-hours-content .week-hours {
+  margin-left: 45px;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .num-appointments {
+  color: #333333;
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .more-info-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .more-info-group a.more-info {
+  font: 15px "FuturaBQBookOblique", Arial, Helvetica, sans-serif;
+  color: #326fa8;
+  text-decoration: underline;
+  margin: 12px 10px 12px 0;
+  padding: 0;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .more-info-group div.lds-rolling {
+  position: relative;
+  top: 100%;
+  left: -36%;
+}
+
+.find-a-store .store-search-container ul.store-list li.store .more-info-group div.lds-rolling div {
+  top: 0;
+  left: 0;
+}
+
+.find-a-store .store-search-container ul.store-list li.show-more-locations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 15px;
+}
+
+.find-a-store .map-container {
+  position: relative;
+  height: 100%;
+  outline: 0.5px solid #bdbdbd;
+  overflow: hidden;
+}
+
+.find-a-store .map-container .map {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.find-a-store .map-container .store-cards-wrapper {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 50%;
+  z-index: 2;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards, .find-a-store .map-container .store-cards-wrapper .store-cards .slick-list, .find-a-store .map-container .store-cards-wrapper .store-cards .slick-track {
+  height: 100%;
+  overflow: visible;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards {
+  padding-bottom: 10px;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card {
+  margin: 0 5px 10px 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: white;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(51, 51, 51, 0.8);
+          box-shadow: 0 2px 4px 0 rgba(51, 51, 51, 0.8);
+  overflow: hidden;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  padding: 15px;
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content {
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content {
+    padding: 5px;
+  }
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-height: 50%;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-row.centered {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > h3 {
+  font: 18px "FuturaBQBook", Arial, Helvetica, sans-serif !important;
+  color: #333333;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > p {
+  font: 15px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  color: #333333;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > p {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > p {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > h3 {
+    font-size: 16px !important;
+  }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > h3 {
+    font-size: 16px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > p {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > p {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > h3, .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > p {
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > h3, .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info > p {
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-height: 568px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info .store-phone-directions {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 375px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info .store-phone-directions {
+    display: none;
+  }
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-info a {
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #333333;
+  text-decoration: underline;
+  margin-right: 8px;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-distance-logo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-distance-logo .store-distance {
+  font: 13px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #5a5a5a;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-distance-logo .store-distance.spot-pin-icon::before {
+  width: 20px;
+  height: 20px;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-distance-logo .macys-logo {
+  display: block;
+  background: transparent url(../images/macyslogo.png) no-repeat;
+  background-size: 100%;
+  width: 34px;
+  height: 40px;
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-distance-logo .macys-logo {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-distance-logo .macys-logo {
+    margin-top: 5px;
+  }
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-hours {
+  color: #333333;
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  margin: 12px 0;
+}
+
+@media only screen and (max-height: 568px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-hours {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 375px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-hours {
+    display: none;
+  }
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content .store-hours .open {
+  color: #2f8656;
+}
+
+.find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content a.more-info {
+  font: 15px "FuturaBQBookOblique", Arial, Helvetica, sans-serif;
+  color: #326fa8;
+  text-decoration: underline;
+  margin: 0 10px 12px 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content a.more-info {
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-height: 320px) and (orientation: landscape) {
+  .find-a-store .map-container .store-cards-wrapper .store-cards .store-card .store-card-content a.more-info {
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+}
+
+.find-a-store .more-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: overlay;
+  z-index: 20000 !important;
+  top: 0;
+}
+
+.find-a-store .more-info-container .more-info-header {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 44px;
+          flex: 0 0 44px;
+  padding: 10px;
+  border-bottom: 1px solid #979797;
+}
+
+.find-a-store .more-info-container .more-info-header a {
+  font: 16px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  color: #222222;
+  font-weight: 600;
+}
+
+.find-a-store .more-info-container .more-info-header a::before {
+  content: '';
+  display: inline-block;
+  background: url(../../images/arrow-ico@3x.png) no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+.find-a-store .more-info-container .more-info-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 20px;
+  overflow: hidden auto;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.centered {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info .store-name-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info .store-name-logo .macys-logo {
+  display: block;
+  background: transparent url(../images/macyslogo.png) no-repeat;
+  background-size: 100%;
+  width: 30px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info .store-name-logo .store-name {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info .store-name-logo .store-name > h2 {
+  font: 20px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #333333;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info .store-phone-directions-distance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info > p {
+  font: 15px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  color: #333333;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-info a {
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #333333;
+  text-decoration: underline;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-favourite {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-favourite .empty-heart-icon {
+  display: block;
+  background: transparent url(../images/heart-empty.png) no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-favourite .full-heart-icon {
+  display: block;
+  background: transparent url(../images/heart-full.png) no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-distance-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-distance-logo .directions-icon {
+  margin-left: 20px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-distance-logo .store-distance {
+  font: 12px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  color: #5a5a5a;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-distance-logo .store-distance.spot-pin-icon::before {
+  width: 20px;
+  height: 20px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-hours {
+  color: #333333;
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  margin-top: 12px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-hours .open {
+  color: #2f8656;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-hours-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-hours-content .week-day span, .find-a-store .more-info-container .more-info-content .more-info-row .store-hours-content .week-hours span {
+  display: block;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .store-hours-content .week-hours {
+  margin-left: 45px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row a.schedule-eye-exam {
+  margin: 24px 0 32px 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs {
+  min-width: 450px;
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  color: #333333;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 376px) and (max-width: 412px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-height: 568px) and (max-width: 320px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs {
+    min-width: unset;
+    width: 370px;
+  }
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs label, .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #slider {
+  display: inline-block;
+  text-align: center;
+  color: #333333;
+  width: 110px;
+  height: 2px;
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs label[for=tab3], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #slider[for=tab3] {
+  padding-top: 8px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs label[for=tab2], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #slider[for=tab2] {
+  margin-left: -5px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs label[for=tab1], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #slider[for=tab1] {
+  padding-right: 10px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs label:hover {
+  cursor: pointer;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio] {
+  display: none;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #slider {
+  background-color: transparent;
+  border-bottom: 2px solid #333333;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  padding: 20px 0px;
+  width: 115px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab1:checked ~ #slider {
+  -webkit-transform: translate(-345px, 15px);
+          transform: translate(-345px, 15px);
+  width: 110px;
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  /* IPAD PRO */
+}
+
+@media screen and (max-height: 568px) and (max-width: 320px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab1:checked ~ #slider {
+    -webkit-transform: translate(-280px, 15px);
+            transform: translate(-280px, 15px);
+  }
+}
+
+@media (min-width: 600px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab1:checked ~ #slider {
+    -webkit-transform: translate(-620px, 5px);
+            transform: translate(-620px, 5px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab1:checked ~ #slider {
+    -webkit-transform: translate(-870px, 5px);
+            transform: translate(-870px, 5px);
+  }
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab2:checked ~ #slider {
+  -webkit-transform: translate(-230px, 15px);
+          transform: translate(-230px, 15px);
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  /* IPAD PRO */
+}
+
+@media screen and (max-height: 568px) and (max-width: 320px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab2:checked ~ #slider {
+    -webkit-transform: translate(-185px, 15px);
+            transform: translate(-185px, 15px);
+  }
+}
+
+@media (min-width: 600px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab2:checked ~ #slider {
+    -webkit-transform: translate(-415px, 5px);
+            transform: translate(-415px, 5px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab2:checked ~ #slider {
+    -webkit-transform: translate(-585px, 5px);
+            transform: translate(-585px, 5px);
+  }
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab3:checked ~ #slider {
+  -webkit-transform: translate(-115px, 15px);
+          transform: translate(-115px, 15px);
+  width: 110px;
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  /* IPAD PRO */
+}
+
+@media screen and (max-height: 568px) and (max-width: 320px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab3:checked ~ #slider {
+    -webkit-transform: translate(-90px, 15px);
+            transform: translate(-90px, 15px);
+  }
+}
+
+@media (min-width: 600px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab3:checked ~ #slider {
+    -webkit-transform: translate(-200px, 5px);
+            transform: translate(-200px, 5px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio], .find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs #tab3:checked ~ #slider {
+    -webkit-transform: translate(-290px, 5px);
+            transform: translate(-290px, 5px);
+  }
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs [type=radio]:checked + label {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row.more-info-tabs-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-top: 50px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content, .find-a-store .more-info-container .more-info-content .more-info-row .more-info-accordion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content {
+  overflow: auto;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .more-info-accordion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .more-info-accordion .toggle {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  font: 14px "FuturaBQMedium", Arial, Helvetica, sans-serif;
+  color: #333333;
+  background-color: #f2f2f2;
+  padding: 8px 18px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .more-info-accordion .content {
+  font: 14px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0px;
+          flex: 0 0 0;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .more-info-accordion .content:last-child {
+  margin-bottom: 0;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .more-info-accordion .content.open {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  padding: 14px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content ul.more-info-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  font: 14px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content ul.more-info-list li {
+  list-style: disc inside;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div {
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  font: 14px "FuturaBQMedium", Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div .doctor-info-image-container {
+  width: 63px;
+  height: 68px;
+  margin: 3px;
+  overflow: hidden;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div .doctor-info-image-container img.doctor-info-image {
+  width: 100%;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div {
+  display: block;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 7px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-languages {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-license {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-license span {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-npi {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-npi span {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-new-patients {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div div .doctor-new-patients span {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion div .view-more {
+  float: right;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  color: #333333;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion .doctor-info-main-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 18px;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion .doctor-info-main-info .doctor-info-left-info {
+  width: 80%;
+  margin-left: 10px;
+  display: -ms-inline-grid;
+  display: inline-grid;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion .doctor-info-view-more {
+  padding: 8px 18px;
+  background-color: #FFFFFF;
+}
+
+.find-a-store .more-info-container .more-info-content .more-info-row .more-info-tab-content .doctor-info-accordion .doctor-info-view-more li span {
+  font: 14px "FuturaBQLight", Arial, Helvetica, sans-serif;
+}
+
+.find-a-store .more-info-container .more-info-content .lc-accordion-group label.lc-accordion::after {
+  content: none;
+}
+
+.find-a-store .more-info-container .more-info-content .lc-accordion-group label.lc-accordion::before {
+  content: '>';
+  font-size: 18px;
+  display: inline-block;
+  margin-left: 10px;
+  -webkit-transform: scaleY(0.5) rotate(90deg);
+  transform: scaleY(0.5) rotate(90deg);
+  vertical-align: baseline;
+  border: 0;
+  top: 11px;
+  left: 18px;
+  width: 0;
+  height: 0;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.find-a-store .more-info-container .more-info-content .lc-accordion-group label.lc-accordion.open::before {
+  -webkit-transform: scaleY(0.5) rotate(-90deg);
+  transform: scaleY(0.5) rotate(-90deg);
+  top: 14px;
+  left: -11px;
+}
+
+.find-a-store .disclaimer > p {
+  font: 16px "FuturaBQLight", Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+
+.find-a-store .store-list-icon::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/store-list-ico@3x.png) no-repeat;
+  background-size: 100%;
+  vertical-align: text-bottom;
+  margin-right: 5px;
+}
+
+.find-a-store .spot-pin-icon::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/spotpin-ico@3x.png) no-repeat;
+  background-size: 100%;
+  vertical-align: text-bottom;
+  margin-right: 5px;
+}
+
+.find-a-store .directions-icon::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/spotpin-ico@3x.png) no-repeat;
+  background-size: 100%;
+}
+
+.find-a-store .close-icon {
+  width: 25px;
+  height: 25px;
+  background: url(../../images/xclose-ico@3x.png) no-repeat;
+  background-size: 100%;
+  text-indent: -9999px;
+}
+
+.find-a-store .gps-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url(../../images/gps-fixed-indicator@3x.png) no-repeat;
+  background-size: 100%;
+  text-indent: -9999px;
+}
+
+.find-a-store .blue-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  height: 40px;
+  min-width: 80px;
+  color: white;
+  font: 14px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  background-color: #326fa8;
+  text-transform: uppercase;
+  border: 0;
+  padding: 7px 16px;
+  letter-spacing: 0;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find-a-store .blue-button.blue-button:hover {
+  color: white !important;
+}
+
+.find-a-store .blue-button.blue-button:focus {
+  background-color: #4589c8;
+  text-decoration: underline;
+}
+
+.find-a-store .blue-button.see-more {
+  text-align: center;
+  display: block;
+  margin: 5px auto;
+  width: 100px;
+}
+
+.find-a-store .white-button {
+  color: #333333;
+  font: 14px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  background-color: white;
+  text-transform: uppercase;
+  border: 1px solid #333333;
+  padding: 7px 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+
+.find-a-store .white-button.white-button-loader {
+  height: 33px;
+  width: 92px;
+}
+
+.find-a-store .white-button:focus {
+  text-decoration: underline;
+}
+
+.find-a-store .lc-accordion {
+  position: relative;
+}
+
+.find-a-store .lc-accordion .store-hours-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font: 15px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
+.find-a-store .lc-accordion .store-hours-content .week-day span, .find-a-store .lc-accordion .store-hours-content .week-hours span {
+  display: block;
+}
+
+.find-a-store .lc-accordion .store-hours-content .week-hours {
+  margin-left: 45px;
+}
+
+.find-a-store .store-results-tab-content .store-list .lc-accordion-group label.lc-accordion::after {
+  content: none;
+}
+
+.find-a-store .store-results-tab-content .store-list .lc-accordion-group label.lc-accordion::before {
+  content: '>';
+  font-size: 18px;
+  display: inline-block;
+  margin-left: 10px;
+  -webkit-transform: scaleY(0.5) rotate(90deg);
+  transform: scaleY(0.5) rotate(90deg);
+  vertical-align: baseline;
+  border: 0;
+  top: 11px;
+  left: 18px;
+  width: 0;
+  height: 0;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.find-a-store .store-results-tab-content .store-list .lc-accordion-group label.lc-accordion.open::before {
+  -webkit-transform: scaleY(0.5) rotate(-90deg);
+  transform: scaleY(0.5) rotate(-90deg);
+  top: 14px;
+  left: -11px;
+}
+
+.find-a-store input[type="text"].lc-textbox {
+  color: #333333 !important;
+  font: 14px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  width: 100px;
+  height: 40px;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: 1px solid #333333 !important;
+  padding: 6px 10px !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find-a-store input[type="text"].lc-textbox::-webkit-input-placeholder {
+  color: #666666;
+}
+
+.find-a-store input[type="text"].lc-textbox:-ms-input-placeholder {
+  color: #666666;
+}
+
+.find-a-store input[type="text"].lc-textbox::-ms-input-placeholder {
+  color: #666666;
+}
+
+.find-a-store input[type="text"].lc-textbox::placeholder {
+  color: #666666;
+}
+
+.find-a-store .lc-checkbox {
+  position: relative;
+}
+
+.find-a-store .lc-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.find-a-store .lc-checkbox input[type="checkbox"] + label {
+  position: relative;
+  cursor: pointer;
+  color: #333333;
+  font: 16px "FuturaBQBook", Arial, Helvetica, sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.find-a-store .lc-checkbox input[type="checkbox"] + label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #333333;
+  border-radius: 0;
+  margin-right: 8px;
+  background: white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: text-top;
+}
+
+.find-a-store .lc-checkbox input[type="checkbox"]:checked + label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: url(../images/checked.png) no-repeat;
+  background-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.find-a-store label.lc-switch {
+  position: relative;
+  width: 50px;
+  height: 24px;
+}
+
+.find-a-store label.lc-switch input.lc-slider {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.find-a-store label.lc-switch input.lc-slider:checked + .lc-slider {
+  background-color: #326fa8;
+}
+
+.find-a-store label.lc-switch input.lc-slider:focus + .lc-slider {
+  -webkit-box-shadow: 0 0 1px #326fa8;
+          box-shadow: 0 0 1px #326fa8;
+}
+
+.find-a-store label.lc-switch input.lc-slider:checked + .lc-slider:before {
+  -webkit-transform: translateX(26px);
+          transform: translateX(26px);
+}
+
+.find-a-store label.lc-switch .lc-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #666666;
+  -webkit-transition: .4s;
+  transition: .4s;
+  /* Rounded sliders */
+}
+
+.find-a-store label.lc-switch .lc-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.find-a-store label.lc-switch .lc-slider.round {
+  border-radius: 34px;
+}
+
+.find-a-store label.lc-switch .lc-slider.round:before {
+  border-radius: 50%;
+}
+/*# sourceMappingURL=style_findastore.css.map */

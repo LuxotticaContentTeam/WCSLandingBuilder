@@ -1,0 +1,16 @@
+{
+    "dependences":{
+        "responsive":true,
+        "desk":"DESK/sv-it/",
+        "mob":"MOB/sv-it/"
+    },
+
+    "moduleLibrary":{
+        "exist":false,
+        "js":"/path",
+        "css":"/path",
+        "jsDest":"/pathDest",
+        "cssDest":"/pathDest"
+    }
+
+}

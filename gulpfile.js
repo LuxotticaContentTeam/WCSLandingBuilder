@@ -261,7 +261,7 @@ gulp.task('dev_', (done)=> {
     
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
-    settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
+    // settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
     if (process.argv.includes('--newTab')){
       newTab = process.argv[process.argv.indexOf('--newTab')+1] === "yes" ? true : false;
     }else{
