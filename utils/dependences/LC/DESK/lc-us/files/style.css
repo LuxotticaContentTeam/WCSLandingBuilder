@@ -1,0 +1,4045 @@
+/* BREAKPOINTS */
+/* BASE */
+/* COLORS */
+/*
+This will hide the focus indicator if the element receives focus via the mouse,
+but it will still show up on keyboard focus.
+*/
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* FONT */
+@font-face {
+  font-family: FuturaBQBook;
+  src: url("../fonts/FuturaBQ-Book.woff2") format("woff2"), url("../fonts/FuturaBQ-Book.woff") format("woff"), url("../fonts/FuturaBQ-Book.eot");
+}
+
+@font-face {
+  font-family: FuturaBQLight;
+  src: url("../fonts/FuturaBQ-Light.woff2") format("woff2"), url("../fonts/FuturaBQ-Light.woff") format("woff"), url("../fonts/FuturaBQ-Light.eot");
+}
+
+@font-face {
+  font-family: FuturaBQMedium;
+  src: url("../fonts/FuturaBQ-Medium.woff2") format("woff2"), url("../fonts/FuturaBQ-Medium.woff") format("woff"), url("../fonts/FuturaBQ-Medium.eot");
+}
+
+@font-face {
+  font-family: ScoutCondThin;
+  src: url("../fonts/ScoutCond-Thin.otf") format("opentype");
+}
+
+.lp-font {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+}
+
+.lp-font-light {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+}
+
+.lp-font-medium {
+  font-family: FuturaBQMedium, Verdana, Arial, sans-serif !important;
+}
+
+/* SCROLLBAR */
+@media screen and (min-width: 1200px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    background-color: #cccccc;
+  }
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px white;
+            box-shadow: inset 0 0 5px white;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5c5c5c;
+  }
+}
+
+/* BODY */
+#lensPanelBackground {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 99998;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelBackground.mob {
+    display: none !important;
+  }
+}
+
+/* LCDP-5138 nasconde la chat */
+@media screen and (max-width: 1199px) {
+  #lensPanelId {
+    z-index: 100002 !important;
+  }
+}
+
+#lensPanelId {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: #333333;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 99999;
+  /* BOX SIZING */
+  /*
+    This will hide the focus indicator if the element receives focus via the mouse,
+    but it will still show up on keyboard focus.
+    */
+  /* DEVICE/MOBILE HIDE */
+  /* TEXT */
+  /* PADDING */
+  /* LOADER */
+  /* COLORS SPOT */
+  /* SWITCH */
+  /* PROGRESS BAR */
+  /* BRANDS */
+  /* MAIN CONTAINER */
+}
+
+#lensPanelId * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#lensPanelId .js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .des {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId .mob {
+    display: none !important;
+  }
+}
+
+#lensPanelId .bold {
+  font-weight: bold;
+}
+
+#lensPanelId .italic {
+  font-style: oblique;
+}
+
+#lensPanelId .col-nopad {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#lensPanelId .wait-loader {
+  position: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: #333333;
+  opacity: 0.6;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#lensPanelId .wait-loader em {
+  font-size: 45px;
+  width: 45px;
+  height: 45px;
+  z-index: 10000;
+  color: #ffffff;
+}
+
+#lensPanelId .modal-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1031;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#lensPanelId .back-to-lens-selection {
+  position: absolute;
+  top: 20px;
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+  color: #333333;
+  cursor: pointer;
+  z-index: 10000000000000000000;
+}
+
+#lensPanelId .back-to-lens-selection:before {
+  content: '< ';
+}
+
+#lensPanelId .back-to-lens-selection :not(.our-lenses) {
+  color: white;
+}
+
+#lensPanelId .back-to-lens-selection.our-lenses {
+  background-color: transparent;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId .back-to-lens-selection {
+    left: 90px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .back-to-lens-selection {
+    left: 20px;
+  }
+}
+
+#lensPanelId .modal-popup {
+  position: relative;
+  top: 50%;
+  margin: auto;
+}
+
+#lensPanelId .modal-popup.close-popup {
+  position: absolute;
+  background-color: white;
+  z-index: 1032;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-filter: blur(0);
+          filter: blur(0);
+}
+
+@media screen and (max-width: 360px) {
+  #lensPanelId .modal-popup.close-popup {
+    width: 300px !important;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .modal-popup.close-popup {
+    width: 350px;
+    height: 264px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId .modal-popup.close-popup {
+    width: 620px;
+    height: 270px;
+  }
+}
+
+#lensPanelId .modal-popup#more-info-popup {
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 60px);
+  top: 0;
+  left: 0;
+  padding: 0;
+  z-index: 1032;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  background-color: #f2f2f2;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#lensPanelId .modal-popup#more-info-popup.rayban, #lensPanelId .modal-popup#more-info-popup.oakley, #lensPanelId .modal-popup#more-info-popup.costa {
+  background-color: #ffffff;
+}
+
+#lensPanelId .modal-popup#more-info-popup .single-vision {
+  padding-top: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+#lensPanelId .modal-popup#more-info-popup .single-vision .single-vision-message {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+  max-width: 515px;
+  margin-bottom: 40px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .single-vision .single-vision-message.gvp {
+  margin-top: 80px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .single-vision .single-vision-message .bold {
+  font-weight: bolder;
+  font-family: FuturaBQBook;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container {
+  height: 100%;
+  background-color: #ffffff;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container {
+  color: #333;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .contrast, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .contrast {
+  margin-top: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .premium, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .premium {
+  margin-bottom: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .siv-margin, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .siv-margin {
+  margin-top: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .premium-anti-reflective, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .premium-anti-reflective {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-10@3x.png) no-repeat;
+  width: 22px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .premium-anti-reflective, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .premium-anti-reflective {
+    margin-left: 100px !important;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .premium-anti-reflective.sun, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .premium-anti-reflective.sun {
+    margin-left: auto !important;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .premium-anti-reflective.sun-oo, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .premium-anti-reflective.sun-oo {
+    margin-left: 15px !important;
+  }
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .scratch-resistant, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .scratch-resistant {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-3@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .antistatic, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .antistatic {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/static-group-9@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .oil-repellent, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .oil-repellent {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/oil-group-10@3x.png) no-repeat;
+  width: 17px;
+  height: 21px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .uv-protection, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .uv-protection {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-11@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .night-driving, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .night-driving {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-11@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .blue-light-logo, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .blue-light-logo {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/s-group-6@3x.png) no-repeat;
+  width: 17px;
+  height: 20px;
+  display: block;
+  float: left;
+  background-size: 65%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .digital-sufacing, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .digital-sufacing {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/2-group-2@3x.png) no-repeat;
+  width: 17px;
+  height: 20px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban-grey-container .single-vision-lenses .oo, #lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .oo {
+  position: relative;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley-grey-container {
+  color: #333;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses {
+  margin-bottom: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley-grey-container .single-vision-lenses .row {
+  margin-top: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley-grey-container .lenses-include {
+  margin-bottom: 30px !important;
+}
+
+@media screen and (min-width: 1199px) {
+  #lensPanelId .modal-popup#more-info-popup .oakley:not(.back-to-lens-selection) {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/risorsa-43-3-x@3x.png) no-repeat;
+    background-size: 110%;
+  }
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban:not(.back-to-lens-selection), #lensPanelId .modal-popup#more-info-popup .oakley:not(.back-to-lens-selection) {
+  height: 240px;
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .modal-popup#more-info-popup .ray-ban:not(.back-to-lens-selection), #lensPanelId .modal-popup#more-info-popup .oakley:not(.back-to-lens-selection) {
+    height: 410px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .built, #lensPanelId .modal-popup#more-info-popup .oakley .built {
+  text-transform: uppercase;
+  font-size: 19px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .text, #lensPanelId .modal-popup#more-info-popup .oakley .text {
+  font-size: 14px;
+  margin-top: 15px;
+  line-height: 19px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .margin, #lensPanelId .modal-popup#more-info-popup .oakley .margin {
+  margin-top: 20px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .ray-ban-square, #lensPanelId .modal-popup#more-info-popup .oakley .ray-ban-square {
+  height: 90px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-4@3x.png) no-repeat;
+  background-size: 106px 75px;
+  margin-top: auto;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row, #lensPanelId .modal-popup#more-info-popup .oakley .info-row {
+  margin-top: 40px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info {
+  width: 167px;
+  height: 74px;
+  font-family: ScoutCondThin;
+  font-size: 21px;
+  line-height: 1;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info.signature, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info.signature {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-3bitmap@3x.png) no-repeat;
+  background-size: 74px;
+  background-position: center;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info.signature:before, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info.signature:before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: -15px;
+  height: 106px;
+  width: 106px;
+  background-size: 106px;
+  background-repeat: no-repeat;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info.signature.eye:before, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info.signature.eye:before {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-circle-43-3-x@3x.png);
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info.signature.sun:before, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info.signature.sun:before {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-circle-sun@3x.png);
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info.high-definition, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info.high-definition {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-hidef@3x.png) no-repeat;
+  background-size: 74px;
+  background-size: 155px;
+  margin-top: 8px;
+  background-position: center;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info.lens-shaping, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info.lens-shaping {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-lshap@3x.png) no-repeat;
+  background-size: 88.5px;
+  margin-top: 2.5px;
+  background-position: center;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .info-row .info.uv-protection, #lensPanelId .modal-popup#more-info-popup .oakley .info-row .info.uv-protection {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/bitmap@3x.png) no-repeat;
+  background-size: 95px;
+  margin-top: 5px;
+  background-position: center;
+}
+
+#lensPanelId .modal-popup#more-info-popup .ray-ban .bold, #lensPanelId .modal-popup#more-info-popup .oakley .bold {
+  font-weight: bold;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .built {
+  font-size: 18px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .header {
+  position: relative;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .oakley-logo {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/oo-logo@3x.png) no-repeat;
+  background-size: 65%;
+  background-position: center;
+  margin-top: 30px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .oakley-logo-sun {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/oo-logo@3x.png) no-repeat;
+  background-size: 50%;
+  background-position: center;
+  height: 50px;
+  margin-top: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .optimal-frame {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/pgroup-6@3x.png) no-repeat;
+  background-size: 100%;
+  width: 100px;
+  background-position: center;
+  height: 100px;
+  margin: auto;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .authentic {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-5@3x.png) no-repeat;
+  background-size: 75%;
+  width: 100px;
+  background-position: center;
+  height: 100px;
+  margin: auto;
+  margin-top: 3px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .made-for-you {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-8@3x.png) no-repeat;
+  background-size: 100%;
+  width: 80px;
+  background-position: center;
+  height: 100px;
+  margin: auto;
+  margin-top: -2px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .uv-protection {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/pgroup-9@3x.png) no-repeat;
+  background-size: 100%;
+  width: 82px;
+  background-position: center;
+  height: 100px;
+  margin: auto;
+  margin-top: -2px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .oakley .message {
+  font-size: 15px;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container {
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  font-style: oblique;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .lenses-include {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-top: 50px;
+  font-style: initial;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .blue-light {
+  margin-top: 10px;
+  text-transform: initial;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .anti-reflective {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-10@3x.png) no-repeat;
+  width: 24px;
+  height: 16px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 7px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .scratch-resistant {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-14@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 5px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .scratch-resistant.margin-logo {
+  margin-left: 115px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .uv-protection {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-11@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 5px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .uv-protection.margin-logo {
+  margin-left: 65px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .polarized {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/sun@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 5px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .polarized.margin-logo {
+  margin-left: 50px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .contrast-image {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-7@3x.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .contrast-image {
+    background-size: 80%;
+  }
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .anti-smudge {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/fill-1@3x.png) no-repeat;
+  width: 16px;
+  height: 20px;
+  display: block;
+  float: left;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  margin-left: 9px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .lenses-include-container .polarized-margin {
+  margin-left: -150px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses {
+  text-align: left;
+  font-size: 18px;
+  margin: 70px 50px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .lens {
+  text-align: center;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .lens .advanced-polycarbonate {
+  text-align: center;
+  margin-left: 0px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .lens .advanced-polycarbonate:before {
+  position: unset;
+  margin-left: 0px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .lens .advanced-polycarbonate span {
+  margin: 10px 0;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .lens .advanced-polycarbonate span .lens-type {
+  display: inline;
+  margin: 0 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .lens {
+  padding: 0 25px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses span {
+  display: block;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .lens-type {
+  font-weight: bold;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .lens-type.margin-text {
+  margin-left: 40px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .message {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 16px;
+  margin-top: 20px;
+  height: 57px;
+  text-transform: initial;
+  font-style: normal;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .message span {
+  font-weight: bolder;
+  font-family: FuturaBQBook;
+  display: inline;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .classic-plastic {
+  margin-left: 70px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .classic-plastic:before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/classic-2-x@3x.png) no-repeat;
+  width: 60px;
+  height: 35px;
+  background-size: 100%;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .ray-ban-polycarbonate {
+  margin-left: 60px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .ray-ban-polycarbonate:before {
+  position: absolute;
+  content: '';
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/1fill-1@3x.png) no-repeat;
+  display: inline-block;
+  width: 35px;
+  height: 40px;
+  background-size: 100%;
+  margin-left: -50px;
+  margin-top: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .ray-ban-sun-gradient {
+  margin-left: 60px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .ray-ban-sun-gradient:before {
+  position: absolute;
+  content: '';
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/clean@3x.png) no-repeat;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-size: 100%;
+  margin-left: -50px;
+  margin-top: 10px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .oakley-sun-polarized {
+  margin-left: 60px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .oakley-sun-polarized:before {
+  position: absolute;
+  content: '';
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/fill-7@3x.png) no-repeat;
+  display: inline-block;
+  width: 50px;
+  height: 60px;
+  background-size: 100%;
+  margin-left: -60px;
+  margin-top: 5px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .oakley-sun-prizm {
+  margin-left: 60px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .oakley-sun-prizm:before {
+  position: absolute;
+  content: '';
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/oo-logo-prizm-black-1@3x.png) no-repeat;
+  display: inline-block;
+  width: 90px;
+  height: 60px;
+  background-size: 100%;
+  margin-left: -58px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-polycarbonate {
+  margin-left: 70px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-polycarbonate:before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/advanced-2-x@3x.png) no-repeat;
+  width: 60px;
+  height: 35px;
+  background-size: 100%;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-anti-reflective {
+  margin-left: 50px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-anti-reflective:before {
+  position: absolute;
+  content: '';
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/1secure-shield@3x.png) no-repeat;
+  display: inline-block;
+  width: 35px;
+  height: 41px;
+  background-size: 100%;
+  margin-left: -50px;
+  margin-top: 5px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .optimum-high-index {
+  margin-left: 70px;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .optimum-high-index:before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/premium-2-x@3x.png) no-repeat;
+  width: 60px;
+  height: 35px;
+  background-size: 100%;
+}
+
+#lensPanelId .modal-popup#more-info-popup .types-of-lenses .des-col {
+  margin-left: 70px;
+  padding: 0 70px;
+}
+
+#lensPanelId .modal-popup .modal-popup-title {
+  text-transform: uppercase;
+  text-align: justify;
+  color: #333333;
+  font-family: FuturaBQMedium;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 40px;
+}
+
+#lensPanelId .modal-popup .modal-popup-text {
+  margin-top: 10px;
+  font-family: FuturaBQLight;
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333;
+  text-align: center;
+}
+
+#lensPanelId .modal-popup .modal-popup-button {
+  font-size: 14px;
+  font-family: FuturaBQBook;
+  border: 0;
+  width: 280px;
+  height: 42px;
+}
+
+#lensPanelId .modal-popup .blue-button {
+  color: #ffffff;
+  background-color: #326fa8;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#lensPanelId .modal-popup .white-button {
+  background-color: #ffffff;
+  text-decoration: underline;
+  color: #333333;
+  font-size: 14px;
+  width: 280px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .modal-popup .modal-popup-title {
+    font-family: FuturaBQMedium;
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 40px;
+    max-width: 344px;
+  }
+  #lensPanelId .modal-popup .white-button {
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup {
+    z-index: 1031;
+    overflow: unset;
+    position: fixed;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-bottom: 90px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .single-vision {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .single-vision .single-vision-message {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .single-vision .single-vision-message.gvp {
+    margin-top: 40px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban {
+    height: 240px;
+  }
+}
+
+@media screen and (max-width: 1199px) and (max-width: 1199px) {
+  #lensPanelId .modal-popup#more-info-popup .ray-ban {
+    height: 366px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .ray-ban-square {
+    width: 67px;
+    height: 60px;
+    background-size: 67px 43px;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .square-container.two {
+    margin-left: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .square-container .signature {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-3bitmap@3x.png) no-repeat;
+    background-size: 62px;
+    width: 120px;
+    height: 62px;
+    margin-bottom: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .square-container .rb-circle {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-circle-43-3-x@3x.png) no-repeat;
+    background-size: 118px;
+    width: 118px;
+    height: 118px;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .services-container .high-definition {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-hidef@3x.png) no-repeat;
+    background-size: 100% 80px;
+    height: 80px;
+    margin: auto;
+    background-position: center;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .services-container .high-definition.sun {
+    background-size: 127px;
+    background-position: left;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .services-container .lens-shaping {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-lshap@3x.png) no-repeat;
+    background-size: 100% 80px;
+    height: 80px;
+    margin: auto;
+    background-position: center;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .services-container .lens-shaping.sun {
+    background-size: 72px;
+    background-position: right;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .services-container .uv-protection {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/bitmap@3x.png) no-repeat;
+    background-size: 90px;
+    height: 80px;
+    margin: auto;
+    background-position: center;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .services-container .uv-protection.sun {
+    background-size: 82px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .sun-services-container {
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .sun-services-container .services {
+    width: 95px;
+    height: 74px;
+    background-color: #d8232a;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .built {
+    letter-spacing: 2.11px;
+    margin-top: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .ray-ban .each-pair {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .lenses-include {
+    margin-top: 35px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .blue-light {
+    margin-top: 20px;
+    text-transform: initial;
+    line-height: 18px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .anti-reflective {
+    width: 17px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .scratch-resistant {
+    width: 16px;
+    margin-top: -2px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .single-vision-lenses .margin {
+    margin-top: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .single-vision-lenses .features {
+    margin-left: -40px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .single-vision-lenses .centered-uv-protection {
+    margin-left: -40px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .lenses-include-container .single-vision-lenses .centered-scratch-resistant {
+    margin-top: 10px;
+    margin-left: -40px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .type-material .container {
+    text-align: center;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .type-material .container .advanced-polycarbonate {
+    display: initial;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .type-material .container .advanced-polycarbonate:before {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses.gvp .type-material .message {
+    text-align: center;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material {
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .material-margin {
+    margin-top: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-plastic {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-plastic:before {
+    content: '';
+    position: absolute;
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/classic-2-x@3x.png) no-repeat;
+    width: 60px;
+    height: 35px;
+    background-size: 100%;
+    margin-left: -70px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-poly {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-poly:before {
+    content: '';
+    position: absolute;
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/advanced-2-x@3x.png) no-repeat;
+    width: 60px;
+    height: 35px;
+    background-size: 100%;
+    margin-left: -70px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-high-index {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-high-index:before {
+    content: '';
+    position: absolute;
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/premium-2-x@3x.png) no-repeat;
+    width: 60px;
+    height: 35px;
+    background-size: 100%;
+    margin-left: -70px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-sun-high-index {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-sun-high-index:before {
+    position: absolute;
+    content: '';
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/1fill-1@3x.png) no-repeat;
+    display: inline-block;
+    width: 35px;
+    height: 40px;
+    background-size: 100%;
+    margin-left: -70px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-sun-poly {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .rb-sun-poly:before {
+    position: absolute;
+    content: '';
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/clean@3x.png) no-repeat;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-size: 100%;
+    margin-left: -70px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .type-material .lens-type {
+    margin-left: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .message {
+    text-transform: initial;
+    font-style: normal;
+    min-height: 70px;
+    margin-top: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .classic-plastic {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .classic-plastic:before {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+    margin-left: -70px;
+    margin-top: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-polycarbonate, #lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-anti-reflective {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-polycarbonate:before, #lensPanelId .modal-popup#more-info-popup .types-of-lenses .advanced-anti-reflective:before {
+    display: inline-block;
+    width: 30px;
+    height: 35px;
+    background-size: 100%;
+    margin-left: -70px;
+    margin-top: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .optimum-high-index {
+    margin-left: 60px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .types-of-lenses .optimum-high-index:before {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+    margin-left: -70px;
+    margin-top: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley:not(.back-to-lens-selection) {
+    height: 419px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .built {
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .sun-services-container {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .sun-services-container .services {
+    width: 95px;
+    height: 74px;
+    background-color: #417505;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .each-pair {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .mask-container .mask {
+    width: 116px;
+    height: 116px;
+    background-color: #417505;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .mask-container .oakley-circle {
+    width: 116px;
+    height: 116px;
+    margin: auto;
+    content: '';
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/1-risorsa-43-3-x@3x.png) no-repeat;
+    background-size: 100%;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .square-container .authenticity {
+    font-family: ScoutCondThin;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .square-container .text {
+    font-family: FuturaBQLight;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .services-container {
+    margin-top: 10px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .services-container .services {
+    width: 166px;
+    height: 74px;
+    background-color: #417505;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .info .row {
+    margin-top: 15px;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .info .uv-protection.oo {
+    background-size: 65%;
+    width: 100px;
+    background-position: center;
+    height: 60px;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .info .optimal-frame.oo {
+    background-size: 80%;
+    width: 100px;
+    background-position: center;
+    height: 60px;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .info .made-for-you.oo {
+    background-size: 65%;
+    width: 100px;
+    background-position: center;
+    height: 60px;
+    margin: auto;
+  }
+  #lensPanelId .modal-popup#more-info-popup .oakley .oakley-logo {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/oo-logo@3x.png) no-repeat;
+    background-size: 30%;
+    background-position: center;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+#lensPanelId .color-spot.selected {
+  border-style: inset;
+  border-width: 1px;
+  border-color: #326fa8;
+  border-radius: 15px;
+}
+
+#lensPanelId .color-spot.smaller {
+  width: 20px;
+  height: 20px;
+}
+
+#lensPanelId .color-spot.small {
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+}
+
+#lensPanelId .color-spot.small:hover {
+  border-style: inset;
+  border-width: 1px;
+  border-color: #326fa8;
+  border-radius: 15px;
+}
+
+#lensPanelId .color-spot.large {
+  width: 65px;
+  height: 65px;
+  margin-top: 15px;
+}
+
+#lensPanelId .switch {
+  position: relative;
+  width: 50px;
+  height: 24px;
+}
+
+#lensPanelId .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: solid 0.6px #333333;
+  background-color: #ffffff;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#lensPanelId .switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: -2px;
+  bottom: 2px;
+  border: solid 2px #333333;
+  background-color: #ffffff;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#lensPanelId .switch .slider.round {
+  border-radius: 34px;
+}
+
+#lensPanelId .switch .slider.round:before {
+  border-radius: 50%;
+}
+
+#lensPanelId .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#lensPanelId .switch input:checked + .slider {
+  background-color: #326fa8;
+}
+
+#lensPanelId .switch input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #326fa8;
+          box-shadow: 0 0 1px #326fa8;
+}
+
+#lensPanelId .switch input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+#lensPanelId .progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 60px;
+  height: 28px;
+  border-radius: 0;
+}
+
+#lensPanelId .progress .progress-bar {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #417505;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .treatment, #lensPanelId .color {
+    font-family: FuturaBQLight !important;
+  }
+}
+
+#lensPanelId .our-lenses {
+  background-color: #f2f2f2;
+}
+
+#lensPanelId .gvp {
+  background-color: #ffffff !important;
+}
+
+#lensPanelId .rayban {
+  background-color: #f2f2f2;
+}
+
+#lensPanelId .rayban .built {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+#lensPanelId .rayban .text {
+  font-size: 15px;
+}
+
+#lensPanelId .rayban .margin {
+  margin-top: 20px;
+}
+
+#lensPanelId .rayban .ray-ban-square {
+  height: 60px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-4@3x.png) no-repeat;
+  background-size: 90px 60px;
+  background-position: center;
+}
+
+#lensPanelId .rayban .bold {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .rayban .ray-ban-square {
+    width: 70px;
+    height: 46px;
+    background-size: 70px 46px;
+    margin: auto;
+  }
+  #lensPanelId .rayban .built {
+    letter-spacing: 2.11px;
+    margin-top: 25px;
+    font-size: 19px;
+  }
+  #lensPanelId .rayban .each-pair {
+    font-size: 14px;
+    margin-top: 5px;
+    letter-spacing: 0.4px;
+    line-height: 17px;
+  }
+}
+
+#lensPanelId .oakley {
+  background-color: #f2f2f2;
+}
+
+#lensPanelId .oakley .built {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+#lensPanelId .oakley .message {
+  font-size: 15px;
+}
+
+#lensPanelId .oakley .margin {
+  margin-top: 20px;
+}
+
+#lensPanelId .oakley .bold {
+  font-weight: bold;
+}
+
+#lensPanelId .oakley .header {
+  font-family: inherit;
+}
+
+#lensPanelId .oakley .oakley-logo {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/black-oo-logo@3x.png) no-repeat;
+  background-size: 55%;
+  background-position: center;
+  margin-top: 10px;
+}
+
+#lensPanelId .oakley .oakley-logo.header {
+  background-size: 100px;
+  height: 70px;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .oakley .oakley-logo {
+    background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/black-oo-logo@3x.png) no-repeat;
+    background-size: 30%;
+    background-position: center;
+    height: 40px;
+    width: 350px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #lensPanelId .oakley .built {
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  #lensPanelId .oakley .each-pair {
+    font-size: 14px;
+  }
+}
+
+#lensPanelId .costa {
+  background-color: #f2f2f2;
+}
+
+#lensPanelId .costa .built {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+#lensPanelId .costa .text {
+  font-size: 15px;
+}
+
+#lensPanelId .costa .margin {
+  margin-top: 20px;
+}
+
+#lensPanelId .costa .costa-square {
+  height: 80px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/costa-logo@3x.png) no-repeat;
+  background-size: 125px 25px;
+  background-position: center;
+}
+
+#lensPanelId .costa .bold {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId .costa .built {
+    letter-spacing: 2.11px;
+    margin-top: 25px;
+    font-size: 19px;
+  }
+  #lensPanelId .costa .each-pair {
+    font-size: 14px;
+    margin-top: 5px;
+    letter-spacing: 0.4px;
+    line-height: 17px;
+  }
+}
+
+#lensPanelId.container-layout {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  /* STEP ARRANGEMENT */
+  /* COMMON */
+  /* STEP LAYOUT */
+  /* STEP TREATMENT */
+  /* STEP COLORS */
+  /* STEP REVIEW */
+}
+
+#lensPanelId.container-layout .header-layout {
+  background-color: #ffffff;
+}
+
+#lensPanelId.container-layout .header-layout .shape-logo, #lensPanelId.container-layout .header-layout .shape-exit {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .header-layout {
+    padding: 10px;
+    border-bottom: solid 0.5px #333333;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .header-layout {
+    padding: 10px;
+    border-bottom: solid 0.5px #333333;
+  }
+  #lensPanelId.container-layout .header-layout .logo-layout {
+    padding-left: 0 !important;
+  }
+  #lensPanelId.container-layout .header-layout .close-layout {
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .footer-layout {
+    padding: 0 10px;
+  }
+}
+
+#lensPanelId.container-layout .footer-layout {
+  height: 60px;
+  border-top: solid 1px #333333;
+  background-color: #ffffff;
+  color: #333333;
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  z-index: 1033;
+}
+
+#lensPanelId.container-layout .footer-layout .footer-brand-layout .brand {
+  margin-right: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#lensPanelId.container-layout .footer-layout .footer-brand-layout .code {
+  font-weight: 300;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .footer-layout .footer-brand-layout .brand {
+    font-size: 15px;
+  }
+  #lensPanelId.container-layout .footer-layout .footer-brand-layout .code {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .footer-layout .footer-brand-layout .brand {
+    font-size: 18px;
+  }
+  #lensPanelId.container-layout .footer-layout .footer-brand-layout .code {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .footer-layout .footer-price-layout .text {
+    margin-right: 10px;
+    font-size: 15px;
+  }
+  #lensPanelId.container-layout .footer-layout .footer-price-layout .price, #lensPanelId.container-layout .footer-layout .footer-price-layout .step-loader {
+    display: inline;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .footer-layout .footer-price-layout .text {
+    font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+    font-size: 13px;
+  }
+  #lensPanelId.container-layout .footer-layout .footer-price-layout .price, #lensPanelId.container-layout .footer-layout .footer-price-layout .step-loader {
+    font-size: 18px;
+  }
+}
+
+#lensPanelId.container-layout .footer-layout.review-layout {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#lensPanelId.container-layout .footer-layout.review-layout .link {
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#lensPanelId.container-layout .footer-layout.review-layout .blue-button {
+  border: 0;
+  font-family: FuturaBQBook;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #326fa8;
+  text-transform: uppercase;
+  text-align: center;
+  float: right;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .footer-layout.review-layout .blue-button {
+    width: 280px;
+    height: 100%;
+    margin-left: auto;
+    line-height: 60px;
+    -webkit-appearance: none;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .footer-layout.review-layout .blue-button {
+    width: 280px;
+    height: 42px;
+    line-height: 42px;
+    -webkit-appearance: none;
+  }
+  #lensPanelId.container-layout .footer-layout.review-layout .section {
+    margin: 10px 0;
+  }
+  #lensPanelId.container-layout .footer-layout.review-layout .ask {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .review-layout {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px !important;
+  }
+  #lensPanelId.container-layout .footer-layout-review {
+    background-color: #ffffff;
+    font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+    margin-top: 45px;
+  }
+  #lensPanelId.container-layout .footer-layout-review .blue-button {
+    color: #ffffff;
+    background-color: #326fa8;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: FuturaBQBook;
+    border: 0;
+    width: 280px;
+    height: 42px;
+    margin-bottom: 10px;
+  }
+  #lensPanelId.container-layout .footer-layout-review .section {
+    margin-bottom: 15px;
+  }
+  #lensPanelId.container-layout .footer-layout-review .section .save-and-continue {
+    text-decoration: underline;
+  }
+  #lensPanelId.container-layout .footer-layout-review .prescription {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #lensPanelId.container-layout .footer-layout-review {
+    margin-top: 65px !important;
+  }
+  #lensPanelId.container-layout .footer-layout-review .blue-button {
+    width: 230px !important;
+  }
+}
+
+@media screen and (max-height: 1024px) {
+  #lensPanelId.container-layout .footer-layout-review {
+    margin-top: 90px !important;
+  }
+}
+
+#lensPanelId.container-layout .step {
+  background-color: #ffffff;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .m-even {
+    margin-left: auto !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .d-even {
+    margin-left: auto !important;
+  }
+}
+
+#lensPanelId.container-layout .step-content {
+  background-color: #f2f2f2;
+}
+
+#lensPanelId.container-layout .price-wrapper {
+  display: inline-block;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+}
+
+#lensPanelId.container-layout .price-wrapper .starting-from, #lensPanelId.container-layout .price-wrapper .offer-price, #lensPanelId.container-layout .price-wrapper .gvp-price {
+  color: #326fa8;
+  margin-right: 5px;
+}
+
+#lensPanelId.container-layout .price-wrapper .price {
+  font-family: FuturaBQMedium, Verdana, Arial, sans-serif !important;
+  font-size: 16px;
+  color: #326fa8;
+}
+
+#lensPanelId.container-layout .price-wrapper .price.frame {
+  color: #333333;
+}
+
+#lensPanelId.container-layout .price-wrapper .gvp-price {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+}
+
+#lensPanelId.container-layout .price-wrapper .offer-price.strike-through {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+  color: #333333;
+  margin-right: 6px;
+  text-decoration: line-through;
+}
+
+#lensPanelId.container-layout .price-wrapper .starting-from.insurance, #lensPanelId.container-layout .price-wrapper .price.insurance {
+  color: #417505 !important;
+}
+
+#lensPanelId.container-layout .gvp-banner-layout {
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+#lensPanelId.container-layout .gvp-banner-layout .gvp-banner-text {
+  font-family: FuturaBQBold, Verdana, Arial, sans-serif !important;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.62px;
+  line-height: 50px;
+  color: #3e626f;
+}
+
+#lensPanelId.container-layout .gvp-banner-layout .gvp-banner-text:before {
+  content: '';
+  display: inline-block;
+  width: 21px;
+  height: 19px;
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/global/gvp-icon@2x.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+#lensPanelId.container-layout .step-lens-layout .brand-tabs {
+  color: #333333;
+}
+
+#lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab {
+  height: 40px;
+  padding: 10px;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 20px;
+  border-radius: 24px;
+  border: solid 1.5px #333333;
+  cursor: pointer;
+}
+
+#lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab.selected {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  background-color: #326fa8;
+  color: #ffffff;
+  border-color: #326fa8;
+}
+
+#lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab.selected:after {
+  content: "";
+  position: absolute;
+  top: 38px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 6px solid #326fa8;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  right: calc(50% - 8px);
+}
+
+#lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab a {
+  color: #333333 !important;
+}
+
+#lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab a:hover {
+  text-decoration: none !important;
+  color: #333333 !important;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab {
+    max-width: 250px;
+    margin: 40px;
+    -webkit-flex-basis: 250px;
+        -ms-flex-preferred-size: 250px;
+            flex-basis: 250px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab {
+    max-width: 170px;
+    margin: 20px 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #lensPanelId.container-layout .step-lens-layout .brand-tabs .brand-tab {
+    margin: 30px 5px 20px 5px;
+    font-size: 12px;
+  }
+}
+
+#lensPanelId.container-layout .step-lens-layout .banner {
+  height: 60px;
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  color: #333333;
+}
+
+#lensPanelId.container-layout .step-lens-layout .banner .text {
+  font-size: 15px;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content {
+  background-position: 0 0;
+  background-size: 100% 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content {
+    background-size: 100% 45%;
+    background-repeat: no-repeat;
+  }
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout .title {
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout .desc {
+  font-size: 15px;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row;
+        -ms-flex-flow: row;
+            flex-flow: row;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout .title {
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout .logo, #lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout .title, #lensPanelId.container-layout .step-lens-layout .step-content .brand-info-layout .desc {
+    text-align: center;
+  }
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .more-info-link {
+  margin-top: 30px;
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+  text-decoration: underline;
+  color: #326fa8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content .more-info-link a {
+    font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+    font-size: 16px;
+  }
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content {
+  margin-bottom: 89px;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout {
+  padding: 1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333333;
+  border-radius: 18px;
+  background-color: #ffffff;
+  color: #333333;
+  cursor: pointer;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout:hover {
+  border-color: #326fa8;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout:hover, #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout.selected {
+  border-width: 2px;
+  padding: 0px;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout .badge-layout {
+  height: 25px;
+  line-height: 25px;
+  margin-top: -2px;
+  margin-left: -2px;
+  font-size: 13px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout .shape {
+  width: 75px;
+  height: 45px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout .shape {
+    width: 65px !important;
+  }
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout .name {
+  margin: 2px 0;
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout .range {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout .desc {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout .color-spot {
+  margin-bottom: 5px;
+  margin-right: 10px;
+  cursor: default !important;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout {
+    width: 380px;
+    margin: 15px 6px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout .badge-layout {
+    width: 380px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout.h-eye {
+    height: 170px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout.h-eye.h-badge {
+    height: 195px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout.h-sun {
+    height: 210px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout.h-sun.h-badge {
+    height: 235px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout .lens-type-layout-content {
+    height: 100%;
+    padding: 15px 30px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout .lens-type-layout-content .price-wrapper .offer-price {
+    color: #326fa8;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    margin-top: 20px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout {
+    width: 340px;
+    min-height: 150px;
+    margin: 8px auto;
+    padding-bottom: 10px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout .badge-layout {
+    width: 340px;
+  }
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-content .lens-type-layout .lens-type-layout-content {
+    height: 100%;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #lensPanelId.container-layout .step-lens-layout .step-content .lens-type-layout, #lensPanelId.container-layout .step-lens-layout .step-content .badge-layout {
+    width: 300px !important;
+  }
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content.our-lenses .brand-info-layout {
+  display: none;
+}
+
+#lensPanelId.container-layout .step-lens-layout .step-content.our-lenses .more-info-link {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-treatment-layout .step-content {
+    margin-top: 40px;
+  }
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content {
+  padding-left: 0;
+  padding-right: 0;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  min-height: 500px;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-treatment-layout .step-content {
+    background-repeat: no-repeat;
+    background-size: 100% 35%;
+  }
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .brand-info-layout {
+  margin-top: 10px;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content {
+  margin-bottom: 89px;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout, #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout {
+  padding: 1px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #333333;
+  border-radius: 18px;
+  background-color: #ffffff;
+  color: #333333;
+  cursor: pointer;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout:hover, #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout:hover {
+  padding: 0px;
+  border-width: 2px;
+  border-color: #326fa8;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout .name, #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .name {
+  margin: 2px 0;
+  font-size: 18px;
+  font-family: FuturaBQMedium;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout.selected {
+  border-width: 2px;
+  padding: 0px;
+  border-color: #333333;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout .info-layout {
+  padding: 15px 10px 0px 10px;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout .selected-type {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout .name {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout .desc {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: justify;
+  letter-spacing: 0.1px;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout img {
+  width: 100%;
+  max-width: 45px;
+  max-height: 37px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .link {
+  padding-left: 0;
+  padding-right: 5px;
+  font-size: 13px;
+  color: #326fa8;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .link {
+    margin-top: 2px;
+  }
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .title {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .learn-more-layout {
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333;
+  background-color: #ffffff;
+  text-align: justify;
+  z-index: 10;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .price-wrapper {
+  padding: 10px 0;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .confirm-button {
+  width: 280px;
+  height: 40px;
+  margin: 20px auto;
+  border: 0;
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #326fa8;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .confirm-button:hover {
+  text-decoration: underline;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .color-layout figcaption {
+  font-family: FuturaBQLight;
+  font-size: 13px;
+}
+
+#lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .color-layout .selected + figcaption {
+  font-weight: bold;
+  font-family: FuturaBQMedium;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content {
+    margin-top: 40px;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout, #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout {
+    width: 390px;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout {
+    height: 220px;
+    margin: 10px 6px;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout {
+    min-height: 180px;
+    margin: 15px 6px;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .learn-more-layout {
+    position: absolute;
+    bottom: 70px;
+    left: -275px;
+    width: 390px;
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(51, 51, 51, 0.3);
+            box-shadow: 0 2px 5px 0 rgba(51, 51, 51, 0.3);
+    border: solid 1px #e0e0e0;
+    font-size: 12px;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .learn-more-layout .anchor:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 0;
+    height: 0;
+    right: 65px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 0.7em solid black;
+    border-color: transparent transparent white white;
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-box-shadow: -3px 3px 3px 0 rgba(51, 51, 51, 0.3);
+            box-shadow: -3px 3px 3px 0 rgba(51, 51, 51, 0.3);
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .learn-more-layout .treatment-image {
+    height: 52px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+    margin-top: 20px;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-type-layout, #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout {
+    width: 340px;
+    min-height: 140px;
+    margin: 8px auto;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .learn-more-layout {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-content .treatment-layout .learn-more-layout .learn-more-header {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-type-layout, #lensPanelId.container-layout .step-treatment-layout .step-content .treatment-layout {
+    width: 300px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-colors-layout .step-content {
+    margin-top: 40px;
+  }
+  #lensPanelId.container-layout .step-colors-layout .color-layout {
+    width: 165px;
+    height: 180px;
+    margin: 10px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-colors-layout .color-layout {
+    width: 130px;
+    height: 150px;
+    margin: 8px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 420px) {
+  #lensPanelId.container-layout .step-colors-layout .color-layout {
+    width: 140px;
+  }
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .brand-info-layout {
+  margin-top: 10px;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .polarized-layout {
+  margin: 20px 0;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .polarized-layout .switch {
+  margin: 0;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .polarized-layout .text {
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .polarized-layout .polar-price {
+  font-size: 18px;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .polarized-layout .polar-price.highlighted {
+  font-weight: bold;
+  color: #326fa8;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .colors-content {
+  margin-bottom: 89px;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .colors-content .color-layout {
+  font-family: FuturaBQBook;
+  font-weight: 300;
+  border-radius: 18px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333333;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 1px;
+  cursor: pointer;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .colors-content .color-layout:hover {
+  border-width: 2px;
+  border-color: #326fa8;
+  padding: 0px;
+}
+
+#lensPanelId.container-layout .step-colors-layout .step-content .colors-content .color-layout figure, #lensPanelId.container-layout .step-colors-layout .step-content .colors-content .color-layout figcaption {
+  padding: 10px;
+}
+
+#lensPanelId.container-layout .step-review-layout {
+  color: #333333;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-title {
+  font-size: 28px;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content {
+  padding-left: 0;
+  padding-right: 0;
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-review-layout .step-content .review-content {
+    padding-bottom: 110px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-review-layout .step-content .review-content {
+    padding-top: 20px;
+    padding-bottom: 170px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-review-layout .step-content .frame-image {
+    width: 440px;
+    height: 235px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-review-layout .step-content .frame-image {
+    width: 350px;
+    height: 184px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #lensPanelId.container-layout .step-review-layout .step-content .frame-image {
+    width: 320px;
+    height: 184px;
+  }
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .section {
+  margin-top: 5px;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content a {
+  color: #326fa8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content a.edit-lens {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .border {
+  border: unset !important;
+  border-top: solid 1px #333333 !important;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .separator {
+  height: 1px;
+  border: solid 0.5px #979797;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .price-wrapper {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .price-wrapper .price, #lensPanelId.container-layout .step-review-layout .step-content .price-wrapper .price.insurance {
+  color: #333333;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .price-wrapper .offer-price.strike-through {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 13px;
+  color: #333333;
+  margin-right: 16px;
+  text-decoration: line-through;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .price-wrapper .total-price {
+  font-family: FuturaBQMedium, Verdana, Arial, sans-serif !important;
+  font-size: 21px;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .price-wrapper .gvp-recap-price {
+  color: #3e626f !important;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .promo-section {
+  color: #417505;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .title {
+  margin-top: 18px;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .add-warranty {
+  font-size: 15px !important;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .add-warranty a {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .gvp-label {
+  font-family: FuturaBQBold, Verdana, Arial, sans-serif !important;
+  font-size: 10px;
+  color: #3e626f;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .edit-lens {
+  font-family: FuturaBQLight;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout {
+  position: absolute;
+  width: 275px;
+  height: 175px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(51, 51, 51, 0.3);
+          box-shadow: 0 2px 5px 0 rgba(51, 51, 51, 0.3);
+  border: solid 1px #e0e0e0;
+  background-color: #ffffff;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 14px !important;
+  z-index: 9999;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout .anchor:after {
+  content: "";
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0.7em solid black;
+  border-color: transparent transparent white white;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  -webkit-box-shadow: -1px 1px 0px 0 rgba(51, 51, 51, 0.3);
+          box-shadow: -1px 1px 0px 0 rgba(51, 51, 51, 0.3);
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout ul {
+  padding-left: 16px;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout ul li {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  list-style: circle;
+  margin: 5px 0;
+}
+
+#lensPanelId.container-layout .step-review-layout .step-content .recap-price-layout {
+  font-family: FuturaBQMedium, Verdana, Arial, sans-serif !important;
+  font-size: 21px;
+}
+
+@media screen and (min-width: 1200px) {
+  #lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout {
+    top: 35px;
+    left: 65px;
+  }
+  #lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout .anchor:after {
+    top: 0;
+    right: 100px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  #lensPanelId.container-layout .step-review-layout .step-content .recap-price-layout {
+    margin-bottom: 40px;
+  }
+  #lensPanelId.container-layout .step-review-layout .step-content .gvp-label {
+    margin-bottom: 10px;
+  }
+  #lensPanelId.container-layout .step-review-layout .step-content .price {
+    font-family: FuturaBQMedium, Verdana, Arial, sans-serif !important;
+  }
+  #lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout {
+    top: 50px;
+    left: 35px;
+  }
+  #lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout .anchor:after {
+    top: 0;
+    right: 100px;
+  }
+  #lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout li, #lensPanelId.container-layout .step-review-layout .step-content .warranty-tooltip-layout a {
+    font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  }
+}
+
+/* ESPOTS */
+.espot .separator {
+  border-top: solid 0.5px #979797;
+}
+
+.espot .title {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+@media screen and (max-width: 1199px) {
+  .espot .title {
+    vertical-align: super;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .espot .title {
+    white-space: unset !important;
+  }
+}
+
+.espot .material {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.espot .material {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.espot .desc {
+  font-size: 16px;
+}
+
+.espot .espot-types-rayban {
+  background-color: #f2f2f2;
+}
+
+.espot .espot-types-rayban .logo {
+  height: 60px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-4@3x.png) no-repeat;
+  background-size: 90px 60px;
+  background-position: center;
+}
+
+.espot .espot-types-rayban .text1 {
+  text-align: center;
+}
+
+.espot .espot-types-rayban .image {
+  height: 75px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.espot .espot-types-rayban .image.image1 {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-3bitmap@3x.png);
+  background-size: 60px;
+}
+
+.espot .espot-types-rayban .image.image1:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: -15px;
+  height: 106px;
+  width: 106px;
+  background-size: 106px;
+  background-repeat: no-repeat;
+}
+
+.espot .espot-types-rayban .image.image1.eye:before {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-circle-43-3-x@3x.png);
+}
+
+.espot .espot-types-rayban .image.image1.sun:before {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-circle-sun@3x.png);
+}
+
+.espot .espot-types-rayban .image.image2 {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-hidef@3x.png);
+  background-size: 145px;
+}
+
+.espot .espot-types-rayban .image.image3 {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-lshap@3x.png);
+  background-size: 75px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot .espot-types-rayban .logo, .espot .espot-types-rayban .text1, .espot .espot-types-rayban .text2 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot .espot-types-rayban .text1 {
+    margin: 20px 0;
+  }
+  .espot .espot-types-rayban .text2 {
+    text-align: center;
+  }
+  .espot .espot-types-rayban .image1-1 {
+    height: 90px;
+  }
+  .espot .espot-types-rayban .image1-2 {
+    height: 60px;
+  }
+  .espot .espot-types-rayban .image2, .espot .espot-types-rayban .image3 {
+    margin-top: 10px;
+  }
+  .espot .espot-types-rayban figcaption {
+    font-size: 15px;
+  }
+}
+
+.espot .espot-types-oakley {
+  background-color: #f2f2f2;
+}
+
+.espot .espot-types-oakley .logo {
+  height: 80px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/black-oo-logo@3x.png) no-repeat;
+  background-size: 100px 40px;
+  background-position: center;
+}
+
+.espot .espot-types-oakley .text1 {
+  font-size: 21px;
+  text-align: left;
+}
+
+.espot .espot-types-oakley .text2 {
+  font-size: 16px;
+}
+
+.espot .espot-types-oakley .image {
+  height: 75px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.espot .espot-types-oakley .image.image1 {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/pgroup-6-black@3x.png);
+  background-size: 170px;
+}
+
+.espot .espot-types-oakley .image.image2 {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-8-black@3x.png);
+  background-size: 145px;
+}
+
+.espot .espot-types-oakley .image.image3 {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-9-black@3x.png);
+  background-size: 170px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot .espot-types-oakley .logo, .espot .espot-types-oakley .text1, .espot .espot-types-oakley .text2 {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot .espot-types-oakley .text1 {
+    margin: 20px 0;
+  }
+  .espot .espot-types-oakley .text2 {
+    text-align: center;
+  }
+  .espot .espot-types-oakley .image1-1 {
+    height: 90px;
+  }
+  .espot .espot-types-oakley .image1-2 {
+    height: 60px;
+  }
+  .espot .espot-types-oakley .image2, .espot .espot-types-oakley .image3 {
+    margin-top: 10px;
+  }
+  .espot .espot-types-oakley figcaption {
+    font-size: 15px;
+  }
+}
+
+.espot .espot-types-costa {
+  background-color: #f2f2f2;
+}
+
+.espot .espot-types-costa .logo {
+  height: 80px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/costa-logo@3x.png) no-repeat;
+  background-size: 125px 25px;
+  background-position: center;
+}
+
+.espot .espot-types-costa .text1 {
+  font-size: 21px;
+  text-align: center;
+}
+
+.espot .espot-types-costa .text2 {
+  font-size: 16px;
+}
+
+.espot .espot-types-costa .image {
+  height: 110px;
+  width: 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.espot .espot-types-costa .image.image1 {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/costa-circle@3x.png);
+  background-size: 110px;
+}
+
+.espot .espot-types-costa .image .title {
+  margin-top: 15px;
+  font-family: FuturaBQBook;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1199px) {
+  .espot .espot-types-costa .image .title {
+    font-size: 15px;
+  }
+}
+
+.espot .espot-types-costa .image .title span {
+  font-family: monospace;
+}
+
+.espot .espot-types-costa .image .subtitle {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot .espot-types-costa .logo, .espot .espot-types-costa .text1, .espot .espot-types-costa .text2 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot .espot-types-costa .text1 {
+    margin: 20px 0;
+  }
+  .espot .espot-types-costa .text2 {
+    text-align: center;
+  }
+  .espot .espot-types-costa .image1-1 {
+    height: 90px;
+  }
+  .espot .espot-types-costa .image1-2 {
+    height: 60px;
+  }
+  .espot .espot-types-costa .image2, .espot .espot-types-costa .image3 {
+    margin-top: 10px;
+  }
+  .espot .espot-types-costa figcaption {
+    font-size: 15px;
+  }
+  .espot .espot-types-costa .image1 {
+    height: auto;
+    width: 80px;
+    background-size: 80px !important;
+    margin-top: -15px;
+  }
+  .espot .espot-types-costa .image {
+    height: 85px;
+  }
+  .espot .espot-types-costa .header {
+    margin-bottom: 20px;
+  }
+  .espot .espot-types-costa .header .text {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eye-ourlenses {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eye-ourlenses {
+    padding: 0 20px;
+  }
+}
+
+.espot-eye-ourlenses {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+}
+
+.espot-eye-ourlenses .sub-title {
+  font-size: 14px;
+}
+
+.espot-eye-ourlenses .sub-title .icon {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-left: 7px;
+}
+
+.espot-eye-ourlenses .sub-title .icon.antireflective {
+  width: 20px;
+  height: 20px;
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-10@3x.png);
+}
+
+.espot-eye-ourlenses .sub-title .icon.scratch {
+  width: 17px;
+  height: 17px;
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-3@3x.png);
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eye-ourlenses .sub-title .icon.antireflective {
+    top: 3px;
+  }
+  .espot-eye-ourlenses .sub-title .icon.scratch {
+    top: 0px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eye-ourlenses .sub-title .icon.antireflective {
+    top: 0px;
+  }
+  .espot-eye-ourlenses .sub-title .icon.scratch {
+    top: -3px;
+  }
+}
+
+.espot-eye-ourlenses .lens-content .icon {
+  width: 62px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eye-ourlenses .sub-title {
+    text-align: center;
+  }
+  .espot-eye-ourlenses .info-box {
+    margin: 0 40px;
+  }
+  .espot-eye-ourlenses .lens-content {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eye-ourlenses .lens-content {
+    padding-top: 30px;
+  }
+}
+
+.espot-sun-ourlenses {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+}
+
+.espot-sun-ourlenses .sub-title {
+  font-size: 14px;
+}
+
+.espot-sun-ourlenses .desc {
+  font-size: 16px;
+}
+
+.espot-sun-ourlenses .type-image.image1 {
+  width: 12px;
+  height: 12px;
+}
+
+.espot-sun-ourlenses .type-image.image2 {
+  width: 14px;
+  height: 12px;
+}
+
+.espot-sun-ourlenses .nopad {
+  padding-top: 0px !important;
+}
+
+.espot-sun-ourlenses .info-box .icon {
+  width: 62px;
+  height: 35px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-sun-ourlenses .info-box {
+    margin: 0 40px;
+  }
+  .espot-sun-ourlenses .type-image {
+    margin-left: 7px;
+    margin-bottom: 4px;
+  }
+  .espot-sun-ourlenses .lens-content {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-sun-ourlenses .type-text {
+    white-space: nowrap;
+  }
+  .espot-sun-ourlenses .type-image {
+    margin-left: 2px;
+  }
+  .espot-sun-ourlenses .lens-content {
+    padding-top: 30px;
+  }
+}
+
+.espot-header-rayban .espot-layout {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.espot-header-rayban .logo {
+  height: 60px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-4@3x.png) no-repeat;
+  background-size: 90px 60px;
+  background-position: center;
+}
+
+.espot-header-rayban .image {
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.espot-header-rayban .image.eye {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-circle-43-3-x@3x.png);
+}
+
+.espot-header-rayban .image.sun {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/rb-circle-sun@3x.png);
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-header-rayban .image {
+    height: 80px;
+    background-size: 80px 80px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-header-rayban .image {
+    height: 120px;
+    background-size: 120px 120px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .espot-header-rayban .image {
+    height: 120px;
+    background-size: 105px 105px;
+  }
+}
+
+.espot-chromance-rayban {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  background-color: #ffffff;
+  padding-bottom: 30px;
+}
+
+.espot-chromance-rayban .espot-content .content-text1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-chromance-rayban .espot-content .content-text2 {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-chromance-rayban .espot-content .type-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.espot-chromance-rayban .espot-content .type-image.image1 {
+  width: 16px;
+  height: 12px;
+}
+
+.espot-chromance-rayban .espot-content .type-image.image2 {
+  width: 14px;
+  height: 12px;
+}
+
+.espot-chromance-rayban .espot-content .type-image.image3 {
+  width: 12px;
+  height: 12px;
+}
+
+.espot-chromance-rayban .espot-content .type-image.cylinder {
+  height: 15px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-chromance-rayban .espot-content .content-text1 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .espot-chromance-rayban .espot-content .content-text2 {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  .espot-chromance-rayban .espot-content .type-image {
+    margin-left: 5px;
+    margin-bottom: 2px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-chromance-rayban .espot-content .content-text1 {
+    padding: 70px 30px;
+  }
+  .espot-chromance-rayban .espot-content .content-text2 {
+    padding: 70px 10px 40px 10px;
+  }
+  .espot-chromance-rayban .espot-content .type-text {
+    white-space: nowrap;
+  }
+  .espot-chromance-rayban .espot-content .type-image {
+    margin-left: 2px;
+  }
+}
+
+.espot-eyeglasses-rayban {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  padding-bottom: 30px;
+}
+
+.espot-eyeglasses-rayban .espot-content .content-text1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-eyeglasses-rayban .espot-content .content-text2 {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-eyeglasses-rayban .espot-content .type-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.espot-eyeglasses-rayban .espot-content .also-text {
+  font-size: 14px;
+  margin: 15px 0;
+  line-height: 20px;
+}
+
+.espot-eyeglasses-rayban .espot-content .type-image.image1 {
+  width: 16px;
+  height: 14px;
+}
+
+.espot-eyeglasses-rayban .espot-content .type-image.image2 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-eyeglasses-rayban .espot-content .type-image.image3 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-eyeglasses-rayban .espot-content .type-image.image4 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-eyeglasses-rayban .espot-content .type-image.image5 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-eyeglasses-rayban .espot-content .lens-content .icon {
+  width: 62px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eyeglasses-rayban .espot-content .content-text1 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .espot-eyeglasses-rayban .espot-content .content-text2 {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  .espot-eyeglasses-rayban .espot-content .type-text-box {
+    padding: 0 150px;
+  }
+  .espot-eyeglasses-rayban .espot-content .type-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .espot-eyeglasses-rayban .espot-content .type-image {
+    margin-left: 7px;
+    margin-bottom: 3px;
+  }
+  .espot-eyeglasses-rayban .espot-content .info-box {
+    margin: 0 40px;
+  }
+  .espot-eyeglasses-rayban .espot-content .lens-content {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eyeglasses-rayban .espot-content .content-text1 {
+    padding: 70px 30px;
+  }
+  .espot-eyeglasses-rayban .espot-content .content-text2 {
+    padding: 70px 10px 40px 10px;
+  }
+  .espot-eyeglasses-rayban .espot-content .type-text {
+    white-space: nowrap;
+  }
+  .espot-eyeglasses-rayban .espot-content .type-image {
+    margin-left: 7px;
+  }
+  .espot-eyeglasses-rayban .espot-content .lens-content {
+    padding-top: 30px;
+  }
+}
+
+.espot-sunglasses-rayban {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  padding-bottom: 30px;
+}
+
+.espot-sunglasses-rayban .espot-content .content-text1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-sunglasses-rayban .espot-content .content-text2 {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-sunglasses-rayban .espot-content .type-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.espot-sunglasses-rayban .espot-content .also-text {
+  font-size: 14px;
+  margin: 15px 0;
+  line-height: 20px;
+}
+
+.espot-sunglasses-rayban .espot-content .type-image.image1 {
+  width: 16px;
+  height: 14px;
+}
+
+.espot-sunglasses-rayban .espot-content .type-image.image2 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-sunglasses-rayban .espot-content .type-image.image3 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-sunglasses-rayban .espot-content .type-image.image4 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-sunglasses-rayban .espot-content .type-image.image5 {
+  width: 14px;
+  height: 14px;
+}
+
+.espot-sunglasses-rayban .espot-content .lens-content .icon {
+  width: 62px;
+  height: 35px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-sunglasses-rayban .espot-content .content-text1 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .espot-sunglasses-rayban .espot-content .content-text2 {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  .espot-sunglasses-rayban .espot-content .type-text-box {
+    padding: 0 150px;
+  }
+  .espot-sunglasses-rayban .espot-content .type-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .espot-sunglasses-rayban .espot-content .type-image {
+    margin-left: 7px;
+    margin-bottom: 3px;
+  }
+  .espot-sunglasses-rayban .espot-content .info-box {
+    margin: 0 40px;
+  }
+  .espot-sunglasses-rayban .espot-content .lens-content {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-sunglasses-rayban .espot-content .content-text1 {
+    padding: 70px 30px;
+  }
+  .espot-sunglasses-rayban .espot-content .content-text2 {
+    padding: 70px 10px 40px 10px;
+  }
+  .espot-sunglasses-rayban .espot-content .type-text {
+    white-space: nowrap;
+  }
+  .espot-sunglasses-rayban .espot-content .type-image {
+    margin-left: 7px;
+  }
+  .espot-sunglasses-rayban .espot-content .lens-content {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .espot-sunglasses-rayban .espot-content .type-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.espot-header-oakley .espot-layout {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.espot-header-oakley .logo {
+  height: 80px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/black-oo-logo@3x.png) no-repeat;
+  background-size: 100px 40px;
+  background-position: center;
+}
+
+.espot-eyeglasses-oakley {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  padding-bottom: 30px;
+}
+
+.espot-eyeglasses-oakley .espot-content .content-text1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-eyeglasses-oakley .espot-content .content-text2 {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image1 {
+  width: 16px;
+  height: 12px;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image2 {
+  width: 14px;
+  height: 12px;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image3 {
+  width: 12px;
+  height: 12px;
+}
+
+.espot-eyeglasses-oakley .espot-content .lens-content .icon {
+  width: 62px;
+  height: 35px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eyeglasses-oakley .espot-content .content-text1 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .espot-eyeglasses-oakley .espot-content .content-text2 {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  .espot-eyeglasses-oakley .espot-content .type-image {
+    margin-left: 5px;
+    margin-bottom: 2px;
+  }
+  .espot-eyeglasses-oakley .espot-content .info-box {
+    margin: 0 40px;
+  }
+  .espot-eyeglasses-oakley .espot-content .lens-content {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eyeglasses-oakley .espot-content .content-text1 {
+    padding: 70px 30px;
+  }
+  .espot-eyeglasses-oakley .espot-content .content-text2 {
+    padding: 70px 10px 40px 10px;
+  }
+  .espot-eyeglasses-oakley .espot-content .type-text {
+    white-space: nowrap;
+  }
+  .espot-eyeglasses-oakley .espot-content .type-image {
+    margin-left: 5px;
+  }
+  .espot-eyeglasses-oakley .espot-content .lens-content {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .espot-eyeglasses-oakley .espot-content .type-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.espot-header-oakley .espot-layout {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.espot-header-oakley .logo {
+  height: 80px;
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/black-oo-logo@3x.png) no-repeat;
+  background-size: 100px 40px;
+  background-position: center;
+}
+
+.espot-header-costa .espot-layout {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 15px;
+  line-height: 20px;
+  background-color: #f2f2f2;
+}
+
+.espot-header-costa .logo {
+  background: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/costa-logo@3x.png) no-repeat;
+  height: 80px;
+  background-size: 125px 25px;
+  background-position: center;
+}
+
+.espot-header-costa .image {
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.espot-header-costa .image.sun {
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/costa-circle@3x.png);
+  background-position: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-header-costa .image {
+    height: 100px;
+    background-size: 100px 100px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-header-costa .image {
+    height: 90px;
+    background-size: 90px 90px;
+  }
+  .espot-header-costa .text {
+    font-size: 13.5px;
+  }
+}
+
+.espot-eyeglasses-oakley {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  padding-bottom: 30px;
+}
+
+.espot-eyeglasses-oakley .espot-content .content-text1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-eyeglasses-oakley .espot-content .content-text2 {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image1 {
+  width: 16px;
+  height: 12px;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image2 {
+  width: 14px;
+  height: 12px;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image3 {
+  width: 12px;
+  height: 12px;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image4 {
+  width: 12px;
+  height: 12px;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image5 {
+  width: 10px;
+  height: 15px;
+}
+
+.espot-eyeglasses-oakley .espot-content .type-image.image6 {
+  width: 12px;
+  height: 12px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eyeglasses-oakley .espot-content .content-text1 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .espot-eyeglasses-oakley .espot-content .content-text2 {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  .espot-eyeglasses-oakley .espot-content .type-image {
+    margin-left: 7px;
+    margin-bottom: 2px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eyeglasses-oakley .espot-content .content-text1 {
+    padding: 70px 30px;
+  }
+  .espot-eyeglasses-oakley .espot-content .content-text2 {
+    padding: 70px 10px 40px 10px;
+  }
+  .espot-eyeglasses-oakley .espot-content .type-text {
+    white-space: nowrap;
+  }
+  .espot-eyeglasses-oakley .espot-content .type-text.wrapit {
+    white-space: normal;
+  }
+  .espot-eyeglasses-oakley .espot-content .type-image {
+    margin-left: 5px;
+  }
+}
+
+.espot-sunglasses-oakley {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  padding-bottom: 30px;
+}
+
+.espot-sunglasses-oakley .espot-content .content-text1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-sunglasses-oakley .espot-content .content-text2 {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-sunglasses-oakley .espot-content .type-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.espot-sunglasses-oakley .espot-content .type-image.image1 {
+  width: 16px;
+  height: 12px;
+}
+
+.espot-sunglasses-oakley .espot-content .type-image.image2 {
+  width: 14px;
+  height: 12px;
+}
+
+.espot-sunglasses-oakley .espot-content .type-image.image3 {
+  width: 12px;
+  height: 12px;
+}
+
+.espot-sunglasses-oakley .espot-content .lens-content .icon {
+  width: 62px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-sunglasses-oakley .espot-content .content-text1 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .espot-sunglasses-oakley .espot-content .content-text2 {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  .espot-sunglasses-oakley .espot-content .type-image {
+    margin-left: 7px;
+    margin-bottom: 4px;
+  }
+  .espot-sunglasses-oakley .espot-content .lens-content {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-sunglasses-oakley .espot-content .content-text1 {
+    padding: 70px 30px;
+  }
+  .espot-sunglasses-oakley .espot-content .content-text2 {
+    padding: 70px 10px 40px 10px;
+  }
+  .espot-sunglasses-oakley .espot-content .type-text {
+    white-space: nowrap;
+  }
+  .espot-sunglasses-oakley .espot-content .type-text.wrapit {
+    white-space: normal;
+  }
+  .espot-sunglasses-oakley .espot-content .type-image {
+    margin-left: 5px;
+  }
+  .espot-sunglasses-oakley .espot-content .lens-content {
+    padding-top: 30px;
+  }
+}
+
+.espot-sunglasses-costa {
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  padding-bottom: 30px;
+}
+
+.espot-sunglasses-costa .espot-content .content-text1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-sunglasses-costa .espot-content .content-text2 {
+  font-family: FuturaBQBook, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  text-align: center;
+}
+
+.espot-sunglasses-costa .espot-content .type-text {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.espot-sunglasses-costa .espot-content .type-image.image1 {
+  width: 15px;
+  height: 15px;
+}
+
+.espot-sunglasses-costa .espot-content .type-image.image2 {
+  width: 15px;
+  height: 15px;
+}
+
+.espot-sunglasses-costa .espot-content .type-image.image3 {
+  width: 15px;
+  height: 15px;
+}
+
+.espot-sunglasses-costa .espot-content .lens-content .icon {
+  width: 62px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-sunglasses-costa .espot-content .content-text1 {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+  .espot-sunglasses-costa .espot-content .content-text2 {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  .espot-sunglasses-costa .espot-content .type-image {
+    margin-left: 7px;
+    margin-bottom: 4px;
+  }
+  .espot-sunglasses-costa .espot-content .lens-content {
+    padding-top: 65px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-sunglasses-costa .espot-content .content-text1 {
+    padding: 40px 30px;
+    font-size: 15px;
+  }
+  .espot-sunglasses-costa .espot-content .content-text2 {
+    padding: 55px 10px 20px 10px;
+  }
+  .espot-sunglasses-costa .espot-content .type-text {
+    white-space: nowrap;
+  }
+  .espot-sunglasses-costa .espot-content .type-text.wrapit {
+    white-space: normal;
+  }
+  .espot-sunglasses-costa .espot-content .type-image {
+    margin-left: 5px;
+  }
+  .espot-sunglasses-costa .espot-content .lens-content {
+    padding-top: 50px;
+  }
+}
+
+.espot-eye-gvp {
+  padding-bottom: 60px;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  background-color: #f2f2f2;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eye-gvp {
+    padding-top: 140px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eye-gvp {
+    padding-top: 100px;
+  }
+}
+
+.espot-eye-gvp .desc {
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.espot-eye-gvp .sub-title {
+  font-size: 14px;
+}
+
+.espot-eye-gvp .sub-title .icon {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-left: 7px;
+}
+
+.espot-eye-gvp .sub-title .icon.antireflective {
+  width: 20px;
+  height: 20px;
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-10@3x.png);
+}
+
+.espot-eye-gvp .sub-title .icon.scratch {
+  width: 17px;
+  height: 17px;
+  background-image: url(https://assets.lenscrafters.com/extra/image/LensCrafters/projects/202005-lenspanel/group-3@3x.png);
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eye-gvp .sub-title .icon.antireflective {
+    top: 3px;
+  }
+  .espot-eye-gvp .sub-title .icon.scratch {
+    top: 0px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eye-gvp .sub-title .icon.antireflective {
+    top: 0px;
+  }
+  .espot-eye-gvp .sub-title .icon.scratch {
+    top: -3px;
+  }
+}
+
+.espot-eye-gvp .lens-content {
+  padding-bottom: 230px;
+}
+
+.espot-eye-gvp .lens-content .icon {
+  width: 62px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-eye-gvp .sub-title {
+    text-align: center;
+  }
+  .espot-eye-gvp .lens-content {
+    padding-top: 50px;
+  }
+  .espot-eye-gvp .lens-content .info-box {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-eye-gvp .lens-content {
+    padding-top: 30px;
+  }
+  .espot-eye-gvp .info-box {
+    padding: 0 20px;
+  }
+}
+
+.espot-sun-gvp {
+  padding-bottom: 60px;
+  font-family: FuturaBQLight, Verdana, Arial, sans-serif !important;
+  font-size: 18px;
+  background-color: #f2f2f2;
+  height: 100%;
+  position: absolute;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-sun-gvp {
+    padding-top: 130px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-sun-gvp {
+    padding-top: 100px;
+  }
+}
+
+.espot-sun-gvp .desc {
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.espot-sun-gvp .icon {
+  width: 62px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+  .espot-sun-gvp .lens-content {
+    padding-top: 50px;
+  }
+  .espot-sun-gvp .nowrap {
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .espot-sun-gvp .lens-content {
+    padding-top: 30px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

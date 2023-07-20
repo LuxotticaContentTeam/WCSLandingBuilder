@@ -1,8 +1,8 @@
 {
     "dependences":{
-        "responsive":true,
-        "desk":"DESK/brand-us/",
-        "mob":"MOB/brand-us/"
+        "responsive":false,
+        "desk":"DESK/lc-us/",
+        "mob":"MOB/lc-us/"
     },
 
     "moduleLibrary":{
