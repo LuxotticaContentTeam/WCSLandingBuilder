@@ -12,9 +12,9 @@ export class Env3D {
 		this.modelPath = option.modelPath;
 		this.texture = option.texturePath
 		this.modelSetting = {
-		scale:option.modelSetting.scale,
-		position:option.modelSetting.position,
-		rotation:option.modelSetting.rotation
+			scale:option.modelSetting.scale,
+			position:option.modelSetting.position,
+			rotation:option.modelSetting.rotation
 		}
 		this.cameraDist = option.cameraDist
 
@@ -22,7 +22,7 @@ export class Env3D {
 		this.camera,
 		this.scene = new THREE.Scene(),
 		this.renderer = new THREE.WebGLRenderer({
-			alpha:true,
+			// alpha:true,
 			antialias: true
 		});
 			
@@ -33,6 +33,7 @@ export class Env3D {
 		this.rotation = 0;
 		this.startRotation = 0;
 
+		this.MATERIAL= null;
 
 		this.mouseAnimSettings = {
 			mouseX:0,
@@ -59,6 +60,7 @@ export class Env3D {
 		await this.loadModel();
 		await this.setTexture();
 		// console.log('MODEL: ', this.MODEL);
+		this.setMaterial();
 		this.setModel(this.MODEL);
 		this.render();
 		// this.mouseAnimation();
@@ -80,7 +82,8 @@ export class Env3D {
 
 	setCamera(){
 		this.camera = new THREE.PerspectiveCamera( 30 ,1, .1, 100);
-		this.camera.position.set( .7, this.cameraDist, 20 );
+		this.camera.position.set( 0.65,9.47,17.65 );
+		this.camera.rotation.set( -.5, .03, 0.017 );
 	}
 
 	loadModel(){
@@ -124,21 +127,27 @@ export class Env3D {
 		
 		
 		MODEL.rotation.x = this.modelSetting.rotation[0]
-    MODEL.rotation.y = this.modelSetting.rotation[1]
-    MODEL.rotation.z = this.modelSetting.rotation[2]
-
+		MODEL.rotation.y = this.modelSetting.rotation[1]
+		MODEL.rotation.z = this.modelSetting.rotation[2]
+		MODEL.material = this.MATERIAL;
 		this.scene.add(MODEL)
 	}
-
+	setMaterial(){
+		this.MATERIAL = new THREE.MeshPhysicalMaterial({
+			metalness: 0,  
+			roughness: 0,
+			transmission: 1, // Add transparency
+		  });
+	}
 	setLights(){
 		//LIGHTs
 		var Alight = new THREE.AmbientLight( 0xffffff,2);
 		this.scene.add(Alight)
 		// Create point lights
-		const light1 = new THREE.PointLight(0xffffff, 1, 10, 2);
-		const light2 = new THREE.PointLight(0xffffff, 1, 10, 2);
-		const light3 = new THREE.PointLight(0xffffff, 1, 10, 2);
-		const light4 = new THREE.PointLight(0xffffff, 1, 10, 2);
+		const light1 = new THREE.PointLight(0xffffff, 1, 1, 2);
+		const light2 = new THREE.PointLight(0xffffff, 1, 1, 2);
+		const light3 = new THREE.PointLight(0xffffff, 1, 1, 2);
+		const light4 = new THREE.PointLight(0xffffff, 1, 1, 2);
 
 		// Create light filters
 		const filter1 = new THREE.Mesh(new THREE.BoxGeometry(.5,.5, .5), new THREE.MeshBasicMaterial({ color: 0xffffff }));

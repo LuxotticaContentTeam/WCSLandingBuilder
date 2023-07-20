@@ -190,7 +190,7 @@ $('.sgh-search-suggestions ').after(`
   <div id="quiz">
     <h3>Can’t decide?</h3>
     <p>Head to our quiz to find our expert shade recommendations.</p>
-    <div id="quiz_cta" tabindex="0" aria-label="START SHOPPING">START SHOPPING</div>
+    <div id="quiz_cta" tabindex="0" aria-label="Launch quiz">Launch quiz</div>
   </div>`);
 
 

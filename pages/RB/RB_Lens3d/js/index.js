@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 	  texturePath:'../assets/texture/panorama_2_1.hdr',
 	  modelSetting:{
 		scale:[1,1,1],
-		position:[0,-1,0],
+		position:[0.15,0.15,0],
 		rotation:[0,0,0]
 	  },
-	  cameraDist:10
+	  cameraDist:.8
 	})
 	window.my3dEnv.init()
 	window.my3dEnv.setMouseAnimation(true)
