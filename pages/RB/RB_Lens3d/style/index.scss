@@ -26,10 +26,12 @@
   display: flex;
   justify-content: space-between;
   z-index: 3;
+  pointer-events: none;
   div{
     font-size: 80px;
     font-weight: bold;
     transition: all .5s ease;
+    pointer-events: all;
     cursor: pointer;
     &:focus{
       transform: scale(1.3);

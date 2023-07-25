@@ -36,16 +36,7 @@ window.ct_wow__search = {
   inputManagement:{},
   config:{
     selector:'body',
-    openingElem:[
-      {
-        selector:'#quiz_cta',
-        pages:'all'
-      },
-      {
-        selector:'img[alt="Group 933"]',
-        pages:['womens-sunglasses','mens-sunglasses','designer-sunglasses']
-      }
-    ]
+    openingElem:['#quiz_cta']
   },
   template:'',
   data:{
@@ -177,40 +168,21 @@ window.ct_wow__search.start = function(e){
 }
 
 function ct_wow__search__start(){
-  let pathname = window.location.pathname.split('/')[2];
   if(!document.querySelector('#ct_wow__search')){
-  
     let div = document.createElement('div')
     div.id = "ct_wow__search__container";
     div.innerHTML= window.ct_wow__search.template;
     document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
   }
  
-  
-  if( window.ct_wow__search.config.openingElem.length > 0){
-    window.ct_wow__search.config.openingElem.forEach(element => {
-      if (element.pages === 'all'){
-        if(document.querySelector(element.selector)){
-          
-       
-          document.querySelector(element.selector).addEventListener('click',window.ct_wow__search.start)
-        }
-      }
-      else{
-        console.log('SGH not all pages');
-        element.pages.forEach(page => {
-          if (!!pathname && pathname.includes(page)){
-            if(document.querySelector(element.selector)){
-              
-              document.querySelector(element.selector).addEventListener('click',window.ct_wow__search.start)
-            }
-          }
-        });
-      }
-    });
-    
+  if(document.querySelector(window.ct_wow__search.config.openingElem)){
+    if( window.ct_wow__search.config.openingElem.length > 0){
+      window.ct_wow__search.config.openingElem.forEach(element => {
+        document.querySelector(element).addEventListener('click',window.ct_wow__search.start)
+      });
+      
+    }
   }
-  
   
 }
 
@@ -223,4 +195,3 @@ $('.sgh-search-suggestions ').after(`
 
 
 ct_wow__search__start()
-console.log('%cSGH Search Loaded','background: #222; color: #bada55')
