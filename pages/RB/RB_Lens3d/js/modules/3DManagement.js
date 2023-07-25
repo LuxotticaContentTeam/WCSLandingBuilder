@@ -22,7 +22,7 @@ export class Env3D {
 		this.camera,
 		this.scene = new THREE.Scene(),
 		this.renderer = new THREE.WebGLRenderer({
-			// alpha:true,
+			alpha:true,
 			antialias: true
 		});
 			
@@ -60,7 +60,7 @@ export class Env3D {
 		await this.loadModel();
 		await this.setTexture();
 		// console.log('MODEL: ', this.MODEL);
-		this.setMaterial();
+		// this.setMaterial();
 		this.setModel(this.MODEL);
 		this.render();
 		// this.mouseAnimation();
