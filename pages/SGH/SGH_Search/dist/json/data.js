@@ -32,15 +32,15 @@ window.ct_wow__search.data.products  = {
         ]
     
     },
-    "8056597422574":{
-        brand:'Vogue Eyewear',
-        upc: '8056597422574',
-        url: "/vogue-eyewear/vo4199s-8056597422574",
+    "8056597870672":{
+        brand:'tiffany & co',
+        upc: '8056597870672',
+        url: "/tiffany-co/tf4206u-8056597870672",
         specs:[
-            [3,4,5,8],
-            [3,5,2,8],
-            [3,1,8],
-            [7,6,3,9],
+            [5,4,5,8],
+            [3,5,2,6],
+            [7,0,8],
+            [7,6,7,0],
         ]
     
     },
@@ -68,27 +68,27 @@ window.ct_wow__search.data.products  = {
         ]
     
     },
-    "8056597551960":{
+    "8056597745222":{
         brand:'Persol',
-        upc: '8056597551960',
-        url: "/persol/po0714-8056597551960",
+        upc: '8056597745222',
+        url: "/persol/po3302s-8056597745222",
         specs:[
             [5,3,4,8],
             [8,7,3,9],
             [3,2,9],
-            [6,7,7,3],
+            [6,7,7,2],
         ]
     
     },
-    "8056597529006":{
-        brand:'Dolce and Gabbana',
-        upc: '8056597529006',
-        url: "/dolce-and-gabbana/dg2279-8056597529006",
+    "725125395380":{
+        brand:'michael kors',
+        upc: '725125395380',
+        url: "/michael-kors/mk1127j-725125395380",
         specs:[
             [5,5,2,7],
             [5,6,3,9],
             [7,0,5],
-            [7,7,8,2],
+            [7,7,8,5],
         ]
     
     },
@@ -130,15 +130,15 @@ window.ct_wow__search.data.products  = {
         ]
     
     },
-    "725125391627":{
-        brand:'Coach',
-        upc: '725125391627',
-        url: "/coach/hc8353u-725125391627",
+    "8056597829335":{
+        brand:'Ray-ban',
+        upc: '8056597829335',
+        url: "/ray-ban/rb4395-8056597829335",
         specs:[
-            [6,5,5,7],
-            [3,5,2,6],
-            [3,2,9],
-            [6,4,3,9],
+            [5,7,5,6],
+            [3,5,2,8],
+            [9,2,7],
+            [6,8,3,6],
         ]
     
     },
@@ -166,15 +166,15 @@ window.ct_wow__search.data.products  = {
         ]
     
     },
-    "888392577931":{
+    "888392530578":{
         brand:'Oakley',
-        upc: '888392577931',
-        url: "/oakley/oo9406-888392577931",
+        upc: '888392530578',
+        url: "/oakley/oo9465-888392530578",
         specs:[
             [8,8,9,1],
-            [8,4,9,5],
-            [9,3,2],
-            [8,8,3,7],
+            [7,4,9,5],
+            [8,3,2],
+            [8,8,3,5],
         ]
     
     },
@@ -203,15 +203,15 @@ window.ct_wow__search.data.products  = {
         ]
     
     },
-    "8053672968378":{
-        brand:'Vogue Eyewear',
-        upc: '8053672968378',
-        url: "/vogue-eyewear/vo5246s-8053672968378",
+    "8056597786249":{
+        brand:'polo ralph lauren',
+        upc: '8056597786249',
+        url: "/polo-ralph-lauren/ph4184-8056597786249",
         specs:[
-            [4,5,5,8],
-            [3,5,2,8],
-            [0,9,7],
-            [6,6,3,9],
+            [4,5,7,8],
+            [6,6,6,6],
+            [8,0,9],
+            [7,7,4,8],
         ]
     
     },
@@ -240,71 +240,73 @@ window.ct_wow__search.data.products  = {
         ]
     
     },
-    // "889214402547":{
-    //     brand:'Tom Ford',
-    //     upc: '889214402547',
-    //     url: "/tom-ford/tr001510-889214402547",
-    //     img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
-    //     specs:[
-    //         [9,8,4,4],
-    //         [5,6,3,9],
-    //         [9,2,6],
-    //         [5,7,9,0],
-    //     ]
-    
-    // },
-   "8056597643030": {
-        brand:'Versace',
-        upc: '8056597643030',
-        url: "/versace/ve2245-8056597643030",
+    "725125368919":{
+        brand:'coach',
+        upc: '725125368919',
+        url: "/coach/hc8315-725125368919",
+        // img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
-            [5,8,4,6],
-            [5,6,3,9],
-            [0,8,6],
-            [5,7,9,4],
+            [6,6,5,7],
+            [7,7,5,7],
+            [7,0,9],
+            [7,7,5,5],
         ]
     
     },
-    "8056597384902":{
-        brand:'Versace',
-        upc: '8056597384902',
-        url: "/versace/ve4406-8056597384902",
+    "8056597836449":{
+        brand:'versace',
+        upc: '8056597836449',
+        url: "/versace/ve2255-8056597836449",
+        // img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
+        specs:[
+            [6,6,5,5],
+            [6,5,7,8],
+            [3,8,8],
+            [6,9,8,1],
+        ]
+    
+    },
+   
+    "8056597641784":{
+        brand:'ray-ban',
+        upc: '8056597641784',
+        url: "/ray-ban/rb3636-8056597641784",
         // img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [5,4,6,7],
             [5,6,3,9],
-            [3,1,8],
-            [8,8,9,0],
-        ]
-    
-    },
-    "8056597919029":{
-        brand:'Ray-Ban',
-        upc: '8056597919029',
-        url: "/ray-ban/rbr0101s-8056597919029",
-        specs:[
-            [5,4,6,7],
-            [5,6,3,9],
             [3,0,9],
-            [8,8,9,7],
+            [8,8,9,5],
         ]
     
     },
-    //24
-    "8056597855891":{
-        brand:'Dolce and Gabbana',
-        upc: '8056597855891',
-        url: "/dolce-and-gabbana/dg4439-8056597855891",
-        // img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597046312_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
+    "725125391627":{
+        brand:'coach',
+        upc: '725125391627',
+        url: "/coach/hc8353u-725125391627",
         // img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
         specs:[
             [6,6,2,5],
             [5,6,3,9],
             [0,9,7],
-            [7,7,6,4],
+            [7,7,6,7],
         ]
     
     },
+    "888392601803":{
+        brand:'oakley',
+        upc: '888392601803',
+        url: "/oakley/oo9280-888392601803",
+        // img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
+        specs:[
+            [9,7,4,4],
+            [5,6,3,9],
+            [0,9,6],
+            [6,9,5,6],
+        ]
+    
+    },
+   
     "805289126591":{
         brand:'Ray-Ban',
         upc: '805289126591',
@@ -317,20 +319,7 @@ window.ct_wow__search.data.products  = {
         ]
     
     },
-    "888392601803":{
-        brand:'Oakley',
-        upc: '888392601803',
-        url: "/oakley/oo9280-888392601803",
-        // img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597140249_SGH_gryBG_fr.png?impolicy=SGH_bgtransparent",
-        // img:"https://media.sunglasshut.com/2023/utility/WOW/search/demoframe.png",
-        specs:[
-            [5,4,6,7],
-            [6,6,8,6],
-            [0,9,7],
-            [7,6,8,2],
-        ]
-    
-    },
+   
     "8056597744409":{
         brand:'Prada',
         upc: '8056597744409',
