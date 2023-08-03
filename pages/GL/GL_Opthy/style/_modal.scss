@@ -1,0 +1,62 @@
+.ct_space.ct_opthy__modal{
+    display: none;
+
+    .ct_opthy__modal__wrapper{
+        background: rgba(34, 34, 34, 0.7);
+        position: absolute;
+        z-index: 9999;
+        height: 100vh;
+        width: 100%;
+
+        &.ct_fadeIn{
+            animation: fadeIn .8s normal;
+            animation-fill-mode: forwards;
+            opacity: 0;
+            display: flex;
+        }
+
+        &.ct_fadeOut{
+            animation: fadeOut .8s;
+            animation-fill-mode: forwards;
+            opacity: 1;
+        }
+    }
+
+    .ct_opthy__modal__container{
+        width: 45%;
+        background-color: #fff;
+        border-radius: 8px;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        position: absolute;
+        left: 50%;
+        padding: 48px 32px 32px;
+
+        &.ct_fadeIn{
+            animation: fadeIn 1s linear 1s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+        &.ct_fadeOut{
+            animation: fadeOut 2s;
+            animation-fill-mode: forwards;
+            opacity: 1;
+        }
+
+        span{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
