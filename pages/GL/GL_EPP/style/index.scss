@@ -9,10 +9,6 @@
     @media(orientation: portrait) and (max-width: 1024px), (orientation: landscape) and (max-width: 1023px){
       padding: 32px 16px !important;
     }
-
-    a{
-      
-    }
     .ct_cards{
       display: flex;
       flex-wrap: wrap;
@@ -49,4 +45,19 @@
     }
   }
 
+  .ct_flex{
+      display: flex;
+  }
+  .ct_align__center{
+      align-items: center;
+  }
+  .ct_flex__row{
+      flex-direction: row;
+  }
+  .ct_flex__column{
+      flex-direction: column;
+  }
+  .ct_flex__space_evenly{
+      justify-content: space-evenly;
+  }
 }
