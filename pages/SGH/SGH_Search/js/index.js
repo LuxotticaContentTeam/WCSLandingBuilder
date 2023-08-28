@@ -11,10 +11,10 @@ function ct_wow__search__download_script(url,name){
 function ct_wow__search__download_scripts(){
   
 
-  // ct_wow__search__download_script('./json/data.js','data');
-  // ct_wow__search__download_script('./js/main.min.js','core');
-  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.min.js','data');
-  ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
+  ct_wow__search__download_script('./json/data.js','data');
+  ct_wow__search__download_script('./js/main.min.js','core');
+  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/json/data.min.js','data');
+  // ct_wow__search__download_script('https://media.sunglasshut.com/2023/utility/WOW/search/js/main.min.js','core');
 } 
 
 function ct_wow__search__download_style(){
@@ -32,13 +32,40 @@ function ct_wow__search__download_style(){
 
 window.ct_wow__search = {
   init:false,
+  initTimer:null,
   opening:false,
   start:null,
   structure:{},
   inputManagement:{},
   config:{
     selector:'body',
-    openingElem:['#cta1','#cta2']
+    openingElem:[
+      {
+        selector:'#cta1',
+        pages:'all',
+        section:'Search'
+      },
+      {
+        selector:'#cta2',
+        pages:'all',
+        section:'Search'
+      },
+      {
+        selector:'#cta3',
+        pages:'all',
+        section:'Search'
+      },
+      {
+        selector:'#quiz_cta',
+        pages:'all',
+        section:'Search'
+      },
+      {
+        selector:'img[alt="Group 933"]',
+        pages:['womens-sunglasses','mens-sunglasses','designer-sunglasses'],
+        section:'Plp'
+      }
+    ]
   },
   template:'',
   data:{
@@ -54,7 +81,7 @@ window.ct_wow__search = {
 }
 
 window.ct_wow__search.template = `
-<div id="ct_wow__search" class="ct_space " style="opacity:0;pointer-events:none;  transform: translateY(100%);">
+<div id="ct_wow__search" class="ct_space " style="opacity:0;pointer-events:none;  transform: translateY(100%); position:fixed;">
   <div id="ct_wow__search__loader" class="ct_in">
       <div class="ct_wow__search__results_loader__img_container_wrap">
         <div class="ct_wow__search__results_loader__img_container">
@@ -73,7 +100,7 @@ window.ct_wow__search.template = `
       </div>
       <h3></h3>
   </div>
-  <button id="ct_wow__search__close">
+  <button id="ct_wow__search__close" data-analytics_available_call=”0”>
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M29.75 11.4167L28.5833 10.25L20 18.8333L11.4167 10.25L10.25 11.4167L18.8333 20L10.25 28.5833L11.4167 29.75L20 21.1667L28.5833 29.75L29.75 28.5833L21.1667 20L29.75 11.4167Z" fill="black"/>
       </svg>
@@ -106,12 +133,12 @@ window.ct_wow__search.template = `
            
           </div>
           <div class="ct_wow__search__input_commands">
-              <button class="ct_wow__search__input_commands__prev ct_disabled">
+              <button class="ct_wow__search__input_commands__prev ct_disabled" data-analytics_available_call="0">
                   <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M8.64672 11.8535L2.79297 5.99998L8.64672 0.146484L9.35372 0.853484L4.20747 5.99998L9.35372 11.1465L8.64672 11.8535Z" />
                   </svg>
               </button>
-              <button class="ct_wow__search__input_commands__next">
+              <button class="ct_wow__search__input_commands__next" data-analytics_available_call="0">
                   <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4.35348 11.8535L3.64648 11.1465L8.79273 5.99998L3.64648 0.853484L4.35348 0.146484L10.2072 5.99998L4.35348 11.8535Z" />
                   </svg>    
@@ -131,8 +158,8 @@ window.ct_wow__search.template = `
          
           
       </div>
-      <a class="ct_cta ct_cta__black" aria-label="view all" data-element-id="X_X_Search_Banner" data-description="view all"></a><br>
-      <button class="ct_wow__search__restart"></button>
+      <a class="ct_cta ct_cta__black" aria-label="view all" data-element-id="WowQuiz_Results-ViewAll" ></a><br>
+      <button class="ct_wow__search__restart" data-analytics_available_call="0"></button>
   </div>
 </div>
 
@@ -144,17 +171,22 @@ window.ct_wow__search.template = `
 
 
 
-window.ct_wow__search.start = function(e){
-  let this_ = this;
+window.ct_wow__search.start = function(elem,section){
+  
+  let this_ = document.querySelector(elem);
   this_.style.pointerEvents = 'none';
   if ( window.ct_wow__search.init === false){
     window.ct_wow__search.init = true;
     ct_wow__search__download_style();
     window.ct_wow__search.data.storeInfo.lang = window.wcs_config ? wcs_config.locale.toLowerCase().replace('_','-'):undefined;
     window.ct_wow__search.data.storeInfo.lang_short = window.wcs_config ? wcs_config.locale.match("^[^_]+")[0]:undefined;
-  
     ct_wow__search__download_scripts();
-   
+    
+    if (window.tealium_data2track){
+      window.tealium_data2track.push({'id': 'Click', 'data_element_id': section+'_WowQuiz_Start', 'data_description': section === "Search" ? "LaunchQuiz" : "LaunchQuiz_IMG"});
+    }else{
+        console.log({'id': 'Click', 'data_element_id': section+'_WowQuiz_Start', 'data_description': section === "Search" ? "LaunchQuiz" : "LaunchQuiz_IMG"})
+    }
     
   }else{
     if (!window.ct_wow__search.opening){
@@ -164,28 +196,73 @@ window.ct_wow__search.start = function(e){
       },600)
     }
   }
+ 
   setTimeout(function(){
     this_.style.pointerEvents = 'all';
+    if (window.tealium_data2track){
+      window.tealium_data2track.push({'id': 'Impression', 'Page_Section2': 'WowQuiz:Step1'});
+    }else{
+        console.log({'id': 'Impression', 'Page_Section2': 'WowQuiz:Step1'})
+    }
   },600);
 }
 
+function ct_wow__search__start_retrySelector(selector,section){
+  window.ct_wow__search.initTimer = setTimeout(function(){
+    if(document.querySelector(selector)){
+      document.querySelector(selector).addEventListener('click',window.ct_wow__search.start.bind(null,selector,section))
+      clearTimeout(window.ct_wow__search.initTimer)
+    }else{
+      ct_wow__search__start_retrySelector(selector,section)
+    }
+  },1000)
+}
+
 function ct_wow__search__start(){
+  let pathname = window.location.pathname.split('/')[2];
   if(!document.querySelector('#ct_wow__search')){
+  
     let div = document.createElement('div')
     div.id = "ct_wow__search__container";
     div.innerHTML= window.ct_wow__search.template;
     document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
   }
  
-  if(document.querySelector(window.ct_wow__search.config.openingElem)){
-    if( window.ct_wow__search.config.openingElem.length > 0){
-      window.ct_wow__search.config.openingElem.forEach(element => {
-        document.querySelector(element).addEventListener('click',window.ct_wow__search.start)
-      });
+  
+  if( window.ct_wow__search.config.openingElem.length > 0){
+    window.ct_wow__search.config.openingElem.forEach(element => {
+      if (element.pages === 'all'){
+        if(document.querySelector(element.selector)){
+          document.querySelector(element.selector).addEventListener('click',window.ct_wow__search.start.bind(null,element.selector,element.section))
+        }else{
+          ct_wow__search__start_retrySelector(element.selector,element.section)
+          console.log('Selector not found start searching for: '+element.selector);
+          setTimeout(function(){  clearTimeout(window.ct_wow__search.initTimer)},10000)
+        }
+      }
+      else{
       
-    }
+        element.pages.forEach(page => {
+    
+          if (!!pathname && pathname.includes(page)){
+        
+            if(document.querySelector(element.selector)){
+              
+              document.querySelector(element.selector).addEventListener('click',window.ct_wow__search.start.bind(null,element.selector,element.section))
+            }else{
+          
+              console.log('Selector not found start searching for: '+element.selector);
+              setTimeout(function(){  clearTimeout(window.ct_wow__search.initTimer)},10000)
+            }
+          }
+        });
+      }
+    });
+    
   }
+  
   
 }
 
 ct_wow__search__start()
+

@@ -1,5 +1,5 @@
 import { storeInfo } from "./storeInfo";
-import { customLog } from "./utils";
+import { analyticsPush, customLog } from "./utils";
 
 export const loader = {
     elem:null,
@@ -13,7 +13,11 @@ export const loader = {
             this.elem.querySelector('h3').innerHTML =  storeInfo.getLang(window.ct_wow__search.data.copy.loader.init)
         }
         if (type === "restart"){
-            this.elem.querySelector('h3').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.loader.restart)
+            this.elem.querySelector('h3').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.loader.restart);
+            analyticsPush({
+                'id': 'Impression',
+                'Page_Section2': 'WowQuiz:Step1', 
+              });
         }
         if (type === "results"){
             this.elem.querySelector('h3').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.loader.results)

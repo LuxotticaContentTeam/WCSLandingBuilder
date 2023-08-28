@@ -38,12 +38,21 @@
     <div style="background-color: #a9a9a9; width: 100%;height: 200vh;" >
         scrollable
     </div>
-    <button class="ct_cta ct_cta__black"  id="cta2">START SEARCH</button>
+    <!-- <button class="ct_cta ct_cta__black"  id="cta2">START SEARCH</button> -->
+    <div id="btn_place"></div>
+    <div id="btn_place2"></div>
     <button class="ct_cta ct_cta__black"  >START SEARCH</button>
     <button class="ct_cta ct_cta__black"  >START SEARCH</button>
     <!-- <button class="ct_cta ct_cta__black"  >START SEARCH</button> -->
 </div>
-
+<script>
+    setTimeout(()=>{
+       document.getElementById('btn_place').innerHTML = '<button id="cta2" class="ct_cta ct_cta__black"  >START SEARCH</button>'
+    },3000)
+    setTimeout(()=>{
+       document.getElementById('btn_place2').innerHTML = '<button id="cta3" class="ct_cta ct_cta__black"  >START SEARCH</button>'
+    },11000)
+</script>
 
 <!-- DEV -->
 <!-- <script>

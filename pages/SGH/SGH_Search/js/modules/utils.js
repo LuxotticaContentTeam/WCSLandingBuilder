@@ -34,7 +34,7 @@ export const checkData = (data,timeout) => {
             let timer = 0;
             let checkDataInterver = setInterval(()=>{
                 if (data.loaded === true){
-                    console.log('RESOLVED IN: ' + timer + 'ms')
+                    // console.log('RESOLVED IN: ' + timer + 'ms')
                     clearInterval(checkDataInterver)
                     resolve()
                 }else{
@@ -48,4 +48,31 @@ export const checkData = (data,timeout) => {
             },200)
         }
     })
+}
+
+export const analyticsPush = (data) => {
+    if (window.tealium_data2track){
+        window.tealium_data2track.push(data);
+    }else{
+        console.log(data)
+    }
+}
+
+export const formatDataAnalytics = (data,separator) => {
+    let data2track = {};
+    if (separator === 'object'){
+        for(let i = 0;i<data.length;i++){
+            data2track[data[i]] = {};
+        }
+    }else{
+        data2track = '';
+        data.forEach((item,index)=>{
+            data2track += item;
+            if (index < data.length -1){
+                data2track += separator;
+            }
+        })
+    }
+   
+    return data2track
 }

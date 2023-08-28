@@ -1,7 +1,7 @@
 import { accessibility } from "./modules/accessibility";
 import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
-import { calcCoordinates, checkData, customLog, debounce, getDevice } from "./modules/utils";
+import { analyticsPush, calcCoordinates, checkData, customLog, debounce, formatDataAnalytics, getDevice } from "./modules/utils";
 
 
 
@@ -33,12 +33,14 @@ window.ct_wow__search.structure = {
       }
     },
     coordinates:[],
+ 
   },
   init:async function(reopen){
     window.ct_wow__search.opening = true;
     customLog('WOW SEARCH INIT');
 
     storeInfo.getInfo();
+    
     
     if (!reopen){
       this.container = document.querySelector('#ct_wow__search');
@@ -98,7 +100,7 @@ window.ct_wow__search.structure = {
       this.prod_list_container.innerHTML+=`
       <li class="ct_wow_search__product" data-upc="${upc}">
         <div class="ct_wow_search__product__wrap">
-          <a href="${window.ct_wow__search.data.storeInfo.base_url + window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="X_X_WowSearch_Banner" data-description-="${upc}" tabindex="0">
+          <a href="${window.ct_wow__search.data.storeInfo.base_url + window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="WowQuiz_Step1-Product" data-description-="${upc}" tabindex="0">
               <div class="ct_wow_search__img_container">
                   <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
               </div>
@@ -266,9 +268,10 @@ window.ct_wow__search.structure = {
   //   // this.prod_list;
   //   // this.placeholders.coordinates;
   // },
-  rankingProducts:function(qIndex,aIndex){
+  rankingProducts:function(qIndex,aIndex,aInnerText){
     window.ct_wow__search.inputManagement.answers.state[qIndex] = parseInt( aIndex)
-    // console.log({question:qIndex,answer:aIndex});
+    window.ct_wow__search.inputManagement.answers.tracked[qIndex] = aInnerText;
+    // console.log(window.ct_wow__search.inputManagement.answers.tracked);
     //calc each product score
     this.prod_list.forEach(prod=>{
        prod.score = this.calcScore(prod.upc);
@@ -293,6 +296,7 @@ window.ct_wow__search.structure = {
       if(i>=this.placeholders.utils.secondCircle.prodsCount + 3){
         prod.scalingElem.style.transform = "translate(-50%,-50%) scale(.6)";
       }
+      prod.scalingElem.dataset.elementId = `WowQuiz_Step${parseInt( qIndex) + 2}-Product`
     });
    
     window.ct_wow__search.inputManagement.results.state = [
@@ -432,7 +436,8 @@ window.ct_wow__search.inputManagement = {
   },
   answers:{
     container:null,
-    state:[]
+    state:[],
+    tracked:[],
   },
   buttons:{
     next:null,
@@ -445,7 +450,6 @@ window.ct_wow__search.inputManagement = {
     state:[]
   },
   init:function(reopen){
-    
     this.setElements()
     this.fillData();
     this.setButtonsHandler();
@@ -486,6 +490,13 @@ window.ct_wow__search.inputManagement = {
    
     if (dir){
       //set element positioning
+      if(this.progress.state != 1){
+        analyticsPush({
+          'id': 'Impression',
+          'Page_Section2': `WowQuiz:Step${this.progress.state}`, 
+        })
+      }
+   
       this.progress.current.dataset.next = this.progress.state; 
       this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-opacity',"1");
       this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-opacity',"0");
@@ -544,7 +555,7 @@ window.ct_wow__search.inputManagement = {
       question.answers.forEach((answer,aindex)=>{
         answers += `
         <div class="ct_wow__search__button_wrap">
-          <button class="ct_cta ct_cta__black " data-q="${ qindex }" tabindex="-1" data-a="${aindex}">${storeInfo.getLang( answer)}</button>
+          <button class="ct_cta ct_cta__black " data-q="${ qindex }" tabindex="-1" data-a="${aindex}" data-element-id="WowQuiz_Step${qindex + 1}-Answer" data-description="${answer["en"]}">${storeInfo.getLang( answer)}</button>
         </div>
         `
       })
@@ -563,7 +574,7 @@ window.ct_wow__search.inputManagement = {
               window.ct_wow__search.structure.container.classList.add('ct_shuffled')
             }
             window.ct_wow__search.structure.refreshPositions()
-            window.ct_wow__search.structure.rankingProducts(button.dataset.q,button.dataset.a);
+            window.ct_wow__search.structure.rankingProducts(button.dataset.q,button.dataset.a,button.dataset.description);
             
             if(button.parentNode.parentNode.querySelector('button.ct_active')){
               button.parentNode.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
@@ -596,6 +607,7 @@ window.ct_wow__search.inputManagement = {
   changeQuestions:function(dir){
   
     if (!this.blockerActive){
+    
       if (dir ==='next'){
         this.progress.state+= 1;
         if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('ct_disabled') ){
@@ -616,7 +628,7 @@ window.ct_wow__search.inputManagement = {
           this.buttons.prev.classList.add('ct_disabled');
           this.container.classList.remove('ct_last_step')
         } 
-
+        
       }else{
         this.progress.state-= 1;
         if (this.progress.state === 1 && !this.buttons.prev.classList.contains('ct_disabled')){
@@ -638,6 +650,12 @@ window.ct_wow__search.inputManagement = {
   
   },
   showResult:function(){
+    analyticsPush({
+      'id': 'Impression',
+      'Page_Section2': 'WowQuiz:Results',
+      'Content_Answers': formatDataAnalytics(window.ct_wow__search.inputManagement.answers.tracked,'|'), // i valori vanno passati sempre in inglese
+      'Products': formatDataAnalytics(window.ct_wow__search.inputManagement.results.state,'object'),
+    })
     this.results.container.classList.add('ct_in');
     this.results.container.classList.add('ct_loader_in');
     loader.loaderIn(2000,"results");
@@ -655,7 +673,7 @@ window.ct_wow__search.inputManagement = {
     this.results.state.forEach(upc=>{
       
       productsContainer.innerHTML+=`
-      <a href="${window.ct_wow__search.data.storeInfo.base_url + window.ct_wow__search.data.products[upc].url}" class="ct_wow__search__results_product">
+      <a href="${window.ct_wow__search.data.storeInfo.base_url + window.ct_wow__search.data.products[upc].url}" class="ct_wow__search__results_product" data-element-id="WowQuiz_Results-Product" data-description="${upc}">
           <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
           <span>${window.ct_wow__search.data.products[upc].brand}</span>
         </a>
