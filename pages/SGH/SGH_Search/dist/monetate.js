@@ -172,7 +172,7 @@ window.ct_wow__search.start = function(elem,section){
     }
     
   }else{
-    if (!window.ct_wow__search.opening){
+    if (!!window.ct_wow__search.structure.init && !window.ct_wow__search.opening){
       window.ct_wow__search.structure.init({reopen:true});
       setTimeout(function(){
         this_.style.pointerEvents = 'all';
@@ -193,6 +193,9 @@ window.ct_wow__search.start = function(elem,section){
 function ct_wow__search__start_retrySelector(selector,section){
   window.ct_wow__search.initTimer = setTimeout(function(){
       if(document.querySelector(selector)){
+        if(selector == 'img[alt="wowquiz_PLP_banner"]'){
+          document.querySelector(selector).parentNode.parentNode.querySelector('.absolute.sgh-col.flex').style.pointerEvents = 'none'
+        }
         document.querySelector(selector).addEventListener('click',window.ct_wow__search.start.bind(null,selector,section));
         // console.log('SGH - Added Listener: '+ selector); 
       }else{
@@ -234,6 +237,9 @@ function ct_wow__search__start(){
             if(document.querySelector(element.selector)){
               // console.log('SGH - Added Listener '+ element.selector);
               document.querySelector(element.selector).addEventListener('click',window.ct_wow__search.start.bind(null,element.selector,element.section));
+              if(element.selector == 'img[alt="wowquiz_PLP_banner"]'){
+                document.querySelector(element.selector).parentNode.parentNode.querySelector('.absolute.sgh-col.flex').style.pointerEvents = 'none'
+              }
             }else{
               ct_wow__search__start_retrySelector(element.selector,element.section);
           
