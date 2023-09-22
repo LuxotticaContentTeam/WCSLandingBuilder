@@ -1,0 +1,14 @@
+@import "variables.scss";
+
+#supernovaLP {
+  #fourVideos {
+    .swiper {
+      .swiper-wrapper {
+        @media screen and (min-width: $breakpoint-md) {
+          margin-right: calc(-0.5 * $gutter-x);
+          margin-left: calc(-0.5 * $gutter-x);
+        }
+      }
+    }
+  }
+}

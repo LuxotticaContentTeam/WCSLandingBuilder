@@ -1,0 +1,31 @@
+@import "variables.scss";
+
+#supernovaLP {
+  #faq {
+    .accordion-wrapper {
+      .accordion-button {
+        &::before {
+          content: "+";
+          width: 21px;
+          height: 21px;
+          font-size: 16px;
+          font-weight: 700;
+          border: 2px solid #747474;
+          border-radius: 50px;
+          position: relative;
+          transition: transform 0.3s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 16px;
+          color: #747474;
+        }
+        &.active {
+          &::before {
+            content: "-";
+          }
+        }
+      }
+    }
+  }
+}
