@@ -137,6 +137,7 @@
 .ct_category_carousel_module .ct_category_carousel {
   padding: 0 64px;
   min-height: 395px;
+  position: static;
 }
 .ct_category_carousel_module .swiper-button-next,
 .ct_category_carousel_module .swiper-button-prev {
@@ -147,7 +148,7 @@
   box-shadow: 0 0 5px 0 rgb(178 178 178 / 50%) !important;
   color: #222 !important;
   cursor: pointer !important;
-  top: 25%;
+  top: 65%;
 }
 .ct_category_carousel_module .swiper-button-next.swiper-button-disabled,
 .ct_category_carousel_module .swiper-button-prev.swiper-button-disabled {
@@ -169,12 +170,15 @@
 .ct_category_carousel_module .swiper-button-prev::after {
   border-width: 2px 0 0 2px !important;
 }
+.ct_category_carousel_module .swiper-pagination {
+  bottom: 44px;
+}
 .ct_category_carousel_module .swiper-pagination-bullet {
-  background-color: #fff;
-  border: 1px solid #767676;
+  background-color: #222;
+  opacity: 1;
 }
 .ct_category_carousel_module .swiper-pagination-bullet-active {
-  background-color: #222;
+  background-color: #fff;
   border: 1px solid #222;
 }
 @media screen and (max-width: 1280px) {
@@ -192,9 +196,23 @@
     padding: 0 32px 60px;
   }
 }
+@media screen and (max-width: 991px) {
+  .ct_category_carousel_module .swiper-pagination {
+    bottom: 10%;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1023px) {
+  .ct_category_carousel_module .swiper-pagination {
+    bottom: 20%;
+  }
+}
 @media screen and (max-width: 1023px) {
   .ct_category_carousel_module .ct_category_carousel {
     min-height: 474px;
+  }
+  .ct_category_carousel_module .swiper-button-next,
+  .ct_category_carousel_module .swiper-button-prev {
+    display: none;
   }
 }
 @media screen and (max-width: 768px) {
@@ -202,29 +220,14 @@
     padding: 0 16px;
     min-height: 364px;
   }
-  .swiper-horizontal > .swiper-pagination-bullets,
-  .swiper-pagination-bullets.swiper-pagination-horizontal,
-  .swiper-pagination-custom,
-  .swiper-pagination-fraction {
-    bottom: 10%;
-  }
 }
-@media screen and (min-width: 768px) {
-  .ct_category_carousel_module .swiper-pagination {
-    display: none;
-  }
-}
+
 @media screen and (max-width: 600px) {
   .ct_category_carousel_module .ct_category_carousel {
     min-height: 304px;
   }
 }
 @media screen and (max-width: 480px) {
-  .ct_category_carousel_module .ct_category_carousel {
-    min-height: 264px;
-  }
-}
-@media screen and (max-width: 376px) {
   .ct_category_carousel_module .ct_category_carousel {
     min-height: 264px;
   }
@@ -379,7 +382,7 @@
     padding: 40px 16px 0 !important;
   }
   .ct_category_carousel_module .ct_mob_view_all {
-    margin: 32px 0 0;
+    margin: 70px 0 0;
     justify-content: center;
   }
   .ct_category_carousel_module .ct_viewAll_mob_hide {

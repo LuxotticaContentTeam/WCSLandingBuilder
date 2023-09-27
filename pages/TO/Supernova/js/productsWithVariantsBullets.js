@@ -35,14 +35,14 @@ const productsManager = {
       ct_populate_category_carouselMidProducts(ct_selected_category);
 
       /* Get products value from local storage */
-      // const storedValue = localStorage.getItem(ct_selected_category);
-      // if (this.classList.contains("ct_clicked")) {
-      //   const retrievedObject = JSON.parse(storedValue);
-      //   console.log(retrievedObject);
-      // } else {
-      //   ct_populate_category_carouselMidProducts(ct_selected_category);
-      // }
-      // this.classList.add("ct_clicked");
+      const storedValue = localStorage.getItem(ct_selected_category);
+      if (this.classList.contains("ct_clicked")) {
+        const retrievedObject = JSON.parse(storedValue);
+        console.log(retrievedObject);
+      } else {
+        ct_populate_category_carouselMidProducts(ct_selected_category);
+      }
+      this.classList.add("ct_clicked");
 
       /* Get URL and data-element-id from clicked category and update view all data */
       var ct_viewAllURL = $(this).attr("ct_category_URL");
@@ -63,16 +63,13 @@ const productsManager = {
           centeredSlides: true,
           spaceBetween: 16,
           initialSlide: 4,
-          pagination: {
-            el: ".swiper-pagination",
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           },
           breakpoints: {
             1024: {
               slidesPerView: "3.5",
-              navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              },
             },
           },
         }
@@ -130,12 +127,12 @@ const productsManager = {
           var products = productsJson.products.products.product;
 
           /* Push categorized data to local storage */
-          // if (ct_searchTermMidProducts == "Categoria1") {
-          //   localStorage.setItem("Categoria1", JSON.stringify(products));
-          // }
-          // if (ct_searchTermMidProducts == "Categoria2") {
-          //   localStorage.setItem("Categoria2", JSON.stringify(products));
-          // }
+          if (ct_searchTermMidProducts == "Categoria1") {
+            localStorage.setItem("Categoria1", JSON.stringify(products));
+          }
+          if (ct_searchTermMidProducts == "Categoria2") {
+            localStorage.setItem("Categoria2", JSON.stringify(products));
+          }
 
           for (var i = products.length - 1; i >= 0; i--) {
             /* Aggiungi le varianti a ciascun prodotto */
@@ -175,6 +172,19 @@ const productsManager = {
             ct_slide.setAttribute("data-description", ct_cc_upc);
             ct_slide.setAttribute("aria-label", "Shop " + ct_cc_productName);
 
+            var ct_description_above = document.createElement("div");
+            ct_description_above.classList.add("ct_description");
+
+            var ct_brand = document.createElement("p");
+            ct_brand.classList.add("ct_brand");
+            ct_brand.textContent = ct_cc_brand;
+            ct_description_above.appendChild(ct_brand);
+
+            var ct_name = document.createElement("p");
+            ct_name.classList.add("ct_name");
+            ct_name.textContent = ct_cc_productName;
+            ct_description_above.appendChild(ct_name);
+
             var ct_box = document.createElement("div");
             ct_box.classList.add("ct_box");
             var ct_img = document.createElement("img");
@@ -189,24 +199,62 @@ const productsManager = {
             var ct_description = document.createElement("div");
             ct_description.classList.add("ct_description");
 
-            var ct_brand = document.createElement("p");
-            ct_brand.classList.add("ct_brand");
-            ct_brand.textContent = ct_cc_brand;
-            ct_description.appendChild(ct_brand);
-
-            var ct_name = document.createElement("p");
-            ct_name.classList.add("ct_name");
-            ct_name.textContent = ct_cc_productName;
-            ct_description.appendChild(ct_name);
-
             var ct_variant_name = document.createElement("p");
             ct_variant_name.classList.add("ct_variant_name");
 
+            var ct_variants = document.createElement("ul");
+            ct_variants.classList.add("ct_variants");
+
+            var lastUrlSlashIndex = ct_cc_url.lastIndexOf("/");
+            var mainUrlPart = ct_cc_url.substring(0, lastUrlSlashIndex);
+
             // Iteriamo sulle varianti del prodotto
-            products[i].variants.forEach((variant) => {
+            products[i].variants.forEach((variant, index) => {
               if (variant) {
-                ct_description.appendChild(ct_variant_name);
-                ct_variant_name.textContent = variant.variantColor;
+                ct_description_above.appendChild(ct_variant_name);
+                ct_description.appendChild(ct_variants);
+
+                const ct_variantEl = document.createElement("li");
+                ct_variants.appendChild(ct_variantEl);
+
+                const ct_variantBullet = document.createElement("a");
+                ct_variantBullet.href = "#";
+                ct_variantBullet.classList.add("variant-bullet");
+                ct_variantBullet.style.backgroundColor = variant.bulletColor;
+                ct_variantEl.appendChild(ct_variantBullet);
+
+                // Aggiungiamo la classe "active" all'elemento quando index è 0 (il primo elemento)
+                if (index === 0) {
+                  ct_variantBullet.classList.add("active");
+                  ct_variant_name.textContent = variant.variantColor;
+                }
+
+                ct_variantBullet.addEventListener("click", function (event) {
+                  event.preventDefault();
+
+                  const currentSlideEl = this.closest(".swiper-slide");
+                  const lastActiveColorBullet = currentSlideEl.querySelector(
+                    ".variant-bullet.active"
+                  );
+                  const currentVariantNameEl =
+                    currentSlideEl.querySelector(".ct_variant_name");
+
+                  currentVariantNameEl.textContent = variant.variantColor;
+
+                  if (lastActiveColorBullet) {
+                    lastActiveColorBullet.classList.remove("active");
+                  }
+
+                  this.classList.add("active");
+
+                  currentSlideEl.href = mainUrlPart + "/" + variant.upc;
+                  const currentImg =
+                    currentSlideEl.querySelector(".ct_box>img");
+                  currentImg.src =
+                    "https://assets.lenscrafters.com/is/image/LensCrafters/" +
+                    variant.upc +
+                    "__STD__shad__fr.png?imwidth=1024";
+                });
               }
             });
 
@@ -234,7 +282,7 @@ const productsManager = {
             ct_priceDeskHide.classList.add("ct_price", "cb_d-lg-none");
             var ct_fromDesk = document.createElement("p");
             ct_fromDesk.classList.add("ct_from");
-            ct_fromDesk.textContent = "From";
+            ct_fromDesk.textContent = "Frame only";
             var ct_discountedPriceDesk = document.createElement("p");
             ct_discountedPriceDesk.classList.add("ct_discounted_price");
             ct_discountedPriceDesk.textContent = "$" + ct_cc_price;
@@ -244,6 +292,7 @@ const productsManager = {
 
             ct_slide.appendChild(ct_description);
             ct_categoryCarousel.prepend(ct_slide);
+            ct_box.prepend(ct_description_above);
           }
 
           ct_checkDiscountMidProducts();

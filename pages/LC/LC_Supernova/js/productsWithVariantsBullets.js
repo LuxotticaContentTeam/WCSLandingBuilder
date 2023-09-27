@@ -32,17 +32,23 @@ const productsManager = {
 
       /* Get searchTerm from clicked category and populate the carousel */
       var ct_selected_category = $(this).attr("ct_category");
+      var ct_searchTerm =
+        "ct_SearchRule_CategoryCarousel__" + ct_selected_category;
+      ct_populate_category_carouselMidProducts(ct_searchTerm);
+
+      /* Get searchTerm from clicked category and populate the carousel */
+      var ct_selected_category = $(this).attr("ct_category");
       ct_populate_category_carouselMidProducts(ct_selected_category);
 
       /* Get products value from local storage */
-      // const storedValue = localStorage.getItem(ct_selected_category);
-      // if (this.classList.contains("ct_clicked")) {
-      //   const retrievedObject = JSON.parse(storedValue);
-      //   console.log(retrievedObject);
-      // } else {
-      //   ct_populate_category_carouselMidProducts(ct_selected_category);
-      // }
-      // this.classList.add("ct_clicked");
+      const storedValue = localStorage.getItem(ct_selected_category);
+      if (this.classList.contains("ct_clicked")) {
+        const retrievedObject = JSON.parse(storedValue);
+        console.log(retrievedObject);
+      } else {
+        ct_populate_category_carouselMidProducts(ct_searchTerm);
+      }
+      this.classList.add("ct_clicked");
 
       /* Get URL and data-element-id from clicked category and update view all data */
       var ct_viewAllURL = $(this).attr("ct_category_URL");
@@ -63,16 +69,13 @@ const productsManager = {
           centeredSlides: true,
           spaceBetween: 16,
           initialSlide: 4,
-          pagination: {
-            el: ".swiper-pagination",
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           },
           breakpoints: {
             1024: {
               slidesPerView: "3.5",
-              navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              },
             },
           },
         }
@@ -113,8 +116,22 @@ const productsManager = {
       /* Set the data-element-id of carousel tiles */
       var ct_dataElementID = "X_ProductCarousel_LP";
 
-      var productsJsonUrl = `../data/${ct_searchTermMidProducts}.json`;
-      var variantJsonUrl = `../data/${ct_searchTermMidProducts}Variants.json`;
+      /* Check and add store ID to Ajax call */
+      var ct_storeID =
+        window.location.href.indexOf("lenscrafter.com") > -1
+          ? "10851"
+          : "10852";
+
+      /* Get products from WCS and create a tile for each one */
+      var urlToCall =
+        "/ajaxSearchDisplayView?storeId=" +
+        storeId +
+        "&catalogId=22701&langId=-1&pageSize=120&orderBy=0&searchTerm=" +
+        ct_searchTermMidProducts;
+
+      var variantJsonUrl = `../data/${ct_searchTermMidProducts}_Variants.json`;
+
+      console.log(variantJsonUrl);
 
       /* Funzione per eseguire il fetch di un JSON */
       function fetchJSON(url) {
@@ -125,17 +142,17 @@ const productsManager = {
           });
       }
 
-      fetchJSON(productsJsonUrl).then((productsJson) => {
+      fetchJSON(urlToCall).then((productsJson) => {
         fetchJSON(variantJsonUrl).then((variantsJson) => {
           var products = productsJson.products.products.product;
 
           /* Push categorized data to local storage */
-          // if (ct_searchTermMidProducts == "Categoria1") {
-          //   localStorage.setItem("Categoria1", JSON.stringify(products));
-          // }
-          // if (ct_searchTermMidProducts == "Categoria2") {
-          //   localStorage.setItem("Categoria2", JSON.stringify(products));
-          // }
+          if (ct_searchTermMidProducts == "Categoria1") {
+            localStorage.setItem("Categoria1", JSON.stringify(products));
+          }
+          if (ct_searchTermMidProducts == "Categoria2") {
+            localStorage.setItem("Categoria2", JSON.stringify(products));
+          }
 
           for (var i = products.length - 1; i >= 0; i--) {
             /* Aggiungi le varianti a ciascun prodotto */
@@ -202,11 +219,59 @@ const productsManager = {
             var ct_variant_name = document.createElement("p");
             ct_variant_name.classList.add("ct_variant_name");
 
+            var ct_variants = document.createElement("ul");
+            ct_variants.classList.add("ct_variants");
+
+            var lastUrlSlashIndex = ct_cc_url.lastIndexOf("/");
+            var mainUrlPart = ct_cc_url.substring(0, lastUrlSlashIndex);
+
             // Iteriamo sulle varianti del prodotto
-            products[i].variants.forEach((variant) => {
+            products[i].variants.forEach((variant, index) => {
               if (variant) {
                 ct_description.appendChild(ct_variant_name);
-                ct_variant_name.textContent = variant.variantColor;
+                ct_description.appendChild(ct_variants);
+
+                const ct_variantEl = document.createElement("li");
+                ct_variants.appendChild(ct_variantEl);
+
+                const ct_variantBullet = document.createElement("a");
+                ct_variantBullet.href = "#";
+                ct_variantBullet.classList.add("variant-bullet");
+                ct_variantBullet.style.backgroundColor = variant.bulletColor;
+                ct_variantEl.appendChild(ct_variantBullet);
+
+                // Aggiungiamo la classe "active" all'elemento quando index è 0 (il primo elemento)
+                if (index === 0) {
+                  ct_variantBullet.classList.add("active");
+                  ct_variant_name.textContent = variant.variantColor;
+                }
+
+                ct_variantBullet.addEventListener("click", function (event) {
+                  event.preventDefault();
+
+                  const currentSlideEl = this.closest(".swiper-slide");
+                  const lastActiveColorBullet = currentSlideEl.querySelector(
+                    ".variant-bullet.active"
+                  );
+                  const currentVariantNameEl =
+                    currentSlideEl.querySelector(".ct_variant_name");
+
+                  currentVariantNameEl.textContent = variant.variantColor;
+
+                  if (lastActiveColorBullet) {
+                    lastActiveColorBullet.classList.remove("active");
+                  }
+
+                  this.classList.add("active");
+
+                  currentSlideEl.href = mainUrlPart + "/" + variant.upc;
+                  const currentImg =
+                    currentSlideEl.querySelector(".ct_box>img");
+                  currentImg.src =
+                    "https://assets.lenscrafters.com/is/image/LensCrafters/" +
+                    variant.upc +
+                    "__STD__shad__fr.png?imwidth=1024";
+                });
               }
             });
 
@@ -234,7 +299,7 @@ const productsManager = {
             ct_priceDeskHide.classList.add("ct_price", "cb_d-lg-none");
             var ct_fromDesk = document.createElement("p");
             ct_fromDesk.classList.add("ct_from");
-            ct_fromDesk.textContent = "From";
+            ct_fromDesk.textContent = "Frame only";
             var ct_discountedPriceDesk = document.createElement("p");
             ct_discountedPriceDesk.classList.add("ct_discounted_price");
             ct_discountedPriceDesk.textContent = "$" + ct_cc_price;
@@ -280,7 +345,8 @@ const productsManager = {
       );
 
       /* Populate products and create carousel */
-      var ct_searchTermMidProducts = "Categoria1";
+      var ct_searchTermMidProducts =
+        "ct_SearchRule_CategoryCarousel__Categoria1";
       ct_populate_category_carouselMidProducts(ct_searchTermMidProducts);
 
       var ct_categoriesMidProducts = document.querySelectorAll(

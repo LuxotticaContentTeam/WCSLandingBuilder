@@ -1,31 +1,12 @@
 {
   "variants4": [
     {
-      "variantColor": "Satin Black",
-      "bulletColor": "black",
-      "upc": "888392601391"
-    },
-    {
-      "variantColor": "Matte Translucent Blue",
-      "bulletColor": "blue",
-      "upc": "888392601452"
+      "variantColor": "Polarizzato"
     }
   ],
   "variants5": [
     {
-      "variantColor": "Transparent Yellow",
-      "bulletColor": "yellow",
-      "upc": "8056597829328"
-    },
-    {
-      "variantColor": "Black Green",
-      "bulletColor": "black",
-      "upc": "8056597829304"
-    },
-    {
-      "variantColor": "Transparent Brown Grey",
-      "bulletColor": "brown",
-      "upc": "8056597829311"
+      "variantColor": "Filtro luce blu-viola"
     }
   ]
 }
