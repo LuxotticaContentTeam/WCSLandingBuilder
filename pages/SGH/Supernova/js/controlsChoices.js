@@ -23,7 +23,7 @@ const controlsChoicesManager = {
       swiperOptions
     );
 
-    utilitiesManager.pauseVideoOnPrevNextSlide(".controls-choices-slider");
+    // utilitiesManager.pauseVideoOnPrevNextSlide(".controls-choices-slider");
   },
 };
 

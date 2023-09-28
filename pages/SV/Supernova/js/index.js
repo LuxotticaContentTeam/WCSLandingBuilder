@@ -7,6 +7,7 @@ import getSupportManager from "./getSupport";
 import featuresManager from "./features";
 import controlsChoicesManager from "./controlsChoices";
 import productsManager from "./products";
+import downloadAppManager from "./downloadApp";
 
 //class that handler generic scripts of LP
 const mainManager = {
@@ -59,6 +60,7 @@ const mainManager = {
     featuresManager.init();
     controlsChoicesManager.init();
     productsManager.init();
+    downloadAppManager.init();
   },
 };
 

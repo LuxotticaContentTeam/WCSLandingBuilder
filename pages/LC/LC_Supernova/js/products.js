@@ -132,7 +132,7 @@ const productsManager = {
         "&catalogId=22701&langId=-1&pageSize=120&orderBy=0&searchTerm=" +
         ct_searchTermMidProducts;
 
-      var variantJsonUrl = `../data/${ct_searchTermMidProducts}_Variants.json`;
+      var variantJsonUrl = `https://media.lenscrafters.com/2023/SUPERNOVA/JSON/${ct_searchTermMidProducts}_Variants.json`;
 
       console.log(variantJsonUrl);
 
