@@ -403,7 +403,7 @@ gulp.task('build_', (done)=> {
     settings = JSON.parse (fs.readFileSync(`./utils/dependences/${currentBrand}/settings.json`))
     currentPage= process.argv[process.argv.indexOf('--page')+1];
     moduleLibrary = process.argv[process.argv.indexOf('--moduleLibrary')+1] === "yes" ? true : false;
-    settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
+    // settings["page"] = JSON.parse (fs.readFileSync(`./pages/${currentBrand}/${currentPage}/settings.json`))
     startBuild();
   }else{
     inquirer.prompt(questions_build).then((answers) => {

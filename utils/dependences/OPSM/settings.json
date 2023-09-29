@@ -1,0 +1,16 @@
+{
+    "dependences":{
+        "responsive":false,
+        "desk":"DESK/",
+        "mob":"MOB/"
+    },
+
+    "moduleLibrary":{
+        "exist":false,
+        "js":"/path",
+        "css":"/path",
+        "jsDest":"/pathDest",
+        "cssDest":"/pathDest"
+    }
+
+}

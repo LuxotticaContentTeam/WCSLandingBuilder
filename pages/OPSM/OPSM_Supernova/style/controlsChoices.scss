@@ -1,0 +1,59 @@
+@import "variables.scss";
+
+#supernovaLP {
+  #controlsChoices {
+    .swiper {
+      .swiper-wrapper {
+        .swiper-slide {
+          width: 75%;
+          @media screen and (min-width: $breakpoint-lg) {
+            width: 100%;
+            max-width: 864px;
+          }
+          &.swiper-slide-active {
+            p {
+              opacity: 1 !important;
+              transition: opacity 1s ease-out;
+            }
+          }
+        }
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        top: 35%;
+        background: $third-color !important;
+        border: 1px solid $sixth-color;
+        color: $black !important;
+        width: 64px !important;
+        height: 32px !important;
+        border-radius: 40px !important;
+        box-shadow: 0 0 5px 0 rgb(178 178 178 / 50%) !important;
+        cursor: pointer !important;
+        &::after {
+          display: inline-flex;
+          content: "";
+          background-size: 16px 16px;
+          height: 16px;
+          width: 16px;
+          position: absolute !important;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%) !important;
+        }
+      }
+      .swiper-button-next {
+        right: 64px;
+        &::after {
+          background-image: url("../icons/swiper-button-next.svg");
+        }
+      }
+
+      .swiper-button-prev {
+        left: 64px;
+        &::after {
+          background-image: url("../icons/swiper-button-prev.svg");
+        }
+      }
+    }
+  }
+}
