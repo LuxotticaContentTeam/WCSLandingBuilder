@@ -1,0 +1,10 @@
+//Only for SV
+#page {
+  .contentRecommendationWidget {
+    max-width: 100%;
+    img,
+    svg {
+      vertical-align: unset;
+    }
+  }
+}

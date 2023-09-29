@@ -1,0 +1,34 @@
+@import "variables.scss";
+
+#supernovaLP {
+  #specifications {
+    table {
+      max-width: 864px;
+      border-collapse: collapse;
+      .specification-label {
+        width: 70px;
+        border-radius: 50px;
+        @media screen and (min-width: $breakpoint-md) {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+        }
+        p {
+          &::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50px;
+            background-color: $black;
+            margin-right: 6px;
+          }
+        }
+      }
+      p {
+        &.unit {
+          letter-spacing: 7.5px;
+        }
+      }
+    }
+  }
+}
