@@ -17,6 +17,7 @@ var ct_cos__data = {
             "fr":"Femme",
             "es":"Mujer",
             "de":"Damen",
+            "pt":"Elas"
            
         },
         logo: "https://media.sunglasshut.com/2023/utility/WOW/SGH_sun.svg",
@@ -27,7 +28,8 @@ var ct_cos__data = {
           "fr":"/lunettes-de-soleil-femme",
           "es-mx":"/lentes-de-sol-mujer",
           "de":"/damen-sonnenbrillen",
-          "es":"/gafas-de-sol-mujer"
+          "es":"/gafas-de-sol-mujer",
+          "pt":"/mais-vendidos-femininos"
         }
       },
       {
@@ -36,6 +38,7 @@ var ct_cos__data = {
             "fr":"Homme",
             "es":"Hombre",
             "de":"Herren",
+            "pt":"Eles"
         },
         logo: "https://media.sunglasshut.com/2023/utility/WOW/SGH_sun.svg",
         image: "https://media.sunglasshut.com/2023/utility/WOW/men_d.jpg",
@@ -45,7 +48,8 @@ var ct_cos__data = {
             "fr":"/lunettes-de-soleil-homme",
             "es-mx":"/lentes-de-sol-hombre",
             "de":"/herren-sonnenbrillen",
-            "es":"/gafas-de-sol-hombre"
+            "es":"/gafas-de-sol-hombre",
+            "pt":"/mais-vendidos-masculinos"
         }
       },
     //   {
