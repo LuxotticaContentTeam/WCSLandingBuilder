@@ -300,8 +300,7 @@ const productsManager = {
       );
 
       /* Populate products and create carousel */
-      var ct_searchTermMidProducts =
-        "ct_SearchRule_CategoryCarousel__Categoria1";
+      var ct_searchTermMidProducts = "ct_SearchRule_CategoryCarousel__Wayfarer";
       ct_populate_category_carouselMidProducts(ct_searchTermMidProducts);
 
       var ct_categoriesMidProducts = document.querySelectorAll(
