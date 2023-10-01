@@ -17,6 +17,9 @@
           display: flex;
           justify-content: center;
           align-items: flex-end;
+          @media screen and (min-width: $breakpoint-lg) {
+            font-size: 18px;
+          }
         }
         &.active {
           &::after {
