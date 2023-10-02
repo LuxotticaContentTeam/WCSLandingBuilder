@@ -66,4 +66,5 @@ const mainManager = {
 
 document.addEventListener("DOMContentLoaded", function () {
   mainManager.init();
+  document.querySelector("#hero .video-control.play-pause").click();
 });
