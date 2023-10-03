@@ -40,12 +40,12 @@ const utilitiesManager = {
         currentVideoCover.classList.add("cb_d-none");
         currentVideoEl.classList.remove("cb_d-none");
 
-        if (currentClosestContainer.classList.contains("is-banner")) {
-          while (nextElem) {
-            nextElem.classList.add("cb_d-none");
-            nextElem = nextElem.nextElementSibling;
-          }
-        }
+        // if (currentClosestContainer.classList.contains("is-banner")) {
+        //   while (nextElem) {
+        //     nextElem.classList.add("cb_d-none");
+        //     nextElem = nextElem.nextElementSibling;
+        //   }
+        // }
 
         playIcon.classList.toggle("cb_d-none");
         pauseIcon.classList.toggle("cb_d-none");
