@@ -37,7 +37,7 @@ const utilitiesManager = {
 
         thisClass.setVideoUrl(currentVideoEl);
 
-        currentVideoCover.classList.add("cb_d-none");
+        currentVideoCover.classList.add("cb_opacity-0");
         currentVideoEl.classList.remove("cb_d-none");
 
         // if (currentClosestContainer.classList.contains("is-banner")) {
