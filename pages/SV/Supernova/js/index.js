@@ -66,5 +66,20 @@ const mainManager = {
 
 document.addEventListener("DOMContentLoaded", function () {
   mainManager.init();
-  document.querySelector("#hero .video-control.play-pause").click();
+
+  //Manage Hero video behaviour
+  let heroPlayPause = document.querySelector("#hero .video-control.play-pause");
+  heroPlayPause.click();
+
+  let heroVideoEl = document.querySelector("#hero video");
+  let heroCoverImg = document.querySelector("#hero .video-cover");
+  heroVideoEl.addEventListener(
+    "ended",
+    function () {
+      heroPlayPause.click();
+      heroVideoEl.classList.add("cb_d-none");
+      heroCoverImg.classList.remove("cb_d-none");
+    },
+    false
+  );
 });
