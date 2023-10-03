@@ -13,6 +13,7 @@ import downloadAppManager from "./downloadApp";
 const mainManager = {
   setTextOnStickyBanner: function () {
     window.addEventListener("scroll", function () {
+      utilitiesManager.lazyLo();
       const sections = document.querySelectorAll("section");
       const productSection = document.getElementById("products");
       const productSectionTop = productSection.offsetTop;
@@ -61,6 +62,7 @@ const mainManager = {
     controlsChoicesManager.init();
     productsManager.init();
     downloadAppManager.init();
+    utilitiesManager.lazyLo();
   },
 };
 
