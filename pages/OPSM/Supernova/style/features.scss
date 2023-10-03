@@ -7,9 +7,8 @@
       .swiper-pagination {
         bottom: 24px;
         .swiper-pagination-bullet {
-          background: transparent !important;
+          background: #CCCCCC;
           opacity: 1;
-          border: 0.5px solid $black !important;
           &.swiper-pagination-bullet-active {
             background: $black;
           }

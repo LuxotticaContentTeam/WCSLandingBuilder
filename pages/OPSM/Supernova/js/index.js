@@ -12,6 +12,9 @@ import downloadAppManager from "./downloadApp";
 //class that handler generic scripts of LP
 const mainManager = {
   setTextOnStickyBanner: function () {
+    window.addEventListener("resize", function () {
+      utilitiesManager.ct_video_resize()
+    })
     window.addEventListener("scroll", function () {
       utilitiesManager.lazyLo();
       const sections = document.querySelectorAll("section");

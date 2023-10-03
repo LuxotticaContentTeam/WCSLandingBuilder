@@ -29,8 +29,7 @@ const utilitiesManager = {
             const currentClosestContainer = this.closest("section>div");
             const currentVideoContainer = this.closest(".video-container");
             const currentVideoEl = currentVideoContainer.querySelector("video");
-            const currentVideoCover =
-               currentVideoContainer.querySelector(".video-cover");
+            const currentVideoCover = currentVideoContainer.querySelector(".video-cover");
             let nextElem = currentVideoContainer.nextElementSibling;
             const playIcon = this.querySelector(".play");
             const pauseIcon = this.querySelector(".pause");
@@ -169,29 +168,32 @@ const utilitiesManager = {
          });
       });
    },
+
    lazyLo: function () {
       var windowTop = $(window).scrollTop();
+      const mediaQuery = window.matchMedia("(max-width: 768px)");
+
       $('.lazy-lo:not(.lazy-loaded)').each(function () {
          if (windowTop > $(this).offset().top - (window.innerHeight * 2)) {
-            if ($(this).is('video')) {
-               if (ct_is_mobile()) {
-                  if ($(this).attr('data-video-src-mob') != undefined) {
+            /* if ($(this).is('video')) {
+               if (mediaQuery.matches) {
+                  if ($(this).attr('data-video-mob') != undefined) {
                      $(this).addClass('ct_m__video')
                      $(this).attr('poster', $(this).attr('data-poster-mob'));
-                     $(this).attr('src', $(this).attr('data-video-src-mob'));
+                     $(this).attr('src', $(this).attr('data-video-mob'));
                   } else {
                      $(this).addClass('ct_d__video')
                      $(this).attr('poster', $(this).attr('data-poster-desk'));
-                     $(this).attr('src', $(this).attr('data-video-src-desk'));
+                     $(this).attr('src', $(this).attr('data-video-desk'));
                   }
 
                } else {
                   $(this).addClass('ct_d__video')
                   $(this).attr('poster', $(this).attr('data-poster-desk'));
-                  $(this).attr('src', $(this).attr('data-video-src-desk'));
+                  $(this).attr('src', $(this).attr('data-video-desk'));
                }
-            }
-            else if ($(this).is('picture')) {
+            } else  */
+            if ($(this).is('picture')) {
 
                $(this).find('source').each(function () {
                   $(this).attr('srcset', $(this).attr('data-image-src'));
