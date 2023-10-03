@@ -1,0 +1,18 @@
+{
+  "products": {
+    "sequence": 0,
+    "products": {
+      "type": "ProductTile",
+      "product": [
+        {
+          "id": "0",
+          "upc": "8056597831093",
+          "brand": "Persol",
+          "price": "300.00",
+          "pdpURL": "https://www.lenscrafters.com/lc-us/8056597831093",
+          "productName": "0PO3315V__1103"
+        }
+      ]
+    }
+  }
+}

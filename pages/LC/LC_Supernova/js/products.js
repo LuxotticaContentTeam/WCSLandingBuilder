@@ -36,10 +36,6 @@ const productsManager = {
         "ct_SearchRule_CategoryCarousel__" + ct_selected_category;
       ct_populate_category_carouselMidProducts(ct_searchTerm);
 
-      /* Get searchTerm from clicked category and populate the carousel */
-      var ct_selected_category = $(this).attr("ct_category");
-      ct_populate_category_carouselMidProducts(ct_selected_category);
-
       /* Get products value from local storage */
       // const storedValue = localStorage.getItem(ct_selected_category);
       // if (this.classList.contains("ct_clicked")) {
@@ -134,8 +130,6 @@ const productsManager = {
 
       var variantJsonUrl = `https://media.lenscrafters.com/2023/SUPERNOVA/JSON/${ct_searchTermMidProducts}_Variants.json`;
 
-      console.log(variantJsonUrl);
-
       /* Funzione per eseguire il fetch di un JSON */
       function fetchJSON(url) {
         return fetch(url)
@@ -150,11 +144,17 @@ const productsManager = {
           var products = productsJson.products.products.product;
 
           /* Push categorized data to local storage */
-          // if (ct_searchTermMidProducts == "Categoria1") {
-          //   localStorage.setItem("Categoria1", JSON.stringify(products));
+          // if (
+          //   ct_searchTermMidProducts ==
+          //   "ct_SearchRule_CategoryCarousel__Wayfarer"
+          // ) {
+          //   localStorage.setItem("Wayfarer", JSON.stringify(products));
           // }
-          // if (ct_searchTermMidProducts == "Categoria2") {
-          //   localStorage.setItem("Categoria2", JSON.stringify(products));
+          // if (
+          //   ct_searchTermMidProducts ==
+          //   "ct_SearchRule_CategoryCarousel__Headliner"
+          // ) {
+          //   localStorage.setItem("Headliner", JSON.stringify(products));
           // }
 
           for (var i = products.length - 1; i >= 0; i--) {
