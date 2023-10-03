@@ -69,12 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Manage Hero video behaviour
   document.querySelector("#hero .video-control.play-pause").click();
-  // let heroVideo = video.addEventListener(
-  //   "ended",
-  //   function () {
-  //     video.style.display = "none";
-  //     image.style.display = "inline";
-  //   },
-  //   false
-  // );
+  let heroVideoEl = document.querySelector("#hero video");
+  let heroCoverImg = document.querySelector("#hero video");
+  let heroVideo = video.addEventListener(
+    "ended",
+    function () {
+      video.style.display = "none";
+      image.style.display = "inline";
+    },
+    false
+  );
 });
