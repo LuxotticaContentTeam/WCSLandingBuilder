@@ -1,6 +1,7 @@
 export const Analytics = {
   
     init:function(){
+        console.log(document.querySelectorAll('[data-tracking-id]'))
         document.querySelectorAll('[data-tracking-id]').forEach(elem=>elem.addEventListener('click',()=>{
                 Analytics.analyticsPush({
                     'id':'Click',
