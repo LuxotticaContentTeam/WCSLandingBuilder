@@ -28,6 +28,18 @@ html {
   font-size: 16px;
   body {
     #supernovaLP {
+      #hero {
+        .cb_container {
+          img {
+            max-width: 140px;
+          }
+        }
+      }
+      #downloadApp {
+        #appQRCode {
+          max-width: 160px;
+        }
+      }
       img {
         display: block;
         max-width: 100%;
@@ -73,6 +85,23 @@ html {
       #stickyBanner {
         background: $white;
         backdrop-filter: blur(15px);
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  html {
+    font-size: 16px;
+    body {
+      #supernovaLP {
+        #hero {
+          .cb_container {
+            img {
+              max-width: 180px;
+            }
+          }
+        }
       }
     }
   }

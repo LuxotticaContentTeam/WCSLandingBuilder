@@ -95,3 +95,12 @@ html {
     scroll-behavior: smooth;
   }
 }
+
+#downloadApp{
+  >div.cb_pt-8.cb_align-items-center.cb_bg-third-color{
+    padding-left: 64px;
+    @media(max-width:767px){
+      padding-left: 0px;
+    }
+  }
+}

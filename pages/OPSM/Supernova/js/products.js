@@ -113,8 +113,10 @@ const productsManager = {
       /* Set the data-element-id of carousel tiles */
       var ct_dataElementID = "X_ProductCarousel_LP";
 
-      var productsJsonUrl = `../data/${ct_searchTermMidProducts}.json`;
-      var variantJsonUrl = `../data/${ct_searchTermMidProducts}Variants.json`;
+      // var productsJsonUrl = `../data/${ct_searchTermMidProducts}.json`;
+      // var variantJsonUrl = `../data/${ct_searchTermMidProducts}Variants.json`;
+      var productsJsonUrl = `https://media.opsm.com/2023/10_October/RB_Supernova/LP/JSON/${ct_searchTermMidProducts}.json`;
+      var variantJsonUrl = `https://media.opsm.com/2023/10_October/RB_Supernova/LP/JSON/${ct_searchTermMidProducts}Variants.json`;
 
       /* Funzione per eseguire il fetch di un JSON */
       function fetchJSON(url) {
@@ -127,6 +129,9 @@ const productsManager = {
 
       fetchJSON(productsJsonUrl).then((productsJson) => {
         fetchJSON(variantJsonUrl).then((variantsJson) => {
+
+          debugger
+
           var products = productsJson.products.products.product;
 
           /* Push categorized data to local storage */
@@ -147,18 +152,18 @@ const productsManager = {
             var ct_cc_upc = products[i].upc;
             var ct_cc_brand = products[i].brand;
             var ct_cc_productName = products[i].productName
-              .substring(1)
-              .split("_")[0];
-            var ct_cc_listPrice = products[i].listPrice.replace("$ 0", "");
+              /* .substring(1)
+              .split("_")[0]; */
+            /* var ct_cc_listPrice = products[i].listPrice.replace("$ 0", ""); */
             var ct_cc_price = products[i].price;
-            var ct_cc_discountPercentage = Math.floor(
+            /* var ct_cc_discountPercentage = Math.floor(
               ((100 -
                 (parseInt(ct_cc_price.replace("$ ", "")) /
                   parseInt(ct_cc_listPrice.replace("$ ", ""))) *
                   100) /
                 5) *
                 5
-            );
+            ); */
 
             var ct_categoryCarousel = document.querySelector(
               ".ct_midProducts_carousel .ct_category_carousel .swiper-wrapper"
@@ -179,7 +184,7 @@ const productsManager = {
             ct_box.classList.add("ct_box");
             var ct_img = document.createElement("img");
             ct_img.src =
-              "https://assets.lenscrafters.com/is/image/LensCrafters/" +
+              "https://assets.opsm.com/is/image/OPSM/" +
               ct_cc_upc +
               "__STD__shad__fr.png?imwidth=1024";
             ct_img.alt = "";
@@ -215,17 +220,17 @@ const productsManager = {
             var ct_fromMob = document.createElement("p");
             ct_fromMob.classList.add("ct_from");
             ct_fromMob.textContent = "From";
-            var ct_listPrice = document.createElement("p");
+            /* var ct_listPrice = document.createElement("p");
             ct_listPrice.classList.add("ct_list_price");
-            ct_listPrice.textContent = "$" + ct_cc_listPrice;
+            ct_listPrice.textContent = "$" + ct_cc_listPrice; */
             var ct_discountedPrice = document.createElement("p");
-            ct_discountedPrice.classList.add("ct_discounted_price");
+            /* ct_discountedPrice.classList.add("ct_discounted_price"); */
             ct_discountedPrice.textContent = "$" + ct_cc_price;
             var ct_discount = document.createElement("p");
             ct_discount.classList.add("ct_discount");
-            ct_discount.textContent = ct_cc_discountPercentage + "% Off";
+            ct_discount.textContent = /* ct_cc_discountPercentage + "% Off"  */"";
             ct_priceMobHide.appendChild(ct_fromMob);
-            ct_priceMobHide.appendChild(ct_listPrice);
+            /* ct_priceMobHide.appendChild(ct_listPrice); */
             ct_priceMobHide.appendChild(ct_discountedPrice);
             ct_priceMobHide.appendChild(ct_discount);
             ct_description.appendChild(ct_priceMobHide);
@@ -236,7 +241,7 @@ const productsManager = {
             ct_fromDesk.classList.add("ct_from");
             ct_fromDesk.textContent = "From";
             var ct_discountedPriceDesk = document.createElement("p");
-            ct_discountedPriceDesk.classList.add("ct_discounted_price");
+            /* ct_discountedPriceDesk.classList.add("ct_discounted_price"); */
             ct_discountedPriceDesk.textContent = "$" + ct_cc_price;
             ct_priceDeskHide.appendChild(ct_fromDesk);
             ct_priceDeskHide.appendChild(ct_discountedPriceDesk);
@@ -280,7 +285,7 @@ const productsManager = {
       );
 
       /* Populate products and create carousel */
-      var ct_searchTermMidProducts = "Categoria1";
+      var ct_searchTermMidProducts = "Wayfarer";
       ct_populate_category_carouselMidProducts(ct_searchTermMidProducts);
 
       var ct_categoriesMidProducts = document.querySelectorAll(

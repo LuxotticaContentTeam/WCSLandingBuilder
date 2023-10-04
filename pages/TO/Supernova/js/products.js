@@ -1,4 +1,379 @@
+
+
 const productsManager = {
+  prodCategory1:{
+    "products": {
+      "sequence": 0,
+      "products": {
+        "type": "ProductTile",
+        "product": [
+          {
+            "id": "0",
+            "upc": "8056597982801",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597982801",
+            "partnumber": "8056597982801",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597982801__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4006",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "329.00",
+            "pdpURL": "/to-us/8056597982801",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597982801",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4006",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "1",
+            "upc": "8056262047514",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056262047514",
+            "partnumber": "8056262047514",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056262047514__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4006",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "329.00",
+            "pdpURL": "/to-us/8056262047514",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056262047514",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4006",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "2",
+            "upc": "8056597995429",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597995429",
+            "partnumber": "8056597995429",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597995429__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4006",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597995429",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597995429",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4006",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "3",
+            "upc": "8056597988377",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597988377",
+            "partnumber": "8056597988377",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597988377__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4006",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597988377",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597988377",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4006",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "4",
+            "upc": "8056597982788",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597982788",
+            "partnumber": "8056597982788",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597982788__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4006",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "329.00",
+            "pdpURL": "/to-us/8056597982788",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597982788",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4006",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "5",
+            "upc": "8056597988384",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597988384",
+            "partnumber": "8056597988384",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597988384__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4006",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "379.00",
+            "pdpURL": "/to-us/8056597988384",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597988384",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4006",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "6",
+            "upc": "8056597769440",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597769440",
+            "partnumber": "8056597769440",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597769440__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4006",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597769440",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597769440",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4006",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          }
+  
+        ]
+      }
+    }
+  },
+  prodCategory2:{
+    "products": {
+      "sequence": 0,
+      "products": {
+        "type": "ProductTile",
+        "product": [
+          {
+            "id": "0",
+            "upc": "8056597995436",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597995436",
+            "partnumber": "8056597995436",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597995436__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4009",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597995436",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597995436",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4009",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "1",
+            "upc": "8056597988391",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597988391",
+            "partnumber": "8056597988391",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597988391__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4009",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597988391",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597988391",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4009",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "2",
+            "upc": "8056597982887",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597982887",
+            "partnumber": "8056597982887",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597982887__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4009",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597982887",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597982887",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4009",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "3",
+            "upc": "8056262017005",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056262017005",
+            "partnumber": "8056262017005",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056262017005__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4009",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056262017005",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056262017005",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4009",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "4",
+            "upc": "8056597982894",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597982894",
+            "partnumber": "8056597982894",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597982894__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4009",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597982894",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597982894",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4009",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "5",
+            "upc": "8056597982900",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597982900",
+            "partnumber": "8056597982900",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597982900__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4009",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597982900",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597982900",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4009",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          },
+          {
+            "id": "6",
+            "upc": "8056597874830",
+            "brand": "Ray-Ban",
+            "catentryId": "19227431",
+            "catgroupId": "99942672",
+            "name": "8056597874830",
+            "partnumber": "8056597874830",
+            "productImage": "https://assets.targetoptical.com/is/image/TargetOptical/8056597874830__001.png?imwidth=680",
+            "sequence": "0.0",
+            "modelname": "0RW4009",
+            "frameColor": null,
+            "promotionalFlag": 0,
+            "listPrice": "$ 0",
+            "price": "299.00",
+            "pdpURL": "/to-us/8056597874830",
+            "userType": "UserBean",
+            "imageAltText": "Image for 8056597874830",
+            "webExclusive": "false",
+            "unavailable": "false",
+            "productName": "0RW4009",
+            "lensColor": null,
+            "engravable": null,
+            "polar": null
+          }
+  
+        ]
+      }
+    }
+  },
+  
   init: function () {
     function ct_loadSelectedViewAllURLMidProducts() {
       /* Get URL from selected category */
@@ -113,21 +488,17 @@ const productsManager = {
       /* Set the data-element-id of carousel tiles */
       var ct_dataElementID = "X_ProductCarousel_LP";
 
-      var productsJsonUrl = `../data/${ct_searchTermMidProducts}.json`;
-      var variantJsonUrl = `../data/${ct_searchTermMidProducts}Variants.json`;
-
-      /* Funzione per eseguire il fetch di un JSON */
-      function fetchJSON(url) {
-        return fetch(url)
-          .then((response) => response.json())
-          .catch((error) => {
-            console.error("Errore nel caricamento JSON:", error);
-          });
+      console.log(ct_searchTermMidProducts)
+      var products
+      if(ct_searchTermMidProducts=='Categoria1'){
+        products = productsManager.prodCategory1.products.products.product;
+      }else{
+        products = productsManager.prodCategory2.products.products.product;
       }
-
-      fetchJSON(productsJsonUrl).then((productsJson) => {
-        fetchJSON(variantJsonUrl).then((variantsJson) => {
-          var products = productsJson.products.products.product;
+      /* Funzione per eseguire il fetch di un JSON */
+     
+   
+          
 
           /* Push categorized data to local storage */
           // if (ct_searchTermMidProducts == "Categoria1") {
@@ -139,9 +510,9 @@ const productsManager = {
 
           for (var i = products.length - 1; i >= 0; i--) {
             /* Aggiungi le varianti a ciascun prodotto */
-            const variantsKey = "variants" + i; // L'indice di posizionamento parte da 0
-            const variants = variantsJson[variantsKey] || [];
-            products[i].variants = variants;
+            // const variantsKey = "variants" + i; // L'indice di posizionamento parte da 0
+            // const variants = variantsJson[variantsKey] || [];
+            // products[i].variants = variants;
 
             var ct_cc_url = products[i].pdpURL;
             var ct_cc_upc = products[i].upc;
@@ -199,16 +570,16 @@ const productsManager = {
             ct_name.textContent = ct_cc_productName;
             ct_description.appendChild(ct_name);
 
-            var ct_variant_name = document.createElement("p");
-            ct_variant_name.classList.add("ct_variant_name");
+            // var ct_variant_name = document.createElement("p");
+            // ct_variant_name.classList.add("ct_variant_name");
 
             // Iteriamo sulle varianti del prodotto
-            products[i].variants.forEach((variant) => {
-              if (variant) {
-                ct_description.appendChild(ct_variant_name);
-                ct_variant_name.textContent = variant.variantColor;
-              }
-            });
+            // products[i].variants.forEach((variant) => {
+            //   if (variant) {
+            //     ct_description.appendChild(ct_variant_name);
+            //     ct_variant_name.textContent = variant.variantColor;
+            //   }
+            // });
 
             var ct_priceMobHide = document.createElement("div");
             ct_priceMobHide.classList.add("ct_price", "ct_price_mob_hide");
@@ -248,8 +619,7 @@ const productsManager = {
 
           ct_checkDiscountMidProducts();
           ct_category_carouselMidProducts();
-        });
-      });
+      
     }
 
     function ct_init() {

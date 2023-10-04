@@ -98,8 +98,8 @@
   margin: 0 0 0 10px;
   display: none !important;
 }
-.ct_category_carousel_module .ct_carousel_view_all:hover p {
-  text-decoration: underline;
+.ct_category_carousel_module .ct_carousel_view_all[class*=hover-underline-animation]::before {
+  bottom: 2px!important;
 }
 @media screen and (max-width: 1024px) {
   .ct_category_carousel_module
@@ -185,12 +185,11 @@
   bottom: 32px;
 }
 .ct_category_carousel_module .swiper-pagination-bullet {
-  background-color: #222;
+  background-color: #CCCCCC;
   opacity: 1;
 }
 .ct_category_carousel_module .swiper-pagination-bullet-active {
-  background-color: #fff;
-  border: 1px solid #222;
+  background-color: #2D2A26;
 }
 @media screen and (max-width: 1280px) {
   .ct_category_carousel_module .ct_category_carousel {
