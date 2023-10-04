@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function () {
       heroPlayPause.click();
       heroVideoEl.classList.add("cb_d-none");
-      heroCoverImg.classList.remove("cb_d-none");
+      heroCoverImg.classList.remove("cb_opacity-0");
     },
     false
   );

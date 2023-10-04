@@ -172,7 +172,7 @@
 .ct_category_carousel_module .swiper-button-next {
   right: 64px;
   &::after {
-    background-image: url("../icons/swiper-button-next.svg");
+    content: "<i class='fas fa-arrow-right'>";
   }
 }
 .ct_category_carousel_module .swiper-button-prev {
@@ -187,6 +187,8 @@
 .ct_category_carousel_module .swiper-pagination-bullet {
   background-color: #CCCCCC;
   opacity: 1;
+  width: 6px;
+  height: 6px;
 }
 .ct_category_carousel_module .swiper-pagination-bullet-active {
   background-color: #2D2A26;
@@ -247,6 +249,9 @@
   background: #f6f6f6;
   padding: 56px 0 48px;
   margin-bottom: 10px;
+}
+.ct_category_carousel_module .ct_slide {
+  text-decoration: none;
 }
 .ct_category_carousel_module .ct_slide .ct_box p {
   font-size: 14px !important;

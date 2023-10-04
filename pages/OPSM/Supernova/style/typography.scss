@@ -13,13 +13,12 @@
   .h4,
   h5,
   .h5,
-  span,
   p,
-  p > a,
+  p > a:not(.ignore-supernova-style),
   ul,
   ol,
   li,
-  span {
+  span:not(.ignore-supernova-style) {
     font-stretch: normal;
     font-style: normal;
     font-weight: normal;
@@ -73,11 +72,11 @@
   }
 
   p,
-  p > a,
-  a,
+  p > a:not(.ignore-supernova-style),
+  a:not(.ignore-supernova-style),
   ul,
   ol,
-  span {
+  span:not(.ignore-supernova-style) {
     font-family: $first-font;
     font-size: $font-xs;
     color: $black;
