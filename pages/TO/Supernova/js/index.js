@@ -1,13 +1,15 @@
 // import Swiper JS
 // import Swiper from "swiper/swiper-bundle.min.js";
 
-import utilitiesManager from "./utilities";
-import fourVideosManager from "./fourVideos";
-import getSupportManager from "./getSupport";
-import featuresManager from "./features";
-import controlsChoicesManager from "./controlsChoices";
-import productsManager from "./products";
-import downloadAppManager from "./downloadApp";
+import utilitiesManager from "./modules/utilities";
+import fourVideosManager from "./modules/fourVideos";
+import getSupportManager from "./modules/getSupport";
+import featuresManager from "./modules/features";
+import controlsChoicesManager from "./modules/controlsChoices";
+import productsManager from "./modules/products";
+import downloadAppManager from "./modules/downloadApp";
+import { Analytics } from "./modules/analytics";
+
 
 //class that handler generic scripts of LP
 const mainManager = {
@@ -61,6 +63,7 @@ const mainManager = {
     controlsChoicesManager.init();
     productsManager.init();
     downloadAppManager.init();
+    Analytics.init();
   },
 };
 

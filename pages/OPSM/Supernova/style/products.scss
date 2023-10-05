@@ -150,8 +150,12 @@
   width: 64px !important;
   height: 32px !important;
   border-radius: 40px !important;
-  box-shadow: 0 0 5px 0 rgb(178 178 178 / 50%) !important;
   cursor: pointer !important;
+  transition: all .4s ease;
+}
+.ct_category_carousel_module .swiper-button-next:hover,
+.ct_category_carousel_module .swiper-button-prev:hover {
+  border-color: $second-color;
 }
 .ct_category_carousel_module .swiper-button-next.swiper-button-disabled,
 .ct_category_carousel_module .swiper-button-prev.swiper-button-disabled {
@@ -172,13 +176,13 @@
 .ct_category_carousel_module .swiper-button-next {
   right: 64px;
   &::after {
-    background-image: url("../icons/swiper-button-next.svg");
+    background-image: url("https://media.opsm.com/2023/10_October/RB_Supernova/right.svg");
   }
 }
 .ct_category_carousel_module .swiper-button-prev {
   left: 64px;
   &::after {
-    background-image: url("../icons/swiper-button-prev.svg");
+    background-image: url("https://media.opsm.com/2023/10_October/RB_Supernova/left.svg");
   }
 }
 .ct_category_carousel_module .swiper-pagination {
@@ -187,6 +191,8 @@
 .ct_category_carousel_module .swiper-pagination-bullet {
   background-color: #CCCCCC;
   opacity: 1;
+  width: 6px;
+  height: 6px;
 }
 .ct_category_carousel_module .swiper-pagination-bullet-active {
   background-color: #2D2A26;
@@ -247,6 +253,9 @@
   background: #f6f6f6;
   padding: 56px 0 48px;
   margin-bottom: 10px;
+}
+.ct_category_carousel_module .ct_slide {
+  text-decoration: none;
 }
 .ct_category_carousel_module .ct_slide .ct_box p {
   font-size: 14px !important;
