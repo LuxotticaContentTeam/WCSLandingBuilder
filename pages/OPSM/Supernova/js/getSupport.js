@@ -3,7 +3,7 @@ import utilitiesManager from "./utilities";
 const getSupportManager = {
   init: function () {
     const swiperOptions = {
-      slidesPerView: 1.25,
+      slidesPerView: 1.1,
       pagination: {
         el: ".swiper-pagination",
       },

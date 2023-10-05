@@ -222,7 +222,8 @@ const productsManager = {
             ct_listPrice.classList.add("ct_list_price");
             ct_listPrice.textContent = "$" + ct_cc_listPrice;
             var ct_discountedPrice = document.createElement("p");
-            ct_discountedPrice.classList.add("ct_discounted_price");
+            //ct_discountedPrice.classList.add("ct_discounted_price");
+            ct_discountedPrice.classList.add("font-weight-bolder");
             ct_discountedPrice.textContent = "$" + ct_cc_price;
             var ct_discount = document.createElement("p");
             ct_discount.classList.add("ct_discount");
@@ -239,7 +240,8 @@ const productsManager = {
             ct_fromDesk.classList.add("ct_from");
             ct_fromDesk.textContent = "From";
             var ct_discountedPriceDesk = document.createElement("p");
-            ct_discountedPriceDesk.classList.add("ct_discounted_price");
+            //ct_discountedPriceDesk.classList.add("ct_discounted_price");
+            ct_discountedPriceDesk.classList.add("font-weight-bolder");
             ct_discountedPriceDesk.textContent = "$" + ct_cc_price;
             ct_priceDeskHide.appendChild(ct_fromDesk);
             ct_priceDeskHide.appendChild(ct_discountedPriceDesk);

@@ -8,6 +8,7 @@ import featuresManager from "./features";
 import controlsChoicesManager from "./controlsChoices";
 import productsManager from "./products";
 import downloadAppManager from "./downloadApp";
+import { Analytics } from "./analytics";
 
 //class that handler generic scripts of LP
 const mainManager = {
@@ -66,6 +67,7 @@ const mainManager = {
     productsManager.init();
     downloadAppManager.init();
     utilitiesManager.lazyLo();
+    Analytics.init();
   },
 };
 
