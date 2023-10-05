@@ -1,3 +1,5 @@
+import { Analytics } from "./analytics";
+
 const productsManager = {
   init: function () {
     function ct_loadSelectedViewAllURLMidProducts() {
@@ -268,6 +270,7 @@ const productsManager = {
 
           ct_checkDiscountMidProducts();
           ct_category_carouselMidProducts();
+          Analytics.init();
         });
       });
     }
