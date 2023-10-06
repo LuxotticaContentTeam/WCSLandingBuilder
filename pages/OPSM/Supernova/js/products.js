@@ -79,6 +79,55 @@ const productsManager = {
           },
         }
       );
+
+      /* const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+      if (mediaQuery.matches) {
+        ct_categoryCarouselMidProducts.on('slideNextTransitionStart', function () {
+          debugger
+
+          let start_at = 1;
+          let stop_at = 5;
+          let ri = ct_categoryCarouselMidProducts.realIndex;
+
+          if (ri == stop_at) {
+            this.allowSlideNext = 0;
+            $('.swiper-button-next').addClass('swiper-button-disabled')
+          } else {
+            this.allowSlideNext = 1;
+          }
+          if (ri != start_at) {
+            $('.swiper-button-prev').removeClass('swiper-button-disabled')
+          }
+        });
+
+        ct_categoryCarouselMidProducts.on('slidePrevTransitionStart', function () {
+          debugger
+
+          let start_at = 1;
+          let stop_at = 5;
+          let ri = ct_categoryCarouselMidProducts.realIndex;
+
+          if (ri != stop_at) {
+            $('.swiper-button-next').removeClass('swiper-button-disabled')
+          }
+          if (ri == start_at) {
+            $('.swiper-button-prev').addClass('swiper-button-disabled')
+            this.allowSlidePrev = 0;
+          }
+        });
+
+        ct_categoryCarouselMidProducts.on('slidePrevTransitionEnd', function () {
+          debugger
+
+          // If you go back to the prev slide, you'll be able again to swipe to the next slide
+          this.allowSlideNext = 1;
+        });
+
+        ct_categoryCarouselMidProducts.on('slideNextTransitionEnd', function () {
+          this.allowSlidePrev = 1;
+        });
+      } */
     }
 
     function ct_checkDiscountMidProducts() {
@@ -131,9 +180,6 @@ const productsManager = {
 
       fetchJSON(productsJsonUrl).then((productsJson) => {
         fetchJSON(variantJsonUrl).then((variantsJson) => {
-
-          debugger
-
           var products = productsJson.products.products.product;
 
           /* Push categorized data to local storage */
@@ -160,9 +206,9 @@ const productsManager = {
               ((100 -
                 (parseInt(ct_cc_price.replace("$ ", "")) /
                   parseInt(ct_cc_listPrice.replace("$ ", ""))) *
-                  100) /
+                100) /
                 5) *
-                5
+              5
             );
 
             var ct_categoryCarousel = document.querySelector(

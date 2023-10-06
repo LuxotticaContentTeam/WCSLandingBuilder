@@ -3,6 +3,7 @@
 @import "variables.scss";
 
 #supernovaLP {
+
   h1,
   .h1,
   h2,
@@ -14,16 +15,22 @@
   h5,
   .h5,
   p,
-  p > a:not(.ignore-supernova-style),
-  ul,
-  ol,
-  li,
+  p>a:not(.ignore-supernova-style),
   span:not(.ignore-supernova-style) {
     font-stretch: normal;
     font-style: normal;
     font-weight: normal;
     white-space: pre-line;
     text-align: left;
+  }
+
+  ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
   }
 
   h1,
@@ -41,15 +48,27 @@
     letter-spacing: $heading-letter-spacing;
     line-height: $heading-line-height;
     text-transform: $heading-text-transform;
+
     b,
     strong {
       font-weight: bold;
     }
   }
 
+  .h3-30px {
+    font-size: $font-xl;
+  }
+
+  @media screen and (min-width: $breakpoint-lg) {
+    .h3-smaller {
+      font-size: $font-xl!important;
+    }
+  }
+
   h1,
   .h1 {
     font-size: $font-xl !important;
+
     @media (min-width: $breakpoint-lg) {
       font-size: $font-xxl !important;
     }
@@ -58,6 +77,7 @@
   h2,
   .h2 {
     font-size: $font-l;
+
     @media (min-width: $breakpoint-lg) {
       font-size: $font-xxl;
     }
@@ -66,16 +86,15 @@
   h3,
   .h3 {
     font-size: $font-m;
+
     @media (min-width: $breakpoint-lg) {
       font-size: $font-xl;
     }
   }
 
   p,
-  p > a:not(.ignore-supernova-style),
+  p>a:not(.ignore-supernova-style),
   a:not(.ignore-supernova-style),
-  ul,
-  ol,
   span:not(.ignore-supernova-style) {
     font-family: $first-font;
     font-size: $font-xs;
@@ -83,13 +102,14 @@
     letter-spacing: $text-letter-spacing;
     line-height: $text-line-height;
     margin-bottom: 0;
+
     b,
     strong {
       font-weight: $text-bold;
     }
   }
 
-  p > a {
+  p>a {
     text-decoration: underline;
   }
 

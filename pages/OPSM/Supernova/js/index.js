@@ -30,7 +30,7 @@ const mainManager = {
         const sectionTop = section.offsetTop;
         const sectionBottom = sectionTop + section.clientHeight;
 
-        if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+        if (window.scrollY + 600 >= sectionTop && window.scrollY < sectionBottom) {
           currentSection = section;
         }
       });

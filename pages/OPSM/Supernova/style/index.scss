@@ -59,8 +59,8 @@ html {
       .video-controls {
         width: 80px;
         height: 32px;
-        top: 24px;
-        right: 24px;
+        top: 16px;
+        right: 16px;
         background-color: rgba(31, 31, 35, 0.4);
         border-radius: 50px;
         transition: background-color 0.2s ease;
@@ -116,10 +116,13 @@ html {
           }
         }
       }
+      .video-controls {
+        top: 24px;
+        right: 24px;
+      }
     }
   }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
