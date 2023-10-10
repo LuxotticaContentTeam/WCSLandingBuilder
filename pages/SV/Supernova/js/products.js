@@ -111,7 +111,7 @@ const productsManager = {
       ct_dataElementID
     ) {
       /* Set the data-element-id of carousel tiles */
-      var ct_dataElementID = "X_ProductCarousel_LP";
+      var ct_dataElementID = "ProductCarousel_LP";
 
       var productsJsonUrl = `../data/${ct_searchTermMidProducts}.json`;
       var variantJsonUrl = `../data/${ct_searchTermMidProducts}Variants.json`;
@@ -171,8 +171,8 @@ const productsManager = {
               "ct_productImage"
             );
             ct_slide.href = ct_cc_url;
-            ct_slide.setAttribute("data-element-id", ct_dataElementID);
-            ct_slide.setAttribute("data-description", ct_cc_upc);
+            ct_slide.setAttribute("data-tracking-id", ct_dataElementID);
+            ct_slide.setAttribute("data-tracking-description", ct_cc_upc);
             ct_slide.setAttribute("aria-label", "Shop " + ct_cc_productName);
 
             var ct_box = document.createElement("div");

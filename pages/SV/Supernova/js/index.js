@@ -61,6 +61,7 @@ const mainManager = {
     controlsChoicesManager.init();
     productsManager.init();
     downloadAppManager.init();
+    Analytics.init();
   },
 };
 
