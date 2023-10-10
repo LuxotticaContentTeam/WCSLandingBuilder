@@ -279,13 +279,7 @@
 }
 
 .cb_translate-top-y-middle-x {
-  transform: translate(-50%, -50%) !important;
-}
-
-@media screen and (min-width: $breakpoint-xxxl) {
-  .cb_translate-top-y-middle-x {
-    transform: translate(-50%, -100%) !important;
-  }
+  transform: translate(-50%, -100%) !important;
 }
 
 .cb_translate-middle-x {
