@@ -314,6 +314,25 @@
         }
       }
       .ct_rtr__viewer{
+        @media (max-width: 768px) {
+          position: relative;
+          &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22vw;
+            height: 100%;
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 22vw;
+            height: 100%;
+          }
+        }
         canvas{
           max-width: 100%;
           width: 100%;
