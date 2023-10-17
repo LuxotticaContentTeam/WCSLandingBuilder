@@ -9,6 +9,8 @@ import controlsChoicesManager from "./controlsChoices";
 import productsManager from "./products";
 import downloadAppManager from "./downloadApp";
 
+
+
 //class that handler generic scripts of LP
 const mainManager = {
   setTextOnStickyBanner: function () {
@@ -61,7 +63,7 @@ const mainManager = {
     controlsChoicesManager.init();
     productsManager.init();
     downloadAppManager.init();
-    Analytics.init();
+
   },
 };
 

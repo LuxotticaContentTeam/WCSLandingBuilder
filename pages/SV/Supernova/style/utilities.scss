@@ -32,6 +32,9 @@
   bottom: 0;
   z-index: 1020;
 }
+.cb_translate-top-y {
+  transform: translateY(-100%);
+}
 
 @media (min-width: $breakpoint-sm) {
   .cb_sticky-sm-top {
@@ -226,8 +229,16 @@
   top: 0 !important;
 }
 
+.cb_top-40 {
+  top: 40% !important;
+}
+
 .cb_top-50 {
   top: 50% !important;
+}
+
+.cb_top-70 {
+  top: 70% !important;
 }
 
 .cb_top-100 {
@@ -466,7 +477,7 @@
 }
 
 .cb_border-top {
-  border-bottom: $border-width $border-style $border-color-1 !important;
+  border-top: $border-width $border-style $border-color-1 !important;
 }
 
 .cb_border-bottom {
