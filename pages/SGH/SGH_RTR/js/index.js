@@ -1,22 +1,21 @@
 
-
 const ct_rtr__data = {
   data: {
     selector: '#ct_rtr',
     products: [
       {
-        upc: '8056597837170',
-        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597837187__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        upc: '8056597988377',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597988377__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_clubmaster.svg',
         brand: "Ray-Ban",
-        name: 'Mega Clubmaster'
+        name: 'Ray-Ban | Meta Wayfarer'
       },
       {
-        upc: '888392601629',
-        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392601629__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        upc: '8056597988391',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597988391__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        brand: "Oakley",
-        name: 'Encoder Strike',
+        brand: "Ray-Ban",
+        name: 'Ray-Ban | Meta Headliner',
       },
       {
         upc: '8056597744430',
@@ -33,18 +32,18 @@ const ct_rtr__data = {
         name: 'Medusa Biggie'
       }
     ],
-    hdr: 'https://media.sunglasshut.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
+    hdr: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/panorama_2_1.hdr',
     img_sx:{
-      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHnpzH8ACHYDd/HVOUQAAAAASUVORK5CYII=',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHhkz38GCgDjqAEMo2HAMBoGDIMhDACVnDHATGTYawAAAABJRU5ErkJggg==' // 15:16
+      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHn2yH8ACFcDavqIft4AAAAASUVORK5CYII=',
+      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHD0wH8GCgDjqAEMo2HAMBoGDIMhDAAOyDH8If50jQAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SNGH_3D-1.jpg',
-      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_RTR.png' // 75:56
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/bkg_rtr.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_loader.jpeg' // 75:56
     },
     img_dx_loader:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1_loader.jpg',
-      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_loader.png'
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/bkg_rtr.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_loader.jpeg'
     }
   },
   labels: {
@@ -104,11 +103,11 @@ const ct_rtr__data = {
     }
   },
   links: {
-    '8056597837170': {
-      'en': '/ray-ban/rb0316s-8056597837187?rtrpdp'
+    '8056597988377': {
+      'en': '/ray-ban-meta/rw4006-8056597988377?rtrpdp'
     },
-    '888392601629': {
-      'en': '/oakley/oo9235-888392601629?rtrpdp'
+    '8056597988391': {
+      'en': '/ray-ban-meta/rw4009-8056597988391?rtrpdp'
     },
     '8056597744430': {
       'en': '/prada/pr-13zs-8056597744430?rtrpdp'
@@ -119,7 +118,7 @@ const ct_rtr__data = {
   },
   libraries: [
     {
-      url : 'https://rtr-viewer.luxottica.com/lib/v/2.3.0/main.js',
+      url : 'https://rtr-viewer.luxottica.com/lib/v/4.1.0/main.js',
       callback: ()=>{
         console.log(`RTR BANNER - rtr viewer loaded - ${window.rtrViewer}`);
       }
@@ -186,27 +185,60 @@ function ct_rtr__init(){
   let ct_rtr__lang_short = wcs_config.locale.match("^[^_]+")[0];
   let ct_rtr__baseurl = location.origin + location.pathname;
   console.log(ct_rtr__device,ct_rtr__lang,ct_rtr__lang_short,ct_rtr__baseurl)
+  
+
+
+let a={
+  data:{
+    selector: '#rtr',
+    showEnvironment: false,
+    id: {
+      type: 'upc',
+      value: '', // <----------
+  },
+    environmentPath: '',
+    
+  }
+}
   var ct_rtr__val = {
     data: {
         selector: '.ct_rtr__container .ct_rtr__view .ct_rtr__viewer',
         showBackground: true,
         showEnvironment: false,
-        upc: ct_rtr__data.data.products[0].upc,
+        id: {
+          type: 'upc',
+          value: ct_rtr__data.data.products[0].upc
+        },
         backgroundPath: ct_rtr__data.data.img_dx[ct_rtr__device],
         environmentPath: ct_rtr__data.data.hdr,
         settings: {
-            pixelRatio: window.devicePixelRatio,
-            backgroundFit: 'cover',
-            autoResetCamera: false, // <----- QUESTO DISABILITA IL RESET DELLA CAMERA AL LOADING
-            cameraRotationInitial: { // <----- QUESTO IMPOSTA LA ROTAZIONE INIZIALE DELLA CAMERA (IN GRADI)
-                phi: 0, // rage [-90, 90]
-                theta: 0, // range [-180 - 180]
+          autoRotateCamera: false,
+          // clearColor: '#000',
+          // showBackground: false,
+          pixelRatio: window.devicePixelRatio,
+          autoResetCamera: false, // <----- QUESTO DISABILITA IL RESET DELLA CAMERA AL LOADING
+          cameraRotationInitial: { // <----- QUESTO IMPOSTA LA ROTAZIONE INIZIALE DELLA CAMERA (IN GRADI)
+              phi: 0, // rage [-90, 90]
+              theta: 0, // range [-180 - 180]
+          },
+          cameraRotationReset: { // <----- QUESTO LA TARGET ROTATION (IN GRADI)
+            phi: 20,
+            theta: 40,
+          },
+          gestures: {
+            mouse: {
+                left: 'rotate',
+                middle: 'none',
+                right: 'none',
+                wheel: 'none',
             },
-            cameraRotationReset: { // <----- QUESTO LA TARGET ROTATION (IN GRADI)
-                phi: 20,
-                theta: 40,
+            touches: {
+                one: 'rotate',
+                two: 'rotate',
+                three: 'dolly-pan',
             },
-        },
+          },
+        }
     },
     metadata: {
         env: 'production',
@@ -310,7 +342,10 @@ function ct_rtr__init(){
   document.querySelectorAll('.ct_rtr__container .ct_rtr__products .ct_rtr__product').forEach(title => {
     title.addEventListener('click', function() {
       document.querySelector('.ct_rtr__container .ct_rtr__view').classList.add('ct_loading');
-      rtrViewer.setUpc(this.dataset.upc);
+      rtrViewer.setId({
+        type: 'upc',
+        value: this.dataset.upc,
+      });
       
       document.querySelector('.ct_rtr__container .ct_rtr__title.ct_active').classList.remove('ct_active');
       document.querySelector('.ct_rtr__container .ct_rtr__product.ct_active').classList.remove('ct_active');
@@ -329,28 +364,39 @@ function ct_rtr__init_viewer(ct_rtr__val){
 }
 
 function ct_rtr__analytics_rotate() {
-  tealium_data2track.push({
-    'id':'Click',
-    'Tracking_Type': 'link',
-    'data_element_id': 'X_X_MainPlacement12_RTR_Rotate', // max 25 characters
-    'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
-    'data_analytics_available_call':"1"
-  });
+  if(window.tealium_data2track){
+    tealium_data2track.push({
+      'id':'Click',
+      'Tracking_Type': 'link',
+      'data_element_id': 'X_X_MainPlacement12_RTR_Rotate', // max 25 characters
+      'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
+      'data_analytics_available_call':"1"
+    });
 
-  window.monetateQ.push(["trackEvent",["User_RTR_Rotate"]]);
+  }
+
+  if(window.monetateQ){
+
+    window.monetateQ.push(["trackEvent",["User_RTR_Rotate"]]);
+  }
 
   document.querySelector('.ct_rtr__container canvas').removeEventListener('click', ct_rtr__analytics_rotate);
 }
 function ct_rtr__analytics_zoom() {
-  tealium_data2track.push({
-    'id':'Click',
-    'Tracking_Type': 'link',
-    'data_element_id': 'X_X_MainPlacement12_RTR_Zoom', // max 25 characters
-    'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
-    'data_analytics_available_call':"1"
-  });
+  if(window.tealium_data2track){
+    tealium_data2track.push({
+      'id':'Click',
+      'Tracking_Type': 'link',
+      'data_element_id': 'X_X_MainPlacement12_RTR_Zoom', // max 25 characters
+      'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
+      'data_analytics_available_call':"1"
+    });
+  }
 
-  window.monetateQ.push(["trackEvent",["User_RTR_Zoom"]]);
+  if(window.monetateQ){
+
+    window.monetateQ.push(["trackEvent",["User_RTR_Zoom"]]);
+  }
 
   document.querySelector('.ct_rtr__container canvas').removeEventListener('wheel', ct_rtr__analytics_zoom);
 }
@@ -376,7 +422,10 @@ function ct_rtr__intersection(){
     if (entries[0].isIntersecting === true) {
       document.querySelector('.ct_rtr__container .ct_rtr__view').classList.remove('ct_first');
       rtrViewer.resetCamera();
-      window.monetateQ.push(["trackEvent",["User_RTR_View"]]);
+      if(window.monetateQ){
+
+        window.monetateQ.push(["trackEvent",["User_RTR_View"]]);
+      }
 
       observer.unobserve(target);
     }

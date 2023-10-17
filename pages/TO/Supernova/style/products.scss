@@ -87,6 +87,9 @@
     position: absolute;
     right: 64px;
   }
+  p{
+    margin-bottom: 0;
+  }
 }
 .ct_category_carousel_module .ct_carousel_view_all p {
   color: #333;
@@ -241,6 +244,10 @@
   background: #f6f6f6;
   padding: 56px 0 48px;
   margin-bottom: 10px;
+  @media(max-width: 768px) {
+    padding-top: 24px !important;
+  }
+
 }
 .ct_category_carousel_module .ct_slide .ct_box p {
   font-size: 14px !important;
