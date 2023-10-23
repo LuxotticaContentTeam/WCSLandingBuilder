@@ -1,0 +1,42 @@
+// @import '../../../modulelibrary/variables';
+@import 'resetLP';
+
+.ct_space{
+    .ct_terms_conditions_LP{
+        .ct_terms_conditions_content{
+            margin: auto;
+        }
+        p, li{
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        p, ul{
+            margin: 10px 0 30px;
+        }
+        h4{
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        ul{
+            padding-left: 18px;
+            &.ct_li__number{
+               > li{
+                    list-style: decimal;
+                }
+            }
+            &.ct_li__letter{
+              >  li{
+                    list-style: lower-latin;
+                }
+            }
+        }
+
+        a{
+            font-weight: bold;
+        }
+        
+        .ct_underline{
+            text-decoration: underline;
+        }
+    }
+}
