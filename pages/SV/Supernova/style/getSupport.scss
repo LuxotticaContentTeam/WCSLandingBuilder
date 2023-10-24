@@ -4,6 +4,9 @@ $gutter-x: 1.5rem; //24px
 
 #supernovaLP {
   #getSupport {
+    svg {
+      height: 80px;
+    }
     .swiper {
       min-height: 200px;
       .swiper-wrapper {
@@ -15,11 +18,14 @@ $gutter-x: 1.5rem; //24px
       .swiper-pagination {
         bottom: 32px;
         .swiper-pagination-bullet {
-          background: transparent;
+          background: $black;
+          height: 6px !important;
+          width: 6px !important;
           opacity: 1;
-          border: 0.5px solid $black;
+          border: 0.5px solid $white;
           &.swiper-pagination-bullet-active {
-            background: $black;
+            background: $white;
+            border: 0.5px solid $black;
           }
         }
       }

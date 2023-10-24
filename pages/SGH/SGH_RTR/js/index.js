@@ -32,18 +32,18 @@ const ct_rtr__data = {
         name: 'Medusa Biggie'
       }
     ],
-    hdr: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH//RBM_backg_RTR.hdr',
+    hdr: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/panorama_2_1.hdr',
     img_sx:{
       d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHn2yH8ACFcDavqIft4AAAAASUVORK5CYII=',
       m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHD0wH8GCgDjqAEMo2HAMBoGDIMhDAAOyDH8If50jQAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH//bkg_rtr.jpg',
-      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH//SGH_3D_bottom_5_loader.jpeg' // 75:56
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/bkg_rtr.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_loader.jpeg' // 75:56
     },
     img_dx_loader:{
-      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH//bkg_rtr.jpg',
-      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH//SGH_3D_bottom_5_loader.jpeg'
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/bkg_rtr.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_loader.jpeg'
     }
   },
   labels: {

@@ -428,6 +428,7 @@ const productsManager = {
         $(this).attr("href", ct_viewAllURL);
         $(this).attr("data-element-id", ct_viewAllDataElementID);
       });
+      Analytics.init()
     }
 
     function ct_category_carouselMidProducts() {

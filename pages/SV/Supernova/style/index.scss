@@ -86,6 +86,7 @@ html {
       }
       #stickyBanner {
         background: $white;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
         backdrop-filter: blur(15px);
       }
     }

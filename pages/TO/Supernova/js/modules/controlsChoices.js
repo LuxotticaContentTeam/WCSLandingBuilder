@@ -3,7 +3,7 @@ import utilitiesManager from "./utilities";
 const controlsChoicesManager = {
   init: function () {
     const swiperOptions = {
-      slidesPerView: "auto",
+      slidesPerView: 1.3,
       centeredSlides: true,
       spaceBetween: 32,
       loop: true,
@@ -12,7 +12,8 @@ const controlsChoicesManager = {
         prevEl: ".swiper-button-prev",
       },
       breakpoints: {
-        1024: {
+        1025: {
+          slidesPerView: 2,
           spaceBetween: 64,
         },
       },

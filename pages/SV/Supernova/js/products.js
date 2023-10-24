@@ -1,3 +1,5 @@
+import { Analytics } from "./analytics";
+
 const productsManager = {
   init: function () {
     function ct_loadSelectedViewAllURLMidProducts() {
@@ -62,7 +64,7 @@ const productsManager = {
           slidesPerView: "1.5",
           centeredSlides: true,
           spaceBetween: 16,
-          initialSlide: 4,
+          initialSlide: 0,
           pagination: {
             el: ".swiper-pagination",
           },
@@ -146,9 +148,7 @@ const productsManager = {
             var ct_cc_url = products[i].pdpURL;
             var ct_cc_upc = products[i].upc;
             var ct_cc_brand = products[i].brand;
-            var ct_cc_productName = products[i].productName
-              .substring(1)
-              .split("_")[0];
+            var ct_cc_productName = products[i].productName;
             var ct_cc_listPrice = products[i].listPrice.replace("$ 0", "");
             var ct_cc_price = products[i].price;
             var ct_cc_discountPercentage = Math.floor(
@@ -179,7 +179,7 @@ const productsManager = {
             ct_box.classList.add("ct_box");
             var ct_img = document.createElement("img");
             ct_img.src =
-              "https://assets.lenscrafters.com/is/image/LensCrafters/" +
+              "https://assets.salmoiraghievigano.it/is/image/salmoiraghivigano/" +
               ct_cc_upc +
               "__STD__shad__fr.png?imwidth=1024";
             ct_img.alt = "";
@@ -248,6 +248,7 @@ const productsManager = {
 
           ct_checkDiscountMidProducts();
           ct_category_carouselMidProducts();
+          Analytics.init();
         });
       });
     }

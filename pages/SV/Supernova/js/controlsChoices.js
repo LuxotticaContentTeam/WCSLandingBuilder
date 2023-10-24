@@ -5,6 +5,7 @@ const controlsChoicesManager = {
     const swiperOptions = {
       slidesPerView: "auto",
       centeredSlides: true,
+      loopedSlides: 2,
       spaceBetween: 32,
       loop: true,
       navigation: {

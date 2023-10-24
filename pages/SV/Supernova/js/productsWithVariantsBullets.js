@@ -143,9 +143,7 @@ const productsManager = {
             var ct_cc_url = products[i].pdpURL;
             var ct_cc_upc = products[i].upc;
             var ct_cc_brand = products[i].brand;
-            var ct_cc_productName = products[i].productName
-              .substring(1)
-              .split("_")[0];
+            var ct_cc_productName = products[i].productName;
             var ct_cc_listPrice = products[i].listPrice.replace("$ 0", "");
             var ct_cc_price = products[i].price;
             var ct_cc_discountPercentage = Math.floor(

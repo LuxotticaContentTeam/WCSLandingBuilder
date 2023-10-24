@@ -15,6 +15,8 @@ $gutter-x: 1rem; //16px
       .swiper-pagination {
         bottom: 24px;
         .swiper-pagination-bullet {
+          height: 6px !important;
+          width: 6px !important;
           background: transparent !important;
           opacity: 1;
           border: 0.5px solid $black !important;

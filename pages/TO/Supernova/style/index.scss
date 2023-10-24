@@ -23,13 +23,35 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.promo-popup-container .minimized-promo{
+  display: none;
+}
 html {
   body {
     #supernovaLP {
+      svg {
+        vertical-align: unset !important;
+      }
       img {
         display: block;
         max-width: 100%;
+      }
+      #products{
+        >div{
+          @media(max-width:768px){
+            padding-top: 0px !important;
+          }
+        }
+        .ct_discover{
+          @media(max-width:768px){
+            padding: 0 24px;
+            box-sizing: border-box;
+          }
+          span{
+            font-size: inherit;
+            font-weight: inherit;
+          }
+        }
       }
       .video-container{
         video{
@@ -61,6 +83,7 @@ html {
             fill: #fff;
             width: 16px;
             height: 16px;
+            vertical-align: unset;
           }
         }
       }
@@ -73,8 +96,12 @@ html {
         }
       }
       .accordion-wrapper {
+
         .accordion-button {
           cursor: pointer;
+          p{
+            margin-bottom: 0;
+          }
         }
         .accordion-details-wrapper {
           height: 0;
@@ -89,7 +116,13 @@ html {
     }
   }
 }
-
+#stickyBannerText{
+  margin-bottom: 0;
+  
+}
+#features{
+ 
+}
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -102,5 +135,15 @@ html {
     @media(max-width:767px){
       padding-left: 0px;
     }
+  }
+}
+@media(max-width:768px){
+  .ct_hide_mob{
+    display: none;
+  }
+}
+@media(min-width:769px){
+  .ct_hide_desk{
+    display: none;
   }
 }
