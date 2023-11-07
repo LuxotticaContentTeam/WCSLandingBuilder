@@ -1,0 +1,19 @@
+{
+    "dependences":{
+        "responsive":true,
+        "desk":"./",
+        "mob":"MOB/brand-us/"
+        
+    },
+    "paths": {  
+        "devUtils":"../../../..",
+        "prodUtils":"/WCSLandingBuilder"
+    },
+    "moduleLibrary":{
+        "exist":false,
+        "js":"/path",
+        "css":"/path",
+        "jsDest":"/pathDest",
+        "cssDest":"/pathDest"
+    }
+}

@@ -1,0 +1,2547 @@
+.HTML_LP_BVISTA .ct-container,
+.HTML_LP_BVISTA .ct-container .ct-row,
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col,
+.HTML_LP_BVISTA,
+.ct-container img,
+.ct-container picture,
+.ct-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-cards--flex .ct-col,
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-cards--vantaggi .ct-col,
+.ct-container .ct-button--container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ct-container h1,
+.ct-container h2,
+.ct-container h3,
+.ct-container p,
+.ct-container a,
+.ct-container span {
+    font-family: "Nunito", Helvetica, sans-serif;
+    color: #303030;
+    margin: 0;
+}
+
+.ct-container h1,
+.ct-container h2,
+.ct-container h3 {
+    font-family: "Nunito", Helvetica, sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 7.5px;
+    line-height: 1.25;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+
+    .ct-container h1,
+    .ct-container h2,
+    .ct-container h3 {
+        font-size: 20px;
+        letter-spacing: 4.48px;
+    }
+
+
+}
+
+
+.ct-container ul li {
+    letter-spacing: 0.05em;
+
+}
+
+.ct-container p,
+.ct-container a {
+    font-size: 14px;
+}
+
+.ct-container a {
+    display: inline-block;
+
+}
+
+
+.ct-container a.text-underline {
+    text-decoration: underline;
+
+}
+
+.ct-container a.text-underline:hover {
+    text-decoration: none;
+}
+
+.ct-container p {
+    line-height: 1.57;
+}
+
+.ct-container .ct-sm-none {
+    display: block !important;
+}
+
+.ct-container .ct-sm-none.ct-flex {
+    display: -webkit-flex !important;
+    display: -ms-flex !important;
+    display: flex !important;
+}
+
+.ct-container .show-mobi {
+    display: none !important;
+}
+
+@media screen and (max-width: 992px) {
+
+    .ct-container .show-mobi {
+        display: block !important;
+    }
+
+    .ct-container .hide-mobi {
+        display: none !important;
+    }
+
+    .ct-container .ct-sm-none {
+        display: none !important;
+    }
+
+    .ct-container .ct-sm-none.ct-flex {
+        display: none !important;
+    }
+}
+
+.ct-container .ct-lg-none {
+    display: none !important;
+}
+
+
+
+.HTML_LP_BVISTA strong {
+    font-weight: 700;
+}
+
+.HTML_LP_BVISTA .ct-container h3 {
+    font-weight: 700;
+    color: #222;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+
+.HTML_LP_BVISTA .ct-container h2 {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0.3em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-button.ct-button--blue {
+    background-color: #222;
+    color: #fff;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-button.ct-button--transparent {
+    background-color: transparent;
+    color: #222;
+    border: 1px solid #222;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half.no-slider .ct-row .ct-col .ct-text {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+
+.ct-container .ct-button--container {
+    margin: 0 -10px;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+.ct-container .ct-button {
+    display: inline-block;
+    min-width: 230px;
+    border: solid 1px transparent;
+    color: #fff;
+    background-color: #222222;
+    padding: 10px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-family: "Nunito", Helvetica, sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 25px;
+
+}
+
+.ct-container .ct-button:hover:after {
+    animation: shine .75s cubic-bezier(.01, .56, 1, 1);
+}
+
+
+.ct-container .ct-button:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200%;
+    height: 100%;
+    transform: skew(-20deg);
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+}
+
+
+
+.HTML_LP_BVISTA .ct-container .ct-logo {
+    max-width: 100px;
+    margin-bottom: 3em;
+
+}
+
+@media screen and (max-width: 992px) {
+
+
+    .HTML_LP_BVISTA .ct-container .ct-logo {
+        position: relative;
+        top: 0;
+        right: 0;
+        max-width: 100px;
+        margin: 0 auto;
+        margin-top: 2em;
+    }
+}
+
+
+.ct-container .ct-button.ct-button--black {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: solid 1px #fff;
+}
+
+.ct-container .ct-button.ct-button--black:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.ct-container .ct-button.ct-button--outline {
+    background-color: transparent;
+    border-color: #333333;
+}
+
+.ct-container .ct-button.ct-button--outline:hover {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+
+    .HTML_LP_BVISTA .ct-container h2 {
+        margin-bottom: 19px;
+
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text h4 br {}
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half.no-slider .ct-row .ct-col .ct-text {
+        position: relative;
+        padding: 5%;
+    }
+
+    .ct-container .ct-button--container {
+        margin: 0;
+    }
+
+    .ct-container .ct-button.ct-button--black {
+        background: white;
+        border: 1px solid #303030;
+        color: #303030;
+    }
+}
+
+#content {
+    overflow: hidden;
+}
+
+#content>.row>.emarketingspot-wrapped-div {
+    max-width: 100%;
+}
+
+.HTML_LP_BVISTA .ct-container {
+    padding-bottom: 80px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-hero .ct-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.HTML_LP_BVISTA .ct-container p {
+    color: #303030;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-hero .ct-section {
+    padding: 0 !important;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-hero .ct-section p {
+    text-align: center !important;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-hero .ct-section .hero-logo {
+    width: 230px;
+    position: absolute;
+    bottom: 55px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+
+.HTML_LP_BVISTA .ct-container .ct-hero .ct-section p {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 24px !important;
+    letter-spacing: 0.05em !important;
+    text-align: center;
+
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 {
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: 6.3px;
+    line-height: 1.3;
+    font-family: "Nunito", Helvetica, sans-serif;
+    text-transform: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text p {
+    color: white;
+    font-size: 16px;
+    padding-top: 2em;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 .ct-logo--ete {
+    height: 90px;
+    margin-bottom: 20px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 .ct-logo--ete img {
+    height: 100%;
+    width: auto;
+    margin: auto;
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text {
+    text-align: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text h4 {
+    font-family: "Nunito", Helvetica, sans-serif;
+    font-size: 14px;
+    color: #303030;
+    line-height: 19px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card {
+    display: inline-block;
+    max-width: 25%;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card img {
+    max-width: 190px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card {}
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card .ct-card-box {
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.HTML_LP_BVISTA .ct-container .fourfacts_1 .blue-t {
+    color: #056695;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: bold;
+    display: block;
+    letter-spacing: 0.8px;
+    padding-bottom: 5px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card {
+    display: inline-block;
+    max-width: 25%;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card .ct-card-box {
+    max-width: 65%;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card .ct-card-box::before {
+    content: '';
+    height: 1px;
+    width: 50%;
+    color: #303030;
+    position: absolute;
+    right: -50%;
+    top: 17%;
+    z-index: 1;
+    background-color: #303030;
+}
+
+
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card .ct-card-box::after {
+    content: '';
+    height: 7px;
+    width: 7px;
+    color: #303030;
+    position: absolute;
+    right: -50%;
+    top: 27px;
+    z-index: 1;
+    border: 1px solid #303030;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card img {
+    max-width: 60px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+
+
+.HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card strong {
+    display: block;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.slider-intro-text h3 {
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 6.0px;
+
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-section.slider-intro-text .ec-logo {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+
+.HTML_LP_BVISTA .ct-container .slider-four-section .slider-circle-product {
+    text-align: center;
+    position: relative;
+}
+
+.HTML_LP_BVISTA .ct-container .slider-four-section .slider-circle-product:before {
+    content: '';
+    background-color: #d8e4ec;
+    position: absolute;
+    z-index: -1;
+    height: 120px;
+    width: 120px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.HTML_LP_BVISTA .slick-dots {
+    margin-bottom: -2.5rem;
+}
+
+.slick-dots li button {
+    width: 11px;
+    height: 2px;
+}
+
+.slick-dots li {
+    margin: 0 5px;
+    width: 6px;
+}
+
+
+.slick-dots li button::before {
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+}
+
+.slick-dots li button::before {
+    background-color: #000;
+}
+
+.slick-dots li.slick-active button::before {
+    background-color: #fff !important;
+    border: 1px solid #000;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #000;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+
+
+
+
+    .faq-row #accordion-faq .card .card-body {
+        width: 100%;
+    }
+
+    .HTML_LP_BVISTA .ct-container .slider-four-section .ct-box {
+        width: 100%;
+    }
+
+    .HTML_LP_BVISTA .ct-container .accordion-box p {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .accordion-box .accordion-bottom p {
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .three-products-box {
+        display: block;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 {
+        display: block;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card {
+        max-width: 100%;
+        display: block;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card img {
+        max-width: 130px;
+        padding-bottom: 15px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card .ct-card-box {
+        padding-bottom: 1em;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card {
+        max-width: 50%;
+    }
+
+
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text {
+        display: flex;
+        position: relative;
+        height: 100%;
+        top: 0;
+        transform: none;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        padding: 120px 10px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text p {
+        padding: 0 20px;
+    }
+
+    .HTML_LP_BVISTA .ct_container#services .single-card {
+        padding: 120px 30px;
+        max-height: 340px;
+        max-width: none;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text {
+        padding-top: 50px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile {
+        display: block;
+        padding: 2em 0;
+        text-align: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile h1 {
+        font-size: 22px;
+        padding-bottom: 1em;
+        color: #303030;
+        letter-spacing: 6.3px;
+        line-height: 1.3;
+        font-family: "Nunito", Helvetica, sans-serif;
+        text-transform: none;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile p {
+        color: #303030;
+        font-size: 14px;
+    }
+
+    .HTML_LP_BVISTA .vantaggi .ct-col .ct-card .ct-card-box {
+        min-height: 300px;
+        max-width: 300px;
+        margin: 0 auto;
+
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .pt0 {
+    padding-top: 0 !important;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section {}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.vantaggi {
+    padding: 20px 0 40px;
+}
+
+.HTML_LP_BVISTA .p-t-40 {
+    padding-top: 40px !important;
+}
+
+/* .HTML_LP_BVISTA .ct-container .ct-section.slider-section {
+    padding-bottom: 100px;
+} */
+
+@media screen and (max-width: 992px) {
+
+    .HTML_LP_BVISTA .slick-list {
+        padding: 0 25px !important;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text p {
+        padding-top: 20px;
+    }
+
+    .HTML_LP_BVISTA .ct_container#services .slick-slide>div {
+        margin: 0 8px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .vantaggi .slick-dots {
+        margin: -1.5em 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .slider-nav2 .slick-dots {
+        margin: -3em 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section {
+        padding: 0;
+    }
+
+    .ct-section.slider-section {
+        padding: 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-row {
+        flex-direction: column;
+    }
+
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text {
+    text-align: center;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text .ct-col h2 {
+    color: #222;
+    max-width: 920px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text .ct-col h2 {
+        margin-bottom: 16px;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text .ct-col p {
+    max-width: 750px;
+    margin: auto;
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound {
+    margin-top: 100px;
+    background-color: #f2f2f2;
+    padding: 60px 120px;
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound {
+        padding: 50px 20px;
+        margin-top: 40px;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound .ct-sub--background .ct-steps {
+    max-width: 1100px;
+    margin: 80px auto;
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound .ct-sub--background .ct-steps {
+        margin: 40px 0;
+        padding: 0 8%;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col {
+    position: relative;
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.light-grey-bg {
+    background-color: #F9F9F9;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.text-box {}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text {
+    width: 100%;
+    text-align: left;
+    padding: 0px 120px 0px 120px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description {
+    text-align: left;
+    flex: 1;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description h4 {
+    font-family: "Nunito", Helvetica, sans-serif;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    text-align: left;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .row {
+    align-content: center;
+    margin: 0 auto;
+    width: 80%;
+    flex-shrink: 0;
+    flex-flow: row;
+    padding: 2em 0;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0px;
+    flex-basis: 100%;
+
+}
+
+@media screen and (max-width: 992px) {
+
+
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .row {
+        width: 90%;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex {
+        max-width: 100%;
+        padding: 20px 0;
+        margin-top: 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description {
+        text-align: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description br {
+        display: none;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .icon-box {
+    padding-right: 48px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .icon-box img {
+    padding: 5px;
+    max-width: 56px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-button--container {
+    text-align: left;
+}
+
+@media screen and (max-width: 992px) {
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .icon-box {
+        padding-right: 30px;
+        padding-left: 10px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text {
+        position: relative;
+        height: auto;
+        text-align: left;
+        padding: 40px 25px;
+        width: 100%;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.light-grey-bg {
+        background: white;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0.3em;
+    text-align: left;
+
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text h3 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 27px;
+        letter-spacing: 0.3em;
+        color: #222;
+        margin-bottom: 24px !important;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text h3 img {
+    width: 80%;
+    margin: auto;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text p {
+    color: #303030;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    text-align: left;
+
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section {
+    padding-bottom: 0;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section .ct-row .ct-col .ct-text p {
+
+    margin: 0 auto;
+    padding-top: 0;
+    text-align: left;
+}
+
+@media screen and (max-width: 992px) {
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section .ct-row .ct-col .ct-text p {
+        margin: 0 auto;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section {
+        padding: 50px 20px 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text p {
+        color: #303030;
+        padding-top: 0;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.ct-split .ct-text {
+    justify-content: space-between;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.ct-ec .ct-text p {
+    color: #303030;
+    margin: auto;
+    margin-top: 30px;
+    width: 80%;
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.ct-ec .ct-text h3 {
+        display: none;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row.ct-intro--text {
+    margin-bottom: 60px;
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half {
+        padding: 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.second-section.ct-section.ct-half .ct-col.text-box {
+        top: initial !important;
+        bottom: 0 !important;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row {
+        flex-direction: column;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec {
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec {
+        padding: 40px 20px 0;
+        margin: 0;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec .ct-row {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec .ct-row h3 {
+    font-family: "DINCond-bold", Helvetica, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: normal;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec .ct-row h4 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq {
+    margin: 0 20px;
+    padding-top: 140px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq h2 {
+    text-align: center;
+    padding-bottom: 2em;
+    color: #303030;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0.3em;
+    text-align: center;
+
+}
+
+@media screen and (max-width: 992px) {
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq h2 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 27px;
+        letter-spacing: 0.3em;
+        text-align: center;
+
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq {
+        padding: 70px 20px 0;
+        margin: 0;
+    }
+}
+
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row h3 {
+    font-family: "DINCond-bold", Helvetica, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: normal;
+}
+
+@media screen and (max-width: 992px) {
+
+
+    .HTML_LP_BVISTA .icon-box {
+        height: 80px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row h3 {
+        margin-bottom: 30px;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card {
+    padding: 0;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header {
+    padding-top: 26px;
+    padding-bottom: 26px;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 0;
+}
+
+@media screen and (max-width: 992px) {
+
+    .HTML_LP_BVISTA .ct-container .slider-four-section .slider-circle-product h4 {
+        margin-bottom: 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 0;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header h5 .btn {
+    color: #303030;
+    line-height: 1;
+    padding-left: 50px;
+    text-transform: initial;
+    font-family: Nunito;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    text-align: left;
+}
+
+
+.HTML_LP_BVISTA .faq-row #accordion-faq .card .card-header .btn .accordion-btn {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #747474;
+}
+
+.faq-row #accordion-faq .card .card-header .btn .accordion-btn:before {
+    width: 8px;
+    height: 2px;
+    background-color: #747474;
+}
+
+
+.faq-row #accordion-faq .card .card-header .btn .accordion-btn:after {
+    height: 8px;
+    width: 2px;
+    background-color: #747474;
+}
+
+@media screen and (max-width: 992px) {
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header h5 .btn {
+        padding-right: 30px;
+        font-size: 16px !important;
+        line-height: 22px;
+    }
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header h5 .btn .accordion-btn {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card h4 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card p {
+    margin-bottom: 30px;
+    line-height: 1.4 !important;
+    font-size: 14px !important;
+    text-align: left;
+}
+
+.HTML_LP_BVISTA .faq-row #accordion-faq .card .card-body {
+    padding-top: 0;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card p strong {
+    font-weight: bold;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card ul {
+    margin-bottom: 30px;
+}
+
+.HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card ul li {
+    font-size: 12px;
+    line-height: 1.83;
+    color: #303030;
+}
+
+/* Media query */
+
+@media screen and (max-width: 992px) {
+
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0.3em;
+        text-align: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col {
+        width: 100%;
+    }
+
+/* 
+    #services-cards>div.d-grid {
+        display: block !important;
+    } */
+
+    .HTML_LP_BVISTA .ct-container h2,
+    .HTML_LP_BVISTA .ct-container h3 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 27px;
+        letter-spacing: 0.3em;
+        text-align: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-section p {
+        font-size: 14px !important;
+        font-weight: 400;
+        line-height: 21px !important;
+        letter-spacing: 0.05em;
+        text-align: center;
+
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.text-box {
+        position: relative;
+        left: 0;
+        width: 100%;
+        top: 0;
+        transform: none;
+        z-index: 3;
+
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-section .hero-logo {
+        bottom: 3vw;
+        max-width: 180px;
+    }
+}
+
+/* Panel style */
+.accordion .a-container .a-panel {
+    width: 100%;
+    color: #262626;
+    -webkit-transition: all 0.3s ease-in-out 0.1s;
+    transition: all 0.3s ease-in-out 0.1s;
+    opacity: 0;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0px 10px;
+}
+
+/* Panel style when active */
+.accordion .a-container.active .a-panel {
+    opacity: 1;
+    height: auto;
+    max-height: 100%;
+    padding: 0;
+}
+
+.accordion .a-container .a-panel .ct-button--container {
+    text-align: center;
+    padding: 20px 0;
+}    .HTML_LP_BVISTA .ct-container,
+    .HTML_LP_BVISTA .ct-container .ct-row,
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col,
+    .HTML_LP_BVISTA,
+    .ct-container img,
+    .ct-container picture,
+    .ct-container {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-cards--flex .ct-col,
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-cards--vantaggi .ct-col,
+    .ct-container .ct-button--container {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ct-container h1,
+    .ct-container h2,
+    .ct-container h3,
+    .ct-container p,
+    .ct-container a,
+    .ct-container span {
+        font-family: "Nunito", Helvetica, sans-serif;
+        color: #303030;
+        margin: 0;
+    }
+
+    .ct-container h1,
+    .ct-container h2,
+    .ct-container h3 {
+        font-family: "Nunito", Helvetica, sans-serif;
+        font-size: 25px;
+        text-transform: uppercase;
+        letter-spacing: 7.5px;
+        line-height: 1.25;
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .ct-container h1,
+        .ct-container h2,
+        .ct-container h3 {
+            font-size: 20px;
+            letter-spacing: 4.48px;
+        }
+
+
+    }
+
+
+    .ct-container ul li {
+        letter-spacing: 0.05em;
+
+    }
+
+    .ct-container p,
+    .ct-container a {
+        font-size: 14px;
+    }
+
+    .ct-container a {
+        display: inline-block;
+
+    }
+
+
+    .ct-container a.text-underline {
+        text-decoration: underline;
+
+    }
+
+    .ct-container a.text-underline:hover {
+        text-decoration: none;
+    }
+
+    .ct-container p {
+        line-height: 1.57;
+    }
+
+    .ct-container .ct-sm-none {
+        display: block !important;
+    }
+
+    .ct-container .ct-sm-none.ct-flex {
+        display: -webkit-flex !important;
+        display: -ms-flex !important;
+        display: flex !important;
+    }
+
+    .ct-container .show-mobi {
+        display: none !important;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .ct-container .show-mobi {
+            display: block !important;
+        }
+
+        .ct-container .hide-mobi {
+            display: none !important;
+        }
+
+        .ct-container .ct-sm-none {
+            display: none !important;
+        }
+
+        .ct-container .ct-sm-none.ct-flex {
+            display: none !important;
+        }
+    }
+
+    .ct-container .ct-lg-none {
+        display: none !important;
+    }
+
+
+
+    .HTML_LP_BVISTA strong {
+        font-weight: 700;
+    }
+
+    .HTML_LP_BVISTA .ct-container h3 {
+        font-weight: 700;
+        color: #222;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0.3em;
+        text-align: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container h2 {
+        font-size: 27px;
+        font-weight: 700;
+        line-height: 35px;
+        letter-spacing: 0.3em;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-button.ct-button--blue {
+        background-color: #222;
+        color: #fff;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-button.ct-button--transparent {
+        background-color: transparent;
+        color: #222;
+        border: 1px solid #222;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half.no-slider .ct-row .ct-col .ct-text {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+        padding: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: center;
+    }
+
+
+    .ct-container .ct-button--container {
+        margin: 0 -10px;
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+    }
+
+    .ct-container .ct-button {
+        display: inline-block;
+        min-width: 230px;
+        border: solid 1px transparent;
+        color: #fff;
+        background-color: #222222;
+        padding: 10px 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+        font-family: "Nunito", Helvetica, sans-serif;
+        box-sizing: border-box;
+        position: relative;
+        margin: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 25px;
+
+    }
+
+    .ct-container .ct-button:hover:after {
+        animation: shine .75s cubic-bezier(.01, .56, 1, 1);
+    }
+
+
+    .ct-container .ct-button:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200%;
+        height: 100%;
+        transform: skew(-20deg);
+        background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+    }
+
+
+
+    .HTML_LP_BVISTA .ct-container .ct-logo {
+        max-width: 100px;
+        margin-bottom: 3em;
+
+    }
+
+    @media screen and (max-width: 992px) {
+
+
+        .HTML_LP_BVISTA .ct-container .ct-logo {
+            position: relative;
+            top: 0;
+            right: 0;
+            max-width: 100px;
+            margin: 0 auto;
+            margin-top: 2em;
+        }
+    }
+
+
+    .ct-container .ct-button.ct-button--black {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: solid 1px #fff;
+    }
+
+    .ct-container .ct-button.ct-button--black:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .ct-container .ct-button.ct-button--outline {
+        background-color: transparent;
+        border-color: #333333;
+    }
+
+    .ct-container .ct-button.ct-button--outline:hover {
+        background-color: #fff;
+        border-color: #fff;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .HTML_LP_BVISTA .ct-container h2 {
+            margin-bottom: 19px;
+
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text h4 br {}
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half.no-slider .ct-row .ct-col .ct-text {
+            position: relative;
+            padding: 5%;
+        }
+
+        .ct-container .ct-button--container {
+            margin: 0;
+        }
+
+        .ct-container .ct-button.ct-button--black {
+            background: white;
+            border: 1px solid #303030;
+            color: #303030;
+        }
+    }
+
+    #content {
+        overflow: hidden;
+    }
+
+    #content>.row>.emarketingspot-wrapped-div {
+        max-width: 100%;
+    }
+
+    .HTML_LP_BVISTA .ct-container {
+        padding-bottom: 80px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .HTML_LP_BVISTA .ct-container p {
+        color: #303030;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-section {
+        padding: 0 !important;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-section p {
+        text-align: center !important;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-section .hero-logo {
+        width: 230px;
+        position: absolute;
+        bottom: 55px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+
+
+    .HTML_LP_BVISTA .ct-container .ct-hero .ct-section p {
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        line-height: 24px !important;
+        letter-spacing: 0.05em !important;
+        text-align: center;
+
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text {
+        position: absolute;
+        text-align: center;
+        left: 0;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 {
+        font-size: 28px;
+        color: #fff;
+        letter-spacing: 6.3px;
+        line-height: 1.3;
+        font-family: "Nunito", Helvetica, sans-serif;
+        text-transform: none;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text p {
+        color: white;
+        font-size: 16px;
+        padding-top: 2em;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 .ct-logo--ete {
+        height: 90px;
+        margin-bottom: 20px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 .ct-logo--ete img {
+        height: 100%;
+        width: auto;
+        margin: auto;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text {
+        text-align: center;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 80px 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text h4 {
+        font-family: "Nunito", Helvetica, sans-serif;
+        font-size: 14px;
+        color: #303030;
+        line-height: 19px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 {
+        flex-wrap: wrap;
+        display: flex;
+        align-items: stretch;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card {
+        display: inline-block;
+        max-width: 25%;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card img {
+        max-width: 190px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card {}
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card .ct-card-box {
+        max-width: 70%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .fourfacts_1 .blue-t {
+        color: #056695;
+        font-size: 16px;
+        line-height: 21px;
+        font-weight: bold;
+        display: block;
+        letter-spacing: 0.8px;
+        padding-bottom: 5px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps {
+        flex-wrap: wrap;
+        display: flex;
+        align-items: stretch;
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+        padding: 40px 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card {
+        display: inline-block;
+        max-width: 25%;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card .ct-card-box {
+        max-width: 65%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card .ct-card-box::before {
+        content: '';
+        height: 1px;
+        width: 50%;
+        color: #303030;
+        position: absolute;
+        right: -50%;
+        top: 17%;
+        z-index: 1;
+        background-color: #303030;
+    }
+
+
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card .ct-card-box::after {
+        content: '';
+        height: 7px;
+        width: 7px;
+        color: #303030;
+        position: absolute;
+        right: -50%;
+        top: 27px;
+        z-index: 1;
+        border: 1px solid #303030;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card img {
+        max-width: 60px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+    }
+
+
+
+    .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card strong {
+        display: block;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.slider-intro-text h3 {
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 6.0px;
+
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-section.slider-intro-text .ec-logo {
+        max-width: 400px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .slider-four-section .slider-circle-product {
+        text-align: center;
+        position: relative;
+    }
+
+    .HTML_LP_BVISTA .ct-container .slider-four-section .slider-circle-product:before {
+        content: '';
+        background-color: #d8e4ec;
+        position: absolute;
+        z-index: -1;
+        height: 120px;
+        width: 120px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+
+    .HTML_LP_BVISTA .slick-dots {
+        margin-bottom: -2.5rem;
+    }
+
+    .slick-dots li button {
+        width: 11px;
+        height: 2px;
+    }
+
+    .slick-dots li {
+        margin: 0 5px;
+        width: 6px;
+    }
+
+
+    .slick-dots li button::before {
+        border-radius: 50%;
+        height: 6px;
+        width: 6px;
+    }
+
+    .slick-dots li button::before {
+        background-color: #000;
+    }
+
+    .slick-dots li.slick-active button::before {
+        background-color: #fff !important;
+        border: 1px solid #000;
+    }
+
+    .slick-dots li.slick-active button:before {
+        opacity: .75;
+        color: #000;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 992px) {
+
+
+
+
+        .faq-row #accordion-faq .card .card-body {
+            width: 100%;
+        }
+
+        .HTML_LP_BVISTA .ct-container .slider-four-section .ct-box {
+            width: 100%;
+        }
+
+        .HTML_LP_BVISTA .ct-container .accordion-box p {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .accordion-box .accordion-bottom p {
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .three-products-box {
+            display: block;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 {
+            display: block;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card {
+            max-width: 100%;
+            display: block;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card img {
+            max-width: 130px;
+            padding-bottom: 15px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-row .ct-col.fourfacts_1 .ct-card .ct-card-box {
+            padding-bottom: 1em;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-row .ct-col.foursteps .ct-card {
+            max-width: 50%;
+        }
+
+
+
+        .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text {
+            display: flex;
+            position: relative;
+            height: 100%;
+            top: 0;
+            transform: none;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px 10px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text p {
+            padding: 0 20px;
+        }
+
+        .HTML_LP_BVISTA .ct_container#services .single-card {
+            padding: 120px 30px;
+            max-height: 340px;
+            max-width: none;
+        }
+
+
+        .HTML_LP_BVISTA .ct-container .ct-row.cst-intro--text {
+            padding-top: 50px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile {
+            display: block;
+            padding: 2em 0;
+            text-align: center;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile h1 {
+            font-size: 22px;
+            padding-bottom: 1em;
+            color: #303030;
+            letter-spacing: 6.3px;
+            line-height: 1.3;
+            font-family: "Nunito", Helvetica, sans-serif;
+            text-transform: none;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text-mobile p {
+            color: #303030;
+            font-size: 14px;
+        }
+
+        .HTML_LP_BVISTA .vantaggi .ct-col .ct-card .ct-card-box {
+            min-height: 300px;
+            max-width: 300px;
+            margin: 0 auto;
+
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .pt0 {
+        padding-top: 0 !important;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section {}
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.vantaggi {
+        padding: 20px 0 40px;
+    }
+
+    .HTML_LP_BVISTA .p-t-40 {
+        padding-top: 40px !important;
+    }
+
+    /* .HTML_LP_BVISTA .ct-container .ct-section.slider-section {
+        padding-bottom: 100px;
+    } */
+
+    @media screen and (max-width: 992px) {
+
+        .HTML_LP_BVISTA .slick-list {
+            padding: 0 25px !important;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text p {
+            padding-top: 20px;
+        }
+
+        .HTML_LP_BVISTA .ct_container#services .slick-slide>div {
+            margin: 0 8px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .vantaggi .slick-dots {
+            margin: -1.5em 0;
+        }
+
+        .HTML_LP_BVISTA .ct-container .slider-nav2 .slick-dots {
+            margin: -3em 0;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section {
+            padding: 0;
+        }
+
+        .ct-section.slider-section {
+            padding: 0;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-hero .ct-row {
+            flex-direction: column;
+        }
+
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text {
+        text-align: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text .ct-col h2 {
+        color: #222;
+        max-width: 920px;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text .ct-col h2 {
+            margin-bottom: 16px;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section .ct-intro--text .ct-col p {
+        max-width: 750px;
+        margin: auto;
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound {
+        margin-top: 100px;
+        background-color: #f2f2f2;
+        padding: 60px 120px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound {
+            padding: 50px 20px;
+            margin-top: 40px;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound .ct-sub--background .ct-steps {
+        max-width: 1100px;
+        margin: 80px auto;
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-section--backgound .ct-sub--background .ct-steps {
+            margin: 40px 0;
+            padding: 0 8%;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col {
+        position: relative;
+        display: flex;
+        width: 50%;
+        align-items: center;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.light-grey-bg {
+        background-color: #F9F9F9;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.text-box {}
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text {
+        width: 100%;
+        text-align: left;
+        padding: 0px 120px 0px 120px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description {
+        text-align: left;
+        flex: 1;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description h4 {
+        font-family: "Nunito", Helvetica, sans-serif;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: left;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .row {
+        align-content: center;
+        margin: 0 auto;
+        width: 80%;
+        flex-shrink: 0;
+        flex-flow: row;
+        padding: 2em 0;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 0px;
+        flex-basis: 100%;
+
+    }
+
+    @media screen and (max-width: 992px) {
+
+
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .row {
+            width: 90%;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex {
+            max-width: 100%;
+            padding: 20px 0;
+            margin-top: 0;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description {
+            text-align: center;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .box-description br {
+            display: none;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .icon-box {
+        padding-right: 48px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .icon-box img {
+        padding: 5px;
+        max-width: 56px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-button--container {
+        text-align: left;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text .box-flex .icon-box {
+            padding-right: 30px;
+            padding-left: 10px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text {
+            position: relative;
+            height: auto;
+            text-align: left;
+            padding: 40px 25px;
+            width: 100%;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.light-grey-bg {
+            background: white;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text h3 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0.3em;
+        text-align: left;
+
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
+            letter-spacing: 0.3em;
+            color: #222;
+            margin-bottom: 24px !important;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text h3 img {
+        width: 80%;
+        margin: auto;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text p {
+        color: #303030;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0.05em;
+        text-align: left;
+
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section {
+        padding-bottom: 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section .ct-row .ct-col .ct-text p {
+
+        margin: 0 auto;
+        padding-top: 0;
+        text-align: left;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section .ct-row .ct-col .ct-text p {
+            margin: 0 auto;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.second-section {
+            padding: 50px 20px 0;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col .ct-text p {
+            color: #303030;
+            padding-top: 0;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.ct-split .ct-text {
+        justify-content: space-between;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.ct-ec .ct-text p {
+        color: #303030;
+        margin: auto;
+        margin-top: 30px;
+        width: 80%;
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.ct-ec .ct-text h3 {
+            display: none;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row.ct-intro--text {
+        margin-bottom: 60px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half {
+            padding: 0;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.second-section.ct-section.ct-half .ct-col.text-box {
+            top: initial !important;
+            bottom: 0 !important;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row {
+            flex-direction: column;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec {
+        margin: 0 20px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec {
+            padding: 40px 20px 0;
+            margin: 0;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec .ct-row {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec .ct-row h3 {
+        font-family: "DINCond-bold", Helvetica, sans-serif;
+        font-size: 30px;
+        text-transform: uppercase;
+        letter-spacing: normal;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-tec .ct-row h4 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq {
+        margin: 0 20px;
+        padding-top: 140px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq h2 {
+        text-align: center;
+        padding-bottom: 2em;
+        color: #303030;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0.3em;
+        text-align: center;
+
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq h2 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
+            letter-spacing: 0.3em;
+            text-align: center;
+
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq {
+            padding: 70px 20px 0;
+            margin: 0;
+        }
+    }
+
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row h3 {
+        font-family: "DINCond-bold", Helvetica, sans-serif;
+        font-size: 30px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        letter-spacing: normal;
+    }
+
+    @media screen and (max-width: 992px) {
+
+
+        .HTML_LP_BVISTA .icon-box {
+            height: 80px;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row h3 {
+            margin-bottom: 30px;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card {
+        padding: 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header {
+        padding-top: 26px;
+        padding-bottom: 26px;
+        border-top: 1px solid #d6d6d6;
+        border-bottom: 0;
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .HTML_LP_BVISTA .ct-container .slider-four-section .slider-circle-product h4 {
+            margin-bottom: 0;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-right: 0;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header h5 .btn {
+        color: #303030;
+        line-height: 1;
+        padding-left: 50px;
+        text-transform: initial;
+        font-family: Nunito;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: 0.05em;
+        text-align: left;
+    }
+
+
+    .HTML_LP_BVISTA .faq-row #accordion-faq .card .card-header .btn .accordion-btn {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #747474;
+    }
+
+    .faq-row #accordion-faq .card .card-header .btn .accordion-btn:before {
+        width: 8px;
+        height: 2px;
+        background-color: #747474;
+    }
+
+
+    .faq-row #accordion-faq .card .card-header .btn .accordion-btn:after {
+        height: 8px;
+        width: 2px;
+        background-color: #747474;
+    }
+
+    @media screen and (max-width: 992px) {
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header h5 .btn {
+            padding-right: 30px;
+            font-size: 16px !important;
+            line-height: 22px;
+        }
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card .card-header h5 .btn .accordion-btn {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card h4 {
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card p {
+        margin-bottom: 30px;
+        line-height: 1.4 !important;
+        font-size: 14px !important;
+        text-align: left;
+    }
+
+    .HTML_LP_BVISTA .faq-row #accordion-faq .card .card-body {
+        padding-top: 0;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card p strong {
+        font-weight: bold;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card ul {
+        margin-bottom: 30px;
+    }
+
+    .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-faq .ct-row #accordion-faq .card ul li {
+        font-size: 12px;
+        line-height: 1.83;
+        color: #303030;
+    }
+
+    /* Media query */
+
+    @media screen and (max-width: 992px) {
+
+
+        .HTML_LP_BVISTA .ct-container .ct-col .ct-hero--text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 26px;
+            letter-spacing: 0.3em;
+            text-align: center;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col {
+            width: 100%;
+        }
+
+/* 
+        #services-cards>div.d-grid {
+            display: block !important;
+        } */
+
+        .HTML_LP_BVISTA .ct-container h2,
+        .HTML_LP_BVISTA .ct-container h3 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
+            letter-spacing: 0.3em;
+            text-align: center;
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-hero .ct-section p {
+            font-size: 14px !important;
+            font-weight: 400;
+            line-height: 21px !important;
+            letter-spacing: 0.05em;
+            text-align: center;
+
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-section.ct-section.ct-half .ct-row .ct-col.text-box {
+            position: relative;
+            left: 0;
+            width: 100%;
+            top: 0;
+            transform: none;
+            z-index: 3;
+
+        }
+
+        .HTML_LP_BVISTA .ct-container .ct-hero .ct-section .hero-logo {
+            bottom: 3vw;
+            max-width: 180px;
+        }
+    }
+
+    /* Panel style */
+    .accordion .a-container .a-panel {
+        width: 100%;
+        color: #262626;
+        -webkit-transition: all 0.3s ease-in-out 0.1s;
+        transition: all 0.3s ease-in-out 0.1s;
+        opacity: 0;
+        height: auto;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0px 10px;
+    }
+
+    /* Panel style when active */
+    .accordion .a-container.active .a-panel {
+        opacity: 1;
+        height: auto;
+        max-height: 100%;
+        padding: 0;
+    }
+
+    .accordion .a-container .a-panel .ct-button--container {
+        text-align: center;
+        padding: 20px 0;
+    }
