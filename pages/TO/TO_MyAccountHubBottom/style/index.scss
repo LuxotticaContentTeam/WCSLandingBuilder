@@ -1,0 +1,66 @@
+@import '../0_ModuleLibrary/DesignSystem/style/variables';
+// @import 'resetLP';
+
+.ct_space {
+  .ct_promo_banner{
+        width: 100%;
+        padding: 24px 40px;
+        border: 1px solid $medium-gray;
+        border-radius: 16px;
+        box-sizing: border-box;
+        background-color: #fff;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+        @media(max-width:$break-portrait-max){
+            padding: 12px 22px;
+        }
+        .ct_promo__text{
+            width: 45%;
+            display: flex;
+            align-items: flex-start;
+            @media(max-width:$break-portrait-max){
+                width: 100%;
+            }
+            >svg{
+                margin-top: -5px;
+                width: 58px;
+                height: 32px;
+                @media(max-width:$break-portrait-max){
+                    width: 48px;
+                }
+            }
+        }
+       
+        
+        .ct_cta__container{
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            flex-direction: column;
+            display: flex;
+            @media(max-width:$break-portrait-max){
+                position: relative;
+                top: unset;
+                right: unset;
+                transform: none;
+            }
+        }
+  }
+  .ct_accordion{
+    .ct_accordion__content_wrap{
+        height: 0;
+        transition: height .3s ease;
+        overflow: hidden;
+        .ct_accordion__content{
+            padding-top: 10px;
+        }
+    }        
+  }
+ 
+}
+
+*{
+  
+}
