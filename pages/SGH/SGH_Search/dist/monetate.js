@@ -165,6 +165,7 @@ window.ct_wow__search.start = function(elem,section){
     window.ct_wow__search.data.storeInfo.lang_short = window.wcs_config ? wcs_config.locale.match("^[^_]+")[0]:undefined;
     ct_wow__search__download_scripts();
     
+    //analytics apertura
     if (window.tealium_data2track){
       window.tealium_data2track.push({'id': 'Click', 'data_element_id': section+'_WowQuiz_Start', 'data_description': section === "Search" ? "LaunchQuiz" : "LaunchQuiz_IMG"});
     }else{
@@ -182,6 +183,7 @@ window.ct_wow__search.start = function(elem,section){
  
   setTimeout(function(){
     this_.style.pointerEvents = 'all';
+    //analytics step 1
     if (window.tealium_data2track){
       window.tealium_data2track.push({'id': 'Impression', 'Page_Section2': 'WowQuiz:Step1'});
     }else{
@@ -194,6 +196,7 @@ function ct_wow__search__start_retrySelector(selector,section){
   window.ct_wow__search.initTimer = setTimeout(function(){
       if(document.querySelector(selector)){
         if(selector == 'img[alt="wowquiz_PLP_banner"]'){
+          //rendere non cliccabile il testo sopra l'immagine
           document.querySelector(selector).parentNode.parentNode.querySelector('.absolute.sgh-col.flex').style.pointerEvents = 'none'
         }
         document.querySelector(selector).addEventListener('click',window.ct_wow__search.start.bind(null,selector,section));
@@ -253,6 +256,8 @@ function ct_wow__search__start(){
   
   
 }
+
+
 if ($('.sgh-search-suggestions__wrapper ').length > 0 && $('#ct_wow__quiz').length == 0){
   $('.sgh-search-suggestions__wrapper ').after(`
   <div id="ct_wow__quiz">

@@ -64,6 +64,7 @@
           letter-spacing: 0.24px;
           font-weight: 300;
           margin-bottom: 12px;
+          font-family: 'Acta Headline', serif;
           @media (max-width: 1024px) {
             font-size: 28px;
             line-height: 1.1;
@@ -153,7 +154,10 @@
               font-size: 3.6vw;
               margin: 0;
               line-height: 1;
-             
+             font-family: 'Acta Headline', serif;
+             @media (min-width: 1081px) {
+                white-space: nowrap;
+             }
               @media (max-width: 768px) {
                 font-size: 9.7vw;
               }
