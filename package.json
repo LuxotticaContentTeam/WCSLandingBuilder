@@ -1,15 +1,28 @@
 {
-  "name": "gulptest",
-  "version": "1.0.0",
+  "name": "wcs-landing-builder",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "minjs": "gulp js --file",
     "test": "gulp test --page s",
-    "dev": "gulp dev_",
+    "dev": "NODE_ENV=development gulp serve",
     "devMob": "gulp dev_ --mob true",
     "build": "gulp build_ ",
     "sprite": "gulp sprite --icons"
+  },
+  "paths": {
+    "brandsFolder":"./pages",
+
+
+    "srcFolder": "src/",
+    "distFolder": "dist/",
+    "developmentImage": "./assets/clp-assets",
+    "productionImage": "https://media.ray-ban.com/2023/SUPERNOVA/clp-assets",
+    "developmentConf": "/conf/",
+    "productionConf": "https://media.ray-ban.com/2023/SUPERNOVA/conf/live/",
+    "developmentTestAssets": "/assets/test",
+    "productionTestAssets": "https://media.ray-ban.com/utilities/SN/test"
   },
   "author": "",
   "license": "ISC",
@@ -52,7 +65,9 @@
   "dependencies": {
     "glob": "^10.2.6",
     "gulp-json-minify": "^1.2.2",
+    "gulp-load-plugins": "^2.0.8",
     "gulp-minify": "^3.1.0",
+    "gulp-prompt": "^1.2.0",
     "gulp-string-replace": "^1.1.2",
     "inquirer": "^8.2.5",
     "locomotive-scroll": "^4.1.4",
