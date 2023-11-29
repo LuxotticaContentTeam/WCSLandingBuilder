@@ -1,0 +1,51 @@
+{
+    "sectionsActive":[ 
+        "hero",
+        "styles",
+        "features",
+        
+        "controls",
+        "tech",
+        "services",
+        "faq"
+    ],
+    "common":{
+        "buyNow":"JETZT KAUFEN",
+        "viewMore":"MEHR SEHEN",
+        "scroll":"SCROLLEN",
+        "soldOut":"AUSVERKAUFT "
+    },
+    "menu": {
+        "main":{
+            "voices":[
+                {
+                    "name":"MODELLE",
+                    "anchor":"styles" 
+                },
+                {
+                    "name":"WICHTIGSTE FUNKTIONEN",
+                    "anchor":"features" 
+                },
+                {
+                    "name":"AUFGENOMMEN MIT RAY-BAN | META ",
+                    "anchor":"captured" 
+                },
+                {
+                    "name":"STEUERUNG & AUSWAHL",
+                    "anchor":"controls" 
+                },
+                {
+                    "name":"TECHNISCHE HIGHLIGHTS",
+                    "anchor":"tech" 
+                },
+                {
+                    "name":"HILFE",
+                    "anchor":"services" 
+                }
+            ],
+            "homeLink":{
+                "name": "ray-ban.com"
+            }
+        }
+    }
+}

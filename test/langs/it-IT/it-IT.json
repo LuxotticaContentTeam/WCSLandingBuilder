@@ -1,0 +1,50 @@
+{
+    "sectionsActive":[ 
+        "hero",
+        "styles",
+        "features",
+        "controls",
+        "tech",
+        "services",
+        "faq"
+    ],
+    "common":{
+        "buyNow":"ACQUISTA ORA",
+        "viewMore":"SCOPRI DI PIÙ",
+        "scroll":"SCORRI ",
+        "soldOut":"ARTICOLO ESAURITO "
+    },
+    "menu": {
+        "main":{
+            "voices":[
+                {
+                    "name":"MODELLI",
+                    "anchor":"styles" 
+                },
+                {
+                    "name":"FUNZIONALITÀ ",
+                    "anchor":"features" 
+                },
+                {
+                    "name":"CATTURATO CON RAY-BAN | META",
+                    "anchor":"captured" 
+                },
+                {
+                    "name":"COMANDI E PREFERENZE",
+                    "anchor":"controls" 
+                },
+                {
+                    "name":"SPECIFICHE TECNICHE",
+                    "anchor":"tech" 
+                },
+                {
+                    "name":"OTTIENI ASSISTENZA",
+                    "anchor":"services" 
+                }
+            ],
+            "homeLink":{
+                "name": "ray-ban.com"
+            }
+        }
+    }
+}

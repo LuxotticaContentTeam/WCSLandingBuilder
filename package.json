@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "minjs": "gulp js --file",
-    "test": "gulp test --page s",
+    "test": "gulp test ",
     "dev": "NODE_ENV=development gulp serve",
     "devMob": "gulp dev_ --mob true",
     "build": "gulp build_ ",
