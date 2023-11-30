@@ -1,1 +1,122 @@
-{"sectionsActive":[{"en-UK":"hero","it-IT":"hero"},{"en-UK":"styles","it-IT":"styles"},{"en-UK":"features","it-IT":"features"},{"en-UK":"controls","it-IT":"controls"},{"en-UK":"tech","it-IT":"tech"},{"en-UK":"services","it-IT":"services"},{"en-UK":"faq","it-IT":"faq"}],"common":{"buyNow":{"en-UK":"JETZT KAUFEN","it-IT":"ACQUISTA ORA"},"viewMore":{"en-UK":"MEHR SEHEN","it-IT":"SCOPRI DI PIÙ"},"scroll":{"en-UK":"SCROLLEN","it-IT":"SCORRI "},"soldOut":{"en-UK":"AUSVERKAUFT ","it-IT":"ARTICOLO ESAURITO "}},"menu":{"main":{"voices":[{"name":{"en-UK":"MODELLE","it-IT":"MODELLI"},"anchor":{"en-UK":"styles","it-IT":"styles"}},{"name":{"en-UK":"WICHTIGSTE FUNKTIONEN","it-IT":"FUNZIONALITÀ "},"anchor":{"en-UK":"features","it-IT":"features"}},{"name":{"en-UK":"AUFGENOMMEN MIT RAY-BAN | META ","it-IT":"CATTURATO CON RAY-BAN | META"},"anchor":{"en-UK":"captured","it-IT":"captured"}},{"name":{"en-UK":"STEUERUNG & AUSWAHL","it-IT":"COMANDI E PREFERENZE"},"anchor":{"en-UK":"controls","it-IT":"controls"}},{"name":{"en-UK":"TECHNISCHE HIGHLIGHTS","it-IT":"SPECIFICHE TECNICHE"},"anchor":{"en-UK":"tech","it-IT":"tech"}},{"name":{"en-UK":"HILFE","it-IT":"OTTIENI ASSISTENZA"},"anchor":{"en-UK":"services","it-IT":"services"}}],"homeLink":{"name":{"en-UK":"ray-ban.com","it-IT":"ray-ban.com"}}}}}
+{
+    "sectionsActive": [
+        {
+            "en-UK": "hero",
+            "it-IT": "hero"
+        },
+        {
+            "en-UK": "styles",
+            "it-IT": "styles"
+        },
+        {
+            "en-UK": "features",
+            "it-IT": "features"
+        },
+        {
+            "en-UK": "controls",
+            "it-IT": "controls"
+        },
+        {
+            "en-UK": "tech",
+            "it-IT": "tech"
+        },
+        {
+            "en-UK": "services",
+            "it-IT": "services"
+        },
+        {
+            "en-UK": "faq",
+            "it-IT": "faq"
+        }
+    ],
+    "common": {
+        "buyNow": {
+            "en-UK": "JETZT KAUFEN",
+            "it-IT": "ACQUISTA ORA"
+        },
+        "viewMore": {
+            "en-UK": "MEHR SEHEN",
+            "it-IT": "SCOPRI DI PIÙ"
+        },
+        "scroll": {
+            "en-UK": "SCROLLEN",
+            "it-IT": "SCORRI "
+        },
+        "soldOut": {
+            "en-UK": "AUSVERKAUFT ",
+            "it-IT": "ARTICOLO ESAURITO "
+        }
+    },
+    "menu": {
+        "main": {
+            "voices": [
+                {
+                    "name": {
+                        "en-UK": "MODELLE",
+                        "it-IT": "MODELLI"
+                    },
+                    "anchor": {
+                        "en-UK": "styles",
+                        "it-IT": "styles"
+                    }
+                },
+                {
+                    "name": {
+                        "en-UK": "WICHTIGSTE FUNKTIONEN",
+                        "it-IT": "FUNZIONALITÀ "
+                    },
+                    "anchor": {
+                        "en-UK": "features",
+                        "it-IT": "features"
+                    }
+                },
+                {
+                    "name": {
+                        "en-UK": "AUFGENOMMEN MIT RAY-BAN | META ",
+                        "it-IT": "CATTURATO CON RAY-BAN | META"
+                    },
+                    "anchor": {
+                        "en-UK": "captured",
+                        "it-IT": "captured"
+                    }
+                },
+                {
+                    "name": {
+                        "en-UK": "STEUERUNG & AUSWAHL",
+                        "it-IT": "COMANDI E PREFERENZE"
+                    },
+                    "anchor": {
+                        "en-UK": "controls",
+                        "it-IT": "controls"
+                    }
+                },
+                {
+                    "name": {
+                        "en-UK": "TECHNISCHE HIGHLIGHTS",
+                        "it-IT": "SPECIFICHE TECNICHE"
+                    },
+                    "anchor": {
+                        "en-UK": "tech",
+                        "it-IT": "tech"
+                    }
+                },
+                {
+                    "name": {
+                        "en-UK": "HILFE",
+                        "it-IT": "OTTIENI ASSISTENZA"
+                    },
+                    "anchor": {
+                        "en-UK": "services",
+                        "it-IT": "services"
+                    }
+                }
+            ],
+            "homeLink": {
+                "name": {
+                    "en-UK": "ray-ban.com",
+                    "it-IT": "ray-ban.com"
+                }
+            }
+        }
+    }
+}
