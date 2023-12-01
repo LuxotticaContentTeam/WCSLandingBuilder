@@ -2545,3 +2545,21 @@
         text-align: center;
         padding: 20px 0;
     }
+
+    .HTML_LP_BVISTA{
+        .ct_space{
+            .ct-hero--text{
+                text-align: center;
+                p{
+                    width: 60%;
+                    margin: auto;
+                }
+            }
+            .ct-skeleton + .ct-hero--image{
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+        }
+    }
