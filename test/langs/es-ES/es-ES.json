@@ -3,47 +3,46 @@
         "hero",
         "styles",
         "features",
-        
         "controls",
         "tech",
         "services",
         "faq"
     ],
     "common":{
-        "buyNow_t":"JETZT KAUFEN",
+        "buyNow":"ACQUISTA ORA",
         "viewMore":{
             "label_SmartLing":"MEHR SEHEN"
         }, 
-        "scroll":"SCROLLEN",
-        "soldOut":"AUSVERKAUFT "
+        "scroll":"SCORRI ",
+        "soldOut":"ARTICOLO ESAURITO "
     },
     "menu": {
         "main":{
             "voices":[
                 {
                     "name":{
-                        "label_SmartLing":"MODELLE"
+                        "label_SmartLing":"MODELLS"
                     }, 
                     "anchor":"styles" 
                 },
                 {
-                    "name":"WICHTIGSTE FUNKTIONEN",
+                    "name":"FUNZIONALITÀ ",
                     "anchor":"features" 
                 },
                 {
-                    "name":"AUFGENOMMEN MIT RAY-BAN | META ",
+                    "name":"CATTURATO CON RAY-BAN | META",
                     "anchor":"captured" 
                 },
                 {
-                    "name":"STEUERUNG & AUSWAHL",
+                    "name":"COMANDI E PREFERENZE",
                     "anchor":"controls" 
                 },
                 {
-                    "name":"TECHNISCHE HIGHLIGHTS",
+                    "name":"SPECIFICHE TECNICHE",
                     "anchor":"tech" 
                 },
                 {
-                    "name":"HILFE",
+                    "name":"OTTIENI ASSISTENZA",
                     "anchor":"services" 
                 }
             ],

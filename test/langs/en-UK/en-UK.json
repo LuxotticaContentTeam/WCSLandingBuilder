@@ -10,7 +10,9 @@
     ],
     "common":{
         "buyNow":"JETZT KAUFEN",
-        "viewMore":"MEHR SEHEN",
+        "viewMore":{
+            "label_SmartLing":"MEHR SEHEN"
+        }, 
         "scroll":"SCROLLEN",
         "soldOut":"AUSVERKAUFT "
     },
@@ -18,7 +20,9 @@
         "main":{
             "voices":[
                 {
-                    "name":"MODELLE",
+                    "name":{
+                        "label_SmartLing":"MODELLE"
+                    }, 
                     "anchor":"styles" 
                 },
                 {

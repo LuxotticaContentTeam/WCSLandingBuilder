@@ -4,7 +4,7 @@ const fs = require("fs");
 const startJson = require('../test/startJSON.json');
 const { getDirectories } = require('./utils');
 
-
+const TRAD_KEY = 'label_SmartLing'
 
 const getLangJson = (langs) => {
    let trad = {};
@@ -27,7 +27,7 @@ const getLangJson = (langs) => {
 const buildResultJson = (inputJson,languages)=> {
    function recursiveTransform(data, langJson,prevKey=[]) {
       if (typeof data === 'object' && data !== null) { //check if current field is an object or just a string
-         console.log(prevKey)
+         
          if (Array.isArray(data)){ //checking if it's an array or an object
             let result = [];
             data.forEach((elem,i)=>{ 
@@ -46,14 +46,23 @@ const buildResultJson = (inputJson,languages)=> {
          }
       } else { //if is just a string, for each lang, insert the corrisponding value from the lang-lang.json file
           let result = {};
-          for (let lang in languages) {
-               let langValue =langJson[lang];
-              if (languages.hasOwnProperty(lang)) {
-                  prevKey.forEach(key=>{ 
-                     langValue = langValue[key]
-                  })
-                  result[lang] = langJson ? langValue : null;
-              }
+          console.log(prevKey.at(-1))
+          if (!TRAD_KEY || prevKey.at(-1) === TRAD_KEY){
+             for (let lang in languages) {
+                  let langValue = langJson[lang];
+                 if (languages.hasOwnProperty(lang)) {
+                     prevKey.forEach(key=>{ 
+                        langValue = langValue[key]
+                     })
+                     result[lang] = langJson ? langValue : null;
+                 }
+             }
+          }else{
+            let jsonValue= inputJson;
+            prevKey.forEach(key=>{ 
+               jsonValue = jsonValue[key]
+            })
+            result = jsonValue ? jsonValue : null
           }
           return result;
       }

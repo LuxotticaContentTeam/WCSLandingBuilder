@@ -1,121 +1,61 @@
 {
     "sectionsActive": [
-        {
-            "en-UK": "hero",
-            "it-IT": "hero"
-        },
-        {
-            "en-UK": "styles",
-            "it-IT": "styles"
-        },
-        {
-            "en-UK": "features",
-            "it-IT": "features"
-        },
-        {
-            "en-UK": "controls",
-            "it-IT": "controls"
-        },
-        {
-            "en-UK": "tech",
-            "it-IT": "tech"
-        },
-        {
-            "en-UK": "services",
-            "it-IT": "services"
-        },
-        {
-            "en-UK": "faq",
-            "it-IT": "faq"
-        }
+        "hero",
+        "styles",
+        "features",
+        "controls",
+        "tech",
+        "services",
+        "faq"
     ],
     "common": {
-        "buyNow": {
-            "en-UK": "JETZT KAUFEN",
-            "it-IT": "ACQUISTA ORA"
-        },
+        "buyNow_t": "JETZT KAUFEN",
         "viewMore": {
-            "en-UK": "MEHR SEHEN",
-            "it-IT": "SCOPRI DI PIÙ"
+            "label_SmartLing": {
+                "en-UK": "MEHR SEHEN",
+                "es-ES": "MEHR SEHEN",
+                "it-IT": "MEHR SEHEN"
+            }
         },
-        "scroll": {
-            "en-UK": "SCROLLEN",
-            "it-IT": "SCORRI "
-        },
-        "soldOut": {
-            "en-UK": "AUSVERKAUFT ",
-            "it-IT": "ARTICOLO ESAURITO "
-        }
+        "scroll": "SCROLLEN",
+        "soldOut": "AUSVERKAUFT "
     },
     "menu": {
         "main": {
             "voices": [
                 {
                     "name": {
-                        "en-UK": "MODELLE",
-                        "it-IT": "MODELLI"
+                        "label_SmartLing": {
+                            "en-UK": "MODELLE",
+                            "es-ES": "MODELLS",
+                            "it-IT": "MODELLE"
+                        }
                     },
-                    "anchor": {
-                        "en-UK": "styles",
-                        "it-IT": "styles"
-                    }
+                    "anchor": "styles"
                 },
                 {
-                    "name": {
-                        "en-UK": "WICHTIGSTE FUNKTIONEN",
-                        "it-IT": "FUNZIONALITÀ "
-                    },
-                    "anchor": {
-                        "en-UK": "features",
-                        "it-IT": "features"
-                    }
+                    "name": "WICHTIGSTE FUNKTIONEN",
+                    "anchor": "features"
                 },
                 {
-                    "name": {
-                        "en-UK": "AUFGENOMMEN MIT RAY-BAN | META ",
-                        "it-IT": "CATTURATO CON RAY-BAN | META"
-                    },
-                    "anchor": {
-                        "en-UK": "captured",
-                        "it-IT": "captured"
-                    }
+                    "name": "AUFGENOMMEN MIT RAY-BAN | META ",
+                    "anchor": "captured"
                 },
                 {
-                    "name": {
-                        "en-UK": "STEUERUNG & AUSWAHL",
-                        "it-IT": "COMANDI E PREFERENZE"
-                    },
-                    "anchor": {
-                        "en-UK": "controls",
-                        "it-IT": "controls"
-                    }
+                    "name": "STEUERUNG & AUSWAHL",
+                    "anchor": "controls"
                 },
                 {
-                    "name": {
-                        "en-UK": "TECHNISCHE HIGHLIGHTS",
-                        "it-IT": "SPECIFICHE TECNICHE"
-                    },
-                    "anchor": {
-                        "en-UK": "tech",
-                        "it-IT": "tech"
-                    }
+                    "name": "TECHNISCHE HIGHLIGHTS",
+                    "anchor": "tech"
                 },
                 {
-                    "name": {
-                        "en-UK": "HILFE",
-                        "it-IT": "OTTIENI ASSISTENZA"
-                    },
-                    "anchor": {
-                        "en-UK": "services",
-                        "it-IT": "services"
-                    }
+                    "name": "HILFE",
+                    "anchor": "services"
                 }
             ],
             "homeLink": {
-                "name": {
-                    "en-UK": "ray-ban.com",
-                    "it-IT": "ray-ban.com"
-                }
+                "name": "ray-ban.com"
             }
         }
     }
