@@ -68,6 +68,22 @@
 @media (min-width: 769px) and (max-width: 1023px) {
   .ct_space #ct_blog__article .ct_article_hero .ct_hero__text {
     width: 40% !important;
+<<<<<<< HEAD
+    padding: 0px 40px 0px 20px;
+  }
+}
+
+.ct_space #ct_blog__article .ct_hero .ct_hero__text #ct_back__blog_hp {
+  position: absolute;
+  top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+=======
     padding: 30px 40px 30px 20px;
   }
 }
@@ -78,6 +94,7 @@
 
 .ct_space #ct_blog__article .ct_article_hero .ct_hero__text .ct_back__blog_hp:hover {
   text-decoration: none !important;
+>>>>>>> f182981d496d963d8dc443d2bebbbae2523fad8f
 }
 
 .ct_space #ct_blog__article .ct_article_hero .ct_hero__text .ct_back__blog_hp svg {
@@ -132,8 +149,13 @@
   background-color: #AEADE9;
 }
 
+<<<<<<< HEAD
+.ct_space #ct_blog__article .ct_hero .ct_category__container[data-category="eyehealth"] {
+  background-color: #6FC0DA;
+=======
 .ct_space #ct_blog__article .ct_article_hero .ct_category__container[data-category="eyehealth"] {
   background-color: #EEA27F;
+>>>>>>> f182981d496d963d8dc443d2bebbbae2523fad8f
 }
 
 .ct_space #ct_blog__article .ct_article_hero .ct_category__container[data-category="guideshowto"] {

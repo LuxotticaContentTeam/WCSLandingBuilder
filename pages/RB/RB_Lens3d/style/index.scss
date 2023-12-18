@@ -1,0 +1,56 @@
+@import 'variables';
+// @import 'resetLP';
+@import 'utils';
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  
+  
+}
+#ct_main_frame{
+  width: 50vw;
+  height: 50vw;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);  
+  z-index: 2;
+}
+#question{
+  position: absolute;
+  top: 50%;
+  width: 1300px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  pointer-events: none;
+  div{
+    font-size: 80px;
+    font-weight: bold;
+    transition: all .5s ease;
+    pointer-events: all;
+    cursor: pointer;
+    &:focus{
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+  &:hover{
+    div{
+      filter: blur(4px);
+    }
+  }
+  #eye{
+    &:hover{
+      filter: blur(0px);
+    }
+  }
+  #sun{
+    &:hover{
+      filter: blur(0px);
+    }
+  }
+}

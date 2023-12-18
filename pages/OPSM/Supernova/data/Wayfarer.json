@@ -1,0 +1,80 @@
+{
+  "products": {
+    "sequence": 0,
+    "products": {
+      "type": "ProductTile",
+      "product": [
+        {
+          "id": "0",
+          "upc": "8056597769440",
+          "brand": "Ray-Ban",
+          "listPrice": "$ 0",
+          "price": "449.00",
+          "pdpURL": "/ray-ban/rw4006-ray-ban-meta-wayfarer/8056597769440",
+          "productName": "Ray-Ban Meta Wayfarer",
+          "productNameMOCO": "0RW4006__601_SB"
+        },
+        {
+          "id": "1",
+          "upc": "8056597988377",
+          "brand": "Ray-Ban",
+          "listPrice": "$ 0",
+          "price": "449.00",
+          "pdpURL": "/ray-ban/rw4006-ray-ban-meta-wayfarer/8056597988377",
+          "productName": "Ray-Ban Meta Wayfarer",
+          "productNameMOCO": "0RW4006__601_71"
+        },
+        {
+          "id": "2",
+          "upc": "8056597982788",
+          "brand": "Ray-Ban",
+          "listPrice": "$ 0",
+          "price": "489.00",
+          "pdpURL": "/ray-ban/rw4006-ray-ban-meta-wayfarer/8056597982788",
+          "productName": "Ray-Ban Meta Wayfarer",
+          "productNameMOCO": "0RW4006__601ST3"
+        },
+        {
+          "id": "3",
+          "upc": "8056597988384",
+          "brand": "Ray-Ban",
+          "listPrice": "$ 0",
+          "price": "539.00",
+          "pdpURL": "/ray-ban/rw4006-ray-ban-meta-wayfarer/8056597988384",
+          "productName": "Ray-Ban Meta Wayfarer",
+          "productNameMOCO": "0RW4006__601SM1"
+        },
+        {
+          "id": "4",
+          "upc": "8056262047514",
+          "brand": "Ray-Ban",
+          "listPrice": "$ 0",
+          "price": "489.00",
+          "pdpURL": "/ray-ban/rw4006-ray-ban-meta-wayfarer/8056262047514",
+          "productName": "Ray-Ban Meta Wayfarer",
+          "productNameMOCO": "0RW4006__670683"
+        },
+        {
+          "id": "5",
+          "upc": "8056597982801",
+          "brand": "Ray-Ban",
+          "listPrice": "$ 0",
+          "price": "489.00",
+          "pdpURL": "/ray-ban/rw4006-ray-ban-meta-wayfarer/8056597982801",
+          "productName": "Ray-Ban Meta Wayfarer",
+          "productNameMOCO": "0RW4006__67552V"
+        },
+        {
+          "id": "6",
+          "upc": "8056597995429",
+          "brand": "Ray-Ban",
+          "listPrice": "$ 0",
+          "price": "449.00",
+          "pdpURL": "/ray-ban/rw4006-ray-ban-meta-wayfarer/8056597995429",
+          "productName": "Ray-Ban Meta Wayfarer",
+          "productNameMOCO": "0RW4006__675385"
+        }
+      ]
+    }
+  }
+}

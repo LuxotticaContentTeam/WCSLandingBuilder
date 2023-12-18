@@ -90,12 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
           }else
             benefitsItem03.classList.remove(fixed, toTop, toBottom);
 
-          if (args.scroll.y >= window.LPlensHub.lsscroll.scroll.els["item-04"].top){
-            benefitsItem04.classList.add(fixed, toTop);
-            benefitsItem04.classList.remove(toBottom);
-          }else
-            benefitsItem04.classList.remove(fixed, toTop, toBottom);
-         }
+          if(window.LPlensHub.lsscroll.scroll.els["item-04"])
+            if (args.scroll.y >= window.LPlensHub.lsscroll.scroll.els["item-04"].top){
+              benefitsItem04.classList.add(fixed, toTop);
+              benefitsItem04.classList.remove(toBottom);
+            }else
+              benefitsItem04.classList.remove(fixed, toTop, toBottom);
+          }
 
        // scroll is out benefits section and section is still visible
       if (args.scroll.y + $(".ct_section__benefits .ct_title").height() + headerHeight >= args.currentElements["benefits"].bottom) {
@@ -118,8 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
         benefitsItem03.classList.remove(fixed, toTop);
         benefitsItem03.classList.add(toBottom);
 
-        benefitsItem04.classList.remove(fixed, toTop);
-        benefitsItem04.classList.add(toBottom);
+        if(benefitsItem04){
+          benefitsItem04.classList.remove(fixed, toTop);
+          benefitsItem04.classList.add(toBottom);
+        }
       }
 
       // scroll is before benefits section
@@ -204,9 +207,10 @@ document.addEventListener("DOMContentLoaded", () => {
             opacity: `${opacity}`
           });
 
-          if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-04"].top)
-              benefitsItem04.classList.add(fixed, toTop);
-        }
+          if(window.LPlensHub.lsscroll.scroll.els["item-04"])
+            if (args.scroll.y + headerHeight >= window.LPlensHub.lsscroll.scroll.els["item-04"].top)
+                benefitsItem04.classList.add(fixed, toTop);
+          }
     }
   });
 });

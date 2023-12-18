@@ -1,0 +1,30 @@
+// @import '../../../modulelibrary/variables';
+// @import 'resetLP';
+
+.ct_bold{
+    font-family: Gotham-Medium;
+}
+ul.ct_ul{
+    list-style: initial;
+    padding-left: 40px;
+}
+ol.ct_ol{
+    list-style: lower-alpha;
+    padding-left: 40px;
+}
+.ct_subtitle{
+    font-size: 16px;
+    text-align: center;
+    width: 40%;
+    margin: auto;
+   
+}
+.ct_promo__head{
+    text-align: center;
+    line-height: 1.2;
+}
+@media(max-width:767px){
+    .privacy__text{
+        font-size: 14px;
+    }
+}

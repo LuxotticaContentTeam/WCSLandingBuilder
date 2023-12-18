@@ -340,7 +340,7 @@ html.has-scroll-dragging {
 }
 
 .ct_space .ct_clipbox .ct_img__container .img_primary {
-  width: calc($clipboxWidth / 2);
+  width: 50%;
   z-index: 100;
   border-right: solid 2px #fff;
 }
@@ -772,6 +772,18 @@ html.has-scroll-dragging {
   }
 }
 
+.ct_space .ct_section__benefits .ct_benefits_container.ct_benefits_container__3_item #benefits-item-01 .ct_item {
+  bottom: calc(50% + 225px);
+}
+
+.ct_space .ct_section__benefits .ct_benefits_container.ct_benefits_container__3_item #benefits-item-02 .ct_item {
+  bottom: 50%;
+}
+
+.ct_space .ct_section__benefits .ct_benefits_container.ct_benefits_container__3_item #benefits-item-03 .ct_item {
+  bottom: calc(50% - 225px);
+}
+
 .ct_space .ct_section__benefits .ct_benefits_container .ct_title {
   width: 50%;
   position: relative;
@@ -1009,11 +1021,12 @@ html.has-scroll-dragging {
 .ct_space .ct_section__find-style .ct_container .ct_text__overlay {
   position: absolute;
   top: 50%;
-  padding: 0px 60px;
-  max-width: 80%;
+  padding: 0px 0px 0px 60px;
+  max-width: 60%;
   z-index: 9;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
+  gap: 20px;
 }
 
 @media (max-width: 1024px) {
@@ -1025,7 +1038,7 @@ html.has-scroll-dragging {
 .ct_space .ct_section__find-style .ct_container .ct_text__overlay .ct_title {
   font-size: 60px;
   font-weight: 300;
-  width: 60%;
+  width: 55%;
   color: #222;
 }
 
@@ -1037,14 +1050,21 @@ html.has-scroll-dragging {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 45%;
 }
 
 .ct_space .ct_section__find-style .ct_container .ct_text__overlay .ct_desc__content .ct_desc {
+  word-wrap: break-word;
   font-size: 16px;
   color: #222;
   margin: 0;
+}
+
+.ct_space .ct_section__find-style .ct_container .ct_text__overlay .ct_desc__content .ct_cta__container {
+  padding-top: 30px;
 }
 
 @media (max-width: 1024px) {
@@ -1054,7 +1074,7 @@ html.has-scroll-dragging {
         -ms-flex-direction: column;
             flex-direction: column;
     max-width: 100%;
-    top: 80px;
+    top: 54px;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
@@ -1062,8 +1082,14 @@ html.has-scroll-dragging {
     font-size: 50px;
     width: 100%;
   }
+  .ct_space .ct_section__find-style .ct_container .ct_text__overlay .ct_desc__content {
+    width: 100%;
+  }
   .ct_space .ct_section__find-style .ct_container .ct_text__overlay .ct_desc__content .ct_desc {
-    margin: 15px 0;
+    margin: 20px 0;
+  }
+  .ct_space .ct_section__find-style .ct_container .ct_text__overlay .ct_desc__content .ct_cta__container {
+    padding-top: 0px;
   }
 }
 

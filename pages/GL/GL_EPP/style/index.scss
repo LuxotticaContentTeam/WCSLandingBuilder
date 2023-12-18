@@ -1,0 +1,63 @@
+// @import '../../../modulelibrary/variables';
+@import 'resetLP';
+@import 'faq';
+
+.ct_space{
+  .ct_epp{
+    background: radial-gradient(238.29% 109.48% at 0.00% 50.00%, #F7E7FF 0%, rgba(195, 214, 255, 0.67) 65.58%, #E0F0FF 91.96%), #FFF;
+  
+    @media(orientation: portrait) and (max-width: 1024px), (orientation: landscape) and (max-width: 1023px){
+      padding: 32px 16px !important;
+    }
+    .ct_cards{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      gap: 32px;
+      justify-content: center;
+      @media (min-width: 1300px) {
+          max-width: 80%;
+      }
+      @media(orientation: portrait) and (max-width: 1024px), (orientation: landscape) and (max-width: 1023px){
+        padding: 32px 0px !important;
+        gap: 16px;
+      }
+
+      .ct_card{
+        padding: 36px;
+        border-radius: 8px;
+        background-color: #FFF;
+        display: flex;
+        width: 450px;
+        gap: 8px;
+        display: flex;
+        flex-direction: column;
+
+        ul{
+          padding-left: 25px;
+          li{
+            list-style: disc;
+            font-size: 14px;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+  }
+
+  .ct_flex{
+      display: flex;
+  }
+  .ct_align__center{
+      align-items: center;
+  }
+  .ct_flex__row{
+      flex-direction: row;
+  }
+  .ct_flex__column{
+      flex-direction: column;
+  }
+  .ct_flex__space_evenly{
+      justify-content: space-evenly;
+  }
+}

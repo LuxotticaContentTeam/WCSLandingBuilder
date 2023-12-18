@@ -1,0 +1,28 @@
+@import "variables.scss";
+
+$gutter-x: 1rem; //16px
+
+#supernovaLP {
+  #features {
+    .swiper {
+      min-height: 136px;
+      .swiper-wrapper {
+        @media screen and (min-width: $breakpoint-md) {
+          margin-right: calc(-0.5 * $gutter-x);
+          margin-left: calc(-0.5 * $gutter-x);
+        }
+      }
+      .swiper-pagination {
+        bottom: 24px;
+        .swiper-pagination-bullet {
+          background: transparent;
+          opacity: 1;
+          border: 0.5px solid $black;
+          &.swiper-pagination-bullet-active {
+            background: $black;
+          }
+        }
+      }
+    }
+  }
+}

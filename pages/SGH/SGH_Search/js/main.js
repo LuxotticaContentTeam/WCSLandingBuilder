@@ -1,6 +1,7 @@
+import { accessibility } from "./modules/accessibility";
 import { loader } from "./modules/loader";
 import { storeInfo } from "./modules/storeInfo";
-import { calcCoordinates, customLog, debounce, getDevice } from "./modules/utils";
+import { analyticsPush, calcCoordinates, checkData, customLog, debounce, formatDataAnalytics, getDevice } from "./modules/utils";
 
 
 
@@ -13,6 +14,7 @@ window.ct_wow__search.structure = {
     missingProd:null,
     missingPos:null
   },
+  accessibility_mode: false,
   placeholders:{
     utils:{
       mainCircle:{
@@ -31,13 +33,18 @@ window.ct_wow__search.structure = {
       }
     },
     coordinates:[],
+ 
   },
-  init: function(reopen){
+  init:async function(reopen){
+    window.ct_wow__search.opening = true;
     customLog('WOW SEARCH INIT');
+
     storeInfo.getInfo();
+    
     
     if (!reopen){
       this.container = document.querySelector('#ct_wow__search');
+      this.container.classList.add('ct_active');
       this.setCloseHandler();
       this.prod_list_container = document.querySelector('.ct_wow__search__products_list');
       if (this.device === 'D'){
@@ -48,26 +55,38 @@ window.ct_wow__search.structure = {
     if (this.device != 'D'){
       this.calcHeight();
     }
-  
+    await checkData(window.ct_wow__search.data,3000);
+    if (window.ct_wow__search.data.loaded === false){
+      customLog('WOW SEARCH INIT - TIMEOUT');
+      return
+    }
+    if(!reopen){
+      
+      loader.init(1500)
+    }
     if (!reopen){
       this.buildHtml();
       this.setPlaceholders(true);
       ct_wow__search.inputManagement.init(); 
     }
     this.entry();
-    if(!reopen){
-      loader.init(1500)
-    }
+   
     window.addEventListener('resize', this.refreshPositionsDebounced);
+    this.container.addEventListener('keyup',(e)=>{
+
+      if((e.keyCode === 9 || e.which === 9) && this.accessibility_mode === false){
+        accessibility.init(true)
+      }
+    })
 
     // if (this.device === "M"){
     //   this.zoomHandler()
     // }
-   
     
+    window.ct_wow__search.opening = false;
   },
+
   calcHeight:function(){
-    customLog('Calc Height')
     window.ct_wow__search.structure.container.style.setProperty("--ct-wow-search-height", `${window.innerHeight}px`);
     window.addEventListener('resize', this.calcHeight);
   },
@@ -75,13 +94,13 @@ window.ct_wow__search.structure = {
     /**
      * Insert Products in HTML
      */
-    let url_first_part = 'https://www.sunglasshut.com/us'//tochange
+   
     Object.keys(window.ct_wow__search.data.products).forEach(upc=>{
     
       this.prod_list_container.innerHTML+=`
       <li class="ct_wow_search__product" data-upc="${upc}">
         <div class="ct_wow_search__product__wrap">
-          <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" aria-label="shop now ${upc}" data-element-id="X_X_WowSearch_Banner" data-description-="${upc}">
+          <a href="${storeInfo.getLang(window.ct_wow__search.data.products[upc].url)}" aria-label="shop now ${upc}" data-element-id="WowQuiz_Step1-Product" data-description-="${upc}" tabindex="0">
               <div class="ct_wow_search__img_container">
                   <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
               </div>
@@ -249,9 +268,10 @@ window.ct_wow__search.structure = {
   //   // this.prod_list;
   //   // this.placeholders.coordinates;
   // },
-  rankingProducts:function(qIndex,aIndex){
+  rankingProducts:function(qIndex,aIndex,aInnerText){
     window.ct_wow__search.inputManagement.answers.state[qIndex] = parseInt( aIndex)
-    // console.log({question:qIndex,answer:aIndex});
+    window.ct_wow__search.inputManagement.answers.tracked[qIndex] = aInnerText;
+    // console.log(window.ct_wow__search.inputManagement.answers.tracked);
     //calc each product score
     this.prod_list.forEach(prod=>{
        prod.score = this.calcScore(prod.upc);
@@ -276,6 +296,7 @@ window.ct_wow__search.structure = {
       if(i>=this.placeholders.utils.secondCircle.prodsCount + 3){
         prod.scalingElem.style.transform = "translate(-50%,-50%) scale(.6)";
       }
+      prod.scalingElem.dataset.elementId = `WowQuiz_Step${parseInt( qIndex) + 2}-Product`
     });
    
     window.ct_wow__search.inputManagement.results.state = [
@@ -376,7 +397,7 @@ window.ct_wow__search.structure = {
   // },
  
   setCloseHandler:function(){
-    this.container.querySelector('#ct_wow__search__close').addEventListener('click',()=>{
+    document.querySelector('#ct_wow__search__close').addEventListener('click',()=>{
       this.container.classList.remove('ct_in');
       document.body.style.overflow = 'auto'
       //reset structure
@@ -391,7 +412,6 @@ window.ct_wow__search.structure = {
    
   },
   resetStructure:function(){
-    customLog('- RESET Structure -')
     window.ct_wow__search.structure.prod_list_container.style.transform = `scale(1)`
     this.prod_list_container.querySelectorAll('.ct_wow_search__product__wrap').forEach(prod=>{
       prod.style.transform = "none";
@@ -416,7 +436,8 @@ window.ct_wow__search.inputManagement = {
   },
   answers:{
     container:null,
-    state:[]
+    state:[],
+    tracked:[],
   },
   buttons:{
     next:null,
@@ -429,7 +450,6 @@ window.ct_wow__search.inputManagement = {
     state:[]
   },
   init:function(reopen){
-    
     this.setElements()
     this.fillData();
     this.setButtonsHandler();
@@ -444,7 +464,6 @@ window.ct_wow__search.inputManagement = {
     
     this.buttons.next = document.querySelector('.ct_wow__search__input_commands__next');
     this.buttons.prev = document.querySelector('.ct_wow__search__input_commands__prev');
-    this.buttons.results = document.querySelector('.ct_wow__search__input_commands__results');
     this.buttons.restart = document.querySelector('.ct_wow__search__restart');
 
     this.results.container = document.querySelector('#ct_wow__search__results');
@@ -463,7 +482,7 @@ window.ct_wow__search.inputManagement = {
   setButtonsHandler:function(){
     this.buttons.prev.addEventListener('click',()=>{this.changeQuestions('prev')});
     this.buttons.next.addEventListener('click',()=>{this.changeQuestions('next')});
-    this.buttons.results.addEventListener('click',()=>{this.showResult()});
+    // this.buttons.results.addEventListener('click',()=>{this.showResult()});
     this.buttons.restart.addEventListener('click',()=>{this.restartQuiz()});
   },
   updateProgress:function(dir){
@@ -471,6 +490,13 @@ window.ct_wow__search.inputManagement = {
    
     if (dir){
       //set element positioning
+      if(this.progress.state != 1){
+        analyticsPush({
+          'id': 'Impression',
+          'Page_Section2': `WowQuiz:Step${this.progress.state}`, 
+        })
+      }
+   
       this.progress.current.dataset.next = this.progress.state; 
       this.progress.container.style.setProperty('--ct-wow-search-input-progress-before-opacity',"1");
       this.progress.container.style.setProperty('--ct-wow-search-input-progress-after-opacity',"0");
@@ -511,7 +537,6 @@ window.ct_wow__search.inputManagement = {
    
   },
   setButtonCopy:function(){
-    this.buttons.results.querySelector('span').innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.inputs.showResults);
     this.buttons.restart.innerHTML = storeInfo.getLang(window.ct_wow__search.data.copy.results.restart);
   },
   updateQuestionCopy:function(){
@@ -526,11 +551,11 @@ window.ct_wow__search.inputManagement = {
     let answers="";
   
     window.ct_wow__search.data.questions.forEach((question,qindex)=>{
-      answers+=`<div class="ct_wow__search__input_answer" data-answer="${qindex}">`
+      answers+=`<div class="ct_wow__search__input_answer"  data-answer="${qindex}">`
       question.answers.forEach((answer,aindex)=>{
         answers += `
         <div class="ct_wow__search__button_wrap">
-          <button class="ct_cta ct_cta__white " data-q="${ qindex }" data-a="${aindex}">${storeInfo.getLang( answer)}</button>
+          <button class="ct_cta ct_cta__black " data-q="${ qindex }" tabindex="-1" data-a="${aindex}" data-element-id="WowQuiz_Step${qindex + 1}-Answer" data-description="${answer["en"]}">${storeInfo.getLang( answer)}</button>
         </div>
         `
       })
@@ -543,25 +568,24 @@ window.ct_wow__search.inputManagement = {
     this.answers.container.querySelectorAll('button').forEach(button=>{
       button.addEventListener('click',()=>{
         if (!button.classList.contains('ct_active')){
-          
-          if (!window.ct_wow__search.structure.container.classList.contains('ct_shuffled')){
-            window.ct_wow__search.structure.container.classList.add('ct_shuffled')
-          }
-          window.ct_wow__search.structure.refreshPositions()
-          window.ct_wow__search.structure.rankingProducts(button.dataset.q,button.dataset.a);
-          
-          if(button.parentNode.parentNode.querySelector('button.ct_active')){
-            button.parentNode.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
-          }
-          button.classList.add('ct_active');
-          button.parentNode.parentNode.classList.add('ct_aswered');
-          this.container.classList.add('ct_can_proceed');
-          if (this.progress.state < this.stepsCount){
-
+          //check if is the button in the last step
+          if (this.progress.state < this.stepsCount  ){
+            if (!window.ct_wow__search.structure.container.classList.contains('ct_shuffled')){
+              window.ct_wow__search.structure.container.classList.add('ct_shuffled')
+            }
+            window.ct_wow__search.structure.refreshPositions()
+            window.ct_wow__search.structure.rankingProducts(button.dataset.q,button.dataset.a,button.dataset.description);
+            
+            if(button.parentNode.parentNode.querySelector('button.ct_active')){
+              button.parentNode.parentNode.querySelector('button.ct_active').classList.remove('ct_active');
+            }
+            button.classList.add('ct_active');
+            button.parentNode.parentNode.classList.add('ct_aswered');
+            this.container.classList.add('ct_can_proceed');
             this.changeQuestions('next');
+          
           }else{
-            this.buttons.results.classList.remove('ct_disabled');
-            location.href.includes('v2') ?this.container.classList.add('ct_last_step_2') :this.container.classList.add('ct_last_step')
+            this.showResult()
           }
         }
 
@@ -570,7 +594,7 @@ window.ct_wow__search.inputManagement = {
   },
   updateAnswer:function(){
     if(this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active')){
-      this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active').classList.remove('ct_active')
+      this.answers.container.querySelector('.ct_wow__search__input_answer.ct_active').classList.remove('ct_active');
     }
     this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state - 1}"]`).classList.add('ct_active')
   },
@@ -583,13 +607,13 @@ window.ct_wow__search.inputManagement = {
   changeQuestions:function(dir){
   
     if (!this.blockerActive){
+    
       if (dir ==='next'){
         this.progress.state+= 1;
         if (this.progress.state === this.stepsCount && !this.buttons.next.classList.contains('ct_disabled') ){
           this.buttons.next.classList.add('ct_disabled');
           if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
-            this.buttons.results.classList.remove('ct_disabled');
-            location.href.includes('v2') ?this.container.classList.add('ct_last_step_2') :this.container.classList.add('ct_last_step')
+            this.container.classList.add('ct_last_step')
           }
         }
       
@@ -600,12 +624,11 @@ window.ct_wow__search.inputManagement = {
           this.buttons.prev.classList.remove('ct_disabled')
         }
         if (this.progress.state === 1 ){
-          this.buttons.results.classList.add('ct_disabled');
           this.buttons.next.classList.remove('ct_disabled');
           this.buttons.prev.classList.add('ct_disabled');
-          location.href.includes('v2') ?this.container.classList.remove('ct_last_step_2') :this.container.classList.remove('ct_last_step')
+          this.container.classList.remove('ct_last_step')
         } 
-
+        
       }else{
         this.progress.state-= 1;
         if (this.progress.state === 1 && !this.buttons.prev.classList.contains('ct_disabled')){
@@ -613,8 +636,7 @@ window.ct_wow__search.inputManagement = {
         }
         if(this.buttons.next.classList.contains('ct_disabled')){
           this.buttons.next.classList.remove('ct_disabled');
-          this.buttons.results.classList.add('ct_disabled');
-          location.href.includes('v2') ?this.container.classList.remove('ct_last_step_2') :this.container.classList.remove('ct_last_step')
+          this.container.classList.remove('ct_last_step')
         }
         if (this.answers.container.querySelector(`.ct_wow__search__input_answer[data-answer="${this.progress.state-1}"]`).classList.contains('ct_aswered')){
           this.container.classList.add('ct_can_proceed');
@@ -628,6 +650,12 @@ window.ct_wow__search.inputManagement = {
   
   },
   showResult:function(){
+    analyticsPush({
+      'id': 'Impression',
+      'Page_Section2': 'WowQuiz:Results',
+      'Content_Answers': formatDataAnalytics(window.ct_wow__search.inputManagement.answers.tracked,'|'), // i valori vanno passati sempre in inglese
+      'Products': formatDataAnalytics(window.ct_wow__search.inputManagement.results.state,'object'),
+    })
     this.results.container.classList.add('ct_in');
     this.results.container.classList.add('ct_loader_in');
     loader.loaderIn(2000,"results");
@@ -641,12 +669,11 @@ window.ct_wow__search.inputManagement = {
     let productsContainer = this.results.container.querySelector('#ct_wow__search__results_products');
     productsContainer.innerHTML=''
    
-    let url_first_part = 'https://www.sunglasshut.com/us'//tochange
-  
+   
     this.results.state.forEach(upc=>{
       
       productsContainer.innerHTML+=`
-      <a href="${url_first_part+window.ct_wow__search.data.products[upc].url}" class="ct_wow__search__results_product">
+      <a href="${storeInfo.getLang(window.ct_wow__search.data.products[upc].url)}" class="ct_wow__search__results_product" data-element-id="WowQuiz_Results-Product" data-description="${upc}">
           <img src="${window.ct_wow__search.data.products[upc].img?window.ct_wow__search.data.products[upc].img: "https://assets.sunglasshut.com/is/image/LuxotticaRetail/"+ upc+"__STD__shad__fr.png?impolicy=SGH_bgtransparent&width=640"}" alt="${upc}">
           <span>${window.ct_wow__search.data.products[upc].brand}</span>
         </a>
@@ -666,7 +693,6 @@ window.ct_wow__search.inputManagement = {
     
   },
   resetQuestions:function(){
-    customLog('resetQuestions');
     this.progress.state = 0;
     this.answers.container.querySelectorAll('button.ct_active').forEach(button=>button.classList.remove('ct_active'))
     this.answers.container.querySelectorAll('.ct_aswered').forEach(aswered=>aswered.classList.remove('ct_aswered'))
@@ -680,18 +706,24 @@ window.ct_wow__search.inputManagement = {
   
 }
 
-if (!window.ct_wow__search.structure?.container){
-  let div = document.createElement('div')
-  div.id = "ct_wow__search__container";
-  if(!window.ct_wow__search.template){
-
-  }else{
-    div.innerHTML= window.ct_wow__search.template;
-    document.querySelector(window.ct_wow__search.config.selector).appendChild(div);
-   
+ 
+  if(document.querySelector('#ct_wow__search')){
     window.ct_wow__search.structure.init();
-
+  }else{
+    var timeout_ = 0;
+    var ct_wow__search_interval = setInterval(()=>{
+      if(document.querySelector('#ct_wow__search')){
+        window.ct_wow__search.structure.init();
+        clearInterval(ct_wow__search_interval)
+      }else{
+        timeout_+=200;
+        if (timeout_ > 5000){
+          customLog('WOW SEARCH - Search not initialized!')
+          clearInterval(ct_wow__search_interval)
+        }
+      }
+    },200)
   }
-}
+
 
 

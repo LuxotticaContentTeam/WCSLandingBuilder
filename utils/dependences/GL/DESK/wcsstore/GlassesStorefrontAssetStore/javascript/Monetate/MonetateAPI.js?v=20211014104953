@@ -1,0 +1,207 @@
+function monetateLogin(){
+    if(isMonetateEnabled()){
+		window.monetateQ = window.monetateQ || [];
+		window.monetateQ.push(["setPageType", "login"]);
+	    window.monetateQ.push(["trackData"]);	
+	}
+}
+
+function monetateTrackCatalogItem(){
+   if(isMonetateEnabled()){
+	var category="";
+    window.monetateQ = window.monetateQ || [];
+    var cartRows = getCartItems();
+    
+    var productList=[];
+ 
+    if(typeof(window.productDetails)!= "undefined" && window.productDetails!=null && window.productDetails!=''){	
+       window.productDetails.getAll().forEach(function(elem) {
+    	    for(subproduct in elem.subProductsArray){
+   	         productList.push(elem.subProductsArray[subproduct].partNumber);
+   	       }
+        });	
+   	   
+   	   if(cartRows!=null){
+		window.monetateQ.push(["addCartRows", cartRows]);
+	   }
+   	   
+	   window.monetateQ.push(["addProducts", productList]);
+	   window.monetateQ.push(["addCategories",[window.category]]);
+	   window.monetateQ.push(["setPageType", "catalog"]);
+       window.monetateQ.push(["trackData"]);
+    } 
+  }
+}
+
+function monetateSearch(listItems){
+	if(isMonetateEnabled()){
+	window.monetateQ = window.monetateQ || [];
+	
+	var productList=[]
+	
+	for(product in listItems){
+		productList.push(listItems[product].mfPartNumber_ntk);
+	}
+
+	window.monetateQ.push(["setPageType", "search"]);
+	window.monetateQ.push(["addProducts", productList]);
+	window.monetateQ.push(["trackData"]);
+   }
+}
+
+function monetateLandingPdp(){
+	if(isMonetateEnabled()){
+	  var category="";
+	  window.monetateQ = window.monetateQ || [];
+	  var cartRows = getCartItems();
+	  var productList=[];
+	 
+	 if(typeof(window.productDetails)!= "undefined" && window.productDetails!=null && window.productDetails!=''){ 
+		 window.productDetails.getAll().forEach(function(elem) {
+		    for(subproduct in elem.subProductsArray){
+		        productList.push(elem.subProductsArray[subproduct].partNumber);
+		   	 if(category==""){
+         		 category=elem.subProductsArray[subproduct].category;
+         		if(category.toLowerCase() == 'sunglasses'){
+         			category = 'SUN';
+         		}else if(category.toLowerCase() == 'eyeglasses'){
+         			category = 'OPTICS';
+         		}
+         	   }
+		      }
+		  });
+		
+		 if(cartRows!=null){
+			window.monetateQ.push(["addCartRows", cartRows]);
+		   }
+		 
+		window.monetateQ.push(["addProducts", productList]);
+		window.monetateQ.push(["addCategories",[category]]);
+		window.monetateQ.push(["setPageType", "PDP"]);
+	    window.monetateQ.push(["trackData"]);
+	   } 
+	  }
+	}
+
+
+function monetateCheckout(){
+   if(isMonetateEnabled()){
+	   for (var i in products) {
+	       	var quantity=products[i].Units;
+				quantity=parseFloat(Math.round(quantity * 100) / 100).toFixed();
+			    var unitPrice=products[i].Price;
+				unitPrice = parseFloat(Math.round(unitPrice * 100) / 100).toFixed(2);
+				   	var purchaseRowJSON={
+				        "productId": i,
+				        "quantity": quantity,
+				        "unitPrice": unitPrice,
+				        "sku":products[i].Sku.replace(" ","_"),
+				        "currency": "USD"
+					};
+				   	cartRows.push(purchaseRowJSON);	 
+	   		}
+		   if(cartRows!=null){
+			  window.monetateQ = window.monetateQ || [];
+			  window.monetateQ.push(["addCartRows", cartRows]);
+		      window.monetateQ.push(["setPageType", "checkout"]);
+		      window.monetateQ.push(["trackData"]);  
+		   }   
+  	  }	
+}
+
+function monetateTrackProduct(currentProductId,category){
+  if(isMonetateEnabled()){	
+      var productDetails=[];
+
+      if(currentProductId){
+    	   var array = Array.from(window.productDetails.getAllSubProduct(currentProductId).entries());
+    	 	 for(i = 0; i < array.length; i++){
+    	 		productDetails.push(array[i][1].partNumber);
+    	 	 }
+    	      
+    		  window.monetateQ = window.monetateQ || [];
+    		  window.monetateQ.push(["addProductDetails",productDetails]);
+    		  window.monetateQ.push(["addCategories",[category]]);
+    		  window.monetateQ.push(["setPageType","product"]);
+    		  window.monetateQ.push(["trackData"]);
+     }
+   }
+} 
+
+
+function getCartItems(){
+
+	var cartRows=[];
+	
+	if(typeof products !== 'undefined'){
+		for (var i in products) {
+	       	var quantity=products[i].Units;
+				quantity=parseFloat(Math.round(quantity * 100) / 100).toFixed();
+			    var unitPrice=products[i].Price;
+				unitPrice = parseFloat(Math.round(unitPrice * 100) / 100).toFixed(2);
+				   	var purchaseRowJSON={
+				        "productId": i,
+				        "quantity": quantity,
+				        "unitPrice": unitPrice,
+				        "sku":products[i].Sku.replace(" ","_"),
+				        "currency": "USD"
+					};
+			 cartRows.push(purchaseRowJSON);	 
+	   	 }	
+	}
+	
+	
+	return cartRows;
+}  
+
+function monetateTrackCart(){
+	if(isMonetateEnabled()){
+	window.monetateQ = window.monetateQ || [];
+	var cartRows = getCartItems();
+	
+	   if(cartRows!=null && cartRows.length > 0){
+		  window.monetateQ.push(["addCartRows", cartRows]);
+	      window.monetateQ.push(["setPageType", "cart"]);
+	      window.monetateQ.push(["trackData"]);  
+	   }
+	}
+ }
+
+
+function monetateAccountModal(){
+   if(isMonetateEnabled()){
+     window.monetateQ = window.monetateQ || [];
+  	  if(typeof(cartRows)!= "undefined" && cartRows!=null && cartRows!=''){ 
+         	window.monetateQ.push(["addCartRows", cartRows]);
+       } 
+     window.monetateQ.push(["setPageType", "account"]);
+     window.monetateQ.push(["trackData"]);
+    }    
+ }
+
+function monetateTrackCartProducts(){
+	if(isMonetateEnabled()) {
+		window.monetateQ = window.monetateQ || [];
+		var cartRows = [];
+		for (var i in cartProducts) {
+			var quantity = cartProducts[i].Units;
+			quantity = parseFloat(Math.round(quantity * 100) / 100).toFixed();
+			var unitPrice = cartProducts[i].Price;
+			unitPrice = parseFloat(Math.round(unitPrice * 100) / 100).toFixed(2);
+
+			var cartRowJSON = {
+				"productId": i,
+				"quantity": quantity,
+				"unitPrice": unitPrice,
+				"sku": cartProducts[i].Sku.replace(" ", "_"),
+				"currency": "USD"
+			};
+
+			cartRows.push(cartRowJSON);
+		}
+		
+		if (cartRows != null && cartRows.length > 0) {
+			window.monetateQ.push(["addCartRows", cartRows]);
+		}
+	}
+}

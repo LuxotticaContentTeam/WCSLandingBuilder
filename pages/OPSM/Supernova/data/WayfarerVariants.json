@@ -1,0 +1,37 @@
+{
+  "variants0": [
+    {
+      "variantColor": "Clear"
+    }
+  ],
+  "variants1": [
+    {
+      "variantColor": "Green"
+    }
+  ],
+  "variants2": [
+    {
+      "variantColor": "Graphite"
+    }
+  ],
+  "variants3": [
+    {
+      "variantColor": "Clear/Green G-15"
+    }
+  ],
+  "variants4": [
+    {
+      "variantColor": "Brown"
+    }
+  ],
+  "variants5": [
+    {
+      "variantColor": "Dusty Blue"
+    }
+  ],
+  "variants6": [
+    {
+      "variantColor": "Amber"
+    }
+  ]
+}

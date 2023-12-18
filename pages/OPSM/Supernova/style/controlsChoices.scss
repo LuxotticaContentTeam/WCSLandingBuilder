@@ -1,0 +1,68 @@
+@import "variables.scss";
+
+#supernovaLP {
+  #controlsChoices {
+    .swiper {
+      .swiper-wrapper {
+        .swiper-slide {
+          width: 75%;
+
+          @media screen and (min-width: $breakpoint-lg) {
+            width: 100%;
+            max-width: 864px;
+          }
+
+          &.swiper-slide-active {
+            p {
+              opacity: 1 !important;
+              transition: opacity 1s ease-out;
+            }
+          }
+        }
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        top: 37.5%;
+        background: $third-color !important;
+        border: 1px solid $sixth-color;
+        color: $black !important;
+        width: 64px !important;
+        height: 32px !important;
+        border-radius: 40px !important;
+        cursor: pointer !important;
+        transition: all .4s ease;
+        &::after {
+          display: inline-flex;
+          content: "";
+          background-size: 16px 16px;
+          height: 16px;
+          width: 16px;
+          position: absolute !important;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%) !important;
+        }
+      }
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        border-color: $second-color;
+      }
+      .swiper-button-next {
+        right: 64px;
+
+        &::after {
+          background-image: url("https://media.opsm.com/2023/10_October/RB_Supernova/right.svg");
+        }
+      }
+
+      .swiper-button-prev {
+        left: 64px;
+
+        &::after {
+          background-image: url("https://media.opsm.com/2023/10_October/RB_Supernova/left.svg");
+        }
+      }
+    }
+  }
+}

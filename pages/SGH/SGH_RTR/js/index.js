@@ -1,71 +1,113 @@
 
-
 const ct_rtr__data = {
   data: {
     selector: '#ct_rtr',
     products: [
       {
-        upc: '8056597837170',
-        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597837187__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        upc: '8056597988377',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597988377__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_clubmaster.svg',
-        name: 'Ray-Ban'
+        brand: "Ray-Ban",
+        name: 'Ray-Ban | Meta Wayfarer'
       },
       {
-        upc: '888392601629',
-        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/888392601629__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
+        upc: '8056597988391',
+        img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597988391__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Oakley'
+        brand: "Ray-Ban",
+        name: 'Ray-Ban | Meta Headliner',
       },
       {
         upc: '8056597744430',
         img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597744430__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Prada'
+        brand:"Prada",
+        name: 'PR 13ZS'
       },
       {
         upc: '8056597895651',
         img: 'https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597895651__STD__shad__cfr.png?impolicy=ContentImQuery&im=Resize,width=250',
         // title_img: 'https://media.ray-ban.com/2022/063DCAROUSEL/3D_RTR/mega_wayfarer.svg',
-        name: 'Versace'
+        brand:"Versace",
+        name: 'Medusa Biggie'
       }
     ],
-    hdr: 'https://media.ray-ban.com/utilities/WebEFX/RTR/hdr/panorama_2_1.hdr',
+    hdr: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/panorama_2_1.hdr',
     img_sx:{
-      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHnpzH8ACHYDd/HVOUQAAAAASUVORK5CYII=',
-      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHhkz38GCgDjqAEMo2HAMBoGDIMhDACVnDHATGTYawAAAABJRU5ErkJggg==' // 15:16
+      d: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjuHn2yH8ACFcDavqIft4AAAAASUVORK5CYII=',
+      m: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jvHD0wH8GCgDjqAEMo2HAMBoGDIMhDAAOyDH8If50jQAAAABJRU5ErkJggg==' // 15:16
     },
     img_dx:{
-      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SNGH_3D-1.jpg',
-      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_RTR.png' // 75:56
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/bkg_rtr.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_loader.jpeg' // 75:56
     },
     img_dx_loader:{
-      d: 'https://media.sunglasshut.com/2023/utility/RTR/SNGH_3D-1_loader.jpg',
-      m: 'https://media.sunglasshut.com/2023/utility/RTR/SGH_3D_bottom_5_loader.png'
+      d: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/bkg_rtr.jpg',
+      m: 'https://media.sunglasshut.com/utilities/WebEFX/RTRimages/SGH/SGH_3D_bottom_5_loader.jpeg'
     }
   },
   labels: {
     headline:{
-      "en":"See our bestsellers in 3D"
+      "en":"See our bestsellers in 3D",
+      "fr-ca":"Regardez nos articles les plus populaires en 3D",
+      "es":"Compra nuestros bestsellers en 3D",
+      "fr":"Découvrez nos best-sellers en 3D",
+      "de":"Schau dir unsere Bestseller in 3D an", 
+      "pt":"Ver os nossos bestsellers em 3D",
+      "pt-br":"Veja nossos modelos mais vendidos em 3D",
+      "es-mx":"Mira nuestros éxitos de ventas en 3D"
+
     },
     bottom_text:{
-      "en":"Expertly crafted shades from every angle."
+      "en":"Expertly crafted shades from every angle.",
+      "fr-ca":"Des lunettes de soleil savamment conçues sous tous les angles.",
+      "es":"Gafas de sol elaboradas por expertos desde todos los ángulos.",
+      "fr":"Des solaires fabriquées d’une main experte, sous tous les angles.",
+      "de":"Fachmännisch gefertigte Sonnenbrillen aus jedem Blickwinkel.", 
+      "pt":"Tons habilmente trabalhados de todos os ângulos.",
+      "pt-br":"Óculos de sol cuidadosamente projetados, vistos de todos os ângulos.",
+      "es-mx":"Lentes elaborados por expertos desde todos los ángulos."
+
     },
     shop_now: {
-      "en": "Shop now"
+      "en": "Shop now",
+      "fr-ca":"Magasinez",
+      "es":"Comprar ahora",
+      "fr":"Acheter",
+      "de":"Jetzt shoppen", 
+      "pt":"Comprar",
+      "pt-br":"Compre agora",
+      "es-mx":"Comprar ya"
+    
     },
     rotate: {
-      'en': 'DRAG TO ROTATE THE GLASSES'
+      'en': 'DRAG TO ROTATE THE GLASSES',
+      "fr-ca":"FAIRE GLISSER ET FAIRE PIVOTER",
+      "es":"ARRASTRAR Y GIRAR",
+      "fr":"FAIRE GLISSER ET PIVOTER",
+      "de":"ZIEHEN UND DREHEN", 
+      "pt":"ARRASTAR E RODAR",
+      "pt-br":"ARRASTE E GIRE",
+      "es-mx":"ARRASTRAR Y GIRAR"
+
     },
     cursor: {
-      'en': 'DRAG'
+      'en': 'DRAG',
+      "fr-ca":"FAIRE GLISSER",
+      "es":"ARRASTRAR",
+      "fr":"FAIRE GLISSER",
+      "de":"ZIEHEN", 
+      "pt":"ARRASTAR",
+      "pt-br":"ARRASTRAR",
+      "es-mx":"Comprar ya"
     }
   },
   links: {
-    '8056597837170': {
-      'en': '/ray-ban/rb0316s-8056597837187?rtrpdp'
+    '8056597988377': {
+      'en': '/ray-ban-meta/rw4006-8056597988377?rtrpdp'
     },
-    '888392601629': {
-      'en': '/oakley/oo9235-888392601629?rtrpdp'
+    '8056597988391': {
+      'en': '/ray-ban-meta/rw4009-8056597988391?rtrpdp'
     },
     '8056597744430': {
       'en': '/prada/pr-13zs-8056597744430?rtrpdp'
@@ -76,7 +118,7 @@ const ct_rtr__data = {
   },
   libraries: [
     {
-      url : 'https://rtr-viewer.luxottica.com/lib/v/2.3.0/main.js',
+      url : 'https://rtr-viewer.luxottica.com/lib/v/4.1.0/main.js',
       callback: ()=>{
         console.log(`RTR BANNER - rtr viewer loaded - ${window.rtrViewer}`);
       }
@@ -96,6 +138,17 @@ const ct_rtr__data = {
       }
     }
   ]
+}
+
+
+function ct_rtr__getTrad(field,lang,lang_short){
+  if(field[lang]){
+    return field[lang];
+  }
+  if(field[lang_short]){
+    return field[lang_short];
+  }
+  return field['en'];
 }
 
 function ct_rtr__lazy(){
@@ -132,27 +185,60 @@ function ct_rtr__init(){
   let ct_rtr__lang_short = wcs_config.locale.match("^[^_]+")[0];
   let ct_rtr__baseurl = location.origin + location.pathname;
   console.log(ct_rtr__device,ct_rtr__lang,ct_rtr__lang_short,ct_rtr__baseurl)
+  
+
+
+let a={
+  data:{
+    selector: '#rtr',
+    showEnvironment: false,
+    id: {
+      type: 'upc',
+      value: '', // <----------
+  },
+    environmentPath: '',
+    
+  }
+}
   var ct_rtr__val = {
     data: {
         selector: '.ct_rtr__container .ct_rtr__view .ct_rtr__viewer',
         showBackground: true,
         showEnvironment: false,
-        upc: ct_rtr__data.data.products[0].upc,
+        id: {
+          type: 'upc',
+          value: ct_rtr__data.data.products[0].upc
+        },
         backgroundPath: ct_rtr__data.data.img_dx[ct_rtr__device],
         environmentPath: ct_rtr__data.data.hdr,
         settings: {
-            pixelRatio: window.devicePixelRatio,
-            backgroundFit: 'cover',
-            autoResetCamera: false, // <----- QUESTO DISABILITA IL RESET DELLA CAMERA AL LOADING
-            cameraRotationInitial: { // <----- QUESTO IMPOSTA LA ROTAZIONE INIZIALE DELLA CAMERA (IN GRADI)
-                phi: 0, // rage [-90, 90]
-                theta: 0, // range [-180 - 180]
+          autoRotateCamera: false,
+          // clearColor: '#000',
+          // showBackground: false,
+          pixelRatio: window.devicePixelRatio,
+          autoResetCamera: false, // <----- QUESTO DISABILITA IL RESET DELLA CAMERA AL LOADING
+          cameraRotationInitial: { // <----- QUESTO IMPOSTA LA ROTAZIONE INIZIALE DELLA CAMERA (IN GRADI)
+              phi: 0, // rage [-90, 90]
+              theta: 0, // range [-180 - 180]
+          },
+          cameraRotationReset: { // <----- QUESTO LA TARGET ROTATION (IN GRADI)
+            phi: 20,
+            theta: 40,
+          },
+          gestures: {
+            mouse: {
+                left: 'rotate',
+                middle: 'none',
+                right: 'none',
+                wheel: 'none',
             },
-            cameraRotationReset: { // <----- QUESTO LA TARGET ROTATION (IN GRADI)
-                phi: 20,
-                theta: 40,
+            touches: {
+                one: 'rotate',
+                two: 'rotate',
+                three: 'dolly-pan',
             },
-        },
+          },
+        }
     },
     metadata: {
         env: 'production',
@@ -178,19 +264,6 @@ function ct_rtr__init(){
     }
   };
 
-  var ct_rtr__text = document.createElement("div");
-  ct_rtr__text.innerHTML = `<div class="text-module text-module--theme-dark text-module--text-align-center text-module--vertical-spacing-large" content-position="center" style="padding-top: 0;">
-    <div class="text-module__container text-module__title-and-excerpt-container">
-      <div class="text-module__title">
-        <h2> This is a new arrival</h2>
-      </div>
-      <div class="text-module__excerpt">
-        <p> View it at every angle.</p>
-      </div>
-    </div>
-  </div>`;
-  // document.querySelector(ct_rtr__data.data.selector).appendChild(ct_rtr__text);
-
   var ct_rtr__container = document.createElement("div");
   ct_rtr__container.className = 'ct_rtr__container';
   ct_rtr__container.innerHTML = `
@@ -200,16 +273,16 @@ function ct_rtr__init(){
         <img class="ct_rtr__bg" src="${ct_rtr__data.data.img_sx.d}" alt="3d background" />
       </picture>
       <div class="ct_rtr__text">
-        <h3 class="ct_rtr__headline">${ct_rtr__data.labels.headline["en"]}</h3>
+        <h3 class="ct_rtr__headline">${ct_rtr__getTrad(ct_rtr__data.labels.headline,ct_rtr__lang,ct_rtr__lang_short)}</h3>
         <div class="ct_rtr__products"></div>
         <div class="ct_rtr__titles"></div>
         <div class="ct_rtr__cta">
-          <a href="${ ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[ct_rtr__data.data.products[0].upc][ct_rtr__lang_short] }" 
+          <a href="${ ct_rtr__baseurl + ct_rtr__getTrad(ct_rtr__data.links[ct_rtr__data.data.products[0].upc],ct_rtr__lang,ct_rtr__lang_short) }" 
           data-element-id="X_X_MainPlacement12_RTR-CTA0" class="ct_cta ct_cta__black ct_cta__large" data-description="${ ct_rtr__data.data.products[0].upc }">
-            ${ ct_rtr__data.labels.shop_now[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.shop_now[ct_rtr__lang] : ct_rtr__data.labels.shop_now[ct_rtr__lang_short] }
+            ${ ct_rtr__getTrad(ct_rtr__data.labels.shop_now,ct_rtr__lang,ct_rtr__lang_short)}
           </a>
         </div>
-        <div class="ct_rtr__bottom_text"> ${ ct_rtr__data.labels.bottom_text[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.bottom_text[ct_rtr__lang] : ct_rtr__data.labels.bottom_text[ct_rtr__lang_short] }</div>
+        <div class="ct_rtr__bottom_text"> ${ ct_rtr__getTrad( ct_rtr__data.labels.bottom_text,ct_rtr__lang,ct_rtr__lang_short) }</div>
       </div>
     </div>
     <div class="ct_rtr__view ct_loading ct_first">
@@ -224,11 +297,11 @@ function ct_rtr__init(){
       </div>
       <div class="ct_rtr__viewer"></div>
       <div class="ct_rtr__icon">
-        ${ ct_rtr__data.labels.rotate[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.rotate[ct_rtr__lang] : ct_rtr__data.labels.rotate[ct_rtr__lang_short] }
+        ${ ct_rtr__getTrad(ct_rtr__data.labels.rotate,ct_rtr__lang,ct_rtr__lang_short)  }
         <img src="https://media.sunglasshut.com/2023/utility/WOW/rtr/459.svg">
       </div>
       <p id="ct_rtr__besideMouse">
-        ${ ct_rtr__data.labels.cursor[ct_rtr__lang] !== undefined ? ct_rtr__data.labels.cursor[ct_rtr__lang] : ct_rtr__data.labels.cursor[ct_rtr__lang_short] }
+        ${ct_rtr__getTrad(ct_rtr__data.labels.cursor,ct_rtr__lang,ct_rtr__lang_short) }
       </p>
     </div>
   `;
@@ -250,6 +323,7 @@ function ct_rtr__init(){
 
     document.querySelector('.ct_rtr__container .ct_rtr__text .ct_rtr__titles').innerHTML += `
       <div class="ct_rtr__title ${ct_rtr__active_class}" data-upc="${product.upc}">
+        <span>${product.brand}</span>
         <h2>${product.name}</h2>
       </div>
     `;
@@ -268,13 +342,16 @@ function ct_rtr__init(){
   document.querySelectorAll('.ct_rtr__container .ct_rtr__products .ct_rtr__product').forEach(title => {
     title.addEventListener('click', function() {
       document.querySelector('.ct_rtr__container .ct_rtr__view').classList.add('ct_loading');
-      rtrViewer.setUpc(this.dataset.upc);
+      rtrViewer.setId({
+        type: 'upc',
+        value: this.dataset.upc,
+      });
       
       document.querySelector('.ct_rtr__container .ct_rtr__title.ct_active').classList.remove('ct_active');
       document.querySelector('.ct_rtr__container .ct_rtr__product.ct_active').classList.remove('ct_active');
 
       this.classList.add('ct_active');
-      document.querySelector('.ct_rtr__container .ct_rtr__cta a').href = ct_rtr__data.links[this.dataset.upc][ct_rtr__lang] !== undefined ? ct_rtr__baseurl + ct_rtr__data.links[this.dataset.upc][ct_rtr__lang] : ct_rtr__baseurl + ct_rtr__data.links[this.dataset.upc][ct_rtr__lang_short];
+      document.querySelector('.ct_rtr__container .ct_rtr__cta a').href =ct_rtr__baseurl + ct_rtr__getTrad(ct_rtr__data.links[this.dataset.upc],ct_rtr__lang,ct_rtr__lang_short);
       document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description = this.dataset.upc;
       document.querySelector('.ct_rtr__container .ct_rtr__title[data-upc="'+this.dataset.upc+'"]').classList.add('ct_active');
     });
@@ -287,28 +364,39 @@ function ct_rtr__init_viewer(ct_rtr__val){
 }
 
 function ct_rtr__analytics_rotate() {
-  tealium_data2track.push({
-    'id':'Click',
-    'Tracking_Type': 'link',
-    'data_element_id': 'X_X_MainPlacement12_RTR_Rotate', // max 25 characters
-    'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
-    'data_analytics_available_call':"1"
-  });
+  if(window.tealium_data2track){
+    tealium_data2track.push({
+      'id':'Click',
+      'Tracking_Type': 'link',
+      'data_element_id': 'X_X_MainPlacement12_RTR_Rotate', // max 25 characters
+      'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
+      'data_analytics_available_call':"1"
+    });
 
-  window.monetateQ.push(["trackEvent",["User_RTR_Rotate"]]);
+  }
+
+  if(window.monetateQ){
+
+    window.monetateQ.push(["trackEvent",["User_RTR_Rotate"]]);
+  }
 
   document.querySelector('.ct_rtr__container canvas').removeEventListener('click', ct_rtr__analytics_rotate);
 }
 function ct_rtr__analytics_zoom() {
-  tealium_data2track.push({
-    'id':'Click',
-    'Tracking_Type': 'link',
-    'data_element_id': 'X_X_MainPlacement12_RTR_Zoom', // max 25 characters
-    'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
-    'data_analytics_available_call':"1"
-  });
+  if(window.tealium_data2track){
+    tealium_data2track.push({
+      'id':'Click',
+      'Tracking_Type': 'link',
+      'data_element_id': 'X_X_MainPlacement12_RTR_Zoom', // max 25 characters
+      'data_description': document.querySelector('.ct_rtr__container .ct_rtr__cta a').dataset.description, // max 25 characters
+      'data_analytics_available_call':"1"
+    });
+  }
 
-  window.monetateQ.push(["trackEvent",["User_RTR_Zoom"]]);
+  if(window.monetateQ){
+
+    window.monetateQ.push(["trackEvent",["User_RTR_Zoom"]]);
+  }
 
   document.querySelector('.ct_rtr__container canvas').removeEventListener('wheel', ct_rtr__analytics_zoom);
 }
@@ -334,7 +422,10 @@ function ct_rtr__intersection(){
     if (entries[0].isIntersecting === true) {
       document.querySelector('.ct_rtr__container .ct_rtr__view').classList.remove('ct_first');
       rtrViewer.resetCamera();
-      window.monetateQ.push(["trackEvent",["User_RTR_View"]]);
+      if(window.monetateQ){
+
+        window.monetateQ.push(["trackEvent",["User_RTR_View"]]);
+      }
 
       observer.unobserve(target);
     }

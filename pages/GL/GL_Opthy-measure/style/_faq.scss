@@ -1,0 +1,90 @@
+$violet: #575D9B;
+
+.ct_space{
+    .ct_faq {
+        align-items: start !important;
+
+        button {
+          //font-family: $font-default;
+          text-align: left;
+          box-sizing: border-box;
+          transition: all 0.5s ease;
+          cursor: pointer;
+          display: block;
+          width: 100%;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid $violet;
+      
+          &.ct_close {
+            .ct_q {
+              & > div {
+                span {
+                  &::after {
+                    transform: rotate(-90deg);
+                  }
+                }
+              }
+            }
+            .ct_a{
+              margin-bottom: 0px !important;
+            }
+          }
+      
+          .ct_q {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0 15px 0;
+            h3{
+                font-weight: 600;
+            }
+            & > div {
+              span {
+                height: 20px;
+                width: 20px;
+                position: relative;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                display: inline-block;
+                &:before,
+                &:after {
+                  transform: rotate(0deg);
+                  content: "";
+                  position: absolute;
+                  top: 54%;
+                  left: 64%;
+                  margin-top: -1.5px;
+                  margin-left: -7.5px;
+                  display: block;
+                  height: 1px;
+                  width: 16px;
+                   background-color: $violet;
+                  -webkit-transition: all 0.5s ease;
+                  transition: all 0.5s ease;
+                }
+              }
+            }
+          }
+      
+          .ct_a {
+            cursor: pointer;
+            padding-right: 60px;
+            height: 0;
+            transition: all 0.5s ease;
+            overflow: hidden;
+            color: #222;
+            margin-bottom: 15px;
+    
+            & > div {
+              height: auto;
+              padding-top: 15px;
+              color: #222;
+            }
+      
+            @media (orientation: portrait) and (max-width: 1024px), (orientation: landscape) and (max-width: 1023px) {
+              padding-right: 0px;
+            }
+          }
+        }
+      }    
+}

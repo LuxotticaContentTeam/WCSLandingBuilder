@@ -1,0 +1,17 @@
+{
+    "dependences":{
+        "responsive":true,
+        "desk":"DESK/gl-us/",
+        "mob":"MOB/gl-us/"
+    },
+    "moduleLibrary":{
+        "enabled":true,
+        "jsPath":"../DesignSystemGL20/js/",
+        "cssPath":"../DesignSystemGL20/style/",
+        "jsDestPath":"../DesignSystemGL20/export/js/",
+        "cssDestPath":"../DesignSystemGL20/export/css/",
+        "jsDestName":"index_dev.min.js",
+        "cssDestName":"index_dev.min.css"
+    }
+
+}

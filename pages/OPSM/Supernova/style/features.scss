@@ -1,0 +1,19 @@
+@import "variables.scss";
+
+#supernovaLP {
+  #features {
+    .swiper {
+      min-height: 136px;
+      .swiper-pagination {
+        bottom: 24px;
+        .swiper-pagination-bullet {
+          background: #CCCCCC;
+          opacity: 1;
+          &.swiper-pagination-bullet-active {
+            background: $black;
+          }
+        }
+      }
+    }
+  }
+}

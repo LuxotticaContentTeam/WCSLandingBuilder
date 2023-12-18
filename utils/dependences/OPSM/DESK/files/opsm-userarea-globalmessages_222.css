@@ -1,0 +1,65 @@
+#global-message {
+	position: relative;
+	z-index: 500;
+	transition: 1s;
+}
+#global-message > .inner {
+	padding: 12px 0 10px;
+	position: absolute;
+	top: -16px;
+	right: 0;
+	left: 0;
+}
+.forgot-password-confirmation #global-message > .inner{
+		top:0;
+	}
+#global-message h2 {
+	margin: 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 1.3;
+	text-align: center;
+	text-transform: none;
+}
+
+#global-message.is-confirm > .inner {
+	background: #60bd67;
+}
+#global-message.is-confirm h2:before {
+	content: "";
+	display: inline-block;
+	width: 17px;
+	height: 13px;
+	margin-right: 8px;
+	position: relative;
+	top: 1px;
+	background: url("../images/prototype/checkmark-white.png");
+}
+
+#global-message.is-error > .inner {
+	background: #cf0a2c;
+}
+#global-message.is-error h2:before {
+	content: "!";
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+	top: 1px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1;
+}
+
+@media all and (min-width: 700px) {
+	#global-message > .inner {
+		top: 0;
+	}
+}
+@media all and (min-width: 990px) {
+	#global-message h2 {
+		font-size: 16px;
+	}
+}
