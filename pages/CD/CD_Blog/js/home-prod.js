@@ -28,11 +28,11 @@ function  ct_init_load__article(){
             ct_dom_articles[i].querySelector('a').href = location.origin + "/"+article.url;
             ct_dom_articles[i].querySelector('a').setAttribute('aria-label',article.url); 
             ct_dom_articles[i].querySelector('a').dataset.description = article.url; 
-            if (!ct_is_mobile()){
+            if (!ct_is_mobile())
                 ct_dom_articles[i].querySelector('img.ct_article_img').src = article.img;
-            }else{
+            else
                 ct_dom_articles[i].querySelector('img.ct_article_img').src = article.imgmob;
-            }
+            
             ct_dom_articles[i].querySelector('img.ct_article_img').alt = article.title;
            
             ct_dom_articles[i].querySelector('h2').innerHTML = article.title;
@@ -56,7 +56,7 @@ function  ct_load__article(){
                             <source media="(max-width:1024px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAFCAYAAACJmvbYAAAAAXNSR0IArs4c6QAAABNJREFUGFdj/P///38GHIBxACQBlgQT8nbCiHIAAAAASUVORK5CYII=">
                             <img class="ct_skeleton" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAAXNSR0IArs4c6QAAABBJREFUGFdj/P///38GIAAAGfgD/vZGlWAAAAAASUVORK5CYII=" alt="skeleton">
                         </picture>
-                        <img class="lazy ct_article_img" data-src="${!ct_is_mobile() ? article.img:article.imgmob }" alt="${article.title}">
+                        <img class="lazy-lo ct_article_img" data-src="${!ct_is_mobile() ? article.img:article.imgmob }" alt="${article.title}">
                     </div>
                     <div class="ct_text">
                         <div class="ct_text__badge" data-category="${article.category}">
@@ -75,42 +75,6 @@ function  ct_load__article(){
         }
     });
     ct_articles_container.insertAdjacentHTML("beforeend", ct_articles);
-}
-
-function initLazyLoading(selector){
-	if(selector==undefined) selector="lazy";
-	var lazyImages = [].slice.call(document.querySelectorAll("."+selector));
-
-	  if ("IntersectionObserver" in window) {
-	    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-	      entries.forEach(function(entry) {
-	        if (entry.isIntersecting) {
-	          let lazyImage = entry.target;
-	          if(lazyImage.getAttribute('data-src')!="" && lazyImage.getAttribute('data-src')!=undefined){
-		          
-		          if(lazyImage.nodeName.toLowerCase()=="img"){
-		        	  lazyImage.src = lazyImage.getAttribute('data-src');
-		          }
-		          if(lazyImage.nodeName.toLowerCase()=="source"){
-		        	  lazyImage.srcset = lazyImage.getAttribute('data-src');
-		          }
-		          lazyImage.classList.remove("lazy");
-		          lazyImage.classList.remove("skeleton");
-		          lazyImageObserver.unobserve(lazyImage);
-	          }
-	        }
-	      });
-	    });
-
-	    lazyImages.forEach(function(lazyImage) {
-	      lazyImageObserver.observe(lazyImage);
-	    });
-	  } else {
-		  $.each($(".lazy"), function(){
-			  $(this).attr("src",$(this).attr("data-src"));
-		  });
-	  }
-	
 }
 
 function nav_letter__scroll(){
@@ -143,10 +107,25 @@ function nav_scrollTo_category(){
     $('#ct_blog .ct_nav__container ul').animate({scrollLeft: $('li#'+ ct_category).position().left - ($('li#'+ ct_category).width()/2) });
 }
 
+function ct_lazyLoading(){
+    var windowTop = window.window.scrollY;
+    let ct_entries = document.querySelectorAll('.ct_space .lazy-lo:not(.lazy-loaded)');
+    ct_entries.forEach((element,i)=>{
+        if (windowTop > element.getBoundingClientRect().top - (window.innerHeight * 2) ) {
+            if (element.nodeName.toLowerCase() === 'img') {
+                element.src = element.getAttribute('data-src');
+                element.classList.add('lazy-loaded');
+            }
+        }
+    });
+};
+
+window.addEventListener("scroll", (event) => {ct_lazyLoading();});
+
 document.addEventListener("DOMContentLoaded", function() {
     ct_init_load__article();
     ct_load__article();
-    initLazyLoading();
+    ct_lazyLoading();
 
     if(ct_is_mobile()){
         nav_letter__scroll();

@@ -14,8 +14,7 @@ $eyehealth: #EEA27F;
 }
 
 .ct_space{
-    #ct_blog__article{
-        .ct_article_hero{
+    .ct_article_hero{
             display: flex;
             flex-direction: column;
 
@@ -75,7 +74,16 @@ $eyehealth: #EEA27F;
                 }
             }
 
-            .ct_hero__img{}
+            .ct_hero__img{
+                position: relative;
+
+                .ct_img{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                }
+            }
 
             .ct_category__container{
                 width: fit-content;
@@ -146,8 +154,8 @@ $eyehealth: #EEA27F;
                     font-size: 16px;
                 }
             }
-        }
-        .ct_article_content{
+    }
+    .ct_article_content{
             padding: 64px 10%;
             display: flex;
             flex-direction: column;
@@ -206,6 +214,7 @@ $eyehealth: #EEA27F;
             }
 
             .ct_article__section{
+                
                 .ct_article__img {
                     display: inline-block;
 
@@ -244,6 +253,15 @@ $eyehealth: #EEA27F;
                     @media (max-width: 768px) {
                         width: 100%;
                         margin-bottom: 40px !important;
+                    }
+
+                    span{
+                        font-family: $font-medium;
+                        font-size: 32px;
+                        color: #0080A9;
+                        @media (max-width: 768px) {
+                            font-size: 20px;
+                        }
                     }
                 }
 
@@ -307,6 +325,16 @@ $eyehealth: #EEA27F;
                     margin-bottom: 16px;
                 }
             }
+            
+            .ct_sources{
+                p{
+                    font-size: 14px;
+                    line-height: 1;
+                }
+                ul li{
+                    font-size: 14px;
+                }
+            }
 
             .ct_img_container{
                 display: flex;
@@ -356,9 +384,7 @@ $eyehealth: #EEA27F;
                     }
                 }
             }
-        }   
-    }
-
+    }   
     .ct_article__footer{
         padding: 0 32px;
         .ct_cta{

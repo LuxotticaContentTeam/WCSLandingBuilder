@@ -1,0 +1,20 @@
+// @import '../0_ModuleLibrary/DesignSystem/style/variables';
+@import 'resetLP';
+
+#ct_accessibility.ct_space {
+  font-size: 16px;
+  line-height: 1.5;
+  
+  .ct_container{
+    margin: auto;
+    ul{
+        padding-left: 20px;
+        li{
+            font-size: 16px;
+            list-style: disc;
+            line-height: 1.2;
+        }
+    }
+  }
+ 
+}

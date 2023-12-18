@@ -2,7 +2,7 @@ function ct_set__category(){
     let ct_category__container = document.querySelector('#ct_blog__article .ct_category__container');
     // let ct_category = ct_category__container.querySelector('h2').innerHTML.toLocaleLowerCase().trim().replace(/\s/g, '').replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
     let ct_category = ct_category__container.querySelector('h2').getAttribute('data-category-icon');
-    ct_category__container.href = ct_category__container.href + `#${ct_category}`
+    ct_category__container.href = ct_category__container.href;
     ct_category__container.querySelector('svg').innerHTML = `<use xlink:href="#CD_${ct_category}"></use>`;
 }
 
