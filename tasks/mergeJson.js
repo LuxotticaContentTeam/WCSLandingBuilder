@@ -1,21 +1,26 @@
-const pkg = require('../package.json');
+// const pkg = require('../package.json');
 const fs = require("fs");
 
 const startJson = require('../test/startJSON.json');
-const { getDirectories } = require('./utils');
+const TRAD_KEY = 'label_SmartLing';
+const PATH_START = './test/langs';
+const PATH_RESULT = './test/result/resultJSON.json'
 
-const TRAD_KEY = 'label_SmartLing'
+
+const getDirectories = (source) =>
+    fs.readdirSync(source, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name)
+
 
 const getLangJson = (langs) => {
    let trad = {};
    langs.forEach(lang => {
-      trad[lang] = JSON.parse(fs.readFileSync(`./test/langs/${lang}/${lang}.json`, 'utf8'));
+      trad[lang] = JSON.parse(fs.readFileSync(`${PATH_START}/${lang}/${lang}.json`, 'utf8'));
    });
    console.log(trad)
-   return trad
-     
+   return trad     
 }
-
 
 /**
  * 
@@ -46,7 +51,7 @@ const buildResultJson = (inputJson,languages)=> {
          }
       } else { //if is just a string, for each lang, insert the corrisponding value from the lang-lang.json file
           let result = {};
-          console.log(prevKey.at(-1))
+         //  console.log(prevKey.at(-1))
           if (!TRAD_KEY || prevKey.at(-1) === TRAD_KEY){
              for (let lang in languages) {
                   let langValue = langJson[lang];
@@ -71,11 +76,8 @@ const buildResultJson = (inputJson,languages)=> {
   return recursiveTransform(inputJson, languages);
 }
 
-module.exports = async function newTask(){
-   let langsJson = getLangJson(getDirectories('./test/langs'));
-
-   
+module.exports = async function mergeJson(){
+   let langsJson = getLangJson(getDirectories(PATH_START));
    let resultJson = JSON.stringify(buildResultJson(startJson,langsJson));
-   
-   fs.writeFileSync('./test/result/resultJSON.json', resultJson);
+   fs.writeFileSync(PATH_RESULT, resultJson); 
 }
