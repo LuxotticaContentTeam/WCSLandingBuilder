@@ -19,6 +19,7 @@ They might well be outsourced to an external stylesheet of course.
 -->
 
 <style type="text/css">
+	.svg--smv2_arrow-dims { width: 16px; height: 16px; }
 	.svg--smv2_pause-dims { width: 48px; height: 48px; }
 	.svg--smv2_play-dims { width: 48px; height: 48px; }
 	.svg--smv2_volume_off-dims { width: 48px; height: 48px; }
@@ -45,6 +46,7 @@ for further details on how to create this embeddable sprite variant.
 -->
 
 <svg width="0" height="0" style="position:absolute">
+		<symbol viewBox="0 0 16 16" id="smv2_arrow" xmlns="http://www.w3.org/2000/svg"><path d="M14.239 11.46L8 5.22 1.762 11.46l-.857-.857L8 3.507l7.096 7.095-.857.857z"/></symbol>
 		<symbol viewBox="0 0 48 48" id="smv2_pause" xmlns="http://www.w3.org/2000/svg"><path d="M24 0C10.767 0 0 10.767 0 24s10.767 24 24 24 24-10.767 24-24S37.233 0 24 0zm0 46C11.869 46 2 36.131 2 24S11.869 2 24 2s22 9.869 22 22-9.869 22-22 22z"/><path d="M19 14h-2v20h2V14zM31 14h-2v20h2V14z"/></symbol>
 		<symbol viewBox="0 0 48 48" id="smv2_play" xmlns="http://www.w3.org/2000/svg"><path d="M24 0C10.767 0 0 10.767 0 24s10.767 24 24 24 24-10.767 24-24S37.233 0 24 0zm0 46C11.869 46 2 36.131 2 24S11.869 2 24 2s22 9.869 22 22-9.869 22-22 22z"/><path d="M33.286 22.304L19.06 13.412a1.981 1.981 0 00-1.056-.307c-1.042 0-2.004.831-2.004 2.003v17.783c0 1.172.963 2.003 2.004 2.003.354 0 .718-.096 1.056-.307l14.226-8.892c1.254-.782 1.254-2.608 0-3.391zM18 32.891l.008-17.778L32.226 24 18 32.891z"/></symbol>
 		<symbol viewBox="0 0 48 48" id="smv2_volume_off" xmlns="http://www.w3.org/2000/svg"><path d="M28 45.755L10.239 29.77A2.995 2.995 0 008.232 29H2V19h6.232a2.99 2.99 0 002.006-.77L28 2.245V14h2V2.245c0-.801-.455-1.501-1.186-1.827a1.977 1.977 0 00-2.152.34L8.902 16.743a1 1 0 01-.67.257H2c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h6.232a1 1 0 01.669.256L26.662 47.24a1.978 1.978 0 002.151.34A1.977 1.977 0 0030 45.755V34h-2v11.755z"/><path d="M35.707 18.707l-1.414-1.414L29 22.586l-5.293-5.293-1.414 1.414L27.586 24l-5.293 5.293 1.414 1.414L29 25.414l5.293 5.293 1.414-1.414L30.414 24l5.293-5.293z"/></symbol>
@@ -78,6 +80,17 @@ embedded above. They may be styled via CSS.
 			<h3>A) Inline SVG with embedded sprite</h3>
 			<ul>
 
+				<li title="smv2_arrow">
+					<div class="icon-box">
+
+						<!-- smv2_arrow -->
+						<svg class="svg--smv2_arrow-dims">
+							<use xlink:href="#smv2_arrow"></use>
+						</svg>
+
+					</div>
+					<h2>smv2_arrow</h2>
+				</li>
 				<li title="smv2_pause">
 					<div class="icon-box">
 
@@ -143,6 +156,17 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
 			<ul>
 
+				<li title="smv2_arrow">
+					<div class="icon-box">
+
+						<!-- smv2_arrow -->
+						<svg class="svg--smv2_arrow-dims">
+							<use xlink:href="sprite.svg#smv2_arrow"></use>
+						</svg>
+
+					</div>
+					<h2>smv2_arrow</h2>
+				</li>
 				<li title="smv2_pause">
 					<div class="icon-box">
 
@@ -195,7 +219,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 
 		</section>
 		<footer>
-			<p>Generated at Tue, 05 Dec 2023 15:33:18 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+			<p>Generated at Thu, 21 Dec 2023 11:39:44 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>
