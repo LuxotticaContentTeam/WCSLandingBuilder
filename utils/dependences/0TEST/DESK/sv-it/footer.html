@@ -1,0 +1,1375 @@
+
+				
+	
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div id="footerWrapper">
+
+
+<div class="footer container-fluid" role="navigation" data-element-id="X_X_Footer">
+<div class="newsletter-row">
+<div class="newsletter-miniform-inner-wrapper">
+    
+<form class="footer--subscribe-form" id="form-subscription" novalidate="">
+<script type="text/javascript">
+//logiche footer
+function setParentSelector(isModalFlag) {
+window.parentSelector;
+if (isModalFlag) {
+  window.parentSelector = $("#newsletter-modal");
+} else {
+  window.parentSelector = $("#form-subscription");
+}
+}
+function hideAllMessages(isModal) {
+setParentSelector(isModal);
+$(window.parentSelector).find('.newsletterDuplicateMail').css("display", "none");
+$(window.parentSelector).find('.newsletterCallError').css("display", "none");
+$(window.parentSelector).find('.newsletterInputError').css("display", "none");
+$(window.parentSelector).find('.newsletterSuccess').css("display", "none");
+}
+
+function showNewsletterOk(isModal) {
+setParentSelector(isModal);
+$(window.parentSelector).find('.newsletterDuplicateMail').css("display", "none");
+$(window.parentSelector).find('.newsletterCallError').css("display", "none");
+$(window.parentSelector).find('.newsletterInputError').css("display", "none");
+showHideNewsletterInput(false, isModal);
+if(isModal) {
+        $(window.parentSelector).find('.newsletterSuccess').css("display", "flex");
+        $(".btn-newsletter-sticky").removeClass('show').css("display", "none");;
+        $(window.parentSelector).addClass('successModal');
+        $(window.parentSelector).find('.close-modal').on('click', function(){
+$(".btn-newsletter-sticky").detach();
+});
+} else {
+  $(window.parentSelector).find('.newsletterSuccess').css("display", "block");
+        $('.focusTargetCollapse').addClass('hidden');
+}
+$(window.parentSelector).find('.email-input').val("");
+}
+
+function showNewsletterInputError(isModal) {
+setParentSelector(isModal);
+$(window.parentSelector).find('.newsletterDuplicateMail').css("display", "none");
+$(window.parentSelector).find('.newsletterCallError').css("display", "none");
+$(window.parentSelector).find('.newsletterInputError').css("display", "block");
+$(window.parentSelector).find('.newsletterSuccess').css("display", "none");
+}
+
+function showHideNewsletterInput(show, isModal) {
+setParentSelector(isModal);
+if (show) {
+if(isModal) {
+$(window.parentSelector).find('#newsletterInputContainer').css("display", "flex");
+
+} else {
+$(window.parentSelector).find('#footer-newsletter').css("display", "block");
+$(window.parentSelector).find('.email-input-wrapper').css("display", "block");
+}
+} else {
+if(isModal) {
+$(window.parentSelector).find('#newsletterInputContainer').css("display", "none");
+} else {
+$(window.parentSelector).find('#footer-newsletter').css("display", "none");
+$(window.parentSelector).find('.email-input-wrapper').css("display", "none");
+}
+}
+}
+
+function showNewsletterCallError(isModal) {
+setParentSelector(isModal);
+$(window.parentSelector).find('.newsletterDuplicateMail').css("display", "none");
+$(window.parentSelector).find('.newsletterCallError').css("display", "block");
+$(window.parentSelector).find('.newsletterInputError').css("display", "none");
+$(window.parentSelector).find('.newsletterSuccess').css("display", "none");
+}
+
+function showNewsletterDuplicateEmail(isModal) {
+setParentSelector(isModal);
+$(window.parentSelector).find('.newsletterDuplicateMail').css("display", "block");
+$(window.parentSelector).find('.newsletterCallError').css("display", "none");
+$(window.parentSelector).find('.newsletterInputError').css("display", "none");
+$(window.parentSelector).find('.newsletterSuccess').css("display", "none");
+}
+
+function subscribeToNewsletter(isModal) {
+setParentSelector(isModal);
+var signUpEmail = $(window.parentSelector).find('.email-input').val();
+var storeId = $(window.parentSelector).find('.newsletterStoreId').val();
+var catalogId = $(window.parentSelector).find('.newsletterCatalogId').val();
+var langId = $(window.parentSelector).find('.newsletterLangId').val();
+var signUpType = $(window.parentSelector).find('.newsletterSignUpType').val();
+if (signUpEmail=="" || signUpEmail==null) {
+showNewsletterInputError(isModal);
+return false;
+} else if(signUpEmail!="" && signUpEmail!=null){ 
+var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+signUpEmail = signUpEmail.trim().toLowerCase();
+if (!(filter.test(signUpEmail))) {
+  showNewsletterInputError(isModal);
+  return false;
+} else {
+  $(window.parentSelector).find('.newsletter-submit').prop('disabled', true);
+  $.ajax({
+    url:"UserEmailSignUpCmd",
+    data: { 
+      storeId: storeId, 
+      catalogId: catalogId, 
+      langId: langId,
+      email1: signUpEmail+"|"+storeId,
+      signUpType: signUpType
+    },
+    success:function(result){
+      $(window.parentSelector).find('.newsletter-submit').prop('disabled', false);
+      try {
+      var json = JSON.parse(result);
+      
+      if(json == null || (json.errorMessageKey!=null && json.errorMessageKey != '')){
+        showNewsletterCallError(isModal);
+        return false;
+      } else {
+        if (json.status == 'success') {
+          setCookie('visited', true);
+          showNewsletterOk(isModal);
+        } else {
+          showNewsletterDuplicateEmail(isModal);
+          return false;
+        }
+      }
+      } catch(e) {
+        showNewsletterCallError(isModal);
+        return false;
+      }
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      $(window.parentSelector).find('.newsletter-submit').prop('disabled', false);
+      showNewsletterCallError(isModal);
+      return false;
+    }
+  });
+  
+  utagFiller.asyncUserNewsletterSignup(signUpEmail);
+}
+}
+};
+
+//logiche modal (duplicate da sopra, ma con altri ID per non entrare in contrasto)
+// function hideAllMessagesModal() {
+// 	$('#newsletterDuplicateMailModal').css("display", "none");
+// 	$('#newsletterCallErrorModal').css("display", "none");
+//  	$('#newsletterInputErrorModal').css("display", "none");
+//  	$('#newsletterSuccessModal').css("display", "none");
+// }
+
+// function showNewsletterOkModal() {    	
+// 	 $('#newsletterInputContainer').css("display", "none");
+// 	 $('#newsletterDuplicateMailModal').css("display", "none");
+// 	 $('#newsletterCallErrorModal').css("display", "none");
+//      $('#newsletterInputErrorModal').css("display", "none");
+//  	 $('#newsletterSuccessModal').css("display", "block"); 
+//  	 $('#email-inputModal').val("");
+// }
+
+// function showNewsletterInputErrorModal() {
+// 	$('#newsletterDuplicateMailModal').css("display", "none");
+// 	$('#newsletterCallErrorModal').css("display", "none");
+//  	$('#newsletterInputErrorModal').css("display", "block");
+//  	$('#newsletterSuccessModal').css("display", "none");
+// }
+
+// function showNewsletterCallErrorModal() {
+// 	$('#newsletterDuplicateMailModal').css("display", "none");
+// 	$('#newsletterCallErrorModal').css("display", "block");
+//  	$('#newsletterInputErrorModal').css("display", "none");
+//  	$('#newsletterSuccessModal').css("display", "none");
+// }
+
+// function showNewsletterDuplicateEmailModal() {
+// 	$('#newsletterDuplicateMailModal').css("display", "block");
+// 	$('#newsletterCallErrorModal').css("display", "none");
+//  	$('#newsletterInputErrorModal').css("display", "none");
+//  	$('#newsletterSuccessModal').css("display", "none");
+//  }
+
+// function subscribeToNewsletterModal() {
+// 	var signUpEmail = $('#email-inputModal').val();
+// 	var storeId = $('#newsletterStoreIdModal').val();
+// 	var catalogId = $('#newsletterCatalogIdModal').val();
+// 	var langId =$('#newsletterLangIdModal').val();
+// 	var signUpType = $('#newsletterSignUpTypeModal').val();
+// 	if (signUpEmail=="" || signUpEmail==null) {
+// 		showNewsletterInputErrorModal();
+// 		return false;
+// 	} else if(signUpEmail!="" && signUpEmail!=null){ 
+// 	    var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+// 	    signUpEmail = signUpEmail.trim();
+// 	    if (!(filter.test(signUpEmail))) {
+// 	    	showNewsletterInputErrorModal();
+// 	    	return false;
+// 	    } else {
+// 	    	$('#submitNewsletterButtonModal').prop('disabled', true);
+// 	    	$.ajax({
+// 				url:"UserEmailSignUpCmd",
+// 				data: { 
+// 				    storeId: storeId, 
+// 				 	catalogId: catalogId, 
+// 				 	langId: langId,
+// 				 	email1: signUpEmail+"|"+storeId,
+// 				 	signUpType: signUpType
+// 				},
+// 				success:function(result){
+// 					$('#submitNewsletterButtonModal').prop('disabled', false);
+// 		    		try {
+// 		    		   var json = JSON.parse(result);
+      
+// 		    		   if(json == null || (json.errorMessageKey!=null && json.errorMessageKey != '')){
+// 		    			 showNewsletterCallErrorModal();
+// 		    			 return false;
+// 		    		   } else {
+// 		    			   if (json.status == 'success') {
+// 		    				 //setCookie('visited', true);
+// 		    				 showNewsletterOkModal();
+// 		    			   } else {
+// 		    				 showNewsletterDuplicateEmailModal();
+//    			    			 return false;
+// 		    			   }
+// 		    		   }
+// 		    		} catch(e) {
+// 		    			showNewsletterCallErrorModal();
+// 		    			return false;
+// 		    		}
+// 				},
+// 				error: function (xhr, ajaxOptions, thrownError) {
+// 					$('#submitNewsletterButtonModal').prop('disabled', false);
+// 					showNewsletterCallErrorModal();
+// 					return false;
+// 				}
+// 			});
+  
+// 	    	utagFiller.asyncUserNewsletterSignup(signUpEmail);
+// 	    }
+// 	}
+// };
+
+//init setup
+var homePath = "/"; //webapp/wcs/stores/servlet/it/salmoiraghi/; 
+
+function openModalAfterTimeout() {
+if (window.location.pathname == homePath) { 
+var newsletterCookie = getCookie('visited');
+if (newsletterCookie != true && newsletterCookie != "true") {
+  setCookie('visited', true); //, 90);
+  $('#newsletter-modal').addClass('show')
+}
+}
+}
+
+$( document ).ready(function() {
+$(".email-input").bind("keyup change", function () {
+if ($(this).parents('#newsletter-modal').length > 0) {
+  hideAllMessages(true);
+} else {
+  hideAllMessages(false);
+}
+});
+// $("#email-inputModal").bind("keyup change", function() {
+// 	hideAllMessages();
+// });
+if(!$('#contentWrapper.homepage').length > 0){
+$('.btn-newsletter-sticky').detach();
+} else {
+$(window).on('scroll', function() {
+  var footerTopPos = $("#footerWrapper").offset().top;
+  var newsletterBtnBotPos = $(".btn-newsletter-sticky").offset().top + $(".btn-newsletter-sticky").height();
+  if(newsletterBtnBotPos >= footerTopPos) {
+    if($(".btn-newsletter-sticky").hasClass("show")) {
+      $(".btn-newsletter-sticky").removeClass("show")
+    }
+  } else {
+    if(!$(".btn-newsletter-sticky").hasClass("show")){
+      $(".btn-newsletter-sticky").addClass("show");
+    }
+  }
+});
+}
+
+$('#email-input').keydown(function(){
+if ($(this).parents('#newsletter-modal').length > 0) {
+  setParentSelector(true);
+} else {
+  setParentSelector(false);
+}
+let email = $(window.parentSelector).find('.email-input').val();
+console.log('pressed');
+if(email.length > 0 && MessageHelper.isValidEmail(email)){
+  $(window.parentSelector).find('.email-input-wrapper').addClass('ok');
+}else {
+  $(window.parentSelector).find('.email-input-wrapper').removeClass('ok');
+}
+});
+});
+</script>
+
+
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Newsletter" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Newsletter" id="ci_espot__X_Footer_Newsletter">
+  
+<div class="left_espot">
+
+
+  <div class="black" id="footer-newsletter">
+<h6 class="font-weight-bold ls-5 mb-4 medium text-white">ISCRIVITI ALLA NOSTRA NEWSLETTER</h6>
+<p class="medium text-white ls-05 mb-4">Scegli la nostra newsletter, ricevi uno sconto di 10€ per il tuo primo acquisto.</p>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+<div class="materialize-input-wrapper email-input-wrapper">
+<input class="form-control email-input" id="email-input" type="text" aria-label="Inserisci il tuo indirizzo email" required="">
+<label for="email-input">Indirizzo email*</label>
+</div>
+
+<div class="newsletterSuccess" style="display:none">
+<h6 class="font-weight-bold ls-5 mb-4 medium text-white">GRAZIE PER AVER SCELTO LA NOSTRA NEWSLETTER.</h6>
+<p class="medium text-white ls-05 mb-4">
+Da oggi ti aggiorneremo sulle nostre ultime novità, sulle collezioni da vista e da sole, sui nostri
+migliori brand, sull'ampia offerta di lenti a contatto oltre che su tutti i servizi per il benessere
+dei tuoi occhi.
+</p>
+<button type="button" class="btn font-weight-bold ls-05 medium p-0 text-white underlink mb-3" onclick="showHideNewsletterInput(true, false);hideAllMessages(false);">Iscriviti con un'altra email</button>
+</div>
+<div class="newsletterInputError" style="display:none">
+<p class="d-block errorForm font-weight-bold mt-n5 pt-3">Errore, è necessario inserire un'email valida.</p>
+</div>
+<div class="newsletterCallError" style="display:none">
+<p class="d-block errorForm font-weight-bold mt-n5 pt-3">Attenzione, si è verificato un errore. Si prega di riprovare più tardi.</p>
+</div>
+<div class="newsletterDuplicateMail" style="display:none">
+<p class="d-block errorForm font-weight-bold mt-n5 pt-3">Attenzione, questo indirizzo email è già registrato.</p>
+</div>
+
+<div class="focusTargetCollapse hidden" tabindex="0">    
+<input type="hidden" name="storeId" class="newsletterStoreId" value="10750">
+<input type="hidden" name="catalogId" class="newsletterCatalogId" value="12101">
+<input type="hidden" name="langId" class="newsletterLangId" value="-4">
+<input type="hidden" name="signUpType" class="newsletterSignUpType" value="offers">
+
+<div>		
+<button class="btn btn-white newsletter-submit sv-primary" data-element-id="X_X_Footer_Newsletter-SignupForm" type="button" id="submitNewsletterButton" onclick="subscribeToNewsletter()">Iscriviti</button>
+<p class="lh-1-5 ls-5-perc medium-grey mt-4 xsmall">Cliccando su "Iscriviti", confermo di avere più di 16 anni e acconsento all'utilizzo dei miei Dati Personali da parte di Luxottica Group S.p.A. per l'invio di offerte speciali, novità ed altre
+comunicazioni di carattere pubblicitario (consultare <a class="privacy-link font-weight-bold medium-grey" href="https://www.salmoiraghievigano.it/privacy-policy/" data-element-id="X_X_Footer_Newsletter-PrivacyPolicy">Informativa sulla privacy</a> per ulteriori informazioni).</p>
+</div>
+
+</div>
+</form>
+
+
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Newsletter_ModalBtn" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Newsletter_ModalBtn" id="ci_espot__X_Footer_Newsletter_ModalBtn">
+  
+<div class="left_espot">
+
+
+  
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+<!-- Modal -->
+<div class="home-modal-newsletter" id="newsletter-modal">
+<button type="button"  class="btn close-modal" aria-label="Close" data-analytics_available_call="0"></button>
+<div id="newsletterInputContainer">
+
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Newsletter_Modal" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Newsletter_Modal" id="ci_espot__X_Footer_Newsletter_Modal">
+  
+<div class="left_espot">
+
+
+  <p class="medium font-weight-bold lh-1-5 ls-05 mb-2">Vuoi ricevere la nostra Newsletter?</p>
+<p class="ls-05 lh-1-5">È semplice: iscrivendoti riceverai news e tanti vantaggi dedicati. Inoltre, per il tuo primo acquisto, hai uno sconto di 10€ per una spesa minima di 100€.</p>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+<div class="materialize-input-wrapper email-input-wrapper">
+<input class="form-control email-input" type="text" id="email-inputModal" aria-label="Inserisci il tuo indirizzo email" required="">
+<label for="email-inputModal">Indirizzo email*</label>
+</div>
+<input type="hidden" name="storeId" class="newsletterStoreId" value="10750">
+<input type="hidden" name="catalogId" class="newsletterCatalogId" value="12101">
+<input type="hidden" name="langId" class="newsletterLangId" value="-4">
+<input type="hidden" name="signUpType" class="newsletterSignUpType" value="offers">
+
+<div class="newsletterInputErrorModal" style="display:none">
+<p class="d-block errorForm font-weight-bold mt-n5 pt-4">Errore, è necessario inserire un'email valida.</p>
+</div>
+<div class="newsletterCallError" style="display:none">
+<p class="d-block errorForm font-weight-bold mt-n5 pt-4">Attenzione, si è verificato un errore. Si prega di riprovare più tardi.</p>
+</div>
+<div class="newsletterDuplicateMail" style="display:none">
+<p class="d-block errorForm font-weight-bold mt-n5 pt-4">Attenzione, questo indirizzo email è già registrato.</p>
+</div>
+<button data-element-id="X_X_Home_Newsletter-SignupForm" class="btn btn-dark newsletter-submit sv-primary" type="button" id="submitNewsletterButtonModal" onclick="subscribeToNewsletter(true)">
+Iscriviti ora
+</button>
+<p class="greyscale xxsmall lh-normal">
+Registrando il tuo indirizzo e-mail, potrai ricevere tutti gli aggiornamenti sulle ultime
+collezioni, gli eventi, le promozioni e le campagne Salmoiraghi&amp;Vigano.
+Per maggiori informazioni, consulta la nostra <a class="underlink greyscale" href="https://www.salmoiraghievigano.it/privacy-policy/" data-element-id="X_X_Home_Newsletter-PrivacyPolicy">Informativa
+sulla privacy</a>.
+</p>
+</div>
+<div class="newsletterSuccess" style="display:none">
+<h6 class="black font-weight-bold ls-05 medium">Grazie per aver scelto la nostra Newsletter.</h6>
+<p class="black ls-5-perc">
+Da oggi ti aggiorneremo sulle nostre ultime novità, sulle collezioni da vista e da sole, sui
+nostri migliori brand, sull'ampia offerta di lenti a contatto oltre che su tutti i servizi per
+il benessere dei tuoi occhi.
+</p>
+</div>
+<div class="img-newsletter">
+<picture class="">
+<source media="(max-width: 991px)" srcset="https://media.salmoiraghievigano.it/editorial-content/2022/HP/newsletter-mob.jpg">
+<img src="../../../../utils/dependences/SV/DESK/sv-it/files/newsletter.png" alt="" loading="lazy">
+</picture>
+</div>
+</div>
+
+
+</div>
+    
+
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Negozio" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Negozio" id="ci_espot__X_Footer_Negozio">
+  
+<div class="left_espot">
+
+
+  <div class="baet-footer-widget">
+<h6 class="ls-5 medium nunito text-white font-weight-bold mb-4">TI ASPETTIAMO IN NEGOZIO</h6>
+<div class="d-lg-flex gap-24">
+<div class="img-negozio">
+ <picture>
+    <img src="../../../../utils/dependences/SV/DESK/sv-it/files/SV_HP_InEvidenza_VTO.jpg" loading="lazy" alt="">
+ </picture>
+</div>
+<div class="text-negozio d-flex flex-column justify-content-between align-items-lg-start align-items-center">
+ <p class="lh-1-5 medium-text nunito text-white ls-05">Prenota un appuntamento:<br> il nostro
+    staff è a tua disposizione per qualsiasi tua esigenza visiva.</p>
+ <a href="https://www.salmoiraghievigano.it/trova-negozio" class="btn border-btn border-white text-white">Trova negozio</a>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+    
+</div>
+
+<div class="menus-row">
+<div id="footerRow1-dsk">
+    
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Menu" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Menu" id="ci_espot__X_Footer_Menu">
+  
+<div class="left_espot">
+
+
+  
+<div class="footer-menu-wrapper">
+<div id="footerCustomerCare-dsk">
+<h5 class="nunito font-weight-bold mb-4 ls-05">Servizio Clienti</h5>
+<a href="https://www.salmoiraghievigano.it/contattaci" class="btn btn-white px-0 small sv-secondary">
+    <img class="mr-2 ls-is-cached lazyloaded" alt="" src="../../../../utils/dependences/SV/DESK/sv-it/files/form.svg" data-src="https://www.salmoiraghievigano.it/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/form.svg">
+    Compila il form
+</a>
+<a href="https://api.whatsapp.com/send/?phone=393463099884&amp;text=Avrei+bisogno+del+vostro+supporto.+Grazie&amp;app_absent=0" class="btn btn-white px-0 small sv-secondary">
+    <img class="mr-2 ls-is-cached lazyloaded" alt="" src="../../../../utils/dependences/SV/DESK/sv-it/files/logo-wp.svg" data-src="https://www.salmoiraghievigano.it/wcsstore/SalmoiraghiStorefrontAssetStore//images/icons-svg/logo-wp.svg">
+    Chatta con noi
+</a>
+<p class="mb-4">
+    Oppure contattaci al<br>
+    <span class="font-weight-bold">Numero verde <a class="text-white font-weight-bold" href="tel:+39 800.88.22.33">800 88 22 33</a></span>
+</p>
+<p>
+    <span class="font-weight-bold d-block">Assistenza Ray-Ban stories:</span>
+    Dal lunedì al sabato dalle 10 alle 19
+    <span class="font-weight-bold d-block">Assistenza acquisti online:</span>
+    Dal lunedì al venerdì dalle 10 alle 19
+</p>
+</div>
+<div id="footerServiceSection-dsk">
+<h6 class="nunito font-weight-bold ls-05">La nostra offerta</h6>
+<ul>
+    <li>
+        <a data-element-id="X_X_Footer_Sun" href="https://www.salmoiraghievigano.it/occhiali-da-sole" title="Occhiali da sole">
+            Occhiali da sole
+        </a>
+    </li>
+    <li>
+        <a data-element-id="X_X_Footer_Optics" href="https://www.salmoiraghievigano.it/occhiali-da-vista" title="Occhiali da vista">
+            Occhiali da vista
+        </a>
+    </li>
+    <li>
+        <a data-element-id="X_X_Footer_Read" href="https://www.salmoiraghievigano.it/occhiali-da-lettura/" title="Occhiali da lettura">
+            Occhiali da lettura
+        </a>
+    </li>
+    <li>
+        <a data-element-id="X_X_Footer_SmartGlasses" href="https://www.salmoiraghievigano.it/ray-ban-stories" title="Smart glasses">
+            Smart glasses
+        </a>
+    </li>
+    <li>
+        <a data-element-id="X_X_Footer_ContactLenses" href="https://www.salmoiraghievigano.it/lenti-a-contatto" title="Lenti a contatto">
+            Lenti a contatto
+        </a>
+    </li>
+    <li>
+        <a data-element-id="X_X_Footer_CollirisSolution" href="https://www.salmoiraghievigano.it/accessori" title="Soluzioni e colliri">
+            Soluzioni e colliri
+        </a>
+    </li>
+    <li>
+        <a data-element-id="X_X_Footer_Brands" href="https://www.salmoiraghievigano.it/tutti-i-brand" title="I nostri brand">
+            I nostri brand
+        </a>
+    </li>
+    <li>
+        <a data-element-id="X_X_Footer_GiftCard" href="https://www.salmoiraghievigano.it/gift-card/" title="Gift card">
+            Gift card
+        </a>
+    </li>
+</ul>
+</div>
+<div id="footerInfoSection-dsk">
+<h6 class="nunito font-weight-bold ls-05">Acquisti online</h6>
+<ul>
+    <li><a data-element-id="X_X_Footer_GuidaFormeViso" href="https://www.salmoiraghievigano.it/guida-forme-viso" title="Guida alle forme del viso">Guida alle forme del viso</a></li>
+    <li><a data-element-id="X_X_Footer_InformazioniSpedizione" href="https://www.salmoiraghievigano.it/spedizione-occhiali-lenti-a-contatto" title="Informazioni di spedizione">Informazioni di spedizione</a></li>
+    <li><a data-element-id="X_X_Footer_Resi" href="https://www.salmoiraghievigano.it/restituzioni-occhial-lenti-a-contatto" title="Resi e garanzie">Resi e garanzie</a></li>
+    <li><a data-element-id="X_X_Footer_CheckBalanceGiftCard" href="https://www.salmoiraghievigano.it/controllo-credito-residuo" title="Controllo credito residuo">Controlla credito</a></li>
+    <li><a data-element-id="X_X_Footer_Faq" href="https://www.salmoiraghievigano.it/faq" title="Faq">FAQ</a></li>
+</ul>
+</div>
+<div id="footerBusinessSection-dsk">
+<h6 class="nunito font-weight-bold ls-05">Servizi</h6>
+<ul>
+    <li><a data-element-id="X_X_Footer_BonusVista" href="https://www.salmoiraghievigano.it/bonus-vista" title="Bonus Vista">Bonus Vista</a></li>
+    <li><a data-element-id="X_X_Footer_CheckUp" href="https://www.salmoiraghievigano.it/check-up-visivo" title="Controllo della vista gratuito">Controllo della vista gratuito</a></li>
+    <li><a data-element-id="X_X_Footer_PrenotaEsameVista" href="https://www.salmoiraghievigano.it/esame-della-vista-scegli-negozio" title="Prenota esame della vista">Prenota esame della vista</a></li>
+    <li><a data-element-id="X_X_Footer_ApplicazioneLenti" href="https://www.salmoiraghievigano.it/check-up-visivo?sv_type=2" title="Applicazione lenti a contatto">Applicazione lenti a contatto</a></li>
+    <li><a data-element-id="X_X_Footer_OcchialisuMisura" href="https://www.salmoiraghievigano.it/servizi#service-occhiale-completo" title="Occhiali su misura">Occhiale completo</a></li>
+    <li><a data-element-id="X_X_Footer_ClubETe" href="https://www.salmoiraghievigano.it/club-ete" title="Club &amp;TE">Club &amp;TE</a></li>
+    <li><a data-element-id="X_X_Footer_TuttiServizi" href="https://www.salmoiraghievigano.it/servizi" title="Scopri tutti servizi">Scopri tutti
+        servizi</a></li>
+</ul>
+</div>
+<div id="footerVisionSection-dsk">
+<h6 class="nunito font-weight-bold ls-05">Azienda</h6>
+<ul>
+    <li style=""><a data-element-id="X_X_Footer_LaNostraStoria" href="https://www.salmoiraghievigano.it/la-nostra-storia" title="La nostra storia">La nostra storia</a></li>
+    <li><a data-element-id="X_X_Footer_Sostenibilita" href="https://www.salmoiraghievigano.it/sostenibilita-ambientale" title="Sostenibilita">Sostenibilità</a></li>
+    <li><a data-element-id="X_X_Footer_WSD" href="https://www.salmoiraghievigano.it/giornata-mondiale-vista" title="OneSight">OneSight</a>
+    </li>
+    <li><a data-element-id="X_X_Footer_TrovaNegozio" href="https://www.salmoiraghievigano.it/trova-negozio" title="Trova negozi">Trova
+        negozi</a></li>
+    <li><a data-element-id="X_X_Footer_Contattaci" href="https://www.salmoiraghievigano.it/contattaci" title="Contattaci">Contattaci</a></li>
+</ul>
+
+<h6 class="font-weight-bold ls-05 mt-4 pt-2 nunito">Lavora con noi</h6>
+<ul>
+    <li><a data-element-id="X_X_Footer_LavoraConNoi" href="https://www.salmoiraghievigano.it/lavora-con-noi" title="Lavorare in S&amp;V">Lavorare
+        in S&amp;V</a></li>
+    <li><a data-element-id="X_X_Footer_OpportunitaLavoro" href="https://www.salmoiraghievigano.it/lavora-con-noi/offerte-di-lavoro" title="Opportunita di lavoro">Opportunità di lavoro</a></li>
+    <li><a data-element-id="X_X_Footer_ProgrammaCampus" href="https://www.salmoiraghievigano.it/programma-campus" title="Programma Campus">Programma Campus</a></li>
+</ul>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+ 
+<div id="footerRow1">
+    
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Menu_Mobile" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Menu_Mobile" id="ci_espot__X_Footer_Menu_Mobile">
+  
+<div class="left_espot">
+
+
+  <div class="footer-menu-wrapper">
+<div id="footerCustomerCare">
+<h5 class="font-weight-bold lh-1-5 ls-05 mb-4">Servizio Clienti</h5>
+<a href="https://www.salmoiraghievigano.it/contattaci" class="btn btn-white sv-secondary">
+    <img class="lazyload" src="https://www.salmoiraghievigano.it/bonus-vista" data-src="https://www.salmoiraghievigano.it/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/form.svg" alt="Compila il form">
+    Compila il form
+</a>
+<a href="https://api.whatsapp.com/send/?phone=393463099884&amp;text=Avrei+bisogno+del+vostro+supporto.+Grazie&amp;app_absent=0" class="btn btn-white sv-secondary">
+    <img class="lazyload" src="https://www.salmoiraghievigano.it/bonus-vista" data-src="https://www.salmoiraghievigano.it/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/logo-wp.svg" alt="Chatta con noi">
+    Chatta con noi
+</a>
+<a href="tel:+39 800.88.22.33" class="btn btn-white sv-secondary">
+    <img class="lazyload" src="https://www.salmoiraghievigano.it/bonus-vista" data-src="https://www.salmoiraghievigano.it/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/phone.svg" alt="Chiamaci">
+    800 88 22 33
+</a>
+<p class="customer-service-timetable">
+    <span class="font-weight-bold">Assistenza Ray-Ban stories:</span>
+    Dal lunedì al sabato dalle 10 alle 19
+    <span class="font-weight-bold">Assistenza acquisti online:</span>
+    Dal lunedì al venerdì dalle 10 alle 19
+</p>
+</div>
+<div id="footerServiceSection">
+<button class="collapsed btn footer-accordion-btn" type="button" data-toggle="collapse" data-target="#service-accordion" aria-expanded="false" aria-controls="service-accordion">
+    La nostra offerta
+</button>
+<div class="collapse footer-accordion-body" id="service-accordion">
+    <a data-element-id="X_X_Footer_Optics" href="https://www.salmoiraghievigano.it/occhiali-da-vista" title="Occhiali da vista">
+        Occhiali da vista
+    </a>
+    <a data-element-id="X_X_Footer_Sun" href="https://www.salmoiraghievigano.it/occhiali-da-sole" title="Occhiali da sole">
+        Occhiali da sole
+    </a>
+    <a data-element-id="X_X_Footer_Read" href="https://www.salmoiraghievigano.it/occhiali-da-lettura/" title="Occhiali da lettura">
+        Occhiali da lettura
+    </a>
+    <a data-element-id="X_X_Footer_ContactLenses" href="https://www.salmoiraghievigano.it/lenti-a-contatto" title="Lenti a contatto">
+        Lenti a contatto
+    </a>
+    <a data-element-id="X_X_Footer_CollirisSolution" href="https://www.salmoiraghievigano.it/accessori" title="Soluzioni e colliri">
+        Soluzioni e colliri
+    </a>
+    <a data-element-id="X_X_Footer_SmartGlasses" href="https://www.salmoiraghievigano.it/ray-ban-stories" title="Smart glasses">
+        Smart glasses
+    </a>
+    <a data-element-id="X_X_Footer_GiftCard" href="https://www.salmoiraghievigano.it/gift-card/" title="Gift card">
+        Gift card
+    </a>
+    <a data-element-id="X_X_Footer_Brands" href="https://www.salmoiraghievigano.it/tutti-i-brand" title="I nostri brand">
+        I nostri brand
+    </a>
+</div>
+</div>
+<div id="footerInfoSection">
+<button class="collapsed btn footer-accordion-btn" type="button" data-toggle="collapse" data-target="#acquisti-online" aria-expanded="false" aria-controls="acquisti-online">
+    Acquisti online
+</button>
+<div class="collapse footer-accordion-body" id="acquisti-online">
+    <a data-element-id="X_X_Footer_GuidaFormeViso" href="https://www.salmoiraghievigano.it/guida-forme-viso" title="Guida alle forme del viso">
+        Guida alle forme del viso
+    </a>
+    <a data-element-id="X_X_Footer_InformazioniSpedizione" href="https://www.salmoiraghievigano.it/spedizione-occhiali-lenti-a-contatto" title="Informazioni di spedizione">
+        Informazioni di spedizione</a>
+    <a data-element-id="X_X_Footer_Resi" href="https://www.salmoiraghievigano.it/restituzioni-occhial-lenti-a-contatto" title="Resi e garanzie">
+        Resi e garanzie
+    </a>
+    <a data-element-id="X_X_Footer_CheckBalanceGiftCard" href="https://www.salmoiraghievigano.it/controllo-credito-residuo" title="Controllo credito residuo">
+        Controlla credito
+    </a>
+    <a data-element-id="X_X_Footer_Faq" href="https://www.salmoiraghievigano.it/faq" title="Faq">
+        FAQ
+    </a>
+</div>
+</div>
+<div id="footerBusinessSection">
+<button class="collapsed btn footer-accordion-btn" type="button" data-toggle="collapse" data-target="#business-accordion" aria-expanded="false" aria-controls="business-accordion">
+    Servizi
+</button>
+<div class="collapse footer-accordion-body" id="business-accordion">
+    <a data-element-id="X_X_Footer_BonusVista" href="https://www.salmoiraghievigano.it/bonus-vista" title="Bonus Vista">
+        Bonus Vista
+    </a>
+
+    <a data-element-id="X_X_Footer_CheckUp" href="https://www.salmoiraghievigano.it/check-up-visivo" title="Controllo della vista">
+        Controllo della vista
+    </a>
+    <a data-element-id="X_X_Footer_PrenotaEsameVista" href="https://www.salmoiraghievigano.it/esame-della-vista-scegli-negozio" title="Prenota esame della vista">Prenota esame della vista</a>
+
+    <a data-element-id="X_X_Footer_ApplicazioneLenti" href="https://www.salmoiraghievigano.it/check-up-visivo?sv_type=2" title="Applicazione lenti a contatto">
+        Applicazione lenti a contatto
+    </a>
+    <a data-element-id="X_X_Footer_OcchialisuMisura" href="https://www.salmoiraghievigano.it/servizi#service-occhiale-completo" title="Occhiali su misura">
+        Occhiali completo
+    </a>
+    <a data-element-id="X_X_Footer_ClubETe" href="https://www.salmoiraghievigano.it/club-ete" title="Club &amp;TE">
+        Club&amp;TE
+    </a>
+    <a data-element-id="X_X_Footer_TuttiServizi" href="https://www.salmoiraghievigano.it/servizi" title="Scopri tutti servizi">
+        Scopri tutti servizi
+    </a>
+</div>
+</div>
+<div id="footerVisionSection-business">
+<button class="collapsed btn footer-accordion-btn" type="button" data-toggle="collapse" data-target="#vision-accordion" aria-expanded="false" aria-controls="vision-accordion">
+    Azienda
+</button>
+<div class="collapse footer-accordion-body" id="vision-accordion">
+    <a data-element-id="X_X_Footer_LaNostraStoria" href="https://www.salmoiraghievigano.it/la-nostra-storia" title="La nostra storia">
+        La nostra storia
+    </a>
+    <a data-element-id="X_X_Footer_Sostenibilita" href="https://www.salmoiraghievigano.it/sostenibilita-ambientale" title="Sostenibilita">
+        Sostenibilità
+    </a>
+    <a data-element-id="X_X_Footer_WSD" href="https://www.salmoiraghievigano.it/giornata-mondiale-vista" title="OneSight">OneSight</a>
+
+    <a data-element-id="X_X_Footer_TrovaNegozio" href="https://www.salmoiraghievigano.it/trova-negozio" title="Trova negozi">
+        Trova negozi
+    </a>
+    <a data-element-id="X_X_Footer_Contattaci" href="https://www.salmoiraghievigano.it/contattaci" title="Contattaci">
+        Contattaci
+    </a>
+</div>
+</div>
+<div id="footerVisionSection-work">
+<button class="collapsed btn footer-accordion-btn" type="button" data-toggle="collapse" data-target="#works-accordion" aria-expanded="false" aria-controls="works-accordion">
+    Lavora con noi
+</button>
+<div class="collapse footer-accordion-body" id="works-accordion">
+    <a data-element-id="X_X_Footer_LavoraConNoi" href="https://www.salmoiraghievigano.it/lavora-con-noi" title="Lavorare in S&amp;V">
+        Lavorare in S&amp;V
+    </a>
+    <a data-element-id="X_X_Footer_OpportunitaLavoro" href="https://www.salmoiraghievigano.it/lavora-con-noi/offerte-di-lavoro" title="Opportunita di lavoro">
+        Opportunità di lavoro
+    </a>
+    <a data-element-id="X_X_Footer_ProgrammaCampus" href="https://www.salmoiraghievigano.it/programma-campus" title="Programma Campus">
+        Programma Campus
+    </a>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="social-row">
+ 
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_SocialLinks" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_SocialLinks" id="ci_espot__X_Footer_SocialLinks">
+  
+<div class="left_espot">
+
+
+  <div class="d-flex justify-content-between align-items-center social-trustpilot-wrapper">
+<div class="social-wrapper">
+<a href="https://www.instagram.com/salmoiraghievigano/" alt="Instagram">
+    <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/instagram-w.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore//images/icons-svg/instagram-w.svg" alt="Instagram">
+</a>
+<a href="https://www.facebook.com/SalmoiraghieVigano/" alt="Facebook">
+    <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/facebook-w.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore//images/icons-svg/facebook-w.svg" alt="Facebook">
+</a>
+<a href="https://twitter.com/SV_Official" alt="Twitter">
+    <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Twitter">
+        <path d="M6.92083 17.9375C15.2167 17.9375 19.7542 11.0625 19.7542 5.10417C19.7542 4.92084 19.7542 4.69167 19.7542 4.50834C20.625 3.86667 21.4042 3.0875 22 2.17084C21.175 2.5375 20.3042 2.76667 19.3875 2.90417C20.3042 2.35417 21.0375 1.48334 21.3583 0.429171C20.4875 0.933338 19.525 1.3 18.4708 1.52917C17.6458 0.658337 16.4542 0.108337 15.1708 0.108337C12.6958 0.108337 10.6792 2.125 10.6792 4.6C10.6792 4.96667 10.725 5.2875 10.8167 5.60834C7.10417 5.425 3.75833 3.6375 1.5125 0.887504C1.14583 1.575 0.916667 2.30834 0.916667 3.13334C0.916667 4.69167 1.69583 6.06667 2.93333 6.89167C2.2 6.89167 1.5125 6.6625 0.870833 6.34167V6.3875C0.870833 8.5875 2.42917 10.4208 4.49167 10.8333C4.125 10.925 3.7125 10.9708 3.3 10.9708C3.025 10.9708 2.70417 10.925 2.42917 10.8792C3.025 12.6667 4.675 13.9958 6.64583 13.9958C5.0875 15.1875 3.1625 15.9208 1.05417 15.9208C0.6875 15.9208 0.320833 15.9208 0 15.875C2.01667 17.2042 4.35417 17.9375 6.92083 17.9375Z" fill="white">
+        </path>
+    </svg>
+</a>
+<a href="https://www.pinterest.it/salmoiraghievigano/" alt="Pinterest">
+    <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Pinterest">
+        <path d="M9.5133 0C3.50913 0 0.484131 4.30375 0.484131 7.8925C0.484131 10.065 1.30913 11.9992 3.07371 12.7188C3.36246 12.8379 3.62371 12.7233 3.70621 12.4025C3.7658 12.1825 3.9033 11.6233 3.96288 11.3896C4.04538 11.0733 4.0133 10.9633 3.77955 10.6838C3.2708 10.0833 2.94538 9.30417 2.94538 8.20417C2.94538 5.00958 5.3333 2.14958 9.16496 2.14958C12.5566 2.14958 14.422 4.22125 14.422 6.99417C14.422 10.6379 12.8087 13.7133 10.4162 13.7133C9.09621 13.7133 8.10621 12.6179 8.42246 11.2796C8.80288 9.68 9.53621 7.95208 9.53621 6.79708C9.53621 5.76125 8.98163 4.89958 7.83121 4.89958C6.47913 4.89958 5.39288 6.2975 5.39288 8.17208C5.39288 9.36375 5.79621 10.1704 5.79621 10.1704C5.79621 10.1704 4.41205 16.0279 4.16913 17.0546C3.68788 19.0987 4.0958 21.6058 4.13246 21.8579C4.1508 22.0092 4.3433 22.0413 4.43496 21.9312C4.55871 21.7708 6.16746 19.7817 6.71746 17.7971C6.8733 17.2333 7.60663 14.3229 7.60663 14.3229C8.04663 15.1617 9.32996 15.8996 10.6912 15.8996C14.752 15.8996 17.5112 12.1962 17.5112 7.23708C17.5158 3.4925 14.3395 0 9.5133 0Z" fill="white"></path>
+    </svg>
+</a>
+<a href="https://www.youtube.com/salmoiraghievigano" alt="Youtube">
+    <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/youtube-w.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore//images/icons-svg/youtube-w.svg" alt="Youtube">
+</a>
+<a href="https://it.linkedin.com/company/salmoiraghi-e-vigano%27%E2%80%8B" alt="LinkedIn">
+    <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/linkedin-w.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore//images/icons-svg/linkedin-w.svg" alt="LinkedIn">
+</a>
+</div>
+
+<!-- TrustBox script -->
+<!-- <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script> -->
+<!-- End TrustBox script -->
+<!-- TrustBox widget - Micro TrustScore -->
+<!-- <div class="trustpilot-widget" data-locale="it-IT" data-template-id="5419b637fa0340045cd0c936"
+data-businessunit-id="63f4d2aaf6c65d939a9a2ca0" data-style-height="20px" data-style-width="100%"
+data-theme="dark" data-font-family="Nunito" data-text-color="#ffffff">
+<a href="https://www.trustpilot.com/review/salmoiraghievigano.tp-testing.com" target="_blank"
+    rel="noopener">Trustpilot</a>
+</div> -->
+<!-- End TrustBox widget -->
+</div>
+<script>
+
+// $(document).ready(function () {
+//     $('#footerWrapper .trustpilot-widget').attr('data-element-id', 'X_X_Footer_RatingReviews');
+//     $('#footerWrapper .trustpilot-widget').attr('data-analytics_available_call', '1');
+//     $('#footerWrapper .trustpilot-widget').attr('data-description', 'Trustpilot');
+// });
+
+</script>
+
+<style>
+.social-row .trustpilot-widget {
+width: 230px;
+margin-right: -10px;
+}
+
+@media screen and (max-width: 520px) {
+.social-trustpilot-wrapper {
+    flex-wrap: wrap;
+    justify-content: center !important;
+    gap: 24px;
+}
+}
+</style>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="privacy-row">
+<div class="privacy-main-wrapper">
+    
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Copyright" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Copyright" id="ci_espot__X_Footer_Copyright">
+  
+<div class="left_espot">
+
+
+  <button class="btn copyright-toggle collapsed" type="button" data-toggle="collapse" data-target="#copyright-text" aria-expanded="false" aria-controls="copyright-text">
+©2023 Salmoiraghi &amp; Viganò All Rights Reserved
+</button>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Socials" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Socials" id="ci_espot__X_Footer_Socials">
+  
+<div class="left_espot">
+
+
+  <div class="policy-footer">
+              <a data-element-id="X_X_Footer_TerminiCondizioni" href="https://www.salmoiraghievigano.it/termini-di-utilizzo/" title="Termini e condizioni">Termini e condizioni</a>
+              <a href="https://www.salmoiraghievigano.it/privacy-policy/" title="Privacy Policy">Privacy Policy</a>
+              <a href="https://www.salmoiraghievigano.it/cookie-policy" title="Cookie Policy">Cookie Policy</a>
+              <a href="https://www.salmoiraghievigano.it/termini-di-vendita/" title="Termini di vendita">Termini di vendita</a>
+              <a href="https://www.salmoiraghievigano.it/site-map/" title="Site map">Site map</a>
+            </div>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+
+    <div class="payment-methods">
+        <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/visa.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/cards-dark/visa.svg" alt="Visa">
+        <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/mastercard.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/cards-dark/mastercard.svg" alt="Mastercard">
+        <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/american-express.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/cards-dark/american-express.svg" alt="&gt;American Express">
+        <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/paypal.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/cards-dark/paypal.svg" alt="Paypal">
+         <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/scalapay-ico.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore//images/icons-svg/cards-dark/scalapay-ico.svg" alt="Scalapay"> 
+        <img class=" ls-is-cached lazyloaded" src="../../../../utils/dependences/SV/DESK/sv-it/files/satispay-ico.svg" data-src="/wcsstore/SalmoiraghiStorefrontAssetStore/images/icons-svg/cards-dark/satispay-ico.svg" alt="Satispay">
+    </div>
+</div>              	
+
+<div class="privacy-collapse collapse accordion-body" id="copyright-text">
+  
+<div class="emarketingspot-wrapped-div">
+
+<div id="contentRecommendationWidget_X_Footer_Copyright_Text" class="contentRecommendationWidget" style="
+
+">
+
+<div dataci_toolbar="_espot" dataci_espot="_X_Footer_Copyright_Text" id="ci_espot__X_Footer_Copyright_Text">
+  
+<div class="left_espot">
+
+
+  <p><a href="https://www.salmoiraghievigano.it/privacy-policy/"><span class="bold text-white">Privacy Policy</span></a> -
+              EssilorLuxottica Italia S.p.A.</p>
+            <p>Soggetta a direzione e coordinamento di Luxottica Group S.p.A.</p>
+            <p>Sede legale: Piazzale Luigi Cadorna n. 3 - 20123 Milano (MI)</p>
+            <p>n. di iscrizione al Registro Imprese di Milano, C.F. e Partita IVA: 12949250158</p>
+            <p>É un dispositivo medico CE. Aut. Min. del 19/12/2012. Leggere attentamente le avvertenze e
+              le
+              modalità d'uso.</p>
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+<!-- BEGIN LayoutPreviewSetup.jspf--><!-- layoutPreviewLayoutId/Name/Default needs to be set before calling widgetImport  --><!-- END LayoutPreviewSetup.jspf-->
+
+
+<script>
+utagFiller.initialize();
+utagFiller.setUser();
+
+    utagFiller.setOtherPage("Clp","Landing","BonusVista");
+  
+
+</script>
+
+
+<script>
+$( document ).ready(function() {
+try {
+var analyticsJspErrorMessage = '';
+  if (analyticsJspErrorMessage != null && analyticsJspErrorMessage.trim().length > 0 && ((utag_data != null && utag_data.Error_Source != "404") || (utag_data == null))) {
+    
+    if (analyticsJspErrorMessage == 'CMN0207E Il valore del parametro &#034;validationCode&#034; non è corretto.') {
+      analyticsJspErrorMessage = 'Attenzione, non è stato possibile reimpostare la password poiché il link utilizzato è scaduto. Si prega di chiedere nuovamente il reset della password qui.'
+    }
+
+    if(analyticsJspErrorMessage.indexOf("L&#039;email o la password inserite risultano inesistenti") > -1){
+               utagFiller.asyncSendError(analyticsJspErrorMessage, 'User', 'Form Filling Error');
+    }else {
+        utagFiller.asyncSendError(analyticsJspErrorMessage, 'Server', 'Inpage JSP WCS server error');
+    }
+    
+
+    setTimeout(function() { jsLogger.severe("General JSP WCS Server Error", "Response is not 200. WCS errorMessage is set", JSON.stringify(analyticsJspErrorMessage)); }, 50);
+  }
+} catch (err) {
+setTimeout(function() { jsLogger.severe("General JSP WCS Server Error", "Response is not 200. Js totally crashed.", err.message); }, 50);
+}
+});
+</script>
+
+<!-- Tealium Library -->
+<script type="text/javascript">
+$(document).ready(function () {
+(function(a,b,c,d){
+a='//tags.tiqcdn.com/utag/luxottica/salmoiraghi/prod/utag.js?v=';
+b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+})();
+});
+</script>
+
+
+<script type="text/javascript" src="../../../../utils/dependences/SV/DESK/sv-it/files/PXFMPHY"></script>
+
+
+
+<div id="sp_modal__overlay" class="sp_modal__overlay">
+<link href="../../../../utils/dependences/SV/DESK/sv-it/files/css(1)" rel="stylesheet">
+<style>
+.sp_modal__overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+overflow-y: auto;
+width: 100%;
+height: 100%;
+display: none;
+background: rgba(15, 15, 17, .66);
+z-index: 200000001 !important;
+}
+
+.sp_modal__container {
+font-family: Poppins, Montserrat, sans-serif;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-ms-flex-direction: column;
+    flex-direction: column;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+    justify-content: space-between;
+-webkit-box-align: left;
+-ms-flex-align: left;
+    align-items: left;
+max-width: 400px;
+width: 90%;
+padding: 25px 25px 25px 25px;
+margin: 1em auto;
+color: #13131F;
+background: white;
+position: relative;
+opacity: 1;
+z-index: 200000002;
+overflow-x: hidden;
+overflow-y: auto;
+-webkit-box-shadow: 0px 6px 20px 2px rgba(100, 100, 100, .5);
+    box-shadow: 0px 6px 20px 2px rgba(100, 100, 100, .5);
+}
+.sp-hidden {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+
+.sp_modal__close {
+width: 20px;
+height: 20px;
+-ms-flex-item-align: end;
+align-self: flex-end;
+position: absolute;
+top: 20px;
+right: 20px;
+opacity: 1;
+cursor: pointer;
+}
+
+.sp_modal__close:before,
+.sp_modal__close:after {
+position: absolute;
+bottom: 0;
+right: 8px;
+content: ' ';
+height: 22px;
+width: 4px;
+background-color: #1D73EC;
+}
+
+.sp_modal__close:before {
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.sp_modal__close:after {
+-webkit-transform: rotate(-45deg);
+-ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.sp_modal__close:hover::before,
+.sp_modal__close:hover::after {
+background-color: #13131F;
+-webkit-box-shadow: 0 1px 1px 1px rgba(100, 100, 100, .1);
+    box-shadow: 0 1px 1px 1px rgba(100, 100, 100, .1);
+}
+
+.sp_modal__close:focus, input:focus {
+outline: none;
+}
+
+.sp_modal__logo {
+margin-top: 1em;
+margin-bottom: 0.5em;
+}
+
+.sp_modal__step-container {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-ms-flex-direction: column;
+    flex-direction: column;
+-webkit-box-align: left;
+-ms-flex-align: left;
+    align-items: left;
+-webkit-box-pack: space-evenly;
+-ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+margin: 0.2em 0 0.8em 0;
+max-width: 80%;
+}
+
+.sp_modal__heading {
+font-size: 2.5em;
+font-weight: 700;
+margin: 0 0 0.8em 0;
+line-height: 1;
+}
+
+.sp_modal__tag {
+font-size: 110%;
+font-weight: 700;
+width: 80%;
+text-align: left;
+margin: 1em 0;
+max-width: 80%;
+}
+
+.sp_modal__subhead {
+text-align: left;
+margin: 0 0 1em 0;
+color: #4C515D;
+font-weight: 500;
+font-size: 95%;
+}
+
+.sp_modal__step-header {
+font-size: 110%;
+font-weight: bold;
+margin: 0 0 0.4em 0;
+text-align: left;
+font-weight: 700;
+}
+
+.sp_modal__footer {
+text-align: center;
+font-size: x-small;
+}
+
+.sp_modal--nowrap {
+white-space: nowrap;
+font-weight: inherit;
+font-family: inherit;
+font-size: inherit;
+}
+
+/* To handle when parent site specifies SVG fill and stroke globally */
+#sp_modal__logo-q {
+fill: #1D73EC;
+}
+#sp_modal__logo-scalapay {
+fill: #13131F;
+}
+.sp_modal__logo svg * {
+stroke: none;
+}
+
+@media screen and (max-width: 420px) {
+.sp_modal__container {
+padding: 20px 15px 20px 15px;
+}
+
+.sp_modal__tag { width: 85%; }
+
+.sp_modal__step-container { width: 85%; }
+}
+
+</style>
+
+<div class="sp_modal__container" id="sp_modal__container" aria-describedby="popup" tabindex="-1" data-element-id="X_X_Prod_ScalaPay">
+<p id="popup" class="sp-hidden">An automatic popup has been triggered.</p>
+<div class="sp_modal__close" id="sp_modal__close" tabindex="0" role="button" data-analytics_available_call="0"></div>
+<div class="sp_modal__logo" id="sp_modal__logo">
+<svg id="scalapay-logo-box" xmlns="http://www.w3.org/2000/svg" width="150" height="40" viewBox="0 0 170 40" version="1.1">
+  <g id="Scalapay" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Combined-Shape-2" transform="translate(1.000000, 0.000000)" fill="#120202">
+      <path d="M0.288563682,10.5020756 L4.91478363,5.73089717 C5.38371386,5.24727344 6.15591142,5.23536199 6.63953516,5.70429222 C6.64853973,5.71302322 6.65740911,5.7218926 6.66614011,5.73089717 L10.2138822,9.38980453 C10.6828124,9.87342827 11.4550099,9.88533971 11.9386337,9.41640948 C11.9476383,9.40767848 11.9565076,9.39880911 11.9652386,9.38980453 L15.4114838,5.83557432 C15.8804141,5.35195058 16.6526116,5.34003914 17.1362354,5.80896937 C17.14524,5.81770037 17.1541093,5.82656974 17.1628403,5.83557432 L21.7726286,10.5898061 C22.2142644,11.0452803 22.2329945,11.7632598 21.8157074,12.2411408 L11.9939955,23.489054 C11.5509187,23.9964695 10.7803926,24.0486264 10.2729771,23.6055497 C10.2317585,23.5695575 10.1930088,23.5308323 10.1569904,23.4896366 L0.245993899,12.1539928 C-0.171791843,11.6761528 -0.153278991,10.957763 0.288563682,10.5020756 Z M27.012113,19.9214386 L28.860638,17.0928985 C29.8289129,18.0053308 31.3253379,18.5527902 32.7630795,18.5527902 C33.7900378,18.5527902 34.5822627,18.0357452 34.5822627,17.3057993 C34.5822627,15.0855474 27.6869714,15.8763221 27.6869714,11.1316741 C27.6869714,8.30313396 30.3277212,6.53909817 33.1445211,6.53909817 C34.993046,6.53909817 37.0176209,7.26904401 37.9565542,8.02940427 L36.1667126,10.8883588 C35.433171,10.3408994 34.4648961,9.88468328 33.4379378,9.88468328 C32.3816378,9.88468328 31.5013879,10.310485 31.5013879,11.0708453 C31.5013879,12.9869531 38.3966792,12.2265929 38.3966792,17.3362138 C38.3966792,20.1647539 35.7265877,21.8983753 32.7337378,21.8983753 C30.7678462,21.8983753 28.684588,21.1988438 27.012113,19.9214386 Z M51.8938453,16.3021238 L54.8280118,18.5832046 C53.1555369,20.8946997 51.042937,21.8983753 48.3728455,21.8983753 C43.9715956,21.8983753 40.7440124,18.4919613 40.7440124,14.2339439 C40.7440124,9.9455121 44.0596206,6.53909817 48.4021871,6.53909817 C50.866887,6.53909817 53.0675119,7.72526017 54.3878869,9.48929595 L51.6884536,11.9528632 C50.9255703,10.9187732 49.7812454,10.1888274 48.4021871,10.1888274 C46.2015622,10.1888274 44.558429,11.9832776 44.558429,14.2339439 C44.558429,16.5454391 46.1722205,18.2486461 48.4902121,18.2486461 C50.0453204,18.2486461 51.2776703,17.2753849 51.8938453,16.3021238 Z M67.5916363,16.4237815 L67.5916363,12.013692 C66.7994113,10.9187732 65.5377197,10.1888274 64.0706364,10.1888274 C61.8406699,10.1888274 60.4029283,12.1049352 60.4029283,14.2339439 C60.4029283,16.5454391 62.0167199,18.2486461 64.1586614,18.2486461 C65.596403,18.2486461 66.8580946,17.5187002 67.5916363,16.4237815 Z M71.4060528,6.84324227 L71.4060528,21.5942312 L67.7383446,21.5942312 L67.7383446,20.4080692 C66.564678,21.4421591 65.2149614,21.8983753 63.7772198,21.8983753 C61.6646199,21.8983753 59.6693866,20.9251142 58.407695,19.4043936 C57.2927117,18.0661596 56.5885118,16.241295 56.5885118,14.2339439 C56.5885118,9.88468328 59.6987283,6.53909817 63.5718281,6.53909817 C65.1856197,6.53909817 66.6233613,7.08655755 67.7383446,8.02940427 L67.7383446,6.84324227 L71.4060528,6.84324227 Z M79.6217191,-3.55271368e-14 L79.6217191,21.5942312 L75.8073026,21.5942312 L75.8073026,-3.55271368e-14 L79.6217191,-3.55271368e-14 Z M93.8524268,16.4237815 L93.8524268,12.013692 C93.0602018,10.9187732 91.7985102,10.1888274 90.331427,10.1888274 C88.1014604,10.1888274 86.6637188,12.1049352 86.6637188,14.2339439 C86.6637188,16.5454391 88.2775104,18.2486461 90.419452,18.2486461 C91.8571936,18.2486461 93.1188852,17.5187002 93.8524268,16.4237815 Z M97.6668433,6.84324227 L97.6668433,21.5942312 L93.9991351,21.5942312 L93.9991351,20.4080692 C92.8254685,21.4421591 91.4757519,21.8983753 90.0380103,21.8983753 C87.9254104,21.8983753 85.9301772,20.9251142 84.6684855,19.4043936 C83.5535023,18.0661596 82.8493023,16.241295 82.8493023,14.2339439 C82.8493023,9.88468328 85.9595188,6.53909817 89.8326187,6.53909817 C91.4464102,6.53909817 92.8841519,7.08655755 93.9991351,8.02940427 L93.9991351,6.84324227 L97.6668433,6.84324227 Z M102.068093,28.8936896 L102.068093,6.84324227 L105.735801,6.84324227 L105.735801,8.02940427 C106.850785,7.08655755 108.288526,6.53909817 109.902318,6.53909817 C113.775418,6.53909817 116.885634,9.88468328 116.885634,14.2339439 C116.885634,16.241295 116.210776,18.0661596 115.095793,19.4043936 C113.834101,20.9251142 111.809526,21.8983753 109.696926,21.8983753 C108.259185,21.8983753 107.026835,21.4725735 105.88251,20.5601412 L105.88251,28.8936896 L102.068093,28.8936896 Z M105.88251,12.013692 L105.88251,16.4237815 C106.616051,17.5187002 107.877743,18.2486461 109.315484,18.2486461 C111.457426,18.2486461 113.071218,16.5454391 113.071218,14.2339439 C113.071218,12.1049352 111.633476,10.1888274 109.403509,10.1888274 C107.936426,10.1888274 106.674735,10.9187732 105.88251,12.013692 Z M130.236092,16.4237815 L130.236092,12.013692 C129.443867,10.9187732 128.182175,10.1888274 126.715092,10.1888274 C124.485125,10.1888274 123.047384,12.1049352 123.047384,14.2339439 C123.047384,16.5454391 124.661175,18.2486461 126.803117,18.2486461 C128.240859,18.2486461 129.50255,17.5187002 130.236092,16.4237815 Z M134.050508,6.84324227 L134.050508,21.5942312 L130.3828,21.5942312 L130.3828,20.4080692 C129.209134,21.4421591 127.859417,21.8983753 126.421675,21.8983753 C124.309075,21.8983753 122.313842,20.9251142 121.052151,19.4043936 C119.937167,18.0661596 119.232967,16.241295 119.232967,14.2339439 C119.232967,9.88468328 122.343184,6.53909817 126.216284,6.53909817 C127.830075,6.53909817 129.267817,7.08655755 130.3828,8.02940427 L130.3828,6.84324227 L134.050508,6.84324227 Z M142.970375,28.8936896 L138.979908,28.8936896 L142.911691,20.1039251 L136.54455,6.84324227 L140.740408,6.84324227 L144.906925,15.6938356 L148.750683,6.84324227 L152.770491,6.84324227 L142.970375,28.8936896 Z" id="Combined-Shape"></path>
+    </g>
+  </g>
+</svg>
+</div>
+<div class="sp_modal__heading">Quello che ami in 3 rate, senza interessi.</div>
+
+<div class="sp_modal__logo_image">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="40" viewBox="43 0 150 60">
+  <image x="0" y="0" width="195" height="55" xlink:href="data:img/png;base64,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"></image>
+</svg>
+</div>
+
+<div class="sp_modal__step-container">
+<div class="sp_modal__step-header">Scegli Scalapay al checkout</div>
+<div class="sp_modal__subhead">Disponibile con Visa, Mastercard o Amex.</div>
+</div>
+
+<div class="sp_modal__step-container">
+<div class="sp_modal__step-header">Crea un account in 2 minuti</div>
+<div class="sp_modal__subhead">Crea il tuo account e ricevi approvazione istantanea.</div>
+</div>
+
+<div class="sp_modal__step-container">
+<div class="sp_modal__step-header">Dividi il prezzo in 3, senza interessi</div>
+<div class="sp_modal__subhead">Goditi il tuo acquisto subito e dividi il prezzo in 3 rate mensili senza interessi.</div>
+</div>
+
+<div class="sp_modal__footer">
+Leggi tutte le condizioni su 
+<span class="sp_modal--nowrap"><a href="https://scalapay.com/" target="new">www.scalapay.com</a></span>
+</div>
+</div>
+</div><div class="magnify-mobile"><div class="lens-mobile"></div></div><iframe height="0" width="0" style="display: none; visibility: hidden;" src="../../../../utils/dependences/SV/DESK/sv-it/files/activityi.html"></iframe><script type="text/javascript" id="">var cookieName="gtm_mail_sha",cookieValue="";"undefined"!=typeof google_tag_manager["rm"]["37395111"](44)&&""!=google_tag_manager["rm"]["37395111"](45)&&(cookieValue=google_tag_manager["rm"]["37395111"](46));if(""!=cookieValue){var cookiePath="/",expirationTime=604800016;expirationTime*=1E3;var date=new Date,dateTimeNow=date.getTime();date.setTime(dateTimeNow+expirationTime);expirationTime=date.toUTCString();document.cookie=cookieName+"\x3d"+cookieValue+"; expires\x3d"+expirationTime+"; path\x3d"+cookiePath};</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");var fb_account_id="1259772110842799",custom_data={},event_data={},advanced_matching_data={em:""};advanced_matching_data.em=google_tag_manager["rm"]["37395111"](101);
+"undefined"!=typeof google_tag_manager["rm"]["37395111"](102)&&""!=google_tag_manager["rm"]["37395111"](103)&&(advanced_matching_data.ph=google_tag_manager["rm"]["37395111"](104));"undefined"!=typeof google_tag_manager["rm"]["37395111"](105)&&(advanced_matching_data.external_id=google_tag_manager["rm"]["37395111"](106));fbq("init",fb_account_id,advanced_matching_data);"undefined"!=typeof google_tag_manager["rm"]["37395111"](107)&&(event_data.eventID=google_tag_manager["rm"]["37395111"](108));
+if("view"==google_tag_manager["rm"]["37395111"](109)){advanced_matching_data.em=google_tag_manager["rm"]["37395111"](116);fbq("trackSingle",fb_account_id,"PageView",custom_data,event_data);"product_view"==google_tag_manager["rm"]["37395111"](117)&&(custom_data.content_name=google_tag_manager["rm"]["37395111"](118),custom_data.content_category=google_tag_manager["rm"]["37395111"](119),custom_data.content_ids=google_tag_manager["rm"]["37395111"](120),custom_data.content_type="product",custom_data.value=google_tag_manager["rm"]["37395111"](121),custom_data.currency=google_tag_manager["rm"]["37395111"](122),fbq("trackSingle",fb_account_id,"ViewContent",
+custom_data,event_data));if("Loyalty_user_register"==google_tag_manager["rm"]["37395111"](123)){var num_prod=google_tag_manager["rm"]["37395111"](124);fbq("trackSingle",fb_account_id,"CompleteRegistration",{content_ids:google_tag_manager["rm"]["37395111"](125),content_name:"user_register",content_type:"product",currency:google_tag_manager["rm"]["37395111"](126),status:"1"},event_data)}if("cart_view"==google_tag_manager["rm"]["37395111"](127)){for(var x=num_prod=0;x<google_tag_manager["rm"]["37395111"](128).length;x++)num_prod+=parseInt(google_tag_manager["rm"]["37395111"](129)[x]);var c_type="product";fbq("trackSingle",fb_account_id,
+"InitiateCheckout",{content_ids:google_tag_manager["rm"]["37395111"](130),content_name:google_tag_manager["rm"]["37395111"](131),content_type:c_type,currency:google_tag_manager["rm"]["37395111"](132),value:google_tag_manager["rm"]["37395111"](133),content_category:google_tag_manager["rm"]["37395111"](136),num_items:num_prod},event_data)}if("Gateway"==google_tag_manager["rm"]["37395111"](137)){for(x=num_prod=0;x<google_tag_manager["rm"]["37395111"](138).length;x++)num_prod+=parseInt(google_tag_manager["rm"]["37395111"](139)[x]);c_type="product";fbq("trackSingle",fb_account_id,"AddPaymentInfo",{content_ids:google_tag_manager["rm"]["37395111"](140),content_name:google_tag_manager["rm"]["37395111"](141),
+content_type:c_type,currency:google_tag_manager["rm"]["37395111"](142),value:google_tag_manager["rm"]["37395111"](143),content_category:google_tag_manager["rm"]["37395111"](146)},event_data)}if("Payment"==google_tag_manager["rm"]["37395111"](147)){for(x=num_prod=0;x<google_tag_manager["rm"]["37395111"](148).length;x++)num_prod+=parseInt(google_tag_manager["rm"]["37395111"](149)[x]);c_type="product";fbq("trackSingle",fb_account_id,"AddAddressInfo",{content_ids:google_tag_manager["rm"]["37395111"](150),content_name:google_tag_manager["rm"]["37395111"](151),content_type:c_type,currency:google_tag_manager["rm"]["37395111"](152),value:google_tag_manager["rm"]["37395111"](153),content_category:google_tag_manager["rm"]["37395111"](156)},
+event_data)}if("Delivery"==google_tag_manager["rm"]["37395111"](157)){for(x=num_prod=0;x<google_tag_manager["rm"]["37395111"](158).length;x++)num_prod+=parseInt(google_tag_manager["rm"]["37395111"](159)[x]);c_type="product";fbq("trackSingle",fb_account_id,"AddDeliveryInfo",{content_ids:google_tag_manager["rm"]["37395111"](160),content_name:google_tag_manager["rm"]["37395111"](161),content_type:c_type,currency:google_tag_manager["rm"]["37395111"](162),value:google_tag_manager["rm"]["37395111"](163),content_category:google_tag_manager["rm"]["37395111"](166)},event_data)}if("purchase"==google_tag_manager["rm"]["37395111"](167)){for(x=num_prod=0;x<google_tag_manager["rm"]["37395111"](168).length;x++)num_prod+=
+parseInt(google_tag_manager["rm"]["37395111"](169)[x]);c_type="product";fbq("trackSingle",fb_account_id,"Purchase",{content_ids:google_tag_manager["rm"]["37395111"](170),content_name:google_tag_manager["rm"]["37395111"](171),content_type:c_type,currency:google_tag_manager["rm"]["37395111"](172),value:google_tag_manager["rm"]["37395111"](173),content_category:google_tag_manager["rm"]["37395111"](176),num_items:num_prod},event_data);var stella=google_tag_manager["rm"]["37395111"](183);if("undefined"!=typeof stella&&stella.is_stella)for(x=0;x<stella.products.length;x++)fbq("trackSingle",fb_account_id," StellaPurchase",{value:stella.products[x].price,
+content_ids:stella.products[x].id,currency:google_tag_manager["rm"]["37395111"](184),content_name:stella.products[x].name},event_data)}}else"link"==google_tag_manager["rm"]["37395111"](185)&&"cart_add"==google_tag_manager["rm"]["37395111"](186)&&(advanced_matching_data.em=google_tag_manager["rm"]["37395111"](193),fbq("trackSingle",fb_account_id,"AddToCart",{content_ids:google_tag_manager["rm"]["37395111"](194),content_name:google_tag_manager["rm"]["37395111"](195),content_type:"product",currency:google_tag_manager["rm"]["37395111"](196),value:google_tag_manager["rm"]["37395111"](197),content_category:google_tag_manager["rm"]["37395111"](200)},event_data));</script>
+
+<script type="text/javascript" id="" src="../../../../utils/dependences/SV/DESK/sv-it/files/js(4)"></script><script type="text/javascript" id="">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","DC-10878383");var _shippintmode=google_tag_manager["rm"]["37395111"](201)||"";
+if(google_tag_manager["rm"]["37395111"](202)==="view"){gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT"=="undefined"?"":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](203)+google_tag_manager["rm"]["37395111"](204),"u6":"Landing","u7":"Bonusvista","send_to":"DC-10878383/sv_vi_al/sa_vi_al+standard"});if(google_tag_manager["rm"]["37395111"](205)==="Plp")gtag("event","conversion",{"allow_custom_scripts":true,
+"u1":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](206)+google_tag_manager["rm"]["37395111"](207),"u6":"Landing","u7":"Bonusvista","send_to":"DC-10878383/si_emea/lis+standard"});if(window.location.pathname.search(/savings\/offers$/)>=0)gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u25":"Guest",
+"u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](208)+google_tag_manager["rm"]["37395111"](209),"u6":"Landing","u7":"Bonusvista","send_to":"DC-10878383/si_emea/lpoff+standard"});if(google_tag_manager["rm"]["37395111"](210)==="Pdp")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](211)+google_tag_manager["rm"]["37395111"](212),
+"u6":"Landing","u7":"Bonusvista","u10":"undefined"=="undefined"?"":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](216),"u8":"undefined","u9":"undefined","send_to":"DC-10878383/si_emea/pdp+standard"});if(google_tag_manager["rm"]["37395111"](217)=="Lenspanel:Others:Lensmaterial:Overlay"||google_tag_manager["rm"]["37395111"](218)=="Sunlenspanel:Others:Lensmaterial:Overlay")gtag("event","conversion",{"allow_custom_scripts":true,
+"u1":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](219)+google_tag_manager["rm"]["37395111"](220),"u6":"Landing","u7":"Bonusvista","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](224),"u8":"undefined","u9":"undefined","u18":"undefined","u19":"undefined",
+"u20":"undefined"=="undefined"?"":"undefined","send_to":"DC-10878383/so_emea/lthi+standard"});if(google_tag_manager["rm"]["37395111"](225).indexOf("Lenstype:Overlay")>-1)gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](226)+google_tag_manager["rm"]["37395111"](227),"u6":"Landing","u7":"Bonusvista","u10":"undefined",
+"u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](231),"u8":"undefined","u9":"undefined","u18":"undefined","send_to":"DC-10878383/so_emeaa/ltype+standard"});if(google_tag_manager["rm"]["37395111"](232).indexOf("Lensreview:Overlay")>-1)gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](233)+google_tag_manager["rm"]["37395111"](234),
+"u6":"Landing","u7":"Bonusvista","u8":"undefined","u9":"undefined","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](238),"u18":"undefined","u19":"undefined","u20":"undefined"=="undefined"?"":"undefined","u21":"undefined","u25":"Guest","send_to":"DC-10878383/so_emea/lrev+standard"});if(google_tag_manager["rm"]["37395111"](239)==
+"CartPage")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](240)+google_tag_manager["rm"]["37395111"](241),"u6":"Landing","u7":"Bonusvista","u8":"undefined","u9":"undefined","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](245),"u14":google_tag_manager["rm"]["37395111"](249),
+"u15":"undefined","u16":"undefined","u17":"undefined","u18":"undefined","u19":"undefined","u20":"undefined"=="undefined"?"":"undefined","u21":"undefined","u22":parseInt(google_tag_manager["rm"]["37395111"](250)),"u25":"Guest","send_to":"DC-10878383/ec_emea/cart+standard"});if(google_tag_manager["rm"]["37395111"](251)==="Delivery")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT",
+"u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](252)+google_tag_manager["rm"]["37395111"](253),"u6":"Landing","u7":"Bonusvista","u8":"undefined","u9":"undefined","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](257),"u14":google_tag_manager["rm"]["37395111"](261),"u15":"undefined","u16":"undefined","u17":"undefined",
+"u18":"undefined","u19":"undefined","u20":"undefined"=="undefined"?"":"undefined","u21":"undefined","u22":parseInt(google_tag_manager["rm"]["37395111"](262)),"u23":_shippintmode,"u25":"Guest","send_to":"DC-10878383/ec_emea/del+standard"});if(google_tag_manager["rm"]["37395111"](263)==="Payment")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp",
+"u5":google_tag_manager["rm"]["37395111"](264)+google_tag_manager["rm"]["37395111"](265),"u6":"Landing","u7":"Bonusvista","u8":"undefined","u9":"undefined","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](269),"u14":google_tag_manager["rm"]["37395111"](273),"u15":"undefined","u16":"undefined","u17":"undefined","u18":"undefined","u19":"undefined","u20":"undefined"==
+"undefined"?"":"undefined","u21":"undefined","u22":parseInt(google_tag_manager["rm"]["37395111"](274)),"u23":_shippintmode,"u25":"Guest","send_to":"DC-10878383/ec_emea/pay+standard"});if(google_tag_manager["rm"]["37395111"](275)==="Thankyou"){gtag("event","purchase",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](276)+google_tag_manager["rm"]["37395111"](277),"u6":"Landing",
+"u7":"Bonusvista","u8":"undefined","u9":"undefined","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](281),"u14":google_tag_manager["rm"]["37395111"](285),"u15":"undefined","u16":"undefined","u17":"undefined","u18":"undefined","u19":"undefined","u20":"undefined"=="undefined"?"":"undefined","u21":"undefined",
+"u22":parseInt(google_tag_manager["rm"]["37395111"](286)),"u23":_shippintmode,"u24":"undefined","u25":"Guest","value":"undefined","transaction_id":"undefined","send_to":"DC-10878383/sv_sa_al/sv_sa_sa+transactions"});if(typeof google_tag_manager["rm"]["37395111"](287)!="undefined"&&google_tag_manager["rm"]["37395111"](288).search("gift")>=0)gtag("event","purchase",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp",
+"u5":google_tag_manager["rm"]["37395111"](289)+google_tag_manager["rm"]["37395111"](290),"u6":"Landing","u7":"Bonusvista","u8":"undefined","u9":"undefined","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](294),"u14":google_tag_manager["rm"]["37395111"](298),"u15":"undefined","u16":"undefined","u17":"undefined","u18":"undefined","u19":"undefined","u20":"undefined"==
+"undefined"?"":"undefined","u21":"undefined","u22":parseInt(google_tag_manager["rm"]["37395111"](299)),"u23":_shippintmode,"u24":"undefined","u25":"Guest","value":"undefined","transaction_id":"undefined","send_to":"DC-10878383/sv_sa_al/sv_sa_gc+transactions"})}if(google_tag_manager["rm"]["37395111"](300).indexOf("Account:Userregister")>-1&&google_tag_manager["rm"]["37395111"](301).indexOf("Userregister")>-1)gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT",
+"u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](302)+google_tag_manager["rm"]["37395111"](303),"u6":"Landing","u7":"Bonusvista","send_to":"DC-10878383/ac_emea/crea+standard"});if(google_tag_manager["rm"]["37395111"](304)=="Checkupvisivo:Sceglinegozio::Landing"||google_tag_manager["rm"]["37395111"](305)=="Landing:Trovanegozio:Clp")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp",
+"u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](306)+google_tag_manager["rm"]["37395111"](307),"u6":"Landing","u7":"Bonusvista","send_to":"DC-10878383/sl_emea/locat+standard"});if(google_tag_manager["rm"]["37395111"](308).indexOf("Exam:Question1:Info")>-1)gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](309)+google_tag_manager["rm"]["37395111"](310),"u6":"Landing",
+"u7":"Bonusvista","u25":"Guest","u26":"undefined","send_to":"DC-10878383/oe_emea/exsche+standard"});if(google_tag_manager["rm"]["37395111"](311).indexOf("Exam:Personalinfo:Info")>-1)gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](312)+google_tag_manager["rm"]["37395111"](313),"u6":"Landing","u7":"Bonusvista",
+"u25":"Guest","u26":"undefined","send_to":"DC-10878383/oe_emea/exrev+standard"});if(google_tag_manager["rm"]["37395111"](314).indexOf(":Confirmation")>-1&&google_tag_manager["rm"]["37395111"](315)==="Confirmation")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](316)+google_tag_manager["rm"]["37395111"](317),"u6":"Landing","u7":"Bonusvista",
+"u25":"Guest","u26":"undefined","send_to":"DC-10878383/oe_emea/exconf+standard"})}
+if(google_tag_manager["rm"]["37395111"](318)==="link"){if(google_tag_manager["rm"]["37395111"](319).indexOf("AddLens")>-1&&google_tag_manager["rm"]["37395111"](320)==="Pdp")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](321)+google_tag_manager["rm"]["37395111"](322),"u6":"Landing","u7":"Bonusvista","u10":"undefined","u11":"undefined",
+"u12":"undefined","u13":google_tag_manager["rm"]["37395111"](326),"u8":"undefined","u9":"undefined","send_to":"DC-10878383/so_emea/lsel+standard"});if(google_tag_manager["rm"]["37395111"](327)=="cart_add")gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](328)+google_tag_manager["rm"]["37395111"](329),"u6":"Landing",
+"u7":"Bonusvista","u10":"undefined","u11":"undefined","u12":"undefined","u13":google_tag_manager["rm"]["37395111"](333),"u8":"undefined","u9":"undefined","u14":"undefined"+"","u15":"undefined","u16":"undefined"=="undefined"?"":"undefined","u17":"undefined","u18":"undefined","u19":"undefined","u20":"undefined"=="undefined"?
+"":"undefined","u21":"undefined","send_to":"DC-10878383/si_emea/adcar+standard"});if(google_tag_manager["rm"]["37395111"](334).indexOf("SIGNUP")>-1)gtag("event","conversion",{"allow_custom_scripts":true,"u1":"IT","u2":"IT","u25":"Guest","u3":"Clp","u4":"Landing:Bonusvista:Clp","u5":google_tag_manager["rm"]["37395111"](335)+google_tag_manager["rm"]["37395111"](336),"u6":"Landing","u7":"Bonusvista","send_to":"DC-10878383/ac_emea/signup+standard"})};</script>
+
+
+<script type="text/javascript" id="" src="../../../../utils/dependences/SV/DESK/sv-it/files/js(4)"></script><script type="text/javascript" id="">!function(b){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var a=window.pintrk;a.queue=[];a.version="3.0";a=document.createElement("script");a.async=!0;a.src=b;b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}}("https://s.pinimg.com/ct/core.js");pintrk("load","2613944377837",{em:""});pintrk("page");</script><script type="text/javascript" id="">(function(c,d,f,g,e){c[e]=c[e]||[];var h=function(){var b={ti:"97033182",enableAutoSpaTracking:!0};b.q=c[e];c[e]=new UET(b);c[e].push("pageLoad")};var a=d.createElement(f);a.src=g;a.async=1;a.onload=a.onreadystatechange=function(){var b=this.readyState;b&&"loaded"!==b&&"complete"!==b||(h(),a.onload=a.onreadystatechange=null)};d=d.getElementsByTagName(f)[0];d.parentNode.insertBefore(a,d)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><script type="text/javascript" id="" src="../../../../utils/dependences/SV/DESK/sv-it/files/js(4)"></script><script type="text/javascript" id="">var cookieName="gtm_mail_sha",cookieValue="";"undefined"!=typeof google_tag_manager["rm"]["37395111"](339)&&""!=google_tag_manager["rm"]["37395111"](340)&&(cookieValue=google_tag_manager["rm"]["37395111"](341));if(""!=cookieValue){var cookiePath="/",expirationTime=604800016;expirationTime*=1E3;var date=new Date,dateTimeNow=date.getTime();date.setTime(dateTimeNow+expirationTime);expirationTime=date.toUTCString();document.cookie=cookieName+"\x3d"+cookieValue+"; expires\x3d"+expirationTime+"; path\x3d"+cookiePath};</script><cs-native-frame-holder hidden=""><template shadowrootmode="closed"><iframe id="cs-native-frame" hidden="" title="Intentionally blank" sandbox="allow-same-origin"></iframe></template></cs-native-frame-holder><div id="criteo-tags-div" style="display: none;"></div><iframe height="0" width="0" title="Criteo DIS iframe" style="display: none;" src="../../../../utils/dependences/SV/DESK/sv-it/files/saved_resource.html"></iframe>
+<script type="text/javascript" id="">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","AW-747200982");</script>
+<script type="text/javascript" id="">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","AW-747200982");-1<google_tag_manager["rm"]["37395111"](337).indexOf(":Confirmation")&&"Confirmation"===google_tag_manager["rm"]["37395111"](338)&&gtag("event","conversion",{send_to:"AW-747200982/srI8CK2I34MYENbDpeQC",value:1,currency:"EUR"});</script>
+
+<script type="text/javascript" id="">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","AW-747200982");</script><iframe height="0" width="0" style="display: none; visibility: hidden;" src="../../../../utils/dependences/SV/DESK/sv-it/files/activityi(1).html"></iframe><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon867936566476"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon378818112221" width="0" height="0" alt="" src="../../../../utils/dependences/SV/DESK/sv-it/files/0"></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+div.grammarly-desktop-integration {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+-moz-user-select: none;
+-webkit-user-select: none;
+-ms-user-select:none;
+user-select:none;
+}
+
+div.grammarly-desktop-integration:before {
+content: attr(data-content);
+}
+</style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
