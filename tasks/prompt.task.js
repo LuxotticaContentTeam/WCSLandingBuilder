@@ -1,4 +1,4 @@
-const { brands_folder, current_brand, utils_folder, isMobDep } = require('./_config');
+const { brands_folder, current_brand, utils_folder, isMobDep, isProd } = require('./_config');
 const { getDirectories } = require('./utils.js')
 
 let 
@@ -12,12 +12,14 @@ let
 
 // Choose the brand
 const brand_choice = () =>{
+    let brand_directories = [...getDirectories(brands_folder)];
+    brand_directories.splice(brand_directories.indexOf('utils'),1)
     return new Promise((resolve, reject)=>{
         inquirer.prompt( {
             type:'list',
             name:'answer',
             message:'Choose the brand',
-            choices:[...getDirectories(brands_folder)],
+            choices:brand_directories,
         }).then(ans=>{
             resolve(ans.answer);
         })
@@ -26,6 +28,8 @@ const brand_choice = () =>{
 // Choose the project
 const proj_choice = (brand) =>{
     let proj_directories = [...getDirectories(`${brands_folder}/${brand}/`)];
+  
+
     if(proj_directories.length === 0){
         log(c.red.bold(`🛑 No projects available on ${brand}, create project folder before!`));
         throw new Error(`🛑 No projects available on ${brand}, create project folder before!`);
@@ -95,7 +99,10 @@ module.exports = async function prompt(done){
         choices.proj = await  proj_choice(choices.brand)
         
     }
-    choices.newTab = await newTab_choice()
+    if (!isProd){
+        choices.newTab = await newTab_choice()
+
+    }
 
     global.current_brand = choices.brand;
     global.current_proj = choices.proj;
@@ -111,7 +118,7 @@ module.exports = async function prompt(done){
     done();
    
     
-    console.log( global.current_brand,  global.current_proj, global.newTab,global.current_brand_settings)
+    // console.log( global.current_brand,  global.current_proj, global.newTab,global.current_brand_settings)
     
     
     

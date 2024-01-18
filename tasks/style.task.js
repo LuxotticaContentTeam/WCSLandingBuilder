@@ -16,34 +16,48 @@ let
 
 const scss = (done) => {
     log(`-> Style: compiling scss`);
-
-    const brandMainScssPath = path.join(brands_folder,global.current_brand,global.current_proj, 'style/main.scss');
-    if (!fs.existsSync(brandMainScssPath)) {
+    const brandMainScssPath = [];
+    brandMainScssPath.push(path.join(brands_folder,global.current_brand,global.current_proj, 'style/main.scss'));
+    
+    if (!fs.existsSync(brandMainScssPath[0])) {
         log(c.red.bold(`🛑 File ${brandMainScssPath} does not exist`));
         done();
         return;
     }
+    if(global.moduleLibrary.enabled){
+        brandMainScssPath.push(path.join(global.moduleLibrary.css_src, 'index.scss'));
+        if (!fs.existsSync(brandMainScssPath[1])) {
+            log(c.red.bold(`🛑 File ${brandMainScssPath[1]} does not exist`));
+            done();
+            return;
+        }
 
-    return src([brandMainScssPath])
+    }
+    return src(brandMainScssPath)
         .pipe($.if(!(isProd), $.sourcemaps.init()))
         .pipe($.plumber())
         .pipe($.dependents())
         .pipe($.debug())
         .pipe($.sassVariables({
             $env: isProd ? 'production' : 'development',
-            $brand: global.current_brand
+            $brand: global.current_brand,
+            $moduleLibrary: global.moduleLibrary.enabled
         }))
         .pipe(sass().on('error', sass.logError))
         .pipe($.if(!(isProd), $.sourcemaps.write()))
-        .pipe($.concat('main.css'))
+        .pipe($.if(!(isProd),$.concat('main.css')))
         .pipe(dest('.tmp/css'));
+
+    
+
+    
 };
 
 const postcss = () => {
     const f = $.filter(['.tmp/css/*.css'], {restore: true});
 
     log(`-> Style: run post scss`);
-
+    
     return src(['.tmp/css/**/*.css'])
         .pipe(f)
         .pipe($.if(!(isProd), $.sourcemaps.init({loadMaps: true})))
@@ -73,7 +87,6 @@ module.exports = {
     style: series(
         scss,
         postcss,
-      
     ),
     exportCss
 }

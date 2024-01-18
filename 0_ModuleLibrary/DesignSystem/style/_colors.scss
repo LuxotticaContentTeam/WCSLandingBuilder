@@ -1,0 +1,165 @@
+.ct_space{
+
+    // Text Color
+    .ct_text__black{
+        color: $black !important;
+    }
+    .ct_text__dark_black{
+        color: $dark-black !important;
+    }
+    .ct_text__white{
+        color: $white !important;
+    }
+    .ct_text__brand_red{
+        color: $brand-red !important;
+    }
+    .ct_text__dark_red{
+        color: $dark-red !important;
+    }
+    .ct_text__dark_red_cta{
+        color: $dark-red-cta !important;
+    }
+    .ct_text__yellow{
+        color: $clerance-yellow !important;
+    }
+    .ct_text__blue{
+        color: $blue !important;
+    }
+    .ct_text__dark_gray{
+        color: $dark-gray !important;
+    }
+    .ct_text__medium_gray{
+        color: $medium-gray !important;
+    }
+    .ct_text__light_gray{
+        color: $light-gray !important;
+    }
+    .ct_text__blue_bts{
+        color: $blue-bts !important;
+    }
+    .ct_text__light_violet{
+        color: $light-violet !important;
+    }
+   
+
+    @media (max-width: $break-mobile-max){
+       // Text Color
+        .ct_text__mob__black{
+            color: $black !important;
+        }
+        .ct_text__mob__dark_black{
+            color: $dark-black !important;
+        }
+        .ct_text__mob__white{
+            color: $white !important;
+        }
+        .ct_text__mob__brand_red{
+            color: $brand-red !important;
+        }
+        .ct_text__mob__dark_red{
+            color: $dark-red !important;
+        }
+        .ct_text__mob__dark_red_cta{
+            color: $dark-red-cta !important;
+        }
+        .ct_text__mob__yellow{
+            color: $clerance-yellow !important;
+        }
+        .ct_text__mob__blue{
+            color: $blue !important;
+        }
+        .ct_text__mob__dark_gray{
+            color: $dark-gray !important;
+        }
+        .ct_text__mob__medium_gray{
+            color: $medium-gray !important;
+        }
+        .ct_text__mob__light_gray{
+            color: $light-gray !important;
+        }
+        .ct_text__mob__blue_bts{
+            color: $blue-bts !important;
+        }
+        .ct_text__mob__light_violet{
+            color: $light-violet !important;
+        }
+    }
+
+    // Background Color
+    .ct_bkg__black{
+        background-color: $black !important;
+    }
+    .ct_bkg__dark_black{
+        background-color: $dark-black !important;
+    }
+    .ct_bkg__white{
+        background-color: $white !important;
+    }
+    .ct_bkg__brand_red{
+        background-color: $brand-red !important;
+    }
+    .ct_bkg__dark_red{
+        background-color: $dark-red !important;
+    }
+    .ct_bkg__dark_red_cta{
+        background-color: $dark-red-cta !important;
+    }
+    .ct_bkg__yellow{
+        background-color: $clerance-yellow !important;
+    }
+    .ct_bkg__blue{
+        background-color: $blue !important;
+    }
+    .ct_bkg__dark_gray{
+        background-color: $dark-gray !important;
+    }
+    .ct_bkg__medium_gray{
+        background-color: $medium-gray !important;
+    }
+    .ct_bkg__light_gray{
+        background-color: $light-gray !important;
+    }
+    .ct_bkg__light_violet{
+        background-color: $light-violet !important;
+    }
+
+    @media (max-width: $break-mobile-max){
+        .ct_bkg__mob__black{
+            background-color: $black !important;
+        }
+        .ct_bkg__mob__dark_black{
+            background-color: $dark-black !important;
+        }
+        .ct_bkg__mob__white{
+            background-color: $white !important;
+        }
+        .ct_bkg__mob__brand_red{
+            background-color: $brand-red !important;
+        }
+        .ct_bkg__mob__dark_red{
+            background-color: $dark-red !important;
+        }
+        .ct_bkg__mob__dark_red_cta{
+            background-color: $dark-red-cta !important;
+        }
+        .ct_bkg__mob__yellow{
+            background-color: $clerance-yellow !important;
+        }
+        .ct_bkg__mob__blue{
+            background-color: $blue !important;
+        }
+        .ct_bkg__mob__dark_gray{
+            background-color: $dark-gray !important;
+        }
+        .ct_bkg__mob__medium_gray{
+            background-color: $medium-gray !important;
+        }
+        .ct_bkg__mob__light_gray{
+            background-color: $light-gray !important;
+        }
+        .ct_bkg__mob__light_violet{
+            background-color: $light-violet !important;
+        }
+    }
+}
+

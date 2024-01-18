@@ -1,0 +1,21 @@
+// @import '../0_ModuleLibrary/DesignSystem/style/variables';
+
+@import 'resetLP';
+// *{
+//   color: red;
+// }
+#ct_accessibility.ct_space {
+  .ct_container{
+    margin: auto;
+    ul{
+      box-sizing: border-box;
+      transform: translate(20px);
+        padding-left: 20px;
+        li{
+            list-style: disc;
+            line-height: 1.2;
+        }
+    }
+  }
+ 
+}
