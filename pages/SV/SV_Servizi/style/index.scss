@@ -1,0 +1,1369 @@
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    #content>.row>.emarketingspot-wrapped-div {
+        width: 100%;
+    }
+
+    html,
+    body,
+    .LP-HUBServizi {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    @media (min-width: 769px) {
+
+        .ct_hide_desk {
+            display: none;
+        }
+
+        .ct_hide_mob {
+            display: block;
+        }
+
+    }
+
+    @media (max-width: 992px) {
+        .ct_hide_desk {
+            display: block;
+        }
+
+        .ct_hide_mob {
+            display: none;
+        }
+    }
+
+    .LP-HUBServizi .anchor-section-link {
+        display: block;
+        position: relative;
+        top: -90px;
+        visibility: hidden;
+
+    }
+
+    .LP-OC-22 .ct_container {
+        width: 100%;
+        position: relative;
+    }
+
+
+    /* slider */
+
+    .slider {
+        width: auto;
+        margin: 30px 50px 50px;
+        background: #000000;
+    }
+
+    .slick-prev:before {
+        position: relative;
+    }
+
+    .slick-prev {
+        left: 10px;
+    }
+
+    .slick-next,
+    .slick-prev {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    .slick-next {
+        right: 10px;
+    }
+
+    .slick-next:before {
+        position: relative;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-next::before,
+    .slick-prev::before {
+        background-image: url(https://media.salmoiraghievigano.it/editorial-content/2022/HUB%20SERVIZI/ICONS/arrow.svg) !important;
+        width: 15px;
+        height: 15px;
+        background-size: contain;
+        background-position: center center;
+        right: 0;
+    }
+
+    .slick-prev::before {
+        transform: rotate(-180deg);
+    }
+
+    .slick-next::before {
+        transform: rotate(-0deg);
+    }
+
+    .slick-next,
+    .slick-prev {
+        background-color: white !important;
+        box-shadow: 0px 4px 6px 0px #0000001A;
+    }
+
+    .slick-disabled {
+        opacity: 0;
+        display: none;
+    }
+
+    .slick-dots {
+        bottom: -30px;
+    }
+
+    .slick-slide:nth-child(odd) {}
+
+
+
+    .slick-dots li {
+        margin: 0 5px;
+        width: 6px;
+    }
+
+    .slick-dots {
+        width: 100%;
+        margin-bottom: -1.5rem;
+        display: block;
+        z-index: 10;
+    }
+
+    .slick-dots li button {
+        width: 11px;
+        height: 2px;
+    }
+
+    .slick-dots li button::before {
+        border-radius: 50%;
+        height: 6px;
+        width: 6px;
+    }
+
+    .slick-dots li button::before {
+        background-color: #000;
+    }
+
+    .slick-dots li.slick-active button::before {
+        background: #fff;
+        opacity: 1;
+        background-color: white;
+        border: 1px solid #222;
+    }
+
+    .slick-dots li.slick-active button:before {
+        opacity: .75;
+        color: #000;
+    }
+
+    .LP-HUBServizi .ct-container {
+        max-width: 1313px;
+        margin: 0 auto;
+    }
+
+    .LP-HUBServizi .affix {
+        position: fixed;
+        top: 108px;
+        z-index: 10;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+        background: white;
+        transition: all 0.5s easy-in-out;
+    }
+
+
+    .LP-HUBServizi .affixMobile {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 99px;
+    }
+
+
+
+    /* Dash Button Navbar section */
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 0;
+        height: 90px;
+        z-index: 15;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar .dash-button {
+        border: 1px solid #303030;
+        padding: 2px;
+        border-radius: 50px;
+        display: flex;
+        margin: 0 5px;
+    }
+
+
+    .LP-HUBServizi li {
+        list-style-type: none;
+        padding: 0;
+    }
+
+
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.first {
+        background-color: #B6CADC;
+        border-color: transparent;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.second {
+        background-color: #303030;
+        border-color: transparent;
+        color: white;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.second span,
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.third span,
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.fourth span,
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.fifth span {
+        color: white;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.third {
+        background-color: #005E82;
+        border-color: transparent;
+        color: white;
+    }
+
+
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.fourth {
+        background-color: #475872;
+        border-color: transparent;
+        color: white;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.fifth {
+        background-color: #303030;
+        border-color: transparent;
+        color: white;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.sixth {
+        background-color: #93B792;
+        border-color: transparent;
+        color: #222222 !important;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button.sixth span {
+        color: #222222 !important;
+    }
+
+
+
+
+
+
+
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar .menu-icon-svg {
+        height: 32px;
+        width: 32px;
+        position: relative;
+        background: #f9f9f9;
+        border-radius: 50%;
+    }
+
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar img {
+        height: auto;
+        width: auto;
+        /* border-radius: 50%; */
+        left: -2px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        margin: auto;
+        right: 0;
+    }
+
+    .LP-HUBServizi .ct-container .ct-section.dash-button-navbar span {
+        color: #303030;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        align-self: center;
+        padding-right: 1em;
+        padding-left: 0.5em;
+        white-space: nowrap;
+    }
+
+    .LP-HUBServizi .ct-sections {
+        display: block;
+        margin-top: 50px;
+    }
+
+    .LP-HUBServizi .m-section {
+        margin-top: 150px;
+    }
+
+    .LP-HUBServizi .ct-sections.menu-affixed {
+        display: block;
+        margin-top: 140px;
+    }
+
+    .LP-HUBServizi .ct-container section {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+    }
+
+
+
+
+
+    .LP-HUBServizi section h2 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #000;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+
+
+    .LP-HUBServizi .ct-container section h2.big {
+        font-size: 44px;
+        letter-spacing: 2px;
+        font-weight: 400;
+    }
+
+    .LP-HUBServizi hr {
+        display: none;
+    }
+
+    .LP-HUBServizi section h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: left;
+    }
+
+
+    .LP-HUBServizi .ct-container section .section-intro-left {
+        width: 25%;
+        flex-direction: column;
+    }
+
+
+    .LP-HUBServizi .ct-container section .section-intro-left p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #222;
+        letter-spacing: 0.05em;
+        text-align: left;
+    }
+
+
+    .LP-HUBServizi .ct-container section .section-slider {
+        width: 75%;
+        padding-left: 1em;
+        gap: 32px;
+    }
+
+    .LP-HUBServizi .ct-container section .section-slider.slick-initialized {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .LP-HUBServizi .ct-container section .section-slider .card {
+        height: auto;
+        width: 100%;
+        justify-content: flex-end;
+        text-align: center;
+        border: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        display: flex !important;
+        z-index: 1;
+    }
+
+    .LP-HUBServizi .ct-container section .section-slider .card .ct_banner_img img,
+    .LP-HUBServizi .ct-container section .section-slider .card .ct_banner_img img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .LP-HUBServizi .ct-container section .section-slider .card:before {
+        content: '';
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        height: 30%;
+    }
+
+
+    .LP-HUBServizi .ct-container section .section-slider .card.big-card:before,
+    .LP-HUBServizi .ct-container section .section-slider .card.no-shadow-card:before {
+        display: none;
+    }
+
+    .LP-HUBServizi .ct-container section .section-slider .card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        color: white;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        bottom: 25px;
+    }
+
+    .LP-HUBServizi .ct-container section #e-te-slider .card .card-hover h3 {
+        letter-spacing: 0.3em;
+    }
+
+    .LP-HUBServizi .ct-container section .card .card-hover h3 {
+        position: relative;
+    }
+
+    .LP-HUBServizi .ct-container section#sv-x-il-pianeta-section .section-slider .card img.ct-logo-icon {
+        position: absolute;
+        left: 0;
+        margin: auto;
+        right: 0;
+        top: 20%;
+        max-width: 110px;
+    }
+
+
+    .LP-HUBServizi .ct-container section#sv-x-il-pianeta-section .section-slider .card h3.text-uppercase {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        vertical-align: middle;
+        bottom: initial;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.3em;
+        text-align: center;
+    }
+
+    .LP-HUBServizi .ct-container section#sv-x-il-pianeta-section .ct-button.white {
+        display: block;
+        padding: 10px;
+        border-radius: 36px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 00px;
+        z-index: 10;
+        min-width: 200px;
+    }
+
+    .LP-HUBServizi .ct-container #parla-con-noi-section .ct-button.black {
+        display: block;
+        padding: 10px;
+        border-radius: 36px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 00px;
+        z-index: 10;
+        min-width: 200px;
+    }
+
+
+
+    .LP-HUBServizi .ct-container section .section-slider.cards-slider .slick-slide>div {
+        margin: 0 15px;
+    }
+
+    .LP-HUBServizi .ct-container section .card .card-hover {
+        position: absolute;
+        bottom: 0%;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        visibility: hidden;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 0 20px;
+        bottom: 0;
+        top: 0;
+    }
+
+    .LP-HUBServizi .ct-container section .card:hover .card-hover {
+        position: absolute;
+        z-index: 2;
+        visibility: visible;
+        opacity: 1;
+        left: 0;
+        right: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+
+    .LP-HUBServizi .ct-container section .card .card-hover p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button {
+        display: block;
+        padding: 10px;
+        border-radius: 36px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        min-width: 180px;
+    }
+
+
+    .LP-HUBServizi .ct-container section .card .card-hover .ct-button {
+        display: block;
+        padding: 10px;
+        border-radius: 36px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 30px;
+        min-width: 200px;
+        margin: auto;
+    }
+
+    .LP-HUBServizi .ct-container section .card .card-not-hover {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 30px;
+    }
+
+
+    .LP-HUBServizi .ct-container section .ct-button.black {
+        color: #303030;
+        border: 1px solid #303030;
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button.black:hover {
+        border: 2px solid #303030;
+        margin: -1px auto !important;
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button.black-fill {
+        background: #222222;
+        color: white;
+        overflow: hidden;
+        position: relative;
+
+        max-width: 222px;
+        text-align: center;
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button.black-fill:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200%;
+        height: 100%;
+        transform: skew(-20deg);
+        background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button.black-fill:hover:after {
+        animation: shine .75s cubic-bezier(.01, .56, 1, 1);
+    }
+
+
+    .LP-HUBServizi .ct-container section .ct-button.white {
+        color: #fff;
+        border: 1px solid #fff;
+        max-width: 222px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button.white:hover {
+        border: 2px solid white;
+        margin: -1px auto !important;
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button.white-fill {
+        color: #222;
+        background-color: #fff;
+        max-width: 240px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+    }
+
+
+
+    .LP-HUBServizi .ct-container section .ct-button.white-fill:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200%;
+        height: 100%;
+        transform: skew(-20deg);
+        background-image: linear-gradient(90deg, transparent, rgba(219, 219, 219, 0.582), transparent);
+    }
+
+    .LP-HUBServizi .ct-container section .ct-button.white-fill:hover:after {
+        animation: shine .75s cubic-bezier(.01, .56, 1, 1);
+    }
+
+
+
+    .LP-HUBServizi .ct-container section .card .card-hover:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        border-radius: 16px;
+        height: 100%;
+        width: 100%;
+        transform: scale(1);
+        transform-origin: 50% 50%;
+        transition: transform 0.25s ease-out;
+    }
+
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section,
+    .LP-HUBServizi .ct-container section#sv-experience-section {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #occhiale-completo-slider {
+        gap: 32px;
+    }
+
+
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-nav,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-nav {
+        max-width: 560px;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-nav,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-nav {
+        margin-bottom: 30px;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-nav .nunito,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-nav .slick-slide .nunito {
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: left;
+        padding-bottom: 8px;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-nav .slick-slide,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-nav .slick-slide {
+        padding: 0;
+        min-height: 35px;
+    }
+
+
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-nav .slick-current span,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-nav .slick-current span {
+        border-bottom: 2px solid black;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: left;
+    }
+
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card {
+        width: 100%;
+        background-color: #F9F9F9;
+        box-shadow: 0px 0px 10px 0px #0000001A;
+        border-radius: 16px;
+        border: 0;
+        background-size: 102% !important;
+        max-width: 638px;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card .ct_banner_img img,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card .ct_banner_img img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card .card-text,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card .card-text {
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+        top: -25px;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card h3,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card .card-title,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card .card-title {
+        position: absolute;
+        bottom: 34px;
+        left: 0;
+        right: 0;
+    }
+
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card p,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.05em;
+        text-align: center;
+    }
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card .ct-button,
+    .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card .ct-button {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+
+    .LP-HUBServizi .ct-container section#il-tuo-occhiale-section .navbar-section span,
+    .LP-HUBServizi .ct-container section#sv-experience-section .navbar-section span {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: left;
+    }
+
+
+    .LP-HUBServizi .ct-container section#assicurazioni-section {
+        background: #475872;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .LP-HUBServizi .ct-container section#assicurazioni-section h3.nunito:after {
+        display: none;
+    }
+
+    .LP-HUBServizi .ct-container section#assicurazioni-section .ct-box {
+        color: white;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .LP-HUBServizi .ct-container section#assicurazioni-section .ct-box h3 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        letter-spacing: 0.3em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .LP-HUBServizi .ct-container section#assicurazioni-section .ct-box p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.05em;
+        text-align: center;
+
+    }
+
+    /* CARDS COLORS */
+    .LP-HUBServizi .ct-container section#benessere-visivo-section .card .card-hover:before {
+        background: #B6CADC;
+    }
+
+    .LP-HUBServizi .ct-container section#benessere-visivo-section .card .card-hover p,
+    .LP-HUBServizi .ct-container section#benessere-visivo-section .card .card-hover h3 {
+        color: #222;
+        position: relative;
+    }
+
+    .LP-HUBServizi .ct-container section #il-tuo-occhiale-section-slider-for .card .card-hover:before {
+        background: #222222;
+    }
+
+    .LP-HUBServizi .ct-container section #il-tuo-occhiale-section-slider-for .card .card-hover p,
+    .LP-HUBServizi .ct-container section #il-tuo-occhiale-section-slider-for .card .card-hover h3 {
+        color: #fff;
+    }
+
+    .LP-HUBServizi .ct-container section #e-te-slider .card .card-hover:before {
+        background: #005E82;
+    }
+
+
+    .LP-HUBServizi .ct-container section #e-te-slider .card .card-hover p,
+    .LP-HUBServizi .ct-container section #e-te-slider .card .card-hover h3 {
+        color: #fff;
+    }
+
+    .LP-HUBServizi .ct-container section #sv-experience-section-slider-for .card .card-hover:before {
+        background: #222;
+    }
+
+    .LP-HUBServizi .ct-container #sv-x-il-pianeta-section-slider .card {
+        max-height: 365px;
+    }
+
+    .LP-HUBServizi .ct-container #parla-con-noi-section .card {
+        max-height: 365px;
+        max-width: 296px;
+    }
+
+    .LP-HUBServizi .ct-container #sv-x-il-pianeta-section-slider .card .card-not-hover h3,
+    .LP-HUBServizi .ct-container #parla-con-noi-section .card .card-not-hover h3 {
+        position: relative;
+        bottom: 25px;
+    }
+
+
+    .LP-HUBServizi .ct-container #sv-x-il-pianeta-section-slider .card .card-not-hover,
+    .LP-HUBServizi .ct-container #parla-con-noi-section .card .card-not-hover {
+
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 15%;
+
+    }
+
+    .LP-HUBServizi .ct-container #sv-x-il-pianeta-section-slider .card .ct-icon,
+    .LP-HUBServizi .ct-container #parla-con-noi-section .card .ct-icon {
+        margin: 0 auto;
+        padding-bottom: 45px;
+    }
+
+    .LP-HUBServizi .garanzie-opticare-slider {
+        margin-bottom: 50px;
+        padding: 0;
+    }
+
+
+    /* MEDIA QUERY */
+
+    @media screen and (min-width: 1300px) {
+
+        .LP-HUBServizi #shopping-slider {}
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li:hover .dash-button {
+            border: 2px solid #303030;
+            margin: 0 4px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+
+        .LP-HUBServizi section h3 {
+            position: relative;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar .dash-button {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            padding: 0;
+            background: #F9F9F9;
+            position: relative;
+            border: 0;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar span {
+            padding-left: 50px;
+        }
+
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar .menu-icon-svg {
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            background: #f9f9f9;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            border: 1px solid #D6D6D6;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar img {}
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar .dash-button {}
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active .dash-button {
+            width: 96%;
+            transition: width 500ms ease-in-out;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar span {
+            opacity: 0;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li.active span {
+            opacity: 1;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            justify-content: space-between;
+            z-index: 1000;
+            padding: 0 5%;
+            background: white;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar.affix {
+            justify-content: space-between;
+        }
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar li {
+            flex: 0 0 auto;
+        }
+
+    }
+
+
+    .slick-list {}
+
+
+    @media screen and (min-width: 769px) and (max-width: 1200px) {
+
+        .LP-HUBServizi .ct-container .card {
+            height: 340px !important;
+            width: 280px !important;
+            margin: 0 auto;
+        }
+
+        .LP-HUBServizi .ct-sections {
+            padding: 0 5%;
+        }
+
+    }
+
+    @media screen and (max-width: 769px) {
+
+
+        .LP-HUBServizi .affix {
+            right: 0;
+            width: 100%;
+            top: 98px;
+            z-index: 1000;
+            background-color: white;
+        }
+
+
+        .LP-HUBServizi .ct-container section .section-slider.cards-slider .slick-slide>div {
+            margin: 0;
+        }
+
+        /* .slick-next {
+            right: 40px;
+        }
+
+        .slick-prev {
+            left: 40px;
+        } */
+
+
+        .LP-HUBServizi .ct-container .ct-section.dash-button-navbar.affix {
+            justify-content: left;
+        }
+
+
+        .LP-HUBServizi .ct-container .card {
+            height: 370px !important;
+            width: 300px !important;
+            margin: 0 auto;
+        }
+
+
+        .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card,
+        .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card {
+            width: auto;
+            min-height: auto;
+        }
+
+        .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-nav,
+        .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-nav {
+            margin-bottom: 0;
+        }
+
+        .boss-vista .boss-boxes {
+            flex-direction: column;
+        }
+
+        .LP-HUBServizi .ct-container #parla-con-noi-section .card {
+            max-width: 100%;
+            max-height: 100%;
+
+        }
+
+        .LP-HUBServizi .ct-container section#assicurazioni-section {
+            border-radius: 0;
+        }
+
+        .LP-HUBServizi .ct-container section#assicurazioni-section .big-banner {
+            flex-direction: column;
+        }
+
+        .LP-HUBServizi .ct-container section#assicurazioni-section .big-banner .w-50 {
+            width: 100% !important;
+        }
+
+        .LP-HUBServizi .ct-container section#assicurazioni-section .big-banner .ct-box {
+            padding: 10% 0;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .LP-HUBServizi .ct-container section#il-tuo-occhiale-section #il-tuo-occhiale-section-slider-for .big-card .card-title,
+        .LP-HUBServizi .ct-container section#sv-experience-section #sv-experience-section-slider-for .big-card .card-title {
+            bottom: 60px;
+        }
+
+        .LP-HUBServizi .ct-container section .section-slider .card h3 {
+            bottom: 55px;
+        }
+
+        .LP-HUBServizi .ct-container section h3.nunito:after {
+            content: '+';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-size: 26px;
+            font-weight: 300;
+            border: 2px solid white;
+            display: block;
+            width: 31px;
+            border-radius: 50%;
+            height: 30px;
+            text-align: center;
+            left: 1px;
+            letter-spacing: 0;
+        }
+
+        .LP-HUBServizi .ct-container section h3.nunito.black:after {
+            color: #222;
+            border-color: #222;
+        }
+
+
+        .LP-HUBServizi .ct-container section .card-hover h3.nunito:after,
+        .LP-HUBServizi .ct-container section .card-not-hover h3.nunito:after,
+        .LP-HUBServizi .ct-container section#sv-x-il-pianeta-section .card h3.nunito:after {
+            display: none;
+        }
+
+
+        .LP-HUBServizi hr {
+            display: block;
+        }
+
+        .slick-dots {
+            margin-bottom: -0.6rem;
+        }
+
+        .LP-HUBServizi .ct-container {
+            background-color: white;
+        }
+
+
+        .LP-HUBServizi section h2 {
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
+            letter-spacing: 0.3em;
+            text-align: center;
+
+        }
+
+        hr {
+            border: 1px solid #D6D6D6;
+            margin-top: 63px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        .LP-HUBServizi .ct-sections .m-section {
+            margin-top: 63px;
+        }
+
+
+        .LP-HUBServizi .ct-container section {
+            flex-direction: column;
+        }
+
+        .LP-HUBServizi .ct-container section .section-intro-left {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .LP-HUBServizi .ct-container section .section-slider {
+            margin: 30px auto;
+            width: 90% !important;
+            padding-left: 0;
+            gap: 20px;
+        }
+
+        .LP-HUBServizi .ct-container section .section-slider-big-card {
+            width: 90% !important;
+            margin: 30px auto;
+            padding-left: 0;
+            gap: 20px;
+
+        }
+
+        .LP-HUBServizi section h2,
+        .LP-HUBServizi .ct-container section .section-intro-left p {
+            text-align: center;
+        }
+
+    }
+
+
+
+///----
+.LP-HUBServizi .ct-container .smaller {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 28px;
+}
+
+
+///----
+.boss-vista {
+    // background: #F4F1ED;
+    width: 100%;
+    margin: 0 auto;
+    // padding: 32px;
+    padding-top: 8px;
+}
+
+.boss-vista .nunitoTitle {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0.3em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.boss-vista .slick-dots li {
+    margin: 0 5px;
+    width: 10px;
+}
+
+.boss-vista .slick-dots {
+    width: 100%;
+    margin-bottom: 0;
+    display: block;
+    z-index: 10;
+    position: relative;
+    bottom: 0;
+    padding-bottom: 1em;
+    background: #F4F1ED;
+}
+
+.boss-vista .slick-dots li button {
+    width: 11px;
+    height: 2px;
+}
+
+.boss-vista .slick-dots li button::before {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+}
+
+.boss-vista .slick-dots li button::before {
+    background-color: #333333;
+}
+
+.boss-vista .slick-dots li.slick-active button::before {
+    background-color: #fff !important;
+    border: 2px solid #333333;
+}
+
+
+.boss-vista .boss-box {
+    width: 23%;
+    text-align: left;
+}
+
+.boss-vista .boss-box img {
+    margin-bottom: 16px;
+    width: 33px;
+    height: 30px;
+}
+
+.boss-vista .boss-boxes {
+   gap: 1px;
+    
+    
+}
+.boss-vista .boss-boxes .boss-box {
+    background: #F4F1ED;
+    padding: 64px 24px;
+    @media(max-width:1400px){
+        padding: 40px 12px;
+    }
+}
+.boss-vista .boss-boxes h3{
+    @media(max-width:1400px){
+        font-size: 14px;
+    }
+}
+.boss-vista .boss-box p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    text-align: left;
+    @media(max-width:1400px){
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 769px) {
+
+    .boss-vista .boss-boxes {
+        padding-top: 5px;
+        text-align: left;
+    }
+
+    .boss-vista .nunitoTitle {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.3em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .boss-vista {
+        padding: 0;
+    }
+
+    .boss-vista .boss-box {
+        width: 100%;
+        background-color: #F4F1ED;
+        text-align: left;
+        padding: 36px;
+    }
+    .boss-vista .boss-boxes h3{
+    text-align: left;
+    font-size: 16px;
+}
+.boss-vista .boss-box p {
+    text-align: left;
+    font-size: 14px;
+    }
+    .boss-vista img {
+        display: inline !important;
+    }
+
+}
+
+@media screen and (max-width: 377px) {
+    .boss-vista .boss-box {
+        width: 100%;
+        background-color: #F4F1ED;
+        text-align: left;
+        padding: 36px;
+    }
+
+    .boss-vista .boss-box p {
+        font-size: 15px;
+    }
+}
