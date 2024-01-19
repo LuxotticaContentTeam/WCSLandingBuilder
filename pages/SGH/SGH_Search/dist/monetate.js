@@ -47,7 +47,17 @@ window.ct_wow__search = {
         selector:'img[alt="wowquiz_PLP_banner"]',
         pages:['womens-sunglasses','mens-sunglasses','designer-sunglasses'],
         section:'Plp'
-      }
+      },
+      {
+        selector:'.gg_quiz_cta-d',
+        pages: ['gift-guide-women','gift-guide-men','valentines-day-gifts-for-him','valentines-day-gifts-for-her'],
+        section:'Lp'
+      },
+      {
+        selector:'.gg_quiz_cta-m',
+        pages: ['gift-guide-women','gift-guide-men','valentines-day-gifts-for-him','valentines-day-gifts-for-her'],
+        section:'Lp'
+      },
     ]
   },
   template:'',
@@ -209,7 +219,7 @@ function ct_wow__search__start_retrySelector(selector,section){
 }
 
 function ct_wow__search__start(){
-  let pathname = window.location.pathname.split('/')[2];
+  let pathname = window.location.pathname.split('/')[window.location.pathname.split('/').length-1];
   if(!document.querySelector('#ct_wow__search')){
   
     let div = document.createElement('div');
