@@ -1,0 +1,188 @@
+// @import '../../../modulelibrary/variables';
+@import '../../../../../DesignSystemGL20/style/variables';
+// @import 'resetLP';
+
+.ct_space {
+  .ct_LP__PaymentShipping {
+    .ct_title {
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover{
+        text-decoration: none;
+      }
+
+      @media (orientation: portrait) and (max-width: 1024px), (orientation: landscape) and (max-width: 1023px) {
+        color: $violet;
+      }
+    }
+    @media (min-width: 1024px) and (max-width: 1280px) {
+      .ct_text__overlay {
+        p {
+          line-height: 1.3 !important;
+        }
+      }
+    }
+
+    .ct_section__insurance {
+      @media (min-width: $break-portrait-max) and (max-width: $break-desktop-small) {
+        .ct_text__overlay {
+          width: 60% !important;
+        }
+      }
+    }
+
+    .ct_section__KlarnaAffirm {
+      .ct_text__overlay {
+        left: 50%;
+        padding-right: 10%;
+      }
+      @media (min-width: $break-portrait-max) and (max-width: $break-desktop-small) {
+        .ct_text__overlay {
+          left: 40%;
+        }
+      }
+    }
+
+    .ct_section__paylater {
+      padding: 24px 20px 24px 20px;
+      margin: 0px 3%;
+      border-radius: 16px;
+      background: rgb(247, 231, 255);
+      background: linear-gradient(90deg, rgba(247, 231, 255, 1) 0%, rgba(195, 214, 255, 1) 67%, rgba(224, 240, 255, 1) 100%);
+
+      @media (orientation: portrait) and (max-width: $break-portrait-max), (orientation: landscape) and (max-width: $break-landscape-max) {
+        border-radius: 0px;
+        margin: 0px;
+      }
+      .ct_section__title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.ct_title-affirm{
+          align-items: center;
+        }
+      }
+
+      .ct_section__payment {
+        background-color: #f9fbff;
+        border-radius: 16px;
+        
+        .ct_steps__container {
+          box-sizing: border-box;
+          padding: 40px 6% 0px;
+          width: 100%;
+          display: flex;
+          @media (orientation: portrait) and (max-width: $break-portrait-max), (orientation: landscape) and (max-width: $break-landscape-max) {
+            flex-wrap: wrap;
+            padding: 20px 0px 0px;
+          }
+          .ct_step {
+            width: calc(100% / 3);
+            padding: 0 5%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p{
+              text-align: center;
+            }
+            @media (orientation: portrait) and (max-width: $break-portrait-max), (orientation: landscape) and (max-width: $break-landscape-max) {
+              width: 100%;
+              flex-direction: row;
+              display: flex;
+              align-items: center;
+              height: 60px;
+              svg{
+                min-width: 33px;
+                margin-right: 24px;
+              }
+              p{
+                text-align: left;
+              }
+            }
+            &:not(:last-child) {
+              @media (orientation: portrait) and (max-width: $break-portrait-max), (orientation: landscape) and (max-width: $break-landscape-max) {
+                margin-bottom: 25px;
+              }
+              &::after {
+                content: "";
+                background-color: #000;
+                height: 1px;
+                width: calc(100% - 80px);
+                position: absolute;
+                left: calc(50% + 40px);
+                top: 20px;
+                transform: translateY(-50%);
+                @media (orientation: portrait) and (max-width: $break-portrait-max), (orientation: landscape) and (max-width: $break-landscape-max) {
+                  content: "⟵";
+                  width: 0;
+                  height: 0;
+                  top: 80px;
+                  transform: rotate(-90deg);
+                  left: calc(5% + 5px);
+                }
+              }
+            }
+            .ct_img__container {
+              align-items: center;
+              display: flex;
+              width: 40px;
+              height: 40px;
+
+              @media (orientation: portrait) and (max-width: $break-portrait-max), (orientation: landscape) and (max-width: $break-landscape-max) {
+                margin-right: 20px;
+              }
+              @media (max-width: 576px) {
+                min-width: 30px !important;
+              }
+            }
+            span {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+
+    .ct_section__other_payment{
+      .ct_section{
+
+        @media (orientation: portrait) and (max-width: 1024px), (orientation: landscape) and (max-width: 1023px) {
+          .ct_flex{
+            align-items: center;
+            justify-content: center;
+          }
+
+          svg{
+            width: 45px;
+            padding-right: 5px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.ct_space{
+  .ct_flex{
+      display: flex;
+  }
+  .ct_align__center{
+      align-items: center;
+  }
+  .ct_flex__row{
+      flex-direction: row;
+  }
+  .ct_flex__column{
+      flex-direction: column;
+  }
+  .ct_flex__space_evenly{
+      justify-content: space-evenly;
+  }
+}

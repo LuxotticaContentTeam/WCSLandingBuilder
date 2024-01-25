@@ -1,0 +1,101 @@
+//Stili globali della tipografia: h1,h2,h3,h4,h5,h6,p,span,ul,li,ol...
+
+@import "variables.scss";
+
+#supernovaLP {
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  span,
+  p,
+  p > a,
+  ul,
+  ol,
+  li,
+  span {
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    white-space: normal;
+    text-align: left;
+  }
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5 {
+    font-family: $second-font;
+    color: $black;
+    letter-spacing: $heading-letter-spacing;
+    line-height: $heading-line-height;
+    text-transform: $heading-text-transform;
+    b,
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  h1,
+  .h1 {
+    font-size: $font-xl !important;
+    @media (min-width: $breakpoint-lg) {
+      font-size: $font-xxl !important;
+    }
+  }
+
+  h2,
+  .h2 {
+    font-size: $font-xl;
+    @media (min-width: $breakpoint-lg) {
+      font-size: $font-xl;
+    }
+  }
+
+  h3,
+  .h3 {
+    font-size: $font-l;
+    @media (min-width: $breakpoint-lg) {
+      font-size: $font-xl;
+    }
+  }
+
+  p,
+  p > a,
+  a,
+  ul,
+  ol,
+  span {
+    font-family: $first-font;
+    font-size: $font-xs;
+    letter-spacing: $text-letter-spacing;
+    line-height: $text-line-height;
+    b,
+    strong {
+      font-weight: $text-bold;
+    }
+  }
+
+  p > a {
+    text-decoration: underline;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  ul:not([class]) {
+    list-style-type: none;
+  }
+}

@@ -1,0 +1,67 @@
+@import "variables.scss";
+
+#supernovaLP {
+  #faq {
+    background-color: $violet-light;
+    .accordion-wrapper {
+      border-bottom: solid 1px #CEDBF4;
+      .accordion-button {
+
+        >p{
+          padding-right: 24px;
+        }
+
+        .close_cross{
+          height: 20px;
+          width: 20px;
+          position: relative;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          display: inline-block;
+          border: solid 2px;
+          border-radius: 50%;
+          padding: 10px;
+          color: #575D9B;
+          &::before{
+            transform: rotate(0deg);
+            content: "";
+            position: absolute;
+            top: 54%;
+            left: 64%;
+            margin-top: -1.5px;
+            margin-left: -7.5px;
+            display: block;
+            height: 2px;
+            width: 9px;
+            background-color: #575D9B;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+          }
+          &::after{
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            content: "";
+            position: absolute;
+            top: 54%;
+            left: 64%;
+            margin-top: -1.5px;
+            margin-left: -7.5px;
+            display: block;
+            height: 2px;
+            width: 9px;
+            background-color: #575D9B;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+          }
+        }
+        &.active .close_cross::after {
+          transform: rotate(0deg);
+        }
+      }
+
+      .accordion-details-wrapper{
+        transition: all 1s ease;
+      }
+    }
+  }
+}

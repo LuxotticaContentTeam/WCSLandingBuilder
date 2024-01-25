@@ -1,0 +1,43 @@
+@import "variables.scss";
+
+$gutter-x: 1rem; //16px
+
+#supernovaLP {
+  #features {
+    .swiper {
+      min-height: 136px;
+      .swiper-wrapper {
+        @media screen and (min-width: $breakpoint-md) {
+          margin-right: calc(-0.5 * $gutter-x);
+          margin-left: calc(-0.5 * $gutter-x);
+        }
+
+        .swiper-slide{
+          > div{
+            border: 1px solid #DDE1E3;
+          }
+          svg{
+            height: 24px;
+            min-width: 24px;
+          }
+          .swiper-slide-inner{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
+      }
+      .swiper-pagination {
+        bottom: 24px;
+        .swiper-pagination-bullet {
+          background: transparent !important;
+          opacity: 1;
+          border: 0.5px solid $black !important;
+          &.swiper-pagination-bullet-active {
+            background: $black;
+          }
+        }
+      }
+    }
+  }
+}

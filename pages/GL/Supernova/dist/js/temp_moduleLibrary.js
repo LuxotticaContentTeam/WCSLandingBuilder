@@ -21,7 +21,7 @@ function ct_get__device_type() {
     // console.log('DESK')
     return 'desk';
   } else {
-    if ($(window).width() >= 768 && $(window).width() <= 1024 && window.innerHeight > window.innerWidth) {
+    if ($(window).width() >= 768 && $(window).width() <= 1024) {
       // console.log('TAB')
       return 'tab';
     }
@@ -209,16 +209,26 @@ function ct_play_stop_video() {
 //change video source from mobile to desk and viceversa
 function ct_video_resize() {
   $('.ct_space .ct_assets__container video.lazy-loaded').each(function () {
-    if (ct_is_mobile()) {
-      if ($(this).hasClass('ct_d__video')) {
+    if (ct_get__device_type() === 'mob') {
+      if ($(this).hasClass('ct_d__video') || $(this).hasClass('ct_t__video')) {
         $(this).removeClass('ct_d__video');
+        $(this).removeClass('ct_t__video');
         $(this).addClass('ct_m__video');
         $(this).attr('src', $(this).data('video-src-mob'));
         $(this).attr('poster', $(this).data('poster-mob'));
       }
-    } else {
-      if ($(this).hasClass('ct_m__video')) {
+    } else if (ct_get__device_type() === 'tab') {
+      if ($(this).hasClass('ct_d__video') || $(this).hasClass('ct_m__video')) {
         $(this).removeClass('ct_m__video');
+        $(this).removeClass('ct_d__video');
+        $(this).addClass('ct_t__video');
+        $(this).attr('src', $(this).data('video-src-tab'));
+        $(this).attr('poster', $(this).data('poster-tab'));
+      }
+    } else {
+      if ($(this).hasClass('ct_m__video') || $(this).hasClass('ct_t__video')) {
+        $(this).removeClass('ct_m__video');
+        $(this).removeClass('ct_d__video');
         $(this).addClass('ct_d__video');
         $(this).attr('src', $(this).data('video-src-desk'));
         $(this).attr('poster', $(this).data('poster-desk'));
